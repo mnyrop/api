@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    JSON-LD Implementation Notes &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">JSON-LD Implementation Notes</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#introduction">Introduction</a></li><li><a href="#json-ld-11"><abbr title="JSON for Linking Data">JSON-LD</abbr> 1.1</a></li><li><a href="#semantic-versioning">Semantic Versioning</a></li><li><a href="#formats-and-languages">Formats and Languages</a></li><li><a href="#term-expansioncompaction-issues">Term Expansion/Compaction Issues</a><ul class="menu-list toc-submenu-2"><li><a href="#unintended-expansion-of-uri-schemes">Unintended Expansion of URI Schemes</a></li><li><a href="#greedy-compaction-of-terms">Greedy Compaction of Terms</a></li></ul></li><li><a href="#frames">Frames</a></li><li><a href="#image-api-frame">Image <abbr title="Application Programming Interface">API</abbr> Frame</a></li><li><a href="#presentation-api-frames">Presentation <abbr title="Application Programming Interface">API</abbr> Frames</a></li><li><a href="#sample-usage">Sample Usage</a></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <h2 id="introduction">
+        
+        
+          Introduction <a href="#introduction">#</a>
+        
+        
+      </h2>
+    
+
+<p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications are implemented using <abbr title="JSON for Linking Data">JSON-LD</abbr>, a <abbr title="JavaScript Object Notation">JSON</abbr> serialization pattern for <abbr title="Resource Description Framework">RDF</abbr>.  <abbr title="JSON for Linking Data">JSON-LD</abbr> has the advantage of being, at the same time, both developer readable and tractable, as well as being Linked Data. This allows for easy extensions without fear of term collisions as everything is mapped to a globally unique URI, and to be able to link into other systems as part of the global information graph.  The costs of doing this are minimal, mostly the definition and reference to a context document in each <abbr title="JavaScript Object Notation">JSON</abbr> document.</p>
+
+<p>There are, however, some side effects of working with <abbr title="JSON for Linking Data">JSON-LD</abbr>, that implementers should be aware of.  Some of the issues are due to the <abbr title="Resource Description Framework">RDF</abbr> model, and others are specific to <abbr title="JSON for Linking Data">JSON-LD</abbr>.</p>
+      <h2 id="json-ld-11">
+        
+        
+          <abbr title="JSON for Linking Data">JSON-LD</abbr> 1.1 <a href="#json-ld-11">#</a>
+        
+        
+      </h2>
+    
+
+<p>As of 2018, new specifications and updates to existing specifications will adopt <abbr title="JSON for Linking Data">JSON-LD</abbr> 1.1 rather than <abbr title="JSON for Linking Data">JSON-LD</abbr> 1.0. This brings many benefits including the ability to more precisely scope the effect of context definitions, and to have additional control over the exact <abbr title="JavaScript Object Notation">JSON</abbr> serialization.</p>
+      <h2 id="semantic-versioning">
+        
+        
+          Semantic Versioning <a href="#semantic-versioning">#</a>
+        
+        
+      </h2>
+    
+
+<p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> process does not consider the mappings from the <abbr title="JavaScript Object Notation">JSON</abbr> to the selected <abbr title="Resource Description Framework">RDF</abbr> ontology terms to be governed by semantic versioning.  They are provided as a convenience for Linked Data implementers, rather than being a requirement for all adopters of <abbr title="International Image Interoperability Framework">IIIF</abbr>.  The <abbr title="JavaScript Object Notation">JSON</abbr> structure and the names of the keys are governed by semantic versioning, as changing them would break compatibility with the typical <abbr title="JavaScript Object Notation">JSON</abbr> based client.</p>
+
+<p>This decision may change in the future, if there are significant Linked Data based clients built around <abbr title="International Image Interoperability Framework">IIIF</abbr>.  Any such development should be announced on <a href="mailto:iiif-discuss@googlegroups.com">iiif-discuss</a> so that the community becomes aware of it.</p>
+
+<p>The <abbr title="JSON for Linking Data">JSON-LD</abbr> frames described below are also not considered as governed by semantic versioning, and are provided as a convenience for implementers.</p>
+      <h2 id="formats-and-languages">
+        
+        
+          Formats and Languages <a href="#formats-and-languages">#</a>
+        
+        
+      </h2>
+    
+
+<p>It is possible to associate a language with a literal in <abbr title="JSON for Linking Data">JSON-LD</abbr> using an object with two keys, <code class="language-plaintext highlighter-rouge">@language</code> and <code class="language-plaintext highlighter-rouge">@value</code>, described in the <a href="/iiif-api/api/presentation/3.0/#language-of-property-values">Presentation <abbr title="Application Programming Interface">API</abbr></a>. It is also possible to describe the format of a literal using <code class="language-plaintext highlighter-rouge">@type</code>.  However, due to restrictions in <abbr title="Resource Description Framework">RDF</abbr> 1.1, it is not possible to use both of these features together to have a literal with both format and language declared.</p>
+
+<p>During the design of the Presentation <abbr title="Application Programming Interface">API</abbr> version 2.0, it was determined that the correct solution was to be explicit about language as it cannot be determined heuristicly, and provide requirements to make the detection of <abbr title="HyperText Markup Language">HTML</abbr> as easy as possible.  In the future, if <abbr title="Resource Description Framework">RDF</abbr> provides a method to have both format and language associated with the same literal, these restrictions will be lifted.  Other options were evaluated, including having a resource with <code class="language-plaintext highlighter-rouge">value</code>, <code class="language-plaintext highlighter-rouge">language</code> and <code class="language-plaintext highlighter-rouge">format</code> keys which was determined to be too intrusive compared to what regular <abbr title="JavaScript Object Notation">JSON</abbr> would look like, and using <abbr title="HyperText Markup Language">HTML</abbr> with an <code class="language-plaintext highlighter-rouge">xml:lang</code> attribute and the <code class="language-plaintext highlighter-rouge">rdf:HTML</code> datatype, however this makes the choice of language much more complex as the values need to be parsed with an <abbr title="HyperText Markup Language">HTML</abbr> parser, rather than using the <abbr title="JavaScript Object Notation">JSON</abbr> structure.  As internationalization of the values is a primary use case, the current method was the solution chosen.</p>
+
+<p>In version 3.0 of the Presentation <abbr title="Application Programming Interface">API</abbr>, a pattern called “language maps” has been adopted. This allows the code for the language to be used as a key in a <abbr title="JavaScript Object Notation">JSON</abbr> object, with a list of strings in that language as the value for that key. This reduces the complexity of the language structure, and further cements the decision to promote language over format.</p>
+      <h2 id="term-expansioncompaction-issues">
+        
+        
+          Term Expansion/Compaction Issues <a href="#term-expansioncompaction-issues">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="unintended-expansion-of-uri-schemes">
+        
+        
+          Unintended Expansion of URI Schemes <a href="#unintended-expansion-of-uri-schemes">#</a>
+        
+        
+      </h3>
+    
+
+<p>The <abbr title="JSON for Linking Data">JSON-LD</abbr> term expansion algorithm, as implemented by most <abbr title="JSON for Linking Data">JSON-LD</abbr> libraries, cannot distinguish between a term with a namespace defined in the context and a real URI scheme.  For example, if a context document defined a mapping from <code class="language-plaintext highlighter-rouge">http</code> to <code class="language-plaintext highlighter-rouge">http://www.tracker.com/</code>, most <abbr title="JSON for Linking Data">JSON-LD</abbr> libraries will expand <code class="language-plaintext highlighter-rouge">http://iiif.io/</code> to <code class="language-plaintext highlighter-rouge">http://www.tracker.com///iiif.io/</code> by simply replacing <code class="language-plaintext highlighter-rouge">http:</code> in the value.  This issue only occurs if the URI scheme name is defined in the context.</p>
+
+<p>All <abbr title="International Image Interoperability Framework">IIIF</abbr> APIs are subject to this issue for <code class="language-plaintext highlighter-rouge">service</code> entries, which conflicts with the <a href="http://tools.ietf.org/html/rfc2609">Service URI scheme</a> used <a href="https://en.wikipedia.org/wiki/Service_Location_Protocol#Adoption">mostly by printers</a>.  The Presentation and Search APIs are also subject to this issue for <code class="language-plaintext highlighter-rouge">resource</code> entries in Annotations, which conflict with the provisional <a href="http://www.iana.org/assignments/uri-schemes/prov/resource">Resource URI scheme</a>.  The recommendation for implementers is to not use URIs with these schemes when describing <abbr title="International Image Interoperability Framework">IIIF</abbr> resources.</p>
+
+<p>This <a href="/iiif-api/api/annex/notes/check_context.py">python code</a> will check for conflicts in a context document.</p>
+      <h3 id="greedy-compaction-of-terms">
+        
+        
+          Greedy Compaction of Terms <a href="#greedy-compaction-of-terms">#</a>
+        
+        
+      </h3>
+    
+
+<p>Term compaction in <abbr title="JSON for Linking Data">JSON-LD</abbr> is the process of taking a full URI and a context, and trying to create the appropriate compact form for the serialization.  For example, if the URI is <code class="language-plaintext highlighter-rouge">http://example.com/ns/term</code>, and the context has a mapping from <code class="language-plaintext highlighter-rouge">eg</code> to <code class="language-plaintext highlighter-rouge">http://example.com/ns/</code>, then the URI will be compacted to <code class="language-plaintext highlighter-rouge">eg:term</code>.  Most <abbr title="JSON for Linking Data">JSON-LD</abbr> libraries use an algorithm that tries to create the shortest term in the <abbr title="JavaScript Object Notation">JSON</abbr> serialization, however this has unintended side effects when there are terms which happen to be truncated forms of other terms, as the algorithm cannot distinguish between mappings added for the purposes of creating namespaces and those added for defining the keys of the <abbr title="JavaScript Object Notation">JSON</abbr> format.</p>
+
+<p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> was subject to this issue for the size features until version 2.1 was released.  In particular, there was a definition of <code class="language-plaintext highlighter-rouge">sizes</code> to <code class="language-plaintext highlighter-rouge">iiif:size</code>, and the size related features were named according to the pattern: <code class="language-plaintext highlighter-rouge">iiif:sizeByX</code>, and thus <code class="language-plaintext highlighter-rouge">sizes:ByX</code> was the shortest legal, if unintended, compaction. For version 2.1, <code class="language-plaintext highlighter-rouge">iiif:size</code> was renamed to <code class="language-plaintext highlighter-rouge">iiif:hasSize</code> to avoid this issue.  See also the note on <a href="#semantic-versioning">Semantic Versioning and <abbr title="JSON for Linking Data">JSON-LD</abbr></a> below.</p>
+      <h2 id="frames">
+        
+        
+          Frames <a href="#frames">#</a>
+        
+        
+      </h2>
+    
+
+<p><abbr title="JSON for Linking Data">JSON-LD</abbr> Frames are a method of determining the layout of a <abbr title="JSON for Linking Data">JSON-LD</abbr> serialization, in particular which resource should be at the root of the <abbr title="JavaScript Object Notation">JSON</abbr> structure and whether information about the resource should be embedded in a particular location or not.  This has practical applications for <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications, and especially for the <a href="/iiif-api/api/presentation/3.0/"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a> such as ensuring that the Manifest resource is at the root of the <abbr title="JavaScript Object Notation">JSON</abbr> file and that Canvases are serialized as part of the Sequence rather than within a Range, among others.</p>
+
+<p>More information about <abbr title="JSON for Linking Data">JSON-LD</abbr> frames can be found at the <a href="http://json-ld.org/spec/latest/json-ld-framing/"><abbr title="JSON for Linking Data">JSON-LD</abbr> site</a>.</p>
+      <h2 id="image-api-frame">
+        
+        
+          Image <abbr title="Application Programming Interface">API</abbr> Frame <a href="#image-api-frame">#</a>
+        
+        
+      </h2>
+    
+
+<p>A minimal frame for the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> information response.</p>
+
+<ul>
+  <li><a href="/iiif-api/api/image/3/info_frame.json">Image <abbr title="Application Programming Interface">API</abbr> 2.x Frame</a></li>
+</ul>
+      <h2 id="presentation-api-frames">
+        
+        
+          Presentation <abbr title="Application Programming Interface">API</abbr> Frames <a href="#presentation-api-frames">#</a>
+        
+        
+      </h2>
+    
+
+<p>Frames for the main resources defined by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr>.</p>
+
+<ul>
+  <li>Presentation 2.x Frames:
+    <ul>
+      <li><a href="/iiif-api/api/presentation/3/manifest_frame.json">Manifest Frame</a></li>
+      <li><a href="/iiif-api/api/presentation/3/annotationList_frame.json">AnnotationList Frame</a></li>
+      <li><a href="/iiif-api/api/presentation/3/collection_frame.json">Collection Frame</a></li>
+      <li><a href="/iiif-api/api/presentation/3/sequence_frame.json">Sequence Frame</a></li>
+      <li><a href="/iiif-api/api/presentation/3/canvas_frame.json">Canvas Frame</a></li>
+      <li><a href="/iiif-api/api/presentation/3/annotation_frame.json">Annotation Frame</a></li>
+      <li><a href="/iiif-api/api/presentation/3/range_frame.json">Range Frame</a></li>
+    </ul>
+  </li>
+</ul>
+      <h2 id="sample-usage">
+        
+        
+          Sample Usage <a href="#sample-usage">#</a>
+        
+        
+      </h2>
+    
+
+<p>The following code uses the Python <a href="https://pypi.python.org/pypi/PyLD">PyLD implementation</a> of <abbr title="JSON for Linking Data">JSON-LD</abbr> to read in example manifest data, parse it and then re-serialize using the manifest frame.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">from</span> <span class="nn">pyld.jsonld</span> <span class="kn">import</span> <span class="n">compact</span><span class="p">,</span> <span class="n">frame</span>
+<span class="kn">import</span> <span class="nn">urllib</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">pprint</span>
+
+<span class="n">manifest</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">"http://iiif.io/api/presentation/3.0/example/fixtures/1/manifest.json"</span><span class="p">))</span>
+<span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span>
+  <span class="n">compact</span><span class="p">(</span>
+    <span class="n">frame</span><span class="p">(</span><span class="n">manifest</span><span class="p">,</span> <span class="s">"http://iiif.io/api/presentation/3/manifest_frame.json"</span><span class="p">),</span>
+    <span class="s">"http://iiif.io/api/presentation/3/context.json"</span><span class="p">)</span>
+<span class="p">)</span>
+
+</code></pre></div></div>
+
+<p><br /></p>
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

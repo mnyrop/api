@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    IIIF Open/Web Annotation Extensions &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">IIIF Open/Web Annotation Extensions</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#selectors">2. Selectors</a><ul class="menu-list toc-submenu-2"><li><a href="#iiif-image-api-selector">2.1. <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> Selector</a></li></ul></li><li><a href="#point-selector">2.2. Point Selector</a></li><li><a href="#content-selectors">2.3. Content Selectors</a></li><li><a href="#appendices">Appendices</a><ul class="menu-list toc-submenu-2"><li><a href="#a-acknowledgements">A. Acknowledgements</a></li><li><a href="#b-change-log">B. Change Log</a></li></ul></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <h2 class="no_toc" id="status-of-this-document">
+        
+        
+          Status of this Document <a href="#status-of-this-document">#</a>
+        
+        
+      </h2>
+    
+
+<p>This document is not subject to <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">semantic versioning</a>.
+Changes will be tracked within the document.</p>
+
+<p><strong>Editors</strong></p>
+
+<ul class="names">
+  <li><strong><a href="https://orcid.org/0000-0002-1266-298X">Michael Appleby</a></strong> <a href="https://orcid.org/0000-0002-1266-298X"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://www.yale.edu/"><em>Yale University</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0003-1881-243X">Tom Crane</a></strong> <a href="https://orcid.org/0000-0003-1881-243X"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://digirati.com/"><em>Digirati</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0003-4441-6852">Robert Sanderson</a></strong> <a href="https://orcid.org/0000-0003-4441-6852"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://www.getty.edu/"><em>J. Paul Getty Trust</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0002-0367-1243">Jon Stroop</a></strong> <a href="https://orcid.org/0000-0002-0367-1243"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="https://library.princeton.edu/"><em>Princeton University Library</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0002-7970-7855">Simeon Warner</a></strong> <a href="https://orcid.org/0000-0002-7970-7855"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="https://www.cornell.edu/"><em>Cornell University</em></a></li>
+</ul>
+
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p>
+      <h2 class="no_toc" id="abstract">
+        
+        
+          Abstract <a href="#abstract">#</a>
+        
+        
+      </h2>
+    
+<p>This document describes extensions to the <a href="http://w3.org/TR/annotation-model/" title="Web Annotation Model">Web Annotation</a> Data Model required within the <abbr title="International Image Interoperability Framework">IIIF</abbr> context.</p>
+
+<p>Please send feedback to <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">iiif-discuss@googlegroups.com</a></p>
+      <h2 class="no_toc" id="introduction">
+        
+        
+          1. Introduction <a href="#introduction">#</a>
+        
+        
+      </h2>
+    
+
+<p>As with the detailed use of any general framework within another, there are some extensions necessary to make the best use of the <a href="http://w3.org/TR/annotation-model/" title="Web Annotation Model">Web Annotation</a> model within the <abbr title="International Image Interoperability Framework">IIIF</abbr> APIs.  This document covers those extension points.  It was previously applied to the predecessor of the Web Annotation model, called Open Annotation.  The extensions defined can be used with either framework.</p>
+      <h2 id="selectors">
+        
+        
+          2. Selectors <a href="#selectors">#</a>
+        
+        
+      </h2>
+    
+
+<p>Selectors in Annotations are used to describe how to retrieve a given part of a resource. They are then associated with an instance of <code class="language-plaintext highlighter-rouge">SpecificResource</code> that also references the resource of which the Specific Resource is part.</p>
+      <h3 id="iiif-image-api-selector">
+        
+        
+          2.1. <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> Selector <a href="#iiif-image-api-selector">#</a>
+        
+        
+      </h3>
+    
+
+<p>The Image <abbr title="Application Programming Interface">API</abbr> Selector is used to describe the operations available via the Image <abbr title="Application Programming Interface">API</abbr> in order to retrieve a particular image representation.  In this case the resource is the abstract image as identified by the <a href="/iiif-api/api/image/3.0/" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> base URI plus identifier, and the retrieval process involves adding the correct parameters after that base URI.  For example, the top left hand quadrant of an image has the region parameter of <code class="language-plaintext highlighter-rouge">pct:0,0,50,50</code> which must be put into the requested URI to obtain the appropriate representation.</p>
+
+<p>In order to make this as easy as possible for the situations when a <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> endpoint exists, we introduce a new Selector class called <code class="language-plaintext highlighter-rouge">ImageApiSelector</code>.  It has properties that give the parameter values needed to fill out the URL structure in the request.  If the property is not given, then a default should be used.</p>
+
+<p>One use of this is within the <a href="/iiif-api/api/presentation/" title="IIIF Presentation API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a>, when a Canvas is being painted by part of an image, or an image that requires rotation before display.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td> </td>
+      <td>Required.  Must be the value “ImageApiSelector”.</td>
+    </tr>
+    <tr>
+      <td>region</td>
+      <td>“full”</td>
+      <td>The string to put in the region parameter of the URI.</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>“full”</td>
+      <td>The string to put in the size parameter of the URI.</td>
+    </tr>
+    <tr>
+      <td>rotation</td>
+      <td>“0”</td>
+      <td>The string to put in the rotation parameter of the URI. Note that this must be a string in order to allow mirroring, for example “!90”.</td>
+    </tr>
+    <tr>
+      <td>quality</td>
+      <td>“default”</td>
+      <td>The string to put in the quality parameter of the URI.</td>
+    </tr>
+    <tr>
+      <td>format</td>
+      <td>“jpg”</td>
+      <td>The string to put in the format parameter of the URI.  Note that the ‘.’ character is not part of the format, just the URI syntax.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For example, to rotate the top left hand 10% of the image clockwise by 90 degrees would use this configuration of the Selector:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageApiSelector"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"region"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"pct:0,0,10,10"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"rotation"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>And would result in this SpecificResource, when applied to an image service at <code class="language-plaintext highlighter-rouge">https://example.org/iiif/image1</code>:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SpecificResource"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/iiif/image1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"selector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ImageApiSelector"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"region"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pct:0,0,10,10"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rotation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"90"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>It can be used in the Presentation <abbr title="Application Programming Interface">API</abbr> as demonstrated in the section on <a href="/iiif-api/api/presentation/2.0/#rotation" title="Rotation in Presentation API">Rotation</a>.</p>
+      <h2 id="point-selector">
+        
+        
+          2.2. Point Selector <a href="#point-selector">#</a>
+        
+        
+      </h2>
+    
+
+<p>There are common use cases in which a point, rather than a range or area, is the target of the Annotation. For example, putting a pin in a map should result in an exact point, not a very small rectangle. Points in time are not very short durations, and user interfaces should also treat these differently.  This is particularly important when zooming in (either spatially or temporally) beyond the scale of the frame of reference. Even if the point takes up a 10 by 10 pixel square at the user’s current resolution, it is not a rectangle bounding an area.</p>
+
+<p>It is not possible to select a point using URI Fragments with the Media Fragment specification, as zero-sized fragments are not allowed. In order to fulfill the use cases, this specification defines a new Selector class called <code class="language-plaintext highlighter-rouge">PointSelector</code>.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>type</td>
+      <td>Required.  Must be the value “PointSelector”.</td>
+    </tr>
+    <tr>
+      <td>x</td>
+      <td>Optional. An integer giving the x coordinate of the point, relative to the dimensions of the target resource.</td>
+    </tr>
+    <tr>
+      <td>y</td>
+      <td>Optional. An integer giving the y coordinate of the point, relative to the dimensions of the target resource.</td>
+    </tr>
+    <tr>
+      <td>t</td>
+      <td>Optional. A floating point number giving the time of the point in seconds, relative to the duration of the target resource.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>For example, to select a point in a video that is 10 pixels in from the top left hand corner of the visual content, and 14.5 seconds into the duration:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PointSelector"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"x"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"y"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"t"</span><span class="p">:</span><span class="w"> </span><span class="mf">14.5</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+      <h2 id="content-selectors">
+        
+        
+          2.3. Content Selectors <a href="#content-selectors">#</a>
+        
+        
+      </h2>
+    
+
+<p>Video content resources consist of both visual and audio content within the same bit-level representation.  There are situations when it is useful to refer to only one aspect of the content – either the visual or the audio, but not both.  For example, an Annotation might associate only the visual content of a video that has spoken English in the audio, and an audio file that has the translation of that content in Spanish.</p>
+
+<p>This specification defines two Selectors, <code class="language-plaintext highlighter-rouge">AudioContentSelector</code> that selects the audio content and a second <code class="language-plaintext highlighter-rouge">VisualContentSelector</code> for the visual content.  Neither selector has any additional properties.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AudioContentSelector"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VisualContentSelector"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+      <h2 id="appendices">
+        
+        
+          Appendices <a href="#appendices">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="a-acknowledgements">
+        
+        
+          A. Acknowledgements <a href="#a-acknowledgements">#</a>
+        
+        
+      </h3>
+    
+
+<p>The production of this document was generously supported by a grant from the <a href="http://www.mellon.org/" title="The Andrew W. Mellon Foundation">Andrew W. Mellon Foundation</a>.</p>
+
+<p>Thanks to the members of the <a href="/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
+      <h3 id="b-change-log">
+        
+        
+          B. Change Log <a href="#b-change-log">#</a>
+        
+        
+      </h3>
+    
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2018-03-14</td>
+      <td>Version 1.1 (Update ImageApi, add Point Selectors)</td>
+    </tr>
+    <tr>
+      <td>2014-07-01</td>
+      <td>Version 1.0 (<abbr title="Request for Comments">RFC</abbr>)</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Keep two spaces at the top of this file -->
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

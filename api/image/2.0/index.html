@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    Image API 2.0 &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">Image API 2.0</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#audience-and-scope">1. Audience and Scope</a></li><li><a href="#uri-syntax">2. URI Syntax</a><ul class="menu-list toc-submenu-2"><li><a href="#image-request-uri-syntax">2.1. Image Request URI Syntax</a></li><li><a href="#image-information-request-uri-syntax">2.2. Image Information Request URI Syntax</a></li></ul></li><li><a href="#identifier">3. Identifier</a></li><li><a href="#image-request-parameters">4. Image Request Parameters</a><ul class="menu-list toc-submenu-2"><li><a href="#region">4.1. Region</a></li><li><a href="#size">4.2. Size</a></li><li><a href="#rotation">4.3. Rotation</a></li><li><a href="#quality">4.4. Quality</a></li><li><a href="#format">4.5. Format</a></li><li><a href="#order-of-implementation">4.6. Order of Implementation</a></li><li><a href="#canonical-uri-syntax">4.7. Canonical URI Syntax</a></li></ul></li><li><a href="#information-request">5. Information Request</a><ul class="menu-list toc-submenu-2"><li><a href="#image-information">5.1. Image Information</a></li></ul></li><li><a href="#compliance-levels">6. Compliance Levels</a></li><li><a href="#server-responses">7. Server Responses</a><ul class="menu-list toc-submenu-2"><li><a href="#successful-responses">7.1. Successful Responses</a></li><li><a href="#error-conditions">7.2. Error Conditions</a></li></ul></li><li><a href="#authentication">8. Authentication</a></li><li><a href="#uri-encoding-and-decoding">9. URI Encoding and Decoding</a></li><li><a href="#security-considerations">10. Security Considerations</a></li><li><a href="#appendices">11. Appendices</a><ul class="menu-list toc-submenu-2"><li><a href="#a-implementation-notes">A. Implementation Notes</a></li><li><a href="#b-versioning">B. Versioning</a></li><li><a href="#c-acknowledgments">C. Acknowledgments</a></li><li><a href="#d-change-log">D. Change Log</a></li></ul></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <h2 class="no_toc" id="status-of-this-document">
+        
+        
+          Status of this Document <a href="#status-of-this-document">#</a>
+        
+        
+      </h2>
+    
+
+<p><strong>This Version:</strong> 2.0.0</p>
+
+<p><strong>Latest Stable Version:</strong> <a href="/api/image/3.0/" title="Stable Version">3.0.0</a></p>
+
+<p><strong>Previous Version:</strong> <a href="/api/image/1.1/" title="Previous Version">1.1</a></p>
+
+<p><strong>Editors:</strong></p>
+
+<ul class="names">
+  <li><strong><a href="https://orcid.org/0000-0002-1266-298X">Michael Appleby</a></strong> <a href="https://orcid.org/0000-0002-1266-298X"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://www.yale.edu/"><em>Yale University</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0003-4441-6852">Robert Sanderson</a></strong> <a href="https://orcid.org/0000-0003-4441-6852"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://www.stanford.edu/"><em>Stanford University</em></a></li>
+  <li><strong><a href="https://profiles.stanford.edu/stuart-snydman">Stuart Snydman</a></strong>, <a href="http://www.stanford.edu/"><em>Stanford University</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0002-0367-1243">Jon Stroop</a></strong> <a href="https://orcid.org/0000-0002-0367-1243"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="https://library.princeton.edu/"><em>Princeton University Library</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0002-7970-7855">Simeon Warner</a></strong> <a href="https://orcid.org/0000-0002-7970-7855"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="https://www.cornell.edu/"><em>Cornell University</em></a></li>
+</ul>
+
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
+      <h2 class="no_toc" id="abstract">
+        
+        
+          Abstract <a href="#abstract">#</a>
+        
+        
+      </h2>
+    
+
+<p>This document describes an image delivery <abbr title="Application Programming Interface">API</abbr> proposed by the International Image Interoperability Framework (<abbr title="International Image Interoperability Framework">IIIF</abbr>) group. The <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> specifies a web service that returns an image in response to a standard <abbr title="Hypertext Transfer Protocol">HTTP</abbr> or <abbr title="Hypertext Transfer Protocol (Secure)">HTTPS</abbr> request. The URI can specify the region, size, rotation, quality characteristics and format of the requested image. A URI can also be constructed to request basic technical information about the image to support client applications. This <abbr title="Application Programming Interface">API</abbr> was conceived of to facilitate systematic reuse of image resources in digital image repositories maintained by cultural heritage organizations. It could be adopted by any image repository or service, and can be used to retrieve static images in response to a properly constructed URI.</p>
+
+<p>Please send feedback to <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">iiif-discuss@googlegroups.com</a></p>
+      <h2 id="audience-and-scope">
+        
+        
+          1. Audience and Scope <a href="#audience-and-scope">#</a>
+        
+        
+      </h2>
+    
+
+<p>This document is intended for architects and developers building applications that share and consume digital images, particularly from cultural heritage institutions, museums, libraries and archives. Target applications include:</p>
+
+<ul>
+  <li>Digital image repositories and distributed content networks.</li>
+  <li>Image focused web applications, such as pan/zoom viewers, book-readers, etc.</li>
+  <li>Client applications using image content for analysis or comparison.</li>
+</ul>
+
+<p>This specification concerns image requests by a client, but not management of the images by the server. It covers how to respond to the requests given in a particular URI syntax, but does not cover methods of implementation such as rotation algorithms, transcoding, color management, compression, or how to respond to URIs that do not conform to the specified syntax. This allows flexibility for implementation in domains with particular constraints or specific community practices, while supporting interoperability in the general case.</p>
+      <h2 id="uri-syntax">
+        
+        
+          2. URI Syntax <a href="#uri-syntax">#</a>
+        
+        
+      </h2>
+    
+
+<p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> can be called in two ways:</p>
+
+<ul>
+  <li>Request an image, which may be part of a larger image.</li>
+  <li>Request a description of the image characteristics and functionality available for that image.</li>
+</ul>
+
+<p>Both convey the request’s information in the path segments of the URI, rather than as query parameters. This makes responses easier to cache, either at the server or by standard web-caching infrastructure. It also permits a minimal implementation using pre-computed files in a matching directory structure.</p>
+
+<p>There are four parameters shared by the requests, and other <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications:</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>scheme</td>
+      <td>Indicates the use of the <abbr title="Hypertext Transfer Protocol">HTTP</abbr> or <abbr title="Hypertext Transfer Protocol (Secure)">HTTPS</abbr> protocol in calling the service.</td>
+    </tr>
+    <tr>
+      <td>server</td>
+      <td>The host server on which the service resides.</td>
+    </tr>
+    <tr>
+      <td>prefix</td>
+      <td>The path on the host server to the service. This prefix is optional, but may be useful when the host server supports multiple services. The prefix <em class="rfc">may</em> contain multiple path segments, delimited by slashes, but all other special characters <em class="rfc">must</em> be encoded. See <a href="#uri-encoding-and-decoding" title="9. URI Encoding and Decoding">URI Encoding and Decoding</a> for more information.</td>
+    </tr>
+    <tr>
+      <td>identifier</td>
+      <td>The identifier of the requested image. This may be an ark, URN, filename, or other identifier. Special characters <em class="rfc">must</em> be URI encoded.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The combination of these parameters forms the image’s Base URI and identifies the underlying image content. It is constructed according to the following URI Template (<a href="http://tools.ietf.org/html/rfc6570" title="URI Template">RFC6570</a>):</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{scheme}://{server}{/prefix}/{identifier}
+</code></pre></div></div>
+
+<p>When the base URI is dereferenced, the interaction <em class="rfc">should</em> result in the Image Information document.  It is <em class="rfc">recommended</em> that the response be a 303 status redirection to the Image Information document’s URI.  Implementations <em class="rfc">may</em> also exhibit other behavior for the base URI beyond the scope of this specification in response to <abbr title="Hypertext Transfer Protocol">HTTP</abbr> request headers and methods.</p>
+
+<p>To allow for extensions, this specification does not define the server behavior when it receives requests that do not match either the Base URI or one of the described URI syntaxes below.</p>
+      <h3 id="image-request-uri-syntax">
+        
+        
+          2.1. Image Request URI Syntax <a href="#image-request-uri-syntax">#</a>
+        
+        
+      </h3>
+    
+
+<p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> URI for requesting an image <em class="rfc">must</em> conform to the following URI Template:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{scheme}://{server}{/prefix}/{identifier}/{region}/{size}/{rotation}/{quality}.{format}
+</code></pre></div></div>
+
+<p>For example:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://www.example.org/image-service/abcd1234/full/full/0/default.jpg
+</code></pre></div></div>
+
+<p>The parameters of the Image Request URI include region, size, rotation, quality and format, which define the characteristics of the returned image. These are described in detail in <a href="#image-request-parameters" title="4. Image Request Parameters ">Image Request Parameters</a>.</p>
+      <h3 id="image-information-request-uri-syntax">
+        
+        
+          2.2. Image Information Request URI Syntax <a href="#image-information-request-uri-syntax">#</a>
+        
+        
+      </h3>
+    
+
+<p>The URI for requesting image information <em class="rfc">must</em> conform to the following URI Template:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{scheme}://{server}{/prefix}/{identifier}/info.json
+</code></pre></div></div>
+
+<p>For example:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://www.example.org/image-service/abcd1234/info.json
+</code></pre></div></div>
+
+<p>The scheme, server, prefix and identifier components of the information request <em class="rfc">must</em> be identical to those for the image request described above for the image content that the Image Information document describes.  The Image Information document is described in detail in the <a href="#image-information" title="5.1. Image Information">Image Information</a> section.</p>
+      <h2 id="identifier">
+        
+        
+          3. Identifier <a href="#identifier">#</a>
+        
+        
+      </h2>
+    
+
+<p>The <abbr title="Application Programming Interface">API</abbr> places no restrictions on the form of the identifiers that a server may use or support. All special characters (e.g. ? or #) <em class="rfc">must</em> be URI encoded to avoid unpredictable client behaviors. The URI syntax relies upon slash (/) separators so any slashes in the identifier <em class="rfc">must</em> be URI encoded (also called “percent encoded”). See the additional discussion in <a href="#uri-encoding-and-decoding" title="9. URI Encoding and Decoding">URI Encoding and Decoding</a>.</p>
+      <h2 id="image-request-parameters">
+        
+        
+          4. Image Request Parameters <a href="#image-request-parameters">#</a>
+        
+        
+      </h2>
+    
+
+<p>All parameters described below are required for compliant construction of a <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> URI. The sequence of parameters in the URI <em class="rfc">must</em> be in the order described below. The order of the parameters is also intended as a mnemonic for the order of the operations by which the service should manipulate the image content. Thus, the requested image content is first extracted as a region of the complete image, then scaled to the requested size, mirrored and/or rotated, and finally transformed into the color quality and format. This resulting image content is returned as the representation for the URI. Image and region dimensions in pixels are always given as an integer numbers. Intermediate calculations may use floating point numbers and the rounding method is implementation specific. Some parameters, notably percentages, may be specified with floating point numbers. These should have at most 10 decimal digits and consist only of decimal digits and “.” with a leading zero if less than 1.0.</p>
+      <h3 id="region">
+        
+        
+          4.1. Region <a href="#region">#</a>
+        
+        
+      </h3>
+    
+
+<p>The region parameter defines the rectangular portion of the full image to be returned. Region can be specified by pixel coordinates, percentage or by the value “full”, which specifies that the entire image should be returned.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Form</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">full</code></td>
+      <td>The complete image is returned, without any cropping.</td>
+    </tr>
+    <tr>
+      <td>x,y,w,h</td>
+      <td>The region of the full image to be returned is defined in terms of absolute pixel values. The value of x represents the number of pixels from the 0 position on the horizontal axis. The value of y represents the number of pixels from the 0 position on the vertical axis. Thus the x,y position 0,0 is the upper left-most pixel of the image. w represents the width of the region and h represents the height of the region in pixels.</td>
+    </tr>
+    <tr>
+      <td>pct:x,y,w,h</td>
+      <td>The region to be returned is specified as a sequence of percentages of the full image’s dimensions, as reported in the Image Information document. Thus, <code class="language-plaintext highlighter-rouge">x</code> represents the number of pixels from the 0 position on the horizontal axis, calculated as a percentage of the reported width. <code class="language-plaintext highlighter-rouge">w</code> represents the width of the region, also calculated as a percentage of the reported width. The same applies to y and h respectively. These may be floating point numbers.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If the request specifies a region which extends beyond the dimensions reported in the Image Information document, then the service <em class="rfc">should</em> return an image cropped at the image’s edge, rather than adding empty space.</p>
+
+<p>If the requested region’s height or width is zero, or if the region is entirely outside the bounds of the reported dimensions, then the server <em class="rfc">should</em> return a 400 status code.</p>
+
+<p>Examples:</p>
+
+<table class="ex_table">
+  <tbody>
+    <tr>
+      <td>
+        <img src="img/full.png" alt="Full Size" class="fullPct" />
+        <p><strong>1</strong> size=full</p>
+        <p><code>.../full/full/0/default.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/region_px.png" alt="Region by Pixels" class="fullPct" />
+        <p><strong>2</strong> region=125,15,120,140</p>
+        <p><code>.../125,15,120,140/full/0/default.jpg</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="img/region_pct.png" alt="Region by Percent" class="fullPct" />
+        <p><strong>3</strong> region=pct:41.6,7.5,40,70</p>
+        <p><code>.../pct:41.6,7.5,40,70/full/0/default.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/region_px_over.png" alt="Region by Pixels" class="fullPct" />
+        <p><strong>4</strong> region=125,15,200,200</p>
+        <p><code>.../125,15,200,200/full/0/default.jpg</code></p>
+        <p><em>N.B. Returned image is 175,185 px</em></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="img/region_pct_over.png" alt="Region by Percent" class="fullPct" />
+        <p><strong>5</strong> region=pct:41.6,7.5,66.6,100</p>
+        <p><code>.../pct:41.6,7.5,66.6,100/full/0/default.jpg</code></p>
+        <p><em>N.B. Returned image is 175,185 px</em></p>
+      </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+      <h3 id="size">
+        
+        
+          4.2. Size <a href="#size">#</a>
+        
+        
+      </h3>
+    
+
+<p>The size parameter determines the dimensions to which the extracted region is to be scaled.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Form</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">full</code></td>
+      <td>The extracted region is not scaled, and is returned at its full size.</td>
+    </tr>
+    <tr>
+      <td>w,</td>
+      <td>The extracted region should be scaled so that its width is exactly equal to w, and the height will be a calculated value that maintains the aspect ratio of the extracted region.</td>
+    </tr>
+    <tr>
+      <td>,h</td>
+      <td>The extracted region should be scaled so that its height is exactly equal to h, and the width will be a calculated value that maintains the aspect ratio of the extracted region.</td>
+    </tr>
+    <tr>
+      <td>pct:n</td>
+      <td>The width and height of the returned image is scaled to n% of the width and height of the extracted region. The aspect ratio of the returned image is the same as that of the extracted region.</td>
+    </tr>
+    <tr>
+      <td>w,h</td>
+      <td>The width and height of the returned image are exactly w and h. The aspect ratio of the returned image <em class="rfc">may</em> be different than the extracted region, resulting in a distorted image.</td>
+    </tr>
+    <tr>
+      <td>!w,h</td>
+      <td>The image content is scaled for the best fit such that the resulting width and height are less than or equal to the requested width and height. The exact scaling <em class="rfc">may</em> be determined by the service provider, based on characteristics including image quality and system performance. The dimensions of the returned image content are calculated to maintain the aspect ratio of the extracted region.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If the resulting height or width is zero, then the server <em class="rfc">should</em> return a 400 (bad request) status code.</p>
+
+<p>The image server <em class="rfc">may</em> support scaling above the full size of the extracted region.</p>
+
+<p>Examples:</p>
+
+<table class="ex_table">
+  <tbody>
+    <tr>
+      <td>
+        <img src="img/full.png" alt="Full Size" class="fullPct" />
+        <p><strong>1</strong> size=full</p>
+        <p><code>.../full/full/0/default.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/size_wc.png" alt="Size by Width" class="fullPct" />
+        <p><strong>2</strong> size=150,</p>
+        <p><code>.../full/150,/0/default.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/size_ch.png" alt="Size by Height" class="fullPct" />
+        <p><strong>3</strong> size=,150</p>
+        <p><code>.../full/,150/0/default.jpg</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="img/size_pct.png" alt="Size by Percent" class="fullPct" />
+        <p><strong>4</strong> size=pct:50</p>
+        <p><code>.../full/pct:50/0/default.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/size_wch.png" alt="Size by Width,Height" class="fullPct" />
+        <p><strong>5</strong> size=225,100</p>
+        <p><code>.../full/225,100/0/default.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/size_bwch.png" alt="Size By Bang Width Height" class="fullPct" />
+        <p><strong>6</strong> size=!225,100</p>
+        <p><code>.../full/!225,100/0/default.jpg</code></p>
+        <p><em>N.B. Returned image is 150,100 px</em></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <h3 id="rotation">
+        
+        
+          4.3. Rotation <a href="#rotation">#</a>
+        
+        
+      </h3>
+    
+
+<p>The rotation parameter specifies mirroring and rotation. A leading exclamation mark (“!”) indicates that the image should be mirrored by reflection on the vertical axis before any rotation is applied. The numerical value represents the number of degrees of clockwise rotation, and may be any floating point number from 0 to 360.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Form</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>n</td>
+      <td>The degrees of clockwise rotation from 0 up to 360.</td>
+    </tr>
+    <tr>
+      <td>!n</td>
+      <td>The image should be mirrored and then rotated as above.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A rotation value that is out of range or unsupported <em class="rfc">should</em> result in a 400 status code.</p>
+
+<p>In most cases a rotation will change the width and height dimensions of the returned image. The service <em class="rfc">should</em> return an image that contains all of the image contents requested in the region and size parameters, even if the dimensions of the returned image file are different than specified in the size parameter. The image contents <em class="rfc">should not</em> be scaled as a result of the rotation, and there <em class="rfc">should</em> be no additional space between the corners of the rotated image contents and the bounding box of the returned image content.</p>
+
+<p>For rotations which are not multiples of 90 degrees, it is <em class="rfc">recommended</em> that the client request the image in a format that supports transparency, such as PNG, and that the server return the image with a transparent background.  There is no facility in the <abbr title="Application Programming Interface">API</abbr> for the client to request a particular background color or other fill pattern.</p>
+
+<p>Examples:</p>
+
+<table class="ex_table">
+  <tbody>
+    <tr>
+      <td>
+        <img src="img/full.png" alt="Rotation 0" class="fullPct" />
+        <p><strong>1</strong> rotation=0</p>
+        <p><code>.../full/full/0/default.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/rotate_180.png" alt="Rotation 180" class="fullPct" />
+        <p><strong>2</strong> rotation=180</p>
+        <p><code>.../full/full/180/default.jpg</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="img/rotate_90.png" alt="Rotation 90" class="fullPct" />
+        <p><strong>3</strong> rotation=90</p>
+        <p><code>.../full/full/90/default.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/rotate_22-5.png" alt="Rotation 22.5" class="fullPct" />
+        <p><strong>4</strong> rotation=22.5</p>
+        <p><code>.../full/full/22.5/default.png</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="img/mirror.png" alt="Mirroring" class="fullPct" />
+        <p><strong>5</strong> rotation=!0</p>
+        <p><code>.../full/full/!0/default.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/mirror_180.png" alt="Mirroring and Rotation" class="fullPct" />
+        <p><strong>6</strong> rotation=!180</p>
+        <p><code>.../full/full/!180/default.jpg</code></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <h3 id="quality">
+        
+        
+          4.4. Quality <a href="#quality">#</a>
+        
+        
+      </h3>
+    
+
+<p>The quality parameter determines whether the image is delivered in color, grayscale or black and white.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Quality</th>
+      <th>Parameter Returned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">color</code></td>
+      <td>The image is returned in full color.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gray</code></td>
+      <td>The image is returned in grayscale, where each pixel is black, white or any shade of gray in between.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">bitonal</code></td>
+      <td>The image returned is bitonal, where each pixel is either black or white.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">default</code></td>
+      <td>The image is returned using the server’s default quality (e.g. color, gray or bitonal) for the image.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The <code class="language-plaintext highlighter-rouge">default</code> quality exists to support <a href="/iiif-api/api/image/2.0/compliance/#quality" title="Image API Compliance: Quality">level 0 compliant implementations</a> that may not know the qualities of individual images in their collections. It also provides a convenience for clients that know the values for all other parameters of a request except the quality (e.g. <code class="language-plaintext highlighter-rouge">.../full/120,/90/{quality}.png</code> to request a thumbnail) in that a preliminary image information request that would only serve to find out which qualities are available can be avoided.</p>
+
+<p>A quality value that is unsupported <em class="rfc">should</em> result in a 400 status code.</p>
+
+<p>Examples:</p>
+
+<table class="ex_table">
+  <tbody>
+    <tr>
+      <td>
+        <img src="img/full.png" alt="Default Quality" class="fullPct" />
+        <p><strong>1</strong> quality=default</p>
+        <p><code>.../full/full/0/default.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/full.png" alt="Color Quality" class="fullPct" />
+        <p><strong>2</strong> quality=color</p>
+        <p><code>.../full/full/0/color.jpg</code></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <img src="img/gray.png" alt="Gray Quality" class="fullPct" />
+        <p><strong>3</strong> quality=gray</p>
+        <p><code>.../full/full/0/gray.jpg</code></p>
+      </td>
+      <td>
+        <img src="img/bitonal.png" alt="Bitonal Quality" class="fullPct" />
+        <p><strong>4</strong> quality=bitonal</p>
+        <p><code>.../full/full/0/bitonal.jpg</code></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <h3 id="format">
+        
+        
+          4.5. Format <a href="#format">#</a>
+        
+        
+      </h3>
+    
+
+<p>The format of the returned image is expressed as an extension at the end of the URI.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Extension</th>
+      <th>MIME Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">jpg</code></td>
+      <td>image/jpeg</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tif</code></td>
+      <td>image/tiff</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">png</code></td>
+      <td>image/png</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">gif</code></td>
+      <td>image/gif</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">jp2</code></td>
+      <td>image/jp2</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">pdf</code></td>
+      <td>application/pdf</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">webp</code></td>
+      <td>image/webp</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>A format value that is unsupported <em class="rfc">should</em> result in a 400 status code.</p>
+
+<p>Examples:</p>
+
+<ol class="examplelist">
+  <li><code class="language-plaintext highlighter-rouge">.../full/full/0/default.jpg</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.../full/full/0/default.png</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.../full/full/0/default.tif</code></li>
+</ol>
+      <h3 id="order-of-implementation">
+        
+        
+          4.6. Order of Implementation <a href="#order-of-implementation">#</a>
+        
+        
+      </h3>
+    
+
+<p>The sequence of parameters in the URI is intended as a mnemonic for the order in which image manipulations are made against the full image content. This is important to consider when implementing the service because applying the same parameters in a different sequence will often result in a different image being delivered. The order is critical so that the application calling the service reliably receives the output it expects.</p>
+
+<p>The parameters should be interpreted as if the the sequence of image manipulations were:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Region THEN Size THEN Rotation THEN Quality THEN Format</code></p>
+
+<p>If the rotation parameter includes mirroring (“!”), the mirroring is applied before the rotation.</p>
+
+<table class="ex_table">
+  <tbody>
+    <tr>
+      <td>
+        <img style="max-width: 650px" src="img/transformation.png" alt="Order of Implementation" class="fullPct" />
+        <p><strong>1</strong> region=125,15,120,140 size=90, rotation=!345 quality=gray</p>
+        <p><code>.../125,15,120,140/90,/!345/gray.jpg</code></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+      <h3 id="canonical-uri-syntax">
+        
+        
+          4.7. Canonical URI Syntax <a href="#canonical-uri-syntax">#</a>
+        
+        
+      </h3>
+    
+
+<p>There are many ways in which the same image can be described using the different forms of the parameters.  While it is useful for clients to be able to express their requests in a convenient form, there are several reasons why a canonical URI syntax is desirable:</p>
+
+<ul>
+  <li>It enables static, file-system based implementations, which will have only a single URI at which the content is available.</li>
+  <li>Caching becomes significantly more efficient, both client and server side, when the URIs used are the same between systems and sessions.</li>
+  <li>Response times can be improved by avoiding redirects from a requested non-canonical URI syntax to the canonical syntax by using the canonical form directly.</li>
+</ul>
+
+<p>In order to support the above requirements, clients <em class="rfc">should</em> construct the image request URIs using the following canonical parameter values where possible.  Image servers <em class="rfc">may</em> redirect the client to the canonical URI from a non-canonical equivalent.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Canonical value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>region</td>
+      <td>“full” if the whole image is requested,<br />otherwise the <code class="language-plaintext highlighter-rouge">x,y,w,h</code> syntax.</td>
+    </tr>
+    <tr>
+      <td>size</td>
+      <td>“full” if the default size is requested,<br />the <code class="language-plaintext highlighter-rouge">w,</code> syntax for images that should be scaled maintaining the aspect ratio,<br />and the <code class="language-plaintext highlighter-rouge">w,h</code> syntax for explicit sizes that change the aspect ratio.</td>
+    </tr>
+    <tr>
+      <td>rotation</td>
+      <td>”!” if the image is mirrored, followed by an integer if possible, and trimming any trailing zeros in a decimal value, and a leading 0 if the value is below 1.</td>
+    </tr>
+    <tr>
+      <td>quality</td>
+      <td>“default” if the server’s default quality is requested,<br />otherwise the quality string.</td>
+    </tr>
+    <tr>
+      <td>format</td>
+      <td>The explicit format string is always required.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When the client requests an image, the server <em class="rfc">may</em> add a link header to the response that indicates the canonical URI for that request:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Link: &lt;http://iiif.example.com/server/full/full/0/default.jpg&gt;;rel="canonical"
+</code></pre></div></div>
+
+<p>The server <em class="rfc">may</em> include this link header on the Image Information response, however it is unnecessary as it is included in the <abbr title="JavaScript Object Notation">JSON</abbr> representation retrieved.</p>
+      <h2 id="information-request">
+        
+        
+          5. Information Request <a href="#information-request">#</a>
+        
+        
+      </h2>
+    
+
+<p>The Image Information document contains both metadata about the image, such as full height and width, and functionality available for it, such as the formats in which it may be retrieved.  The service <em class="rfc">must</em> return this information about the image. The request for the information <em class="rfc">must</em> conform to the URI Template:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{scheme}://{server}{/prefix}/{identifier}/info.json
+</code></pre></div></div>
+
+<p>The syntax for the response is <a href="http://www.w3.org/TR/json-ld/" title="JSON-LD 1.0"><abbr title="JSON for Linking Data">JSON-LD</abbr></a>. The content-type of the response <em class="rfc">must</em> be either “application/json” (regular <abbr title="JavaScript Object Notation">JSON</abbr>),</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Content-Type: application/json
+</code></pre></div></div>
+
+<p>or “application/ld+json” (<abbr title="JSON for Linking Data">JSON-LD</abbr>).</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Content-Type: application/ld+json
+</code></pre></div></div>
+
+<p>If the client explicitly wants the <abbr title="JSON for Linking Data">JSON-LD</abbr> content-type, then it <em class="rfc">must</em> specify this in an Accept header, otherwise the server <em class="rfc">must</em> return the regular <abbr title="JavaScript Object Notation">JSON</abbr> content-type.</p>
+
+<p>If the regular <abbr title="JavaScript Object Notation">JSON</abbr> content-type is returned, then it is <em class="rfc">recommended</em> that the server provide a link header to the context document. The syntax for the link header is below, and further <a href="http://www.w3.org/TR/json-ld/#interpreting-json-as-json-ld" title="JSON-LD 1.0: 6.8 Interpreting JSON as JSON-LD">described in section 6.8 of the <abbr title="JSON for Linking Data">JSON-LD</abbr> specification</a>. If the client requests “application/ld+json”, the link header <em class="rfc">may</em> still be included but <em class="rfc">must</em> be ignored. The entity body is identical regardless of the content-type, including the <code class="language-plaintext highlighter-rouge">@context</code> field.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Link: &lt;http://iiif.io/api/image/2/context.json&gt;
+            ; rel="http://www.w3.org/ns/json-ld#context"
+            ; type="application/ld+json"
+</code></pre></div></div>
+
+<p>Servers <em class="rfc">should</em> send the <code class="language-plaintext highlighter-rouge">Access-Control-Allow-Origin</code> header with the value <code class="language-plaintext highlighter-rouge">*</code> in response to information requests. The syntax is shown below and is described in the <a href="http://www.w3.org/TR/cors/" title="Cross-Origin Resource Sharing"><abbr title="Cross-Origin Resource Sharing">CORS</abbr></a> specification. This header is required in order to allow the <abbr title="JavaScript Object Notation">JSON</abbr> responses to be used by Web applications hosted on different servers.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Access-Control-Allow-Origin: *
+</code></pre></div></div>
+
+<p>A recipe for enabling these behaviors is provided in the <a href="/iiif-api/api/annex/notes/apache/#conditional-content-types" title="Apache HTTP Server Implementation Notes: Conditional Content Types">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server Implementation Notes</a>.</p>
+      <h3 id="image-information">
+        
+        
+          5.1. Image Information <a href="#image-information">#</a>
+        
+        
+      </h3>
+    
+
+<p>The <abbr title="JavaScript Object Notation">JSON</abbr> at the top level of the response will include the following properties:</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Required?</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@context</code></td>
+      <td>Required</td>
+      <td>The context document that describes the semantics of the terms used in the document. This must be the URI: <code class="language-plaintext highlighter-rouge">http://iiif.io/api/image/2/context.json</code> for version 2.0 of the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr>. This document allows the response to be interpreted as <abbr title="Resource Description Framework">RDF</abbr>, using the <a href="http://www.json-ld.org/" title="JSON for Linking Data"><abbr title="JSON for Linking Data">JSON-LD</abbr></a> serialization.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@id</code></td>
+      <td>Required</td>
+      <td>The Base URI of the image as defined in <a href="#uri-syntax" title="2. URI Syntax">URI Syntax</a>, including scheme, server, prefix and identifier without a trailing slash.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">protocol</code></td>
+      <td>Required</td>
+      <td>The URI <code class="language-plaintext highlighter-rouge">http://iiif.io/api/image</code> which can be used to determine that the document describes an image service which is a version of the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr>.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">width</code></td>
+      <td>Required</td>
+      <td>The width in pixels of the full image content, given as an integer.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">height</code></td>
+      <td>Required</td>
+      <td>The height in pixels of the full image content, given as an integer.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">profile</code></td>
+      <td>Required</td>
+      <td>An array of profiles, indicated by either a URI or an object describing the features supported.  The first entry in the array <em class="rfc">must</em> be a compliance level URI, as defined below.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sizes</code></td>
+      <td>Optional</td>
+      <td>A set of height and width pairs the client should use in the <code class="language-plaintext highlighter-rouge">size</code> parameter to request complete images at different sizes that the server has available. This may be used to let a client know the sizes that are available when the server does not support requests for arbitrary sizes, or simply as a hint that requesting an image of this size may result in a faster response. A request constructed with the <code class="language-plaintext highlighter-rouge">w,h</code> syntax using these sizes <em class="rfc">must</em> be supported by the server, even if arbitrary width and height are not.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">tiles</code></td>
+      <td>Optional</td>
+      <td>A set of descriptions of the parameters to use to request regions of the image (tiles) that are efficient for the server to deliver. Each description gives a width, optionally a height for non-square tiles, and a set of scale factors at which tiles of those dimensions are available.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">service</code></td>
+      <td>Optional</td>
+      <td>The <code class="language-plaintext highlighter-rouge">service</code> property provides a hook for additional information to be included in the image description, for example the physical size of the object depicted.  Please see the <a href="/iiif-api/api/annex/services/" title="Services Annex Document">Service Profiles</a> annex for more information.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The objects in the <code class="language-plaintext highlighter-rouge">sizes</code> list have the properties in the following table. Images requested using these sizes <em class="rfc">should</em> have a region parameter of “full” and rotation of “0”. The full URL for an image with “default” quality in “jpg” format would be: <code class="language-plaintext highlighter-rouge">{base_url}/{identifier}/full/{width},{height}/0/default.jpg</code></p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Required?</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">width</code></td>
+      <td>Required</td>
+      <td>The width of the image to be requested.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">height</code></td>
+      <td>Required</td>
+      <td>The height of the image to be requested.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The objects in the <code class="language-plaintext highlighter-rouge">tiles</code> list have the properties in the following table. The <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> should be used to fill the region parameter and the <code class="language-plaintext highlighter-rouge">scaleFactors</code> to complete the size parameter of the image URL. This is described in detail in the <a href="#a-implementation-notes" title="A. Implementation Notes">Implementation Notes</a>.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">width</code> of a tile, or the combination of <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> if <code class="language-plaintext highlighter-rouge">height</code> is specified, <em class="rfc">must</em> be unique among the members of the <code class="language-plaintext highlighter-rouge">tiles</code> list.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Required?</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">scaleFactors</code></td>
+      <td>Required</td>
+      <td>The set of resolution scaling factors for the image’s predefined tiles, expressed as an integer by which to divide the full size of the image. For example, a scale factor of 4 indicates that the service can efficiently deliver images at 1/4 or 25% of the height and width of the full image. A particular scale factor value <em class="rfc">should</em> appear only once in the <code class="language-plaintext highlighter-rouge">tiles</code> list.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">width</code></td>
+      <td>Required</td>
+      <td>The width of the predefined tiles to be requested.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">height</code></td>
+      <td>Optional</td>
+      <td>The height of the predefined tiles to be requested.  If it is not specified in the <abbr title="JavaScript Object Notation">JSON</abbr>, then it defaults to the same as <code class="language-plaintext highlighter-rouge">width</code>, resulting in square tiles.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The objects in the <code class="language-plaintext highlighter-rouge">profiles</code> list have the properties in the following table.  The <code class="language-plaintext highlighter-rouge">@context</code>, <code class="language-plaintext highlighter-rouge">@id</code> and <code class="language-plaintext highlighter-rouge">@type</code> properties are <em class="rfc">required</em> when the profile is dereferenced from a URI, but <em class="rfc">should not</em> be included in the Image Information response.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Property</th>
+      <th>Required?</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@context</code></td>
+      <td>Optional</td>
+      <td>The string “http://iiif.io/api/image/2/context.json”. This should be included only if the profile’s URI is dereferenced.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@id</code></td>
+      <td>Optional</td>
+      <td>The URI of the profile.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">@type</code></td>
+      <td>Optional</td>
+      <td>The string “iiif:ImageProfile”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">formats</code></td>
+      <td>Optional</td>
+      <td>The set of image format parameter values available for the image.  If not specified then clients should assume only formats declared in the compliance level document.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">qualities</code></td>
+      <td>Optional</td>
+      <td>The set of image quality parameter values available for the image.  If not specified then clients should assume only qualities declared in the compliance level document.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">supports</code></td>
+      <td>Optional</td>
+      <td>The set of features supported for the image.  If not specified then clients should assume only features declared in the compliance level document.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The set of features that may be specified in the <code class="language-plaintext highlighter-rouge">supports</code> property of an Image profile are:</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Feature Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">baseUriRedirect</code></td>
+      <td>The base URI of the service will redirect to the Image Information document.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">canonicalLinkHeader</code></td>
+      <td>The canonical image URI <abbr title="Hypertext Transfer Protocol">HTTP</abbr> link header is provided on image responses.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">cors</code></td>
+      <td>The <abbr title="Cross-Origin Resource Sharing">CORS</abbr> <abbr title="Hypertext Transfer Protocol">HTTP</abbr> header is provided on all responses.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">jsonldMediaType</code></td>
+      <td>The <abbr title="JSON for Linking Data">JSON-LD</abbr> media type is provided when <abbr title="JSON for Linking Data">JSON-LD</abbr> is requested.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mirroring</code></td>
+      <td>The image may be rotated around the vertical axis, resulting in a left-to-right mirroring of the content.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">profileLinkHeader</code></td>
+      <td>The profile <abbr title="Hypertext Transfer Protocol">HTTP</abbr> link header is provided on image responses.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">regionByPct</code></td>
+      <td>Regions of images may be requested by percentage.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">regionByPx</code></td>
+      <td>Regions of images may be requested by pixel dimensions.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">rotationArbitrary</code></td>
+      <td>Rotation of images may be requested by degrees other than multiples of 90.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">rotationBy90s</code></td>
+      <td>Rotation of images may be requested by degrees in multiples of 90.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sizeAboveFull</code></td>
+      <td>Size of images may be requested larger than the “full” size.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sizeByWhListed</code></td>
+      <td>Size of images given in the <code class="language-plaintext highlighter-rouge">sizes</code> field of the Image Information document may be requested using the <code class="language-plaintext highlighter-rouge">w,h</code> syntax.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sizeByForcedWh</code></td>
+      <td>Size of images may be requested in the form “!w,h”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sizeByH</code></td>
+      <td>Size of images may be requested in the form “,h”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sizeByPct</code></td>
+      <td>Size of images may be requested in the form “pct:n”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sizeByW</code></td>
+      <td>Size of images may be requested in the form “w,”.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">sizeByWh</code></td>
+      <td>Size of images may be requested in the form “w,h”.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The set of features, formats and qualities supported is the union of those declared in all of the external profile documents and any embedded profile objects.  If a feature is not present in either the profile document or the <code class="language-plaintext highlighter-rouge">supports</code> property of an embedded profile, then a client <em class="rfc">must</em> assume that the feature is not supported.</p>
+
+<p>Servers <em class="rfc">should</em> support requests for images with parameters specified by the <code class="language-plaintext highlighter-rouge">sizes</code> and <code class="language-plaintext highlighter-rouge">tiles</code> fields for all combinations of <code class="language-plaintext highlighter-rouge">qualities</code> and <code class="language-plaintext highlighter-rouge">formats</code> supported.</p>
+
+<p>If any of <code class="language-plaintext highlighter-rouge">formats</code>, <code class="language-plaintext highlighter-rouge">qualities</code>, or <code class="language-plaintext highlighter-rouge">supports</code> have no additional values beyond those specified in the referenced compliance level, then the property <em class="rfc">should</em> be omitted from the response rather than being present with an empty list.</p>
+
+<p>URIs <em class="rfc">may</em> be added to the supports list of a profile to cover features not defined in this specification. Clients <em class="rfc">must</em> ignore URIs that are not recognized.</p>
+
+<p>The <abbr title="JavaScript Object Notation">JSON</abbr> response is structured as shown in the following example. The order of the keys in the response <em class="rfc">should</em> follow the order in the example.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image/2/context.json"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"@id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/image-service/abcd1234/1E34750D-38DB-4825-A38A-B60A345E591C"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"protocol"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"height"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"sizes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="nl">"height"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w"> </span><span class="nl">"height"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"tiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="nl">"width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="p">,</span><span class="w"> </span><span class="nl">"scaleFactors"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">]}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"profile"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"http://iiif.io/api/image/2/level2.json"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"formats"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"gif"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pdf"</span><span class="w"> </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"qualities"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"color"</span><span class="p">,</span><span class="w"> </span><span class="s2">"gray"</span><span class="w"> </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"supports"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"canonicalLinkHeader"</span><span class="p">,</span><span class="w"> </span><span class="s2">"rotationArbitrary"</span><span class="p">,</span><span class="w"> </span><span class="s2">"profileLinkHeader"</span><span class="p">,</span><span class="w"> </span><span class="s2">"http://example.com/feature/"</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"service"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/annex/service/physdim/1/context.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/annex/service/physdim"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"physicalScale"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0025</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"physicalUnits"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Using the <a href="/iiif-api/api/annex/notes/jsonld/" title="JSON-LD Frames Implementation Notes">supplied <abbr title="JSON for Linking Data">JSON-LD</abbr> frame</a> will result in the correct structure.</p>
+      <h2 id="compliance-levels">
+        
+        
+          6. Compliance Levels <a href="#compliance-levels">#</a>
+        
+        
+      </h2>
+    
+
+<p>The Image Information document <em class="rfc">must</em> specify the extent to which the <abbr title="Application Programming Interface">API</abbr> is supported by including a compliance level URI as the first entry in the <code class="language-plaintext highlighter-rouge">profile</code> property. This URI links to a description of the highest compliance level for which all requirements are met. The URI <em class="rfc">must</em> be one of those listed in the <a href="/iiif-api/api/image/2.0/compliance/" title="Image API Compliance">Image <abbr title="Application Programming Interface">API</abbr> Compliance</a> document. This description contains the set of features required by the profile, as discussed in <a href="#image-information" title="5.1. Image Information">Image Information</a>. A server <em class="rfc">may</em> declare different compliance levels for images with different identifiers.</p>
+
+<p>The compliance level URI <em class="rfc">may</em> also be given in the <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Link header (<a href="http://tools.ietf.org/html/rfc5988" title="Web Linking">RFC5988</a>) with the parameter <code class="language-plaintext highlighter-rouge">rel="profile"</code>, and thus a complete header might look like:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Link: &lt;http://iiif.io/api/image/2/level1.json&gt;;rel="profile"
+</code></pre></div></div>
+
+<p>A recipe for setting this header on the Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server is shown in the <a href="/iiif-api/api/annex/notes/apache/#set-compliance-link-header" title="Apache HTTP Server Implementation Notes: Set Compliance Link Header">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server Implementation Notes</a>.</p>
+      <h2 id="server-responses">
+        
+        
+          7. Server Responses <a href="#server-responses">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="successful-responses">
+        
+        
+          7.1. Successful Responses <a href="#successful-responses">#</a>
+        
+        
+      </h3>
+    
+
+<p>Servers may transmit <abbr title="Hypertext Transfer Protocol">HTTP</abbr> responses with 200 (Successful) or 3xx (Redirect) status codes when the request has been successfully processed. If the status code is 200, then the entity-body <em class="rfc">must</em> be the requested image or information document. If the status code is 301, 302, 303, or 304, then the entity-body is unrestricted, but it is <em class="rfc">recommended</em> to be empty. If the status code is 301, 302, or 303 then the Location <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Header <em class="rfc">must</em> be set containing the URI of the image that fulfills the request. This enables servers to have a single canonical URI to promote caching of responses. Status code 304 is handled exactly as per the <abbr title="Hypertext Transfer Protocol">HTTP</abbr> specification. Clients <em class="rfc">should</em> expect to encounter all of these situations and <em class="rfc">must not</em> assume that the entity-body of the initial response necessarily contains the image data.</p>
+      <h3 id="error-conditions">
+        
+        
+          7.2. Error Conditions <a href="#error-conditions">#</a>
+        
+        
+      </h3>
+    
+
+<p>The order in which servers parse requests and detect errors is not specified. A request is likely to fail on the first error encountered and return an appropriate <abbr title="Hypertext Transfer Protocol">HTTP</abbr> status code, with common codes given in the list below. It is <em class="rfc">recommended</em> that the body of the error response includes a human-readable description of the error in either plain text or html.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Status Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400 Bad Request</td>
+      <td>This response is used when it is impossible for the server to fulfil the request, as the syntax of the request is incorrect.  For example, this would be used if the size parameter does not match any of the specified syntaxes.</td>
+    </tr>
+    <tr>
+      <td>401 Unauthorized</td>
+      <td>Authentication is required and not provided. See the <a href="#authentication" title="8. Authentication">Authentication</a> section for details.</td>
+    </tr>
+    <tr>
+      <td>403 Forbidden</td>
+      <td>The user, authenticated or not, is not permitted to perform the requested operation.</td>
+    </tr>
+    <tr>
+      <td>404 Not Found</td>
+      <td>The image resource specified by <a href="#identifier" title="3. Identifier">identifier</a> does not exist, or the value of one or more of the parameters is not supported for this image.</td>
+    </tr>
+    <tr>
+      <td>500 Internal Server Error</td>
+      <td>The server encountered an unexpected error that prevented it from fulfilling the request.</td>
+    </tr>
+    <tr>
+      <td>501 Not Implemented</td>
+      <td>A valid <abbr title="International Image Interoperability Framework">IIIF</abbr> request that is not implemented by this server.</td>
+    </tr>
+    <tr>
+      <td>503 Service Unavailable</td>
+      <td>Used when the server is busy/temporarily unavailable due to load/maintenance issues. An alternative to connection refusal with the option to specify a back-off period.</td>
+    </tr>
+  </tbody>
+</table>
+      <h2 id="authentication">
+        
+        
+          8. Authentication <a href="#authentication">#</a>
+        
+        
+      </h2>
+    
+
+<p>This <abbr title="Application Programming Interface">API</abbr> does not specify whether the image server will support authentication or what mechanism it might use. In the case of “401 Unauthorized” <abbr title="Hypertext Transfer Protocol">HTTP</abbr> response, the content of the WWW-Authenticate header will depend on the authentication mechanism supported by the server. If the server supports <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Basic or Digest authentication then the header <em class="rfc">should</em> follow <a href="http://tools.ietf.org/html/rfc2617" title="HTTP Authentication: Basic and Digest Access Authentication">RFC2617</a>, for example:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WWW-Authenticate: Basic realm="Images"
+</code></pre></div></div>
+      <h2 id="uri-encoding-and-decoding">
+        
+        
+          9. URI Encoding and Decoding <a href="#uri-encoding-and-decoding">#</a>
+        
+        
+      </h2>
+    
+
+<p>The URI syntax of this <abbr title="Application Programming Interface">API</abbr> relies upon slash (/) separators which <em class="rfc">must not</em> be encoded. Clients <em class="rfc">must</em> percent-encode special characters (the to-encode set below: percent and gen-delims of <a href="http://tools.ietf.org/html/rfc3986" title="Uniform Resource Identifier (URI): Generic Syntax">RFC3986</a> except the colon) plus any characters outside the US-ASCII set within the components of requests. For example, any slashes within the identifier part of the URI <em class="rfc">must</em> be percent-encoded. Encoding is necessary only for the identifier because other components will not include special characters. Percent-encoding other characters introduces no ambiguity but is unnecessary.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>to-encode = "/" / "?" / "#" / "[" / "]" / "@" / "%"
+</code></pre></div></div>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Parameters</th>
+      <th>URI path</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>identifier=id1 region=full size=full rotation=0 quality=default</td>
+      <td><code class="language-plaintext highlighter-rouge">id1/full/full/0/default</code></td>
+    </tr>
+    <tr>
+      <td>identifier=id1 region=0,10,100,200 size=pct:50 rotation=90 quality=default format=png</td>
+      <td><code class="language-plaintext highlighter-rouge">id1/0,10,100,200/pct:50/90/default.png</code></td>
+    </tr>
+    <tr>
+      <td>identifier=id1 region=pct:10,10,80,80 size=50, rotation=22.5 quality=color format=jpg</td>
+      <td><code class="language-plaintext highlighter-rouge">id1/pct:10,10,80,80/50,/22.5/color.jpg</code></td>
+    </tr>
+    <tr>
+      <td>identifier=bb157hs6068 region=full size=full rotation=270 quality=gray format=jpg</td>
+      <td><code class="language-plaintext highlighter-rouge">bb157hs6068/full/full/270/gray.jpg</code></td>
+    </tr>
+    <tr>
+      <td>identifier=ark:/12025/654xz321 region=full size=full rotation=0 quality=default</td>
+      <td><code class="language-plaintext highlighter-rouge">ark:%2F12025%2F654xz321/full/full/0/default</code></td>
+    </tr>
+    <tr>
+      <td>identifier=urn:foo:a123,456 region=full size=full rotation=0 quality=default</td>
+      <td><code class="language-plaintext highlighter-rouge">urn:foo:a123,456/full/full/0/default</code></td>
+    </tr>
+    <tr>
+      <td>identifier=urn:sici:1046-8188(199501)13:1%3C69:FTTHBI%3E2.0.TX;2-4 region=full size=full rotation=0 quality=default</td>
+      <td><code class="language-plaintext highlighter-rouge">urn:sici:1046-8188(199501)13:1%253C69:FTTHBI%253E2.0.TX;2-4/full/full/0/default</code></td>
+    </tr>
+    <tr>
+      <td>identifier=http://example.com/?54#a region=full size=full rotation=0 quality=default</td>
+      <td><code class="language-plaintext highlighter-rouge">http:%2F%2Fexample.com%2F%3F54%23a/full/full/0/default</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Servers which are incapable of processing arbitrarily encoded identifiers <em class="rfc">should</em> make their best efforts to expose only image identifiers for which clients will not encode any of the characters, and thus it is <em class="rfc">recommended</em> to limit characters in identifiers to letters, numbers and the underscore character.</p>
+      <h2 id="security-considerations">
+        
+        
+          10. Security Considerations <a href="#security-considerations">#</a>
+        
+        
+      </h2>
+    
+
+<p>This <abbr title="Application Programming Interface">API</abbr> defines a URI syntax and the semantics associated with its components. The composition of URIs has few security considerations except possible exposure of sensitive information in URIs or revealing of browse/view behavior of users.</p>
+
+<p>Server applications implementing this <abbr title="Application Programming Interface">API</abbr> <em class="rfc">should</em> consider possible denial-of-service attacks, and authentication vulnerabilities based on DNS spoofing. Applications <em class="rfc">must</em> be careful to parse incoming requests (URIs) in ways that avoid overflow or injection attacks.</p>
+
+<p>Early sanity checking of URIs (lengths, trailing GET, invalid characters, out-of-range parameters) and rejection with appropriate response codes is <em class="rfc">recommended</em>.</p>
+      <h2 id="appendices">
+        
+        
+          11. Appendices <a href="#appendices">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="a-implementation-notes">
+        
+        
+          A. Implementation Notes <a href="#a-implementation-notes">#</a>
+        
+        
+      </h3>
+    
+
+<ul>
+  <li>For use cases that enable the saving of the image, it is <em class="rfc">recommended</em> to use the <abbr title="Hypertext Transfer Protocol">HTTP</abbr> <code class="language-plaintext highlighter-rouge">Content-Disposition</code> header (<a href="http://tools.ietf.org/html/rfc6266" title="Use of the Content-Disposition Header Field in the Hypertext Transfer Protocol (HTTP)">RFC6266</a>) to provide a convenient filename that distinguishes the image, based on the identifier and parameters provided.</li>
+  <li>This specification makes no assertion about the rights status of requested images or any other descriptive metadata, whether or not authentication has been accomplished. Please see the <a href="/iiif-api/api/presentation/3.0/" title="Presentation API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a> for rights and other information.</li>
+  <li>Additional <a href="/iiif-api/api/annex/notes/apache/" title="Apache HTTP Server Implementation Notes">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server implementation notes</a> are available.</li>
+  <li>When requesting sizes using the <code class="language-plaintext highlighter-rouge">w,</code> canonical syntax, if a particular height is desired, the following algorithm can be used:</li>
+</ul>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># Calculate request width for `w,` syntax from desired height
+</span>    <span class="n">request_width</span> <span class="o">=</span> <span class="n">image_width</span> <span class="o">*</span> <span class="n">desired_height</span> <span class="o">/</span> <span class="n">image_height</span>
+</code></pre></div></div>
+
+<ul>
+  <li>When requesting image tiles, the <a href="#region" title="4.1. Region">Region</a> and <a href="#size" title="4.2. Size">Size</a> parameters must be calculated to take account of partial tiles along the right and lower edges for a full imagine that is not an exact multiple of the scaled tile size. The algorithm below is shown as Python code and assumes integer inputs and integer arithmetic throughout (ie. remainder discarded on division). Inputs are: size of full image content <code class="language-plaintext highlighter-rouge">(width,height)</code>, scale factor <code class="language-plaintext highlighter-rouge">s</code>, tile size <code class="language-plaintext highlighter-rouge">(tw,th)</code>, and tile coordinate <code class="language-plaintext highlighter-rouge">(n,m)</code> counting from <code class="language-plaintext highlighter-rouge">(0,0)</code> in the upper-left corner. Note that the rounding method is implementation dependent.</li>
+</ul>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># Calculate region parameters /xr,yr,wr,hr/
+</span>    <span class="n">xr</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">tw</span> <span class="o">*</span> <span class="n">s</span>
+    <span class="n">yr</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="n">th</span> <span class="o">*</span> <span class="n">s</span>
+    <span class="n">wr</span> <span class="o">=</span> <span class="n">tw</span> <span class="o">*</span> <span class="n">s</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">xr</span> <span class="o">+</span> <span class="n">wr</span> <span class="o">&gt;</span> <span class="n">width</span><span class="p">):</span>
+        <span class="n">wr</span> <span class="o">=</span> <span class="n">width</span> <span class="o">-</span> <span class="n">xr</span>
+    <span class="n">hr</span> <span class="o">=</span> <span class="n">th</span> <span class="o">*</span> <span class="n">s</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">yr</span> <span class="o">+</span> <span class="n">hr</span> <span class="o">&gt;</span> <span class="n">height</span><span class="p">):</span>
+        <span class="n">hr</span> <span class="o">=</span> <span class="n">height</span> <span class="o">-</span> <span class="n">yr</span>
+    <span class="c1"># Calculate size parameters /ws,hs/
+</span>    <span class="n">ws</span> <span class="o">=</span> <span class="n">tw</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">xr</span> <span class="o">+</span> <span class="n">tw</span><span class="o">*</span><span class="n">s</span> <span class="o">&gt;</span> <span class="n">width</span><span class="p">):</span>
+        <span class="n">ws</span> <span class="o">=</span> <span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="n">xr</span> <span class="o">+</span> <span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span>  <span class="c1"># +s-1 in numerator to round up
+</span>    <span class="n">hs</span> <span class="o">=</span> <span class="n">th</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">yr</span> <span class="o">+</span> <span class="n">th</span><span class="o">*</span><span class="n">s</span> <span class="o">&gt;</span> <span class="n">height</span><span class="p">):</span>
+        <span class="n">hs</span> <span class="o">=</span> <span class="p">(</span><span class="n">height</span> <span class="o">-</span> <span class="n">yr</span> <span class="o">+</span> <span class="n">s</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">s</span>
+</code></pre></div></div>
+
+<ul>
+  <li>As described in <a href="#rotation" title="4.3. Rotation">Rotation</a>, in order to retain the size of the requested image contents, rotation will change the width and height dimensions of the image returned. A formula for calculating the dimensions of the image returned for a given starting size and rotation is given below. Note that the rounding method is implementation dependent and that some languages require conversion of the angle from degrees to radians.</li>
+</ul>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="c1"># (w,h) are size parameters, n is rotation angle
+</span>    <span class="n">w_returned</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">h_returned</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">h</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="nb">abs</span><span class="p">(</span><span class="n">w</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</code></pre></div></div>
+      <h3 id="b-versioning">
+        
+        
+          B. Versioning <a href="#b-versioning">#</a>
+        
+        
+      </h3>
+    
+
+<p>Starting with version 2.0, this specification follows <a href="http://semver.org/spec/v2.0.0.html" title="Semantic Versioning 2.0.0">Semantic Versioning</a>. See the note <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">Versioning of APIs</a> for details regarding how this is implemented.</p>
+      <h3 id="c-acknowledgments">
+        
+        
+          C. Acknowledgments <a href="#c-acknowledgments">#</a>
+        
+        
+      </h3>
+    
+
+<p>The production of this document was generously supported by a grant from the <a href="http://www.mellon.org/" title="The Andrew W. Mellon Foundation">Andrew W. Mellon Foundation</a>.</p>
+
+<p>Many thanks to  Ben Albritton, Matthieu Bonicel, Anatol Broder, Kevin Clarke, Tom Cramer, Ian Davis, Neil Jefferies, Scotty Logan, Sean Martin, Roger Mathisen, Lynn McRae, Willy Mene, Mark Patton, Petter Rønningsen, and Brian Tingle for your thoughtful contributions to the effort and written feedback.  Thanks also to the members of the <a href="/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr> Community</a> for their continuous engagement, innovative ideas and feedback.</p>
+      <h3 id="d-change-log">
+        
+        
+          D. Change Log <a href="#d-change-log">#</a>
+        
+        
+      </h3>
+    
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2014-09-11</td>
+      <td>Version 2.0 (Voodoo Bunny) released <a href="/iiif-api/api/image/2.0/change-log/" title="Change Log for Version 2.0">View change log</a></td>
+    </tr>
+    <tr>
+      <td>2014-08-12</td>
+      <td>Version 2.0-final-draft (Voodoo Bunny) <abbr title="Request for Comments">RFC</abbr></td>
+    </tr>
+    <tr>
+      <td>2014-07-01</td>
+      <td>Version 2.0-draft2 (Voodoo Bunny) <abbr title="Request for Comments">RFC</abbr></td>
+    </tr>
+    <tr>
+      <td>2014-06-01</td>
+      <td>Version 2.0-draft (Voodoo Bunny) <abbr title="Request for Comments">RFC</abbr></td>
+    </tr>
+    <tr>
+      <td>2013-09-17</td>
+      <td>Version 1.1 released <a href="/iiif-api/api/image/1.1/change-log/" title="Change Log for Version 1.1">View change log</a></td>
+    </tr>
+    <tr>
+      <td>2013-09-04</td>
+      <td>Added @context to Image Information Request table in section 5</td>
+    </tr>
+    <tr>
+      <td>2013-06-26</td>
+      <td>Changed quality parameter definitions in section 4.4</td>
+    </tr>
+    <tr>
+      <td>2013-06-17</td>
+      <td>Draft release 1.1</td>
+    </tr>
+    <tr>
+      <td>2012-08-10</td>
+      <td>Release 1.0</td>
+    </tr>
+    <tr>
+      <td>2012-07-13</td>
+      <td>Incorporates responses to <abbr title="Request for Comments">RFC</abbr> feedback</td>
+    </tr>
+    <tr>
+      <td>2012-03-09</td>
+      <td>Initial release</td>
+    </tr>
+    <tr>
+      <td>2012-04-13</td>
+      <td>0.2 after internal review and <abbr title="International Image Interoperability Framework">IIIF</abbr> April Meeting</td>
+    </tr>
+    <tr>
+      <td>2012-05-02</td>
+      <td><abbr title="Request for Comments">RFC</abbr> version</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

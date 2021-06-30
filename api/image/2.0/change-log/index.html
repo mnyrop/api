@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    Image API 2.0 Change Log &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">Image API 2.0 Change Log</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#breaking-changes">Breaking Changes</a><ul class="menu-list toc-submenu-2"><li><a href="#renamed-qualities">Renamed Qualities</a></li><li><a href="#added-profile-property-to-image-information-document">Added <code class="language-plaintext highlighter-rouge">profile</code> property to Image Information document</a></li><li><a href="#added-tiles-property-to-image-information-document">Added <code class="language-plaintext highlighter-rouge">tiles</code> property to Image Information document</a></li><li><a href="#required-cors-for-level-1-compliance">Required <abbr title="Cross-Origin Resource Sharing"><abbr title="Cross-Origin Resource Sharing">CORS</abbr></abbr> for level 1 Compliance</a></li><li><a href="#changed-uris-for-compliance-levels">Changed URIs for compliance levels</a></li><li><a href="#dropped-support-for-content-negotiation-and-default-image-format">Dropped Support for Content Negotiation and Default Image Format</a></li><li><a href="#limited-error-response-code-requirements-for-level-0">Limited Error Response Code Requirements for Level 0</a></li></ul></li><li><a href="#other-changes">Other Changes</a><ul class="menu-list toc-submenu-2"><li><a href="#added-canonical-uri-form">Added Canonical URI Form</a></li><li><a href="#added-protocol-property-to-image-information-document">Added <code class="language-plaintext highlighter-rouge">protocol</code> property to Image Information document</a></li><li><a href="#drop-rotation-from-level-1-compliance">Drop Rotation from Level 1 Compliance</a></li><li><a href="#drop-profile-link-header-to-optional">Drop Profile Link Header to Optional</a></li><li><a href="#add-mirroring-to-rotation-parameter">Add mirroring to rotation parameter</a></li><li><a href="#added-services-property-to-image-information-document">Added <code class="language-plaintext highlighter-rouge">services</code> property to Image Information document</a></li><li><a href="#added-sizes-property-to-image-information-document">Added <code class="language-plaintext highlighter-rouge">sizes</code> property to Image Information document</a></li><li><a href="#published-json-ld-context">Published <abbr title="JSON for Linking Data">JSON-LD</abbr> Context</a></li><li><a href="#support-json-ld-content-typeaccept-header">Support <abbr title="JSON for Linking Data">JSON-LD</abbr> Content-Type/Accept header</a></li><li><a href="#background-color-for-non-90-degree-rotations">Background Color for non-90 degree Rotations</a></li><li><a href="#added-webp-to-formats">Added WebP to Formats</a></li></ul></li><li><a href="#deferred-changes">Deferred Changes</a><ul class="menu-list toc-submenu-2"><li><a href="#add-rights-information">Add Rights Information</a></li><li><a href="#add-compression">Add Compression</a></li></ul></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <p>This document is a companion to the <a href="/iiif-api/api/image/2.0/" title="Image API 2.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> Specification, Version 2.0</a>. It describes the significant changes to the <abbr title="Application Programming Interface">API</abbr> since <a href="/iiif-api/api/image/1.1/" title="Image API 1.1">Version 1.1</a>. The changes are broken into three groups: <a href="#breaking-changes" title="Image API 2.0 Breaking Changes">Breaking Changes</a>, i.e. those that are not backwards compatible from either a client or server perspective (or both) and mostly consists of new features; <a href="#other-changes" title="Image API 2.0 Other Changes">Other Changes</a>, i.e. those that are backwards compatible; and <a href="#deferred-changes" title="Deferred Changes">Deferred Changes</a>, i.e. those that will be made in a future iteration of the Image <abbr title="Application Programming Interface">API</abbr>.</p>
+
+<p>In addition to changes in the <abbr title="Application Programming Interface">API</abbr>, the specification documents have been changed as follows:</p>
+
+<ul>
+  <li>The ordering of the major sections in the specification document has been adjusted for better flow.</li>
+  <li>The use of <a href="http://tools.ietf.org/html/rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels"><abbr title="Request for Comments">RFC</abbr> 2119 keywords</a> has been made more consistent.</li>
+  <li>Language has been adjusted to make the document less developer-centric.</li>
+</ul>
+
+<p>With the <a href="/iiif-api/api/image/2.0/" title="Image API 2.0">2.0 Release of the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a>, <a href="http://semver.org/" title="Semantic Versioning Specification">Semantic Versioning</a> is used to enumerate releases. As the <abbr title="Application Programming Interface">API</abbr> relies on predictable URI patterns in several areas, careful choices have been made about which details of the version will be expressed and where. This is explained in <a href="/iiif-api/api/image/2.0/#b-versioning" title="Image API Appendix B: Versioning">Appendix B</a>.</p>
+      <h2 id="breaking-changes">
+        
+        
+          Breaking Changes <a href="#breaking-changes">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="renamed-qualities">
+        
+        
+          Renamed Qualities <a href="#renamed-qualities">#</a>
+        
+        
+      </h3>
+    
+
+<p>Previous versions of the specification used “grey” (not “gray”) but “color” (not “colour”). While this does reflect the international nature of <abbr title="International Image Interoperability Framework">IIIF</abbr>, it is not terribly consistent. From this release <code class="language-plaintext highlighter-rouge">grey</code> is now <code class="language-plaintext highlighter-rouge">gray</code>.</p>
+
+<p>There was also confusion among users as to the meaning of <code class="language-plaintext highlighter-rouge">native</code>. The <abbr title="Application Programming Interface">API</abbr> does not recognize the notion of a source image, and the label <code class="language-plaintext highlighter-rouge">native</code> was tied too closely to such an idea. In 2.0 <code class="language-plaintext highlighter-rouge">native</code> has been replaced with <code class="language-plaintext highlighter-rouge">default</code>, with the implication that the server should return the image in a default quality. The <abbr title="Application Programming Interface">API</abbr> does not specify how this decision is made (in the future, for example, authorization may determine the default quality).</p>
+      <h3 id="added-profile-property-to-image-information-document">
+        
+        
+          Added <code class="language-plaintext highlighter-rouge">profile</code> property to Image Information document <a href="#added-profile-property-to-image-information-document">#</a>
+        
+        
+      </h3>
+    
+
+<p>This is a response to several requests for the ability to describe the capabilities of a server or a particular image with finer granularity than that of the compliance levels. For example, a server may be completely compliant with level 1, but also support the <code class="language-plaintext highlighter-rouge">!w,h</code> syntax for specifying the size, which is a level 2 feature. This capability can be exposed using the <code class="language-plaintext highlighter-rouge">supports</code> property with the <code class="language-plaintext highlighter-rouge">profile</code> property.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">qualities</code> and <code class="language-plaintext highlighter-rouge">formats</code> properties have been moved into the object referenced in <code class="language-plaintext highlighter-rouge">profile</code>.</p>
+      <h3 id="added-tiles-property-to-image-information-document">
+        
+        
+          Added <code class="language-plaintext highlighter-rouge">tiles</code> property to Image Information document <a href="#added-tiles-property-to-image-information-document">#</a>
+        
+        
+      </h3>
+    
+
+<p>A <code class="language-plaintext highlighter-rouge">tiles</code> property was added to the top level of the <abbr title="JavaScript Object Notation">JSON</abbr> in the Image Information document response.  The rationale was to promote consistency between information about tiles (regions of an image at different sizes) and the different sizes available (see <code class="language-plaintext highlighter-rouge">sizes</code> below), to clarify that the <code class="language-plaintext highlighter-rouge">scale_factors</code> are related to tiles rather than the complete image, and to allow different tile sizes at different scale factors.  The property is a list of <abbr title="JavaScript Object Notation">JSON</abbr> objects, with <code class="language-plaintext highlighter-rouge">height</code>, <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">scaleFactors</code> properties.  This change therefore renames <code class="language-plaintext highlighter-rouge">tile_height</code> to <code class="language-plaintext highlighter-rouge">height</code>, <code class="language-plaintext highlighter-rouge">tile_width</code> to <code class="language-plaintext highlighter-rouge">width</code>, <code class="language-plaintext highlighter-rouge">scale_factors</code> to <code class="language-plaintext highlighter-rouge">scaleFactors</code> (to follow the Presentation <abbr title="Application Programming Interface">API</abbr>’s camelCase) and moves them into the new structure.  The <code class="language-plaintext highlighter-rouge">height</code> property is now optional, defaulting to the same as <code class="language-plaintext highlighter-rouge">width</code>.  This makes the default of square tiles easier to record.</p>
+      <h3 id="required-cors-for-level-1-compliance">
+        
+        
+          Required <abbr title="Cross-Origin Resource Sharing"><abbr title="Cross-Origin Resource Sharing">CORS</abbr></abbr> for level 1 Compliance <a href="#required-cors-for-level-1-compliance">#</a>
+        
+        
+      </h3>
+    
+
+<p>One of the core purposes–if not <em>the</em> core purpose–of <abbr title="International Image Interoperability Framework">IIIF</abbr> is to share images between institutions. This is is impossible without the ability to exchange images and metadata across different <abbr title="Hypertext Transfer Protocol">HTTP</abbr> domains. <abbr title="Cross-Origin Resource Sharing">CORS</abbr> is the standard way to do this.</p>
+
+<p>A few other <abbr title="Hypertext Transfer Protocol">HTTP</abbr> features have been enumerated in the <a href="/iiif-api/api/image/2.0/compliance/#http-features" title="Image API Compliance: HTTP Features"><abbr title="Hypertext Transfer Protocol">HTTP</abbr> Features</a> section of the <a href="/iiif-api/api/image/2.0/compliance/" title="Image API 2.0 Compliance Document">compliance document</a>.</p>
+      <h3 id="changed-uris-for-compliance-levels">
+        
+        
+          Changed URIs for compliance levels <a href="#changed-uris-for-compliance-levels">#</a>
+        
+        
+      </h3>
+    
+
+<p>The compliance URIs have been moved into the <code class="language-plaintext highlighter-rouge">http://iiif.io/</code> domain. They now resolve to <abbr title="JSON for Linking Data">JSON-LD</abbr> documents that enumerate the features that are supported by a server that implements this level of compliance. See <a href="/iiif-api/api/image/2.0/#compliance-levels" title="Image API 6. Compliance Levels">Section 6. Compliance Levels</a> for detailed explanation.</p>
+      <h3 id="dropped-support-for-content-negotiation-and-default-image-format">
+        
+        
+          Dropped Support for Content Negotiation and Default Image Format <a href="#dropped-support-for-content-negotiation-and-default-image-format">#</a>
+        
+        
+      </h3>
+    
+
+<p>As of this version, a client must specify the format of the image as a file-extension like suffix on the URI (e.g. <code class="language-plaintext highlighter-rouge">.jpg</code>). There are several reasons for this change:</p>
+
+<ul>
+  <li>This a typical convention employed by image processing utilities, (cf. <a href="http://www.imagemagick.org/script/command-line-processing.php#output" title="ImageMagick: Command-line Processing: Output Filename">ImageMagick</a>, <a href="http://pillow.readthedocs.org/en/latest/handbook/image-file-formats.html#image-file-formats" title="Pillow: Image file formats">Pillow</a>, <a href="http://kakadusoftware.com/wp-content/uploads/2014/06/Usage_Examples.txt" title="Usage Examples for the Demonstration Applications Supplied with Kakadu V7.4">Kakadu</a>, and most others).</li>
+  <li>The formats in which the image is available are explicitly enumerated by the <code class="language-plaintext highlighter-rouge">info.json</code> document for an image and/or the server compliance level document. A client should never need to guess or let the server decide.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">jpg</code> format must be supported at all compliance levels and thus applications requiring it can rely upon its availability.</li>
+  <li>Static image files on the web typically have file extensions that indicate the format, and there was never a clear use case for when a client would prefer content negotiation over expressing the format in the URI.</li>
+</ul>
+
+<p>Servers should now return a 400 (Bad Request) if possible, or else a 404 (Not Found) when an image request does not include a format suffix.</p>
+      <h3 id="limited-error-response-code-requirements-for-level-0">
+        
+        
+          Limited Error Response Code Requirements for Level 0 <a href="#limited-error-response-code-requirements-for-level-0">#</a>
+        
+        
+      </h3>
+    
+
+<p>Servers compliant at level 0 may always return a 404 (Not Found) error for any bad requests. While this is not brought out explicitly in the document, the <abbr title="Request for Comments">RFC</abbr> keyword describing when to return a 400 (Bad Request) response has been reduced to “should”.</p>
+      <h2 id="other-changes">
+        
+        
+          Other Changes <a href="#other-changes">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="added-canonical-uri-form">
+        
+        
+          Added Canonical URI Form <a href="#added-canonical-uri-form">#</a>
+        
+        
+      </h3>
+    
+
+<p>There are potentially several ways to request the same image, and two cases arose in which it makes sense to have a canonical form of image request URI:</p>
+
+<ul>
+  <li>A server compliant at level 0 based on pre-made images on a file system needs to know which URI form to use in order to avoid either failing to support applications or having to generate multiple files for the same image. For example, are the region and size best specified by percent or pixel dimensions or <code class="language-plaintext highlighter-rouge">full</code>?</li>
+  <li>A more capable server may redirect to the canonical syntax for better cache performance.</li>
+</ul>
+
+<p>The canonical URI for an image may be specified in an <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Link Header with the attribute <code class="language-plaintext highlighter-rouge">rel=canonical</code>. See <a href="/iiif-api/api/image/2.0/#canonical-uri-syntax" title="Image API 4.7. Canonical URI Syntax">Section 4.7 Canonical URI Syntax</a> for details.</p>
+      <h3 id="added-protocol-property-to-image-information-document">
+        
+        
+          Added <code class="language-plaintext highlighter-rouge">protocol</code> property to Image Information document <a href="#added-protocol-property-to-image-information-document">#</a>
+        
+        
+      </h3>
+    
+
+<p>The value of this property is always the URI <code class="language-plaintext highlighter-rouge">http://iiif.io/api/image</code> which purposefully does not reflect the version of the <abbr title="Application Programming Interface">API</abbr> the server implements or its level of compliance. This will enable clients that can consume other <abbr title="JavaScript Object Notation">JSON</abbr>-based image information syntaxes and/or multiple versions of the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> to easily identify the image service as a <abbr title="International Image Interoperability Framework">IIIF</abbr> image server.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">protocol</code> property is required at all levels of compliance.</p>
+      <h3 id="drop-rotation-from-level-1-compliance">
+        
+        
+          Drop Rotation from Level 1 Compliance <a href="#drop-rotation-from-level-1-compliance">#</a>
+        
+        
+      </h3>
+    
+
+<p>Rotation in multiples of 90 was previously a level 1 requirement. As this can be–and frequently is–handled in the browser via the <abbr title="HyperText Markup Language">HTML</abbr> 5 <code class="language-plaintext highlighter-rouge">&lt;canvas&gt;</code> element or CSS instructions, the editors felt this was an unnecessary barrier to level 1 compliance.</p>
+      <h3 id="drop-profile-link-header-to-optional">
+        
+        
+          Drop Profile Link Header to Optional <a href="#drop-profile-link-header-to-optional">#</a>
+        
+        
+      </h3>
+    
+
+<p>After much discussion, the profile link header for indicating the basic profile of an image resource was dropped to optional.  This was because clients typically cannot intercept link headers on resources without using AJAX, and if you were going to test for the profile by doing a HEAD or GET on an image you could more easily construct the Image Information document’s URI and GET everything needed.</p>
+      <h3 id="add-mirroring-to-rotation-parameter">
+        
+        
+          Add mirroring to rotation parameter <a href="#add-mirroring-to-rotation-parameter">#</a>
+        
+        
+      </h3>
+    
+
+<p>The rotation value may now be preceded by an exclamation mark to specify mirroring about the vertical axis before rotation. The motivating use cases are display of negatives, reflection to support a carousel display, and support for reading bleed through text.</p>
+      <h3 id="added-services-property-to-image-information-document">
+        
+        
+          Added <code class="language-plaintext highlighter-rouge">services</code> property to Image Information document <a href="#added-services-property-to-image-information-document">#</a>
+        
+        
+      </h3>
+    
+
+<p>In order to provide the same extension point as is in the <a href="/iiif-api/api/presentation/2.0/">Presentation <abbr title="Application Programming Interface">API</abbr></a>, the <code class="language-plaintext highlighter-rouge">services</code> property was added to info.json.  The predominant use case is recording pixels per inch, via the same mechanism as providing the size of the physical object in the Presentation <abbr title="Application Programming Interface">API</abbr>.  The <a href="/iiif-api/api/annex/services/">Services Annex</a> specifies which services can be used with which APIs.</p>
+      <h3 id="added-sizes-property-to-image-information-document">
+        
+        
+          Added <code class="language-plaintext highlighter-rouge">sizes</code> property to Image Information document <a href="#added-sizes-property-to-image-information-document">#</a>
+        
+        
+      </h3>
+    
+
+<p>Servers that do not support arbitrary size parameters for image requests may still wish make multiple sizes of an image available. The sizes that are available may be listed using an array of <abbr title="JavaScript Object Notation">JSON</abbr> objects in the <code class="language-plaintext highlighter-rouge">sizes</code> property of the top level of the Image Information response.  The object has <code class="language-plaintext highlighter-rouge">height</code> and <code class="language-plaintext highlighter-rouge">width</code> properties.
+Even when a server does support arbitrary resizing, it may be useful to report pre-cached or otherwise recommended sizes of an image.</p>
+      <h3 id="published-json-ld-context">
+        
+        
+          Published <abbr title="JSON for Linking Data">JSON-LD</abbr> Context <a href="#published-json-ld-context">#</a>
+        
+        
+      </h3>
+    
+
+<p>The <a href="/iiif-api/api/image/2/context.json" title="Image API 2.0 JSON-LD Context">context document</a> for the <code class="language-plaintext highlighter-rouge">info.json</code> document was not published for version 1.1. It is now available.</p>
+      <h3 id="support-json-ld-content-typeaccept-header">
+        
+        
+          Support <abbr title="JSON for Linking Data">JSON-LD</abbr> Content-Type/Accept header <a href="#support-json-ld-content-typeaccept-header">#</a>
+        
+        
+      </h3>
+    
+
+<p>As transition to <abbr title="JSON for Linking Data">JSON-LD</abbr> (since it is not fully supported by browsers), clients that favor the “application/ld+json” media type in the accept header of their request may receive this as the Content-Type of the response. Also note that it is recommended that the server include the context URI in a Link header of the response if the request was for for “application/json”. See <a href="/iiif-api/api/image/2.0/#information-request" title="Image API Section 5. Information Request">Section 5</a> and the documents to which it links for further details.</p>
+      <h3 id="background-color-for-non-90-degree-rotations">
+        
+        
+          Background Color for non-90 degree Rotations <a href="#background-color-for-non-90-degree-rotations">#</a>
+        
+        
+      </h3>
+    
+
+<p>Clarified that clients should request image formats capable of transparent backgrounds when rotation is not a multiple of 90 degrees, and that servers should return transparent backgrounds for such images.  For formats that do not support transparent backgrounds, no requirements are specified.</p>
+      <h3 id="added-webp-to-formats">
+        
+        
+          Added WebP to Formats <a href="#added-webp-to-formats">#</a>
+        
+        
+      </h3>
+    
+
+<p>Added Google’s <a href="https://developers.google.com/speed/webp/">webp</a> to the list of supported image formats as optional.</p>
+      <h2 id="deferred-changes">
+        
+        
+          Deferred Changes <a href="#deferred-changes">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="add-rights-information">
+        
+        
+          Add Rights Information <a href="#add-rights-information">#</a>
+        
+        
+      </h3>
+    
+
+<p>A proposal was made to add rights level information from the <a href="/iiif-api/api/presentation/2.0/">Presentation <abbr title="Application Programming Interface">API</abbr></a> to the Image Information response for images to avoid requiring support for both APIs just to give a license or attribution statement for the image.  This change was deferred until the next version of the <abbr title="Application Programming Interface">API</abbr> to coincide with the introduction of Authentication and Authorization information, and to allow extra time to gather use cases and requirements.</p>
+      <h3 id="add-compression">
+        
+        
+          Add Compression <a href="#add-compression">#</a>
+        
+        
+      </h3>
+    
+
+<p>A recommendation was made to allow compression to be specified in the image URL in order to obtain a compressed representation of the image.  The motivation was bandwidth management, such as for mobile or rural areas where access is limited.  The change was deferred until the next version of the <abbr title="Application Programming Interface">API</abbr> to allow extra time to gather use cases and requirements, as no consensus was reached as to how this could be accomplished.  No proposal introduced a backwards incompatibility, and hence this feature can be introduced without a new major version.</p>
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

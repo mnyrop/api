@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    IIIF Design Patterns &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">IIIF Design Patterns</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#overview">1. Overview</a></li><li><a href="#design-patterns">2. Design Patterns</a><ul class="menu-list toc-submenu-2"><li><a href="#scope-design-through-shared-use-cases">2.1. Scope Design Through Shared Use Cases</a></li><li><a href="#select-solutions-that-are-as-simple-as-possible-and-no-simpler">2.2. Select Solutions That Are as Simple as Possible and No Simpler</a></li><li><a href="#intelligently-manage-ramping-up">2.3. Intelligently Manage Ramping Up</a></li><li><a href="#avoid-dependency-on-specific-technologies">2.4. Avoid Dependency on Specific Technologies</a></li><li><a href="#use-resource-oriented-design">2.5. Use Resource Oriented Design</a></li><li><a href="#dont-break-web-caches">2.6. Don’t Break Web Caches</a></li><li><a href="#follow-linked-data-principles">2.7. Follow Linked Data Principles</a></li><li><a href="#design-for-json-ld-first">2.8. Design for <abbr title="JSON for Linking Data">JSON-LD</abbr> First</a></li><li><a href="#use-existing-standards-where-possible">2.9. Use Existing Standards Where Possible</a></li><li><a href="#follow-existing-best-practices">2.10. Follow Existing Best Practices</a></li><li><a href="#separate-concerns-loosely-couple-apis">2.11. Separate Concerns, Loosely Couple APIs</a></li><li><a href="#define-success-not-failure">2.12. Define Success, Not Failure</a></li><li><a href="#design-for-worldwide-use">2.13. Design for Worldwide Use</a></li></ul></li><li><a href="#json-ld-design-patterns">3. <abbr title="JSON for Linking Data">JSON-LD</abbr> Design Patterns</a><ul class="menu-list toc-submenu-2"><li><a href="#use-native-data-types">3.1. Use Native Data Types</a></li><li><a href="#avoid-special-characters">3.2. Avoid Special Characters</a></li><li><a href="#use-consistent-naming-conventions">3.3. Use Consistent Naming Conventions</a></li><li><a href="#use-consistent-structural-conventions">3.4. Use Consistent Structural Conventions</a></li></ul></li><li><a href="#change-log">4. Change Log</a></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <h2 class="no_toc" id="status-of-this-document">
+        
+        
+          Status of this Document <a href="#status-of-this-document">#</a>
+        
+        
+      </h2>
+    
+
+<p>This document is not subject to <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs"><abbr title="International Image Interoperability Framework">IIIF</abbr>’s versioning semantics</a>. Changes will be tracked within the document and its <a href="#change-log" title="Change Log">internal change log</a></p>
+
+<p><strong>Authors:</strong></p>
+
+<ul>
+  <li>
+    <p><strong><a href="https://orcid.org/0000-0002-1266-298X">Michael Appleby</a></strong>, Yale University</p>
+  </li>
+  <li>
+    <p><strong><a href="https://orcid.org/0000-0003-1881-243X">Tom Crane</a></strong>, Digirati</p>
+  </li>
+  <li>
+    <p><strong><a href="https://orcid.org/0000-0003-4441-6852">Robert Sanderson</a></strong>, J. Paul Getty Trust</p>
+  </li>
+  <li>
+    <p><strong><a href="https://orcid.org/0000-0002-0367-1243">Jon Stroop</a></strong>, Princeton University Library</p>
+  </li>
+  <li>
+    <p><strong><a href="https://orcid.org/0000-0002-7970-7855">Simeon Warner</a></strong>, Cornell University</p>
+  </li>
+</ul>
+
+<p><em>Copyright © 2017-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
+      <h2 class="no_toc" id="contents">
+        
+        
+          Contents <a href="#contents">#</a>
+        
+        
+      </h2>
+    
+      <h2 id="overview">
+        
+        
+          1. Overview <a href="#overview">#</a>
+        
+        
+      </h2>
+    
+
+<p>This document aims to describe, rationalize, and document the design patterns that have evolved around the creation of the <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications to date. These patterns should be used as a guide for ongoing and future work in order to promote consistency across the growing number of <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications.</p>
+
+<p>The patterns do not speak to the process by which the specifications are written and managed over time.  For notes on the adopted approaches for these, please see:</p>
+
+<ul>
+  <li><a href="/community/policy/editorial/#community-process">Editorial Process</a>: The community process of discussion, and the editorial process of writing, the specifications.</li>
+  <li><a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">Semantic Versioning</a>: The interpretation of the semantic versioning pattern for managing change of APIs in a responsible and responsive manner.</li>
+</ul>
+      <h2 id="design-patterns">
+        
+        
+          2. Design Patterns <a href="#design-patterns">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="scope-design-through-shared-use-cases">
+        
+        
+          2.1. Scope Design Through Shared Use Cases <a href="#scope-design-through-shared-use-cases">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications are shaped by shared, documented, and well-understood use cases. Shared understanding promotes interoperability, and the specifications are more likely to be implemented if the results solve real, not speculative, problems. Assessment of use cases is a key factor in the process of determining which features should be included or prioritized.</p>
+
+<p>The intent of adopting this pattern is to keep the resulting specifications practical and to solve real problems.  Implementers will invest time in solutions that solve their problems, and not speculative or abstract ones.  If the use case is shared by multiple organizations, then there is a need for interoperability.</p>
+      <h3 id="select-solutions-that-are-as-simple-as-possible-and-no-simpler">
+        
+        
+          2.2. Select Solutions That Are as Simple as Possible and No Simpler <a href="#select-solutions-that-are-as-simple-as-possible-and-no-simpler">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications should be designed to reduce the complexity to the lowest possible point at which the use cases that feed them can be met.  They should make simple things easy and complex things possible.  They should allow implementers to build up from a minimum viable product in stages and incrementally enable more complex use cases.</p>
+
+<p>The intent of adopting this pattern is to ensure the adoption of the specifications is as high as possible. Simplicity is often a trade-off between parties, and must take into account the generation and publishing of the data on the server side, and the consumption and processing of the data on the client side.</p>
+      <h3 id="intelligently-manage-ramping-up">
+        
+        
+          2.3. Intelligently Manage Ramping Up <a href="#intelligently-manage-ramping-up">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications should allow basic implementation with static on-disk files, often called “level 0”, when possible. They should not require costly or complicated libraries or tooling to get started, nor computationally expensive runtime processing. A useful implementation should require only a way of hosting files that are accessible via a web server.</p>
+
+<p>The intent of adopting this pattern is to support simple and quick implementations as a way to encourage adoption.</p>
+      <h3 id="avoid-dependency-on-specific-technologies">
+        
+        
+          2.4. Avoid Dependency on Specific Technologies <a href="#avoid-dependency-on-specific-technologies">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications should avoid placing undue value on one technology or format over another, unless there is a clear benefit and the choice does not pose a significant barrier to entry.  While the APIs must make choices for the sake of interoperability, these choices must be weighed as to how closely tied they are to specific products or formats. For example, the JPEG format has extremely widespread adoption across multiple programming languages and environments. The JPEG2000 format, although technically superior, is not able to be rendered by most web browsers natively.  The first is an acceptable dependency, the second is not.</p>
+
+<p>The intent of adopting this pattern is to ensure that the specifications can be implemented in a variety of languages and styles.  It results from the combination of the previous two patterns.</p>
+      <h3 id="use-resource-oriented-design">
+        
+        
+          2.5. Use Resource Oriented Design <a href="#use-resource-oriented-design">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications follow resource-centric design patterns, for example by using <a href="https://en.wikipedia.org/wiki/Representational_state_transfer"><abbr title="Representational State Transfer">REST</abbr></a> interfaces rather than service or operation-centric design patterns. This carries on from the previous design patterns, and serves to provide a consistent and coherent pattern across many different functional areas.</p>
+
+<p>The intent of adopting this pattern is to ensure that the specifications are cacheable and performant, at the same time as being easy to understand and implement.</p>
+      <h3 id="dont-break-web-caches">
+        
+        
+          2.6. Don’t Break Web Caches <a href="#dont-break-web-caches">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications are designed to work seamlessly with modern web caching infrastructure.  The specifications will ensure that representations can be trivially cached by intermediate systems without loss of fidelity or function.</p>
+
+<p>The intent of adopting this pattern is ensure performance and simplicity of implementation, and results from the previous patterns.</p>
+      <h3 id="follow-linked-data-principles">
+        
+        
+          2.7. Follow Linked Data Principles <a href="#follow-linked-data-principles">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications conform to <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a>, and relevant <a href="https://www.w3.org/TR/webarch/">web architecture</a> standards as defined by the W3C and IETF. They should not require an <abbr title="Resource Description Framework">RDF</abbr> based development stack to implement, but it must be possible to implement using one.  It should be possible to transform the data present in a single document back and forth between triples and the <a href="https://www.w3.org/TR/json-ld/"><abbr title="JSON for Linking Data">JSON-LD</abbr></a> serialization without loss, but not necessarily without the use of custom code.</p>
+
+<p>The intent of adopting this pattern is to ensure that the data published via <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications can be part of the Web, not just on the Web. The semantics of the properties and classes used in the APIs are therefore self-documenting and able to be shared.</p>
+      <h3 id="design-for-json-ld-first">
+        
+        
+          2.8. Design for <abbr title="JSON for Linking Data">JSON-LD</abbr> First <a href="#design-for-json-ld-first">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications that involve the description of resources, rather than the transfer of bitstreams, are designed for <a href="https://www.w3.org/TR/json-ld/"><abbr title="JSON for Linking Data">JSON-LD</abbr></a> as the primary serialization. This is comprised of publishing and maintaining a <abbr title="JSON for Linking Data">JSON-LD</abbr> context document, and providing <abbr title="JSON for Linking Data">JSON-LD</abbr> Frames.</p>
+
+<p>The intent of adopting this pattern is to ensure that the representation of the Linked Data is as easy to use as possible without the need for a full <abbr title="Resource Description Framework">RDF</abbr> development suite.  Developers must be able to treat the representation as plain <abbr title="JavaScript Object Notation">JSON</abbr>, with a predictable structure.  This ease of understanding increases the likelihood of wide spread adoption.</p>
+
+<p>The design patterns for this <abbr title="JavaScript Object Notation">JSON</abbr> representation are detailed in the next section.</p>
+      <h3 id="use-existing-standards-where-possible">
+        
+        
+          2.9. Use Existing Standards Where Possible <a href="#use-existing-standards-where-possible">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications should be consistent with and use existing open standards when possible.  This is tempered by the need for ease of understanding, implementation and the timing of standards evolution and updates.</p>
+
+<p>The intent of adopting this pattern is to ensure the continued integration of <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications with the wider web environment, and existing implementations.</p>
+      <h3 id="follow-existing-best-practices">
+        
+        
+          2.10. Follow Existing Best Practices <a href="#follow-existing-best-practices">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications follow existing best practices for the standards that it adopts, including <a href="http://json-ld.org/spec/latest/json-ld-api-best-practices/"><abbr title="JSON for Linking Data">JSON-LD</abbr> best practices</a>, <a href="https://www.w3.org/TR/ld-bp/">Linked Open Data best practices</a>, and <a href="https://www.w3.org/TR/dwbp/">Data on the Web best practices</a>, where possible and appropriate.  Exceptions are made when the cost of following the best practice would prove to be a significant barrier to understanding or implementation, and hence adoption.</p>
+
+<p>The intent of adopting this pattern is to ensure the continued integration of <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications with the wider web environment. The design of <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications should be informed by existing and ongoing work, but evaluated as to the appropriateness of the application to the <abbr title="International Image Interoperability Framework">IIIF</abbr> context.</p>
+      <h3 id="separate-concerns-loosely-couple-apis">
+        
+        
+          2.11. Separate Concerns, Loosely Couple APIs <a href="#separate-concerns-loosely-couple-apis">#</a>
+        
+        
+      </h3>
+    
+
+<p>In the well established pattern of doing one thing well, <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications should address their own area of concern and be loosely coupled rather than tightly bound together.  This allows for independent implementation and tooling, and simplifies the process for deployment by adopters and <abbr title="Application Programming Interface">API</abbr> updates by the community.  For example, it is possible to implement the <a href="/iiif-api/api/image">Image <abbr title="Application Programming Interface">API</abbr></a> without the <a href="/iiif-api/api/presentation">Presentation <abbr title="Application Programming Interface">API</abbr></a> and vice versa.  A counter example is that the <a href="/iiif-api/api/search">Search <abbr title="Application Programming Interface">API</abbr></a> is necessarily more tightly linked to the Presentation <abbr title="Application Programming Interface">API</abbr>.</p>
+
+<p>The intent of adopting this pattern is to ensure that the on-ramp for adopters was as easy and multi-entrant as possible.  The Presentation <abbr title="Application Programming Interface">API</abbr> can be a starting point for any of the other APIs, the Image <abbr title="Application Programming Interface">API</abbr> can be a starting point for the Presentation or <a href="/iiif-api/api/auth">Authentication <abbr title="Application Programming Interface">API</abbr></a>s.  It also ensures the simplicity and scope of the APIs individually, as the complexity must be managed entirely within the <abbr title="Application Programming Interface">API</abbr>’s specification.</p>
+      <h3 id="define-success-not-failure">
+        
+        
+          2.12. Define Success, Not Failure <a href="#define-success-not-failure">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications define the functionality that can be expected to work and how to request it, and do not limit the interpretation of requests that are beyond the scope or current definition of the specification.  Any pattern outside of those defined by the APIs is able to be used by implementers, keeping in mind that future official <abbr title="Application Programming Interface">API</abbr> extensions might make it inconsistent.  For example, an implementation of the <a href="/iiif-api/api/image">Image <abbr title="Application Programming Interface">API</abbr></a> can legitimately recognize its own specific parameter values for <code class="language-plaintext highlighter-rouge">quality</code> or <code class="language-plaintext highlighter-rouge">size</code>, but it should not change the interpretation of parameter values that are specified.</p>
+
+<p>The intent of adopting this pattern is to enable experimentation by implementers, thereby encouraging the early adoption and validation of new (minor) versions.</p>
+      <h3 id="design-for-worldwide-use">
+        
+        
+          2.13. Design for Worldwide Use <a href="#design-for-worldwide-use">#</a>
+        
+        
+      </h3>
+    
+
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications encourage internationalization efforts by requiring that text values of properties indicate their language, to support and encourage use around the world. <abbr title="International Image Interoperability Framework">IIIF</abbr> assumes that text values of properties may have multiple values in multiple languages, rather than this being a special case.</p>
+      <h2 id="json-ld-design-patterns">
+        
+        
+          3. <abbr title="JSON for Linking Data">JSON-LD</abbr> Design Patterns <a href="#json-ld-design-patterns">#</a>
+        
+        
+      </h2>
+    
+
+<p>The representation of the information in <abbr title="JavaScript Object Notation">JSON</abbr> must be:</p>
+
+<ul>
+  <li>Valid <abbr title="JavaScript Object Notation">JSON</abbr> and <abbr title="JSON for Linking Data">JSON-LD</abbr>, following the restrictions of both specifications ;</li>
+  <li>Understandable by developers without special training or documentation ;</li>
+  <li>Usable in a variety of application environments to ensure the widest adoption.</li>
+</ul>
+
+<p>These design patterns have been selected in order to maximize these features in the resulting APIs. Note that these patterns are not enforced for externally defined <abbr title="JSON for Linking Data">JSON-LD</abbr> based systems which are then imported for use within the <abbr title="International Image Interoperability Framework">IIIF</abbr> context. For example, the use of <code class="language-plaintext highlighter-rouge">motivation</code> for Annotations exactly follows the requirements of the Web Annotation Data Model which allows for both a <abbr title="JavaScript Object Notation">JSON</abbr> array or a single string, and does not follow the pattern recommended by <a href="#json-ld-design-patterns">3.4.1</a> below.</p>
+      <h3 id="use-native-data-types">
+        
+        
+          3.1. Use Native Data Types <a href="#use-native-data-types">#</a>
+        
+        
+      </h3>
+    
+
+<p>Native data types in <abbr title="JavaScript Object Notation">JSON</abbr> are used to ensure that applications do not have to do type coercion. If the value should be an integer in the model, then the <abbr title="JavaScript Object Notation">JSON</abbr> representation is as a <abbr title="JavaScript Object Notation">JSON</abbr> number.  Similarly, if the value is an ordered list of resources, then a <abbr title="JavaScript Object Notation">JSON</abbr> array is used, mapping to an <code class="language-plaintext highlighter-rouge">rdf:List</code>.  Thus we use <code class="language-plaintext highlighter-rouge">"height": 1400</code> and not <code class="language-plaintext highlighter-rouge">"height": "1400"</code>.</p>
+      <h3 id="avoid-special-characters">
+        
+        
+          3.2. Avoid Special Characters <a href="#avoid-special-characters">#</a>
+        
+        
+      </h3>
+    
+
+<p>Special characters are avoided in the names of classes and properties. Any character other than those in the range 0-9, a-z, A-Z and the underscore character are removed in the mapping to <abbr title="JSON for Linking Data">JSON-LD</abbr>, if present in the name of a class or property. This is to ensure that applications developed in object oriented programming languages can treat these values as class and property names internally.</p>
+
+<p><abbr title="JSON for Linking Data">JSON-LD</abbr> defines two special keys in the data: <code class="language-plaintext highlighter-rouge">@id</code> (the URI of the resource) and <code class="language-plaintext highlighter-rouge">@type</code> (the class of the resource).  These are aliased to <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">type</code> respectively to avoid the use of the <code class="language-plaintext highlighter-rouge">@</code> symbol.</p>
+      <h3 id="use-consistent-naming-conventions">
+        
+        
+          3.3. Use Consistent Naming Conventions <a href="#use-consistent-naming-conventions">#</a>
+        
+        
+      </h3>
+    
+
+<p>Additional design patterns beyond the restricted range of characters are used to make the names of terms easier to remember and use.</p>
+      <h4 id="use-camelcase">
+        
+        
+          3.3.1. Use CamelCase <a href="#use-camelcase">#</a>
+        
+        
+      </h4>
+    
+
+<p>All terms defined by <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications use camelCase (concatenated words with uppercase letters at word boundaries).  Thus we use <code class="language-plaintext highlighter-rouge">seeAlso</code> and not <code class="language-plaintext highlighter-rouge">see_also</code>.</p>
+      <h4 id="distinguish-classes-and-properties">
+        
+        
+          3.3.2. Distinguish Classes and Properties <a href="#distinguish-classes-and-properties">#</a>
+        
+        
+      </h4>
+    
+
+<p>All properties start with a lowercase letter, and all classes start with an uppercase letter. Thus we use <code class="language-plaintext highlighter-rouge">Manifest</code> and <code class="language-plaintext highlighter-rouge">items</code>, and not <code class="language-plaintext highlighter-rouge">manifest</code> or <code class="language-plaintext highlighter-rouge">Items</code>.</p>
+      <h4 id="avoid-explicit-namespaces">
+        
+        
+          3.3.3. Avoid Explicit Namespaces <a href="#avoid-explicit-namespaces">#</a>
+        
+        
+      </h4>
+    
+
+<p>While <abbr title="JSON for Linking Data">JSON-LD</abbr> allows for namespaced terms (<code class="language-plaintext highlighter-rouge">oa:Annotation</code>), this would require the use of a <code class="language-plaintext highlighter-rouge">:</code> character in the class or property name, which is ruled out by the special characters design pattern.  Thus use <code class="language-plaintext highlighter-rouge">Manifest</code> and not <code class="language-plaintext highlighter-rouge">sc:Manifest</code>.</p>
+      <h3 id="use-consistent-structural-conventions">
+        
+        
+          3.4. Use Consistent Structural Conventions <a href="#use-consistent-structural-conventions">#</a>
+        
+        
+      </h3>
+    
+
+<p>Consistent data structures make code that consumes those structures easier to write. The code does not need to check for different variants, it’s either present in a single form, not present at all, or an error condition.</p>
+      <h4 id="always-use-arrays-for-multiple-value-properties">
+        
+        
+          3.4.1. Always Use Arrays for Multiple Value Properties <a href="#always-use-arrays-for-multiple-value-properties">#</a>
+        
+        
+      </h4>
+    
+
+<p>If a property can ever have multiple values, it will always be an array even if it has only one value. This means that code can always iterate over the values without checking first to see if it’s an array.  Thus we use <code class="language-plaintext highlighter-rouge">"language": [ "en" ]</code> and not <code class="language-plaintext highlighter-rouge">"language": "en"</code>.</p>
+      <h4 id="use-json-objects-for-referenced-resources">
+        
+        
+          3.4.2. Use <abbr title="JavaScript Object Notation">JSON</abbr> Objects for Referenced Resources <a href="#use-json-objects-for-referenced-resources">#</a>
+        
+        
+      </h4>
+    
+
+<p>If the set of referenced resources is not unbounded or otherwise impossible to enumerate, then the resource will be described with a <abbr title="JavaScript Object Notation">JSON</abbr> object that has at least the <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">type</code> properties. This ensures ease of processing as the resources will always be of the same type, rather than some being just the URI from <code class="language-plaintext highlighter-rouge">id</code> as a string and others being a <abbr title="JavaScript Object Notation">JSON</abbr> object. The inclusion of <code class="language-plaintext highlighter-rouge">type</code> makes it easier to build object models in code, as the class to instantiate is given by the description rather than needing to be inferred from the property.  Thus we use <code class="language-plaintext highlighter-rouge">"thumbnail": {"id": "https://example.org/images/logo.jpg", "type": "Image"}</code> and not <code class="language-plaintext highlighter-rouge">"thumbnail": "https://example.org/images/logo.jpg"</code>.</p>
+      <h4 id="use-strings-for-enumerated-flags">
+        
+        
+          3.4.3. Use Strings for Enumerated Flags <a href="#use-strings-for-enumerated-flags">#</a>
+        
+        
+      </h4>
+    
+
+<p>Flags in the <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications, such as <code class="language-plaintext highlighter-rouge">timeMode</code> or <code class="language-plaintext highlighter-rouge">behavior</code> are actually resources with URIs. If a URI could be treated as a value in an enumerated list such as these flags, then the URI is given as a string. All enumerations defined by <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications will be encoded in the respective <abbr title="JSON for Linking Data">JSON-LD</abbr> context as easy-to-remember-and-use strings.  Thus we use <code class="language-plaintext highlighter-rouge">"timeMode": "trim"</code> and not <code class="language-plaintext highlighter-rouge">"timeMode": "http://iiif.io/api/presentation/3#trim"</code>, nor <code class="language-plaintext highlighter-rouge">"timeMode": {"id": "http://iiif.io/api/presentation/3#trim"}</code>.</p>
+      <h2 id="change-log">
+        
+        
+          4. Change Log <a href="#change-log">#</a>
+        
+        
+      </h2>
+    
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2018-03-22</td>
+      <td>Added <abbr title="JSON for Linking Data">JSON-LD</abbr> Design Patterns</td>
+    </tr>
+    <tr>
+      <td>2017-03-15</td>
+      <td>First published version after community review</td>
+    </tr>
+    <tr>
+      <td>2017-02-06</td>
+      <td>Initial draft version</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

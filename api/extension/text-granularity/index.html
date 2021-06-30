@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    Text Granularity Extension &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">Text Granularity Extension</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#1-introduction">1. Introduction</a><ul class="menu-list toc-submenu-2"><li><a href="#11-objectives-and-scope">1.1 Objectives and Scope</a></li><li><a href="#12-motivating-use-cases">1.2 Motivating Use Cases</a></li></ul></li><li><a href="#2-text-granularity-levels-and-the-textgranularity-property">2. Text Granularity Levels and the <code class="language-plaintext highlighter-rouge">textGranularity</code> Property</a></li><li><a href="#3-use-of-the-textgranularity-property-with-annotations">3. Use of the <code class="language-plaintext highlighter-rouge">textGranularity</code> Property with Annotations</a></li><li><a href="#4-linked-data-context">4. Linked Data Context</a></li><li><a href="#5-implementation-note">5. Implementation Note</a></li><li><a href="#appendices">Appendices</a><ul class="menu-list toc-submenu-2"><li><a href="#acknowledgements">A. Acknowledgements</a></li><li><a href="#change-log">B. Change Log</a></li></ul></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <h2 class="no_toc" id="status-of-this-document">
+        
+        
+          Status of this Document <a href="#status-of-this-document">#</a>
+        
+        
+      </h2>
+    
+
+<p>This document is not subject to <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">semantic versioning</a>.
+Changes will be tracked within the document.</p>
+
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p>
+      <h2 id="1-introduction">
+        
+        
+          1. Introduction <a href="#1-introduction">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="11-objectives-and-scope">
+        
+        
+          1.1 Objectives and Scope <a href="#11-objectives-and-scope">#</a>
+        
+        
+      </h3>
+    
+
+<p>One use of annotations in <abbr title="International Image Interoperability Framework">IIIF</abbr> is to associate text with <abbr title="International Image Interoperability Framework">IIIF</abbr> resources, with the text originating from many potential sources, including optical character recognition (OCR) software, manual transcription, and existing digitized text. Furthermore, it is a common practice to produce sets of annotations at a particular level of ‘text granularity’, where each annotation in the set references the same unit of text, such as a character, line, or page. This extension recommends a pattern for indicating the level of text granularity for an annotation.</p>
+      <h3 id="12-motivating-use-cases">
+        
+        
+          1.2 Motivating Use Cases <a href="#12-motivating-use-cases">#</a>
+        
+        
+      </h3>
+    
+
+<p>A number of common workflows can result in annotation sets with discrete levels of text granularity:</p>
+
+<ul>
+  <li>OCR text is frequently available at a range of granularities, from page to character.</li>
+  <li>Manual transcription user interfaces may constrain user input to the level of the line,
+block, or page.</li>
+  <li>Transcriptions may be produced without coordinate data and thus have a very coarse level of granularity, such as page- or block-level.</li>
+</ul>
+
+<p>Identification of the level of text granularity in published annotations can facilitate the use of their textual content and target regions in other applications.  A primary use case is search: clients can use word-level transcription annotations to provide a search function capable of accurate hit highlighting.  Other common use cases derive from crowdsourced text input, such as the correction of OCR transcription, which may require the user to work with a text at a specific level of granularity.</p>
+      <h2 id="2-text-granularity-levels-and-the-textgranularity-property">
+        
+        
+          2. Text Granularity Levels and the <code class="language-plaintext highlighter-rouge">textGranularity</code> Property <a href="#2-text-granularity-levels-and-the-textgranularity-property">#</a>
+        
+        
+      </h2>
+    
+
+<p>The <code class="language-plaintext highlighter-rouge">textGranularity</code> property identifies the Text Granularity Level of a resource. The value <em class="rfc">must</em> be a single string. This extension defines the Text Granularity Levels found in the table below. The string <em class="rfc">should</em> be one of those defined in the table below or in the <a href="/iiif-api/api/extension/">Registry of Extensions</a>.</p>
+
+<table class="api-table" id="table-granularity-level-dfn">
+  <thead>
+    <tr>
+      <th>Text Granularity Level</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">page</code></td>
+      <td>A page in a paginated document</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">block</code></td>
+      <td>An arbitrary region of text</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">paragraph</code></td>
+      <td>A paragraph</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">line</code></td>
+      <td>A topographic line</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">word</code></td>
+      <td>A single word</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">glyph</code></td>
+      <td>A single glyph or symbol</td>
+    </tr>
+  </tbody>
+</table>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nl">"textGranularity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"line"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+      <h2 id="3-use-of-the-textgranularity-property-with-annotations">
+        
+        
+          3. Use of the <code class="language-plaintext highlighter-rouge">textGranularity</code> Property with Annotations <a href="#3-use-of-the-textgranularity-property-with-annotations">#</a>
+        
+        
+      </h2>
+    
+
+<p>An Annotation <em class="rfc">may</em> have the <code class="language-plaintext highlighter-rouge">textGranularity</code> property. An Annotation that has the property <em class="rfc">should</em> reference a <abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr> Canvas or segment in the <code class="language-plaintext highlighter-rouge">target</code> property and the identified Text Granularity Level <em class="rfc">should</em> describe that of the textual content represented by the content resources painted on the Target.</p>
+
+<p>The Annotation Body’s textual content <em class="rfc">should</em> be equivalent to the textual content represented by the content resources painted on the Target. For example, the Body of the Annotation might be a <a href="https://www.w3.org/TR/annotation-model/#embedded-textual-body">TextualBody</a> that contains the transcription of the Target, which is painted with the image of a page of a medieval manuscript.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/iiif/aeneid/book1/transcription-line1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Annotation"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"textGranularity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"line"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"motivation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"supplementing"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TextualBody"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"la"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"arma virumque cano, Troiae qui primus ab oris"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SpecificResource"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/aeneid/canvas/1r"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"selector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FragmentSelector"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xywh=500,1100,3500,100"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>Alternatively, the body might be an <a href="https://www.w3.org/TR/annotation-model/#external-web-resources">external web resource</a>.  For example, the Body could use an XPath selector to identify the transcription of a paragraph of text within an <abbr title="eXtensible Markup Language">XML</abbr> document.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/iiif/aeneid/book1/transcription-line2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Annotation"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"textGranularity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"line"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"motivation"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"supplementing"</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SpecificResource"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/aeneid-tei.xml"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"selector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"XPathSelector"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/TEI.2/text/body/div1/l[2]"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SpecificResource"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"source"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/aeneid/canvas/1r"</span><span class="p">,</span><span class="w">
+     </span><span class="nl">"selector"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FragmentSelector"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xywh=500,1100,3500,100"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>An exact alignment in the level of granularity between the Body and Target may be impractical. For example, a single manuscript paragraph in the targeted Canvas may be divided across multiple paragraphs in a transcription derived from a printed version of the work, or a single character may be transcribed by multiple characters in an alternative script.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">motivation</code> value of the associated Annotation <em class="rfc">must</em> have the value <code class="language-plaintext highlighter-rouge">supplementing</code> when the content of the annotation is derived from the Canvas.  This is a requirement of the <a href="/iiif-api/api/presentation/3.0/#53-canvas">Presentation <abbr title="Application Programming Interface">API</abbr></a>.</p>
+      <h2 id="4-linked-data-context">
+        
+        
+          4. Linked Data Context <a href="#4-linked-data-context">#</a>
+        
+        
+      </h2>
+    
+
+<p>The URI of the <abbr title="JSON for Linking Data">JSON-LD</abbr> context for this extension is <code class="language-plaintext highlighter-rouge">http://iiif.io/api/extension/text-granularity/context.json</code>.  Consult the <a href="/iiif-api/api/presentation/3.0/#46-linked-data-context-and-extensions" title="Linked Data Context and Extensions">Linked Data Context and Extensions</a> section of the Presentation <abbr title="Application Programming Interface">API</abbr> for further guidance on its use within the <code class="language-plaintext highlighter-rouge">@context</code> property.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+     </span><span class="s2">"http://iiif.io/api/extension/text-granularity/context.json"</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"http://iiif.io/api/presentation/3/context.json"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+      <h2 id="5-implementation-note">
+        
+        
+          5. Implementation Note <a href="#5-implementation-note">#</a>
+        
+        
+      </h2>
+    
+
+<p>The Text Granularity Levels defined above were derived from a survey of commonly used formats for OCR output such as hOCR, ALTO, and ABBYY, as well the output produced by the Google Cloud Vision <abbr title="Application Programming Interface">API</abbr>. The following table maps Text Granularity Levels to structures found in these output formats and is intended as an aid to implementers.</p>
+
+<table class="api-table" id="table-ocr-granularity-map">
+  <thead>
+    <tr>
+      <th>Level</th>
+      <th>hOCR</th>
+      <th>ALTO</th>
+      <th>ABBYY</th>
+      <th>Google</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">page</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ocr_page</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Page</code></td>
+      <td><code class="language-plaintext highlighter-rouge">page</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Page</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">block</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ocrx_block</code><br /><code class="language-plaintext highlighter-rouge">div[@class=”ocr_carea”]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TextBlock</code><br /><code class="language-plaintext highlighter-rouge">ComposedBlock</code></td>
+      <td><code class="language-plaintext highlighter-rouge">block[@blockType="Text"]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Block</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">paragraph</code></td>
+      <td><code class="language-plaintext highlighter-rouge">p[@class=”ocr_carea”]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TextBlock</code></td>
+      <td><code class="language-plaintext highlighter-rouge">par</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Paragraph</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">line</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ocr_line</code><br /><code class="language-plaintext highlighter-rouge">ocrx_line</code></td>
+      <td><code class="language-plaintext highlighter-rouge">TextLine</code></td>
+      <td><code class="language-plaintext highlighter-rouge">line</code></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">word</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ocrx_word</code></td>
+      <td><code class="language-plaintext highlighter-rouge">String</code></td>
+      <td><code class="language-plaintext highlighter-rouge">charParams[@wordStart=”1”]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Word</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">glyph</code></td>
+      <td><code class="language-plaintext highlighter-rouge">ocrx_word[@cuts]</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Glyph</code></td>
+      <td><code class="language-plaintext highlighter-rouge">charParams</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Symbol</code></td>
+    </tr>
+  </tbody>
+</table>
+      <h2 id="appendices">
+        
+        
+          Appendices <a href="#appendices">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="acknowledgements">
+        
+        
+          A. Acknowledgements <a href="#acknowledgements">#</a>
+        
+        
+      </h3>
+    
+
+<p>Many thanks to the members of the <a href="/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr> community</a> for their continuous engagement, innovative ideas, and feedback.  The initial version of this document was the work of the <a href="/iiif-api/community/groups/text-granularity/"><abbr title="International Image Interoperability Framework">IIIF</abbr> Text Granularity Technical Specification Group</a>.</p>
+      <h3 id="change-log">
+        
+        
+          B. Change Log <a href="#change-log">#</a>
+        
+        
+      </h3>
+    
+
+<table class="api-table" id="table-changelog">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2018-09-20</td>
+      <td>Initial commit</td>
+    </tr>
+    <tr>
+      <td>2019-11-03</td>
+      <td>Minor pre-publication revisions</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Keep two spaces at the top of this file -->
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    Apache HTTP Server Implementation Notes &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">Apache HTTP Server Implementation Notes</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#allow-encoded-slashes">Allow Encoded Slashes</a></li><li><a href="#enabling-cors">Enabling <abbr title="Cross-Origin Resource Sharing">CORS</abbr></a></li><li><a href="#set-compliance-link-header">Set Compliance Link Header</a></li><li><a href="#conditional-content-types">Conditional Content Types</a></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <h2 id="allow-encoded-slashes">
+        
+        
+          Allow Encoded Slashes <a href="#allow-encoded-slashes">#</a>
+        
+        
+      </h2>
+    
+
+<p>As <a href="/iiif-api/api/image/2.0#uri-encoding-and-decoding" title="Image API: URI Encoding and Decoding">specified in the Image <abbr title="Application Programming Interface">API</abbr></a>, slashes (“<code class="language-plaintext highlighter-rouge">/</code>”, “<code class="language-plaintext highlighter-rouge">\</code>”) in the identifer portion of the base uri MUST be encoded. This may cause problems with some <abbr title="Hypertext Transfer Protocol">HTTP</abbr> servers. Apache servers from version 2.2.18 support the <code class="language-plaintext highlighter-rouge">AllowEncodedSlashes NoDecode</code> <a href="http://httpd.apache.org/docs/2.2/mod/core.html#allowencodedslashes" title="Allow Encoded Slashes directive">configuration directive</a> which will correctly pass these characters to client applications without rejecting or decoding them.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<pre class="urltemplate"><code class="language-apacheconf">AllowEncodedSlashes On
+</code></pre>
+
+<p>Servers using older versions of Apache and local identifiers which include these characters will need to use a workaround such as internally translating or escaping slash and backslash to safe value (perhaps by double URI-encoding them).</p>
+      <h2 id="enabling-cors">
+        
+        
+          Enabling <abbr title="Cross-Origin Resource Sharing">CORS</abbr> <a href="#enabling-cors">#</a>
+        
+        
+      </h2>
+    
+
+<p>Both specifications prefer to have cross-origin resource sharing enabled. This may be enabled with the following configuration snippet:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<pre class="urltemplate"><code class="language-apacheconf">LoadModule headers_module modules/mod_headers.so
+Header set Access-Control-Allow-Origin "*"
+</code></pre>
+      <h2 id="set-compliance-link-header">
+        
+        
+          Set Compliance Link Header <a href="#set-compliance-link-header">#</a>
+        
+        
+      </h2>
+    
+
+<p>The Image <abbr title="Application Programming Interface">API</abbr> states that a server <a href="/iiif-api/api/image/2.0#compliance-levels" title="Image API: Compliance Levels">may indicate its compliance level in a link header</a>. This can be done as follows:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<pre class="urltemplate"><code class="language-apacheconf">Header set Link '&lt;http://iiif.io/api/image/2/level1.json&gt;;rel="profile"'
+</code></pre>
+      <h2 id="conditional-content-types">
+        
+        
+          Conditional Content Types <a href="#conditional-content-types">#</a>
+        
+        
+      </h2>
+    
+
+<p>Both the <a href="/iiif-api/api/image/2.0/">Image</a> and <a href="/iiif-api/api/presentation/2.0/">Presentation</a> APIs state that clients may request <abbr title="JSON for Linking Data">JSON-LD</abbr>, as opposed to plain <abbr title="JavaScript Object Notation">JSON</abbr>.</p>
+
+<p>In the Image <abbr title="Application Programming Interface">API</abbr>, this may be enabled with the following configuration snippet (note that this assumes the compliance level Link header has been set <a href="#set-compliance-link-header">as above</a>):</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<pre class="urltemplate"><code class="language-apacheconf">&lt;FilesMatch "\.json"&gt;
+    SetEnvIf Accept "application/ld\+json" WANTS_jsonld
+    Header set Content-Type "application/ld+json" env=WANTS_jsonld
+    Header append Link '&lt;http://iiif.io/api/image/2/context.json&gt;;rel="http://www.w3.org/ns/json-ld#context";type="application/ld+json"' env=!WANTS_jsonld
+&lt;/FilesMatch&gt;
+</code></pre>
+
+<p>The above configuration snippet may also be used for Presentation <abbr title="Application Programming Interface">API</abbr> implementations that have URIs ending in <code class="language-plaintext highlighter-rouge">.json</code>, but the line starting <code class="language-plaintext highlighter-rouge">Header append Link</code> should be deleted and it will not work for the recommended URI pattern. The following snippet will work for the recommended patterns:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<pre class="urltemplate"><code class="language-apacheconf">&lt;LocationMatch "^/prefix/(collection/.*|.*/manifest|.*/(sequence|canvas|annotation|list|range|layer)/.*)$"&gt;
+    SetEnvIf Accept "application/ld\+json" WANTS_jsonld
+    Header set Content-Type "application/json"
+    Header set Content-Type "application/ld+json" env=WANTS_jsonld
+&lt;/LocationMatch&gt;
+</code></pre>
+
+<p>Note that for version 3.0 of the <a href="/iiif-api/api/presentation/3.0/" title="Image API 3.0">Presentation</a> and <a href="/iiif-api/api/image/3.0/" title="Image API 3.0">Image</a> APIs, these media types should also have the appropriate <code class="language-plaintext highlighter-rouge">profile</code> parameter as part of the <code class="language-plaintext highlighter-rouge">Content-Type</code> value.</p>
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

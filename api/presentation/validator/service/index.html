@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    Presentation API Validator &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">Presentation API Validator</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      <div class="sub-pages-container">
+  <div class="index.html clearfix">
+    <article>
+      <header>
+  <div class="wrapper">
+    <h1>Presentation API Validator</h1>
+  </div>
+</header>
+
+      <section class="wrapper">
+
+<div>
+This service will validate a IIIF Presentation API resource against the specification.  Fill in the URL of your manifest, and it will try to parse it and issue errors for failed requirements, and warnings for recommendations that haven't been followed.
+</div>
+
+
+<div style="border: 1px solid black;margin-left: 10px; margin-top: 20px; padding: 10px">
+<form id='manifest-validation-form' method="GET" action="/iiif-api/api/presentation/validator/service/validate">
+
+                URL of Manifest to Validate:<br/>
+                <input style="margin-left: 25px" type="text" name="url" size="80"><br/>
+
+                Select Presentation API Version:
+                <select name="version">
+                  <option value="3.0">3.0</option>
+                  <option value="2.1" selected>2.1</option>
+                  <option value="2.0">2.0</option>
+                  <option value="1.0">1.0</option>
+                </select>
+                <br/>
+
+                <input type="submit" value="Go!" id="submit-url">
+              </form>
+
+</div>
+<div id='results' style="display: none;" >
+              <h3>Validation Results:</h3>
+              <hr/>
+              <div id='results-content'></div>
+            </div>
+
+
+
+<br/>
+<hr/>
+
+<div style="margin-top:20px">
+<b>Technical Note</b>
+<p>
+If you would like to use the validator programatically, there are two options:
+</p>
+<ul>
+	<li><a href="http://github.com/IIIF/metadata-api/">Download</a> the code from github and run it locally.</li>
+	<li>Use it online with JSON based output, by an HTTP GET to this endpoint:<br/>http://iiif.io/api/presentation/validator/service/validate?format=json&amp;version=2.0&amp;url=<i>manifest-url-here</i></li>
+</ul>
+</div>
+    <!-- AJAX code for form submission -->
+    <script>
+
+      // Call out to the validation service and get a result
+      function handleSubmission(e) {
+        e.preventDefault();
+        var data = {
+          url: $("input[name='url']").val(),
+          version: $("select[name='version']").val()
+        }
+        $('#results-content').html('Processing ' + data.version + " validation...");
+        $('#results').show();
+        var url = $('#manifest-validation-form').attr("action");
+        $.getJSON(url,data,handleValidationResponse);
+      }
+
+      // Handle validation service response, render response block
+      function handleValidationResponse(data) {
+        str  = '<div style="margin-left: 20px">'
+        str += '<div>URL Tested: '+ data.url + '</div><br/>'
+        if (data.okay) {
+          str += '<div><h2 style="color:green">Validated successfully</h2></div>'
+        }  else {
+            if (data.errorList) {
+                for (var i = 0; i < data.errorList.length; i++) {
+                    var error = data.errorList[i];
+                    str+='<div>';
+                    str+='<h2 style="color:red">' + error.title + '</h2>';
+                    str+='<p><ul>';
+                    str+='<li><b>Detail: </b> ' + error.detail + '</li>';
+                    str+='<li><b>Path: </b>' + error.path + '</li>';
+                    str+='<li><b>Description: </b>' + error.description + '</li>';
+                    str+='</li></p>';
+                    str+='<pre>';
+                    str+= JSON.stringify(error.context);
+                    str+='</pre>';
+                    str+='</div>';
+                }
+            } else {
+                str += '<div><h2 style="color:red">Validation Error: '+data.error+'</h2></div>'
+            }    
+        }
+        if (data.warnings.length){
+          str += '<div style="margin-top: 20px">Warnings:<ul>';
+          for(var i =0; i < data.warnings.length; i++) {
+            str+= '<li>'+data.warnings[i]+'</li>';
+          }
+          str += '</ul></div>';
+        }
+       str += '</div>';
+
+       $('#results-content').html(str);
+       $('#results').show();
+      }
+
+      // Set up event handler.
+      $('#submit-url').on("click", handleSubmission);
+    </script>
+
+
+</section>
+
+    </article>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

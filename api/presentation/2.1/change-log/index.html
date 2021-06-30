@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    Presentation API 2.1 Change Log &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">Presentation API 2.1 Change Log</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#1-non-breaking-changes">1. Non-Breaking Changes</a><ul class="menu-list toc-submenu-2"><li><a href="#11-specify-language-selection-algorithm">1.1. Specify language selection algorithm</a></li><li><a href="#12-specify-property-cardinalities">1.2. Specify property cardinalities</a></li><li><a href="#13-add-paging-capabilities-for-collection-and-annotationlist">1.3. Add paging capabilities for Collection and AnnotationList</a></li><li><a href="#14-allow-single-ordered-list-for-collection-and-range">1.4. Allow single ordered list for Collection and Range</a></li><li><a href="#15-link-to-alternate-representations-of-resources">1.5. Link to alternate representations of Resources</a></li><li><a href="#16-allow-date-based-user-interfaces-for-navigation">1.6. Allow date-based user interfaces for navigation</a></li><li><a href="#17-link-from-range-to-layer-that-contains-the-content">1.7. Link from Range to Layer that contains the content</a></li><li><a href="#18-annotations-of-non-canvas-resources">1.8. Annotations of non-Canvas Resources</a></li><li><a href="#19-hotspot-annotations">1.9. Hotspot Annotations</a></li><li><a href="#110-facing-pages-viewing-hint">1.10. Facing Pages Viewing Hint</a></li><li><a href="#111-multi-part-collections-viewing-hint">1.11. Multi-Part Collections Viewing Hint</a></li><li><a href="#112-usage-of-continuous-viewing-hint">1.12. Usage of “continuous” Viewing Hint</a></li><li><a href="#113-reference-authentication-api">1.13. Reference Authentication <abbr title="Application Programming Interface">API</abbr></a></li><li><a href="#114-modifications-to-json-ld-context-and-rdf-ontology">1.14. Modifications to <abbr title="JSON for Linking Data">JSON-LD</abbr> Context and <abbr title="Resource Description Framework">RDF</abbr> Ontology</a></li><li><a href="#115-identity-management">1.15. Identity management</a></li></ul></li><li><a href="#2-significant-editorial-changes">2. Significant Editorial Changes</a><ul class="menu-list toc-submenu-2"><li><a href="#21-restructure-of-the-document">2.1. Restructure of the document</a></li><li><a href="#22-edits-for-clarity">2.2. Edits for clarity</a></li></ul></li><li><a href="#deferred-proposals">3. Deferred Proposals</a><ul class="menu-list toc-submenu-2"><li><a href="#31-zones">3.1. Zones</a></li><li><a href="#32-specification-alignment">3.2. Specification Alignment</a></li><li><a href="#33-annotationlist-hints">3.3 AnnotationList hints</a></li></ul></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <p>This document is a companion to the <a href="/iiif-api/api/presentation/2.1/" title="Presentation API 2.1"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr> Specification, Version 2.1</a>. It describes the significant changes to the <abbr title="Application Programming Interface">API</abbr> since <a href="/iiif-api/api/presentation/2.0/" title="Presentation API 2.0">Version 2.0</a> as well as editorial changes. The changes are all backwards compatible. A third section, <a href="#deferred-proposals" title="Presentation API 2.1 Deferred Proposals">Deferred Proposals</a>, lists proposals that have been discussed but did not make it into this version of the specification.</p>
+      <h2 id="1-non-breaking-changes">
+        
+        
+          1. Non-Breaking Changes <a href="#1-non-breaking-changes">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="11-specify-language-selection-algorithm">
+        
+        
+          1.1. Specify language selection algorithm <a href="#11-specify-language-selection-algorithm">#</a>
+        
+        
+      </h3>
+    
+
+<p>It was unclear what a client was required to do when it encountered multiple values associated with a single property, when some values had a language associated with them and some did not. This is particularly problematic for <code class="language-plaintext highlighter-rouge">label</code> and <code class="language-plaintext highlighter-rouge">attribution</code> as the client is required to render them. The Presentation <abbr title="Application Programming Interface">API</abbr> now specifies an <a href="/iiif-api/api/presentation/2.1/#language-of-property-values">algorithm</a> for how to handle this. See issues <a href="https://github.com/IIIF/iiif.io/issues/759">#759</a>, <a href="https://github.com/IIIF/iiif.io/issues/777">#777</a></p>
+      <h3 id="12-specify-property-cardinalities">
+        
+        
+          1.2. Specify property cardinalities <a href="#12-specify-property-cardinalities">#</a>
+        
+        
+      </h3>
+    
+
+<p>It was unclear as to which properties could be repeated, under which circumstances. The property <a href="/iiif-api/api/presentation/2.1/#resource-properties">descriptions and definitions</a> now specify for each resource type the number of times that they must or may appear. See issue <a href="https://github.com/IIIF/iiif.io/issues/468">#468</a></p>
+      <h3 id="13-add-paging-capabilities-for-collection-and-annotationlist">
+        
+        
+          1.3. Add paging capabilities for Collection and AnnotationList <a href="#13-add-paging-capabilities-for-collection-and-annotationlist">#</a>
+        
+        
+      </h3>
+    
+
+<p>With the introduction of the <a href="/iiif-api/api/search/1.0/">Search <abbr title="Application Programming Interface">API</abbr></a>, and the creation of very large collections and annotation lists, it became necessary to introduce <a href="/iiif-api/api/presentation/2.1/#paging">paging</a> of the resource descriptions.  The solution adopted is from the <a href="https://www.w3.org/TR/activitystreams-core/#collections">ActivityStreams</a> work of the W3C, mapped into the <abbr title="International Image Interoperability Framework">IIIF</abbr> use cases and context. See issue <a href="https://github.com/IIIF/iiif.io/issues/598">#598</a></p>
+      <h3 id="14-allow-single-ordered-list-for-collection-and-range">
+        
+        
+          1.4. Allow single ordered list for Collection and Range <a href="#14-allow-single-ordered-list-for-collection-and-range">#</a>
+        
+        
+      </h3>
+    
+
+<p>There are situations in which it is important to have a single order for Collections and Manifests within a Collection, such as Manifests representing single volume works and Collections with the new “multi-part” viewingHint that represent multi-volume works in the same series.  The same can occur for Canvases and Ranges within a single Canvas.  The previous solution was to create a Collection or Range with a single Manifest or Canvas within it, respectively, however this is inefficient.  The addition of a new <a href="/iiif-api/api/presentation/2.1/#range">members</a> list allows for the resources to be included in a single order. See issues <a href="https://github.com/IIIF/iiif.io/issues/716">#716</a>, <a href="https://github.com/IIIF/iiif.io/issues/697">#697</a>, <a href="https://github.com/IIIF/iiif.io/issues/646">#646</a></p>
+      <h3 id="15-link-to-alternate-representations-of-resources">
+        
+        
+          1.5. Link to alternate representations of Resources <a href="#15-link-to-alternate-representations-of-resources">#</a>
+        
+        
+      </h3>
+    
+
+<p>A commonly requested link from resources in the <abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr> to other web resources was to link to alternate representations, such as a PDF of the object that the manifest describes.  This was enabled by adding the <a href="/iiif-api/api/presentation/2.1/#rendering">rendering</a> property, on any type of resource in the model. See issue <a href="https://github.com/IIIF/iiif.io/issues/458">#458</a></p>
+      <h3 id="16-allow-date-based-user-interfaces-for-navigation">
+        
+        
+          1.6. Allow date-based user interfaces for navigation <a href="#16-allow-date-based-user-interfaces-for-navigation">#</a>
+        
+        
+      </h3>
+    
+
+<p>For newspaper or other date based series, it is a common interface requirement to allow navigation by date, for example in a calendar or timeline.  The <a href="/iiif-api/api/presentation/2.1/#navdate">navDate</a> property was added to hold a typed date intended for this purpose. See issue <a href="https://github.com/IIIF/iiif.io/issues/442">#442</a></p>
+      <h3 id="17-link-from-range-to-layer-that-contains-the-content">
+        
+        
+          1.7. Link from Range to Layer that contains the content <a href="#17-link-from-range-to-layer-that-contains-the-content">#</a>
+        
+        
+      </h3>
+    
+
+<p>Also inspired by digital newspaper requirements, where an article might span multiple non-contiguous pages and have full text supplied by annotations, Ranges, such as those that identify the area of the article in the canvases, may now link to the Layer that contains the annotations representing the article’s text.  The <a href="/iiif-api/api/presentation/2.1/#contentlayer">contentLayer</a> relationship enables this use case.  See issue <a href="https://github.com/IIIF/iiif.io/issues/645">#645</a></p>
+      <h3 id="18-annotations-of-non-canvas-resources">
+        
+        
+          1.8. Annotations of non-Canvas Resources <a href="#18-annotations-of-non-canvas-resources">#</a>
+        
+        
+      </h3>
+    
+
+<p>In order to allow comments on Ranges (such as a comment about a newspaper article), Manifests (such as a comment about the work as a whole) and other resource types, AnnotationLists may be <a href="/iiif-api/api/presentation/2.1/#comment-annotations">referenced</a> from any resource, when the annotations in the list are comments.  This issue was deferred from version 2.0. See issue <a href="https://github.com/IIIF/iiif.io/issues/80">#80</a></p>
+      <h3 id="19-hotspot-annotations">
+        
+        
+          1.9. Hotspot Annotations <a href="#19-hotspot-annotations">#</a>
+        
+        
+      </h3>
+    
+
+<p>The ability to link from spatial areas of Canvases to either other resources within the manifest (such as a “jump to” link) or to external resources (such as a remote description of the content) was requested.  This feature was enabled through the use of the <a href="/iiif-api/api/presentation/2.1/#hotspot-linking">linking motivation</a> from the <a href="http://openannotation.org/spec/core/core.html#Motivations">Open Annotation</a> specification. See issue <a href="https://github.com/IIIF/iiif.io/issues/611">#611</a></p>
+      <h3 id="110-facing-pages-viewing-hint">
+        
+        
+          1.10. Facing Pages Viewing Hint <a href="#110-facing-pages-viewing-hint">#</a>
+        
+        
+      </h3>
+    
+
+<p>A <a href="/iiif-api/api/presentation/2.1/#viewinghint">“facing-pages” <code class="language-plaintext highlighter-rouge">viewingHint</code></a> value was added to indicate that a single canvas represents both sides of an open spread.  This is common in older digitization projects, books containing plates, and many contemporary Eastern digitization projects.  Without the addition of the hint, page turning viewer applications would try to “turn” the entire spread, and get out of sequence with left and right pages. See issue <a href="https://github.com/IIIF/iiif.io/issues/419">#419</a></p>
+      <h3 id="111-multi-part-collections-viewing-hint">
+        
+        
+          1.11. Multi-Part Collections Viewing Hint <a href="#111-multi-part-collections-viewing-hint">#</a>
+        
+        
+      </h3>
+    
+
+<p>A <a href="/iiif-api/api/presentation/2.1/#viewinghint">“multi-part” <code class="language-plaintext highlighter-rouge">viewingHint</code></a> value was added to distinguish when a collection contains manifests that are part of a logical whole, such as a multi-volume book set. See issue <a href="https://github.com/IIIF/iiif.io/issues/466">#466</a></p>
+      <h3 id="112-usage-of-continuous-viewing-hint">
+        
+        
+          1.12. Usage of “continuous” Viewing Hint <a href="#112-usage-of-continuous-viewing-hint">#</a>
+        
+        
+      </h3>
+    
+
+<p>The intended usage of the <a href="/iiif-api/api/presentation/2.1/#viewinghint">“continuous” <code class="language-plaintext highlighter-rouge">viewingHint</code></a> was clarified; technically this is a breaking change, but it was not possible to implement the original specification because the semantics were identical to those of the “individuals” <code class="language-plaintext highlighter-rouge">viewingHint</code>. See issue <a href="https://github.com/IIIF/iiif.io/issues/451">#451</a></p>
+      <h3 id="113-reference-authentication-api">
+        
+        
+          1.13. Reference Authentication <abbr title="Application Programming Interface">API</abbr> <a href="#113-reference-authentication-api">#</a>
+        
+        
+      </h3>
+    
+
+<p>The section on <a href="/iiif-api/api/presentation/2.1/#authentication">authentication</a> was rewritten to refer to the <a href="/iiif-api/api/auth/">Authentication <abbr title="Application Programming Interface">API</abbr> specification</a> which is nearly complete.</p>
+      <h3 id="114-modifications-to-json-ld-context-and-rdf-ontology">
+        
+        
+          1.14. Modifications to <abbr title="JSON for Linking Data">JSON-LD</abbr> Context and <abbr title="Resource Description Framework">RDF</abbr> Ontology <a href="#114-modifications-to-json-ld-context-and-rdf-ontology">#</a>
+        
+        
+      </h3>
+    
+
+<p>The above changes and several others were made to the <abbr title="JSON for Linking Data">JSON-LD</abbr> Context mapping of keys to <abbr title="Resource Description Framework">RDF</abbr> predicates, and the <abbr title="Resource Description Framework">RDF</abbr> ontology was updated in step. See issues <a href="https://github.com/IIIF/iiif.io/issues/636">#636</a>, <a href="https://github.com/IIIF/iiif.io/issues/666">#666</a></p>
+      <h3 id="115-identity-management">
+        
+        
+          1.15. Identity management <a href="#115-identity-management">#</a>
+        
+        
+      </h3>
+    
+
+<p>Requirements and recommendations around the use of URIs were added to promote best practices of linking and dereferencing resources. See issues: <a href="https://github.com/IIIF/iiif.io/issues/591">#591</a>, <a href="https://github.com/IIIF/iiif.io/issues/439">#439</a></p>
+      <h2 id="2-significant-editorial-changes">
+        
+        
+          2. Significant Editorial Changes <a href="#2-significant-editorial-changes">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="21-restructure-of-the-document">
+        
+        
+          2.1. Restructure of the document <a href="#21-restructure-of-the-document">#</a>
+        
+        
+      </h3>
+    
+
+<p>The document was thoroughly restructured, including moving the descriptions of the resource types into a single coherent section.  Further changes, including the removal of the annotation patterns to a separate document, are likely in the future.</p>
+      <h3 id="22-edits-for-clarity">
+        
+        
+          2.2. Edits for clarity <a href="#22-edits-for-clarity">#</a>
+        
+        
+      </h3>
+    
+
+<p>Many of the descriptions or definitions of the resource types and properties were edited for clarity, based on feedback and questions from the <abbr title="International Image Interoperability Framework">IIIF</abbr> Community.</p>
+      <h2 id="deferred-proposals">
+        
+        
+          3. Deferred Proposals <a href="#deferred-proposals">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="31-zones">
+        
+        
+          3.1. Zones <a href="#31-zones">#</a>
+        
+        
+      </h3>
+    
+
+<p><a href="/iiif-api/model/shared-canvas/1.0/#Zone">Zones</a> continue to be deferred, however it is anticipated that they will be added to cover audio/visual requirements in a future release. See issue <a href="https://github.com/IIIF/iiif.io/issues/42">#42</a></p>
+      <h3 id="32-specification-alignment">
+        
+        
+          3.2. Specification Alignment <a href="#32-specification-alignment">#</a>
+        
+        
+      </h3>
+    
+
+<p>Several issues have been deferred until the publication of the W3C’s technical recommendation based on Open Annotation.  See issues: <a href="https://github.com/IIIF/iiif.io/issues/368">#368</a>, <a href="https://github.com/IIIF/iiif.io/issues/456">456</a>, <a href="https://github.com/IIIF/iiif.io/issues/496">#496</a>, <a href="https://github.com/IIIF/iiif.io/issues/590">#590</a>, <a href="https://github.com/IIIF/iiif.io/issues/644">#644</a>, <a href="https://github.com/IIIF/iiif.io/issues/755">#755</a></p>
+      <h3 id="33-annotationlist-hints">
+        
+        
+          3.3 AnnotationList hints <a href="#33-annotationlist-hints">#</a>
+        
+        
+      </h3>
+    
+
+<p>Until there is more experience with the Search <abbr title="Application Programming Interface">API</abbr>, several additions for Annotation Lists have also been deferred. See <a href="https://github.com/IIIF/iiif.io/issues/758">#758</a>, <a href="https://github.com/IIIF/iiif.io/issues/754">#754</a></p>
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

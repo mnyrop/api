@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    Presentation API 2.0 Change Log &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">Presentation API 2.0 Change Log</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#breaking-changes">Breaking Changes</a><ul class="menu-list toc-submenu-2"><li><a href="#name-and-uris-changed">Name and URIs Changed</a></li><li><a href="#ranges-easier-to-implement">Ranges Easier to Implement</a></li><li><a href="#page-turning-requirements">Page-Turning Requirements</a></li><li><a href="#viewing-hints-as-uris">Viewing Hints as URIs</a></li><li><a href="#uri-requirements-and-recommendations">URI Requirements and Recommendations</a></li></ul></li><li><a href="#other-changes">Other Changes</a><ul class="menu-list toc-submenu-2"><li><a href="#collections">Collections</a></li><li><a href="#additional-fields">Additional Fields</a></li><li><a href="#services-clarified-and-extended">Services Clarified and Extended</a></li><li><a href="#server-side-image-rotation-option">Server-side Image Rotation Option</a></li><li><a href="#image-annotation-requirements-reduced">Image Annotation Requirements Reduced</a></li><li><a href="#start-canvas">Start Canvas</a></li><li><a href="#top-most-range">Top-most Range</a></li><li><a href="#use-of-html-clarified">Use of <abbr title="HyperText Markup Language">HTML</abbr> Clarified</a></li><li><a href="#restrictions-lifted">Restrictions Lifted</a></li><li><a href="#extra-canvas-coordinates">Extra-Canvas Coordinates</a></li><li><a href="#defined-layer-representation">Defined Layer Representation</a></li></ul></li><li><a href="#deferred-proposals">Deferred Proposals</a><ul class="menu-list toc-submenu-2"><li><a href="#zones">Zones</a></li><li><a href="#dynamic-annotation-list-services">Dynamic Annotation List Services</a></li><li><a href="#annotations-on-non-canvas-resources">Annotations on non-Canvas Resources</a></li><li><a href="#target-audience">Target Audience</a></li><li><a href="#compliance">Compliance</a></li><li><a href="#explicit-protocol">Explicit Protocol</a></li><li><a href="#minimummaximum-size-bounds-for-annotation-rendering">Minimum/Maximum Size Bounds for Annotation Rendering</a></li></ul></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <p>This document is a companion to the <a href="/iiif-api/api/presentation/2.0/" title="Presentation API 2.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr> Specification, Version 2.0</a>. It describes the significant changes to the <abbr title="Application Programming Interface">API</abbr> since <a href="/iiif-api/api/metadata/1.0/" title="Metadata API 1.0">Version 1.0</a>. The changes are broken into two groups: <a href="#breaking-changes" title="Presentation API 2.0 Breaking Changes">Breaking Changes</a>, i.e. those that are not backwards compatible from either a client or server perspective (or both); <a href="#other-changes" title="Presentation API 2.0 Other Changes">Other Changes</a>, i.e. those that are backwards compatible. A third section, <a href="#deferred-proposals" title="Presentation API 2.0 Deferred Proposals">Deferred Proposals</a>, lists proposals that have been discussed but did not make it into this version of the specification.</p>
+
+<p>In addition to changes in the <abbr title="Application Programming Interface">API</abbr>, the specification documents have been changed as follows:</p>
+
+<ul>
+  <li>The use of <a href="http://tools.ietf.org/html/rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels"><abbr title="Request for Comments">RFC</abbr> 2119 keywords</a> has been made more consistent.</li>
+  <li>Language has been adjusted to make the document less focused on paged, digitized objects.</li>
+  <li><a href="http://semver.org/" title="Semantic Versioning Specification">Semantic Versioning</a> will be used to enumerate releases.</li>
+</ul>
+      <h2 id="breaking-changes">
+        
+        
+          Breaking Changes <a href="#breaking-changes">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="name-and-uris-changed">
+        
+        
+          Name and URIs Changed <a href="#name-and-uris-changed">#</a>
+        
+        
+      </h3>
+    
+
+<p>The name for the <abbr title="Application Programming Interface">API</abbr> has been changed from “Metadata <abbr title="Application Programming Interface">API</abbr>” to “Presentation <abbr title="Application Programming Interface">API</abbr>” with version 2.0.  This was to avoid the implication that the description was semantic, bibliographic information which is not, and has never been, the intent.  This resulted in the documentation moving to a different place, along with all of the auxilliary technical files like <abbr title="JSON for Linking Data">JSON-LD</abbr> context and frames.</p>
+      <h3 id="ranges-easier-to-implement">
+        
+        
+          Ranges Easier to Implement <a href="#ranges-easier-to-implement">#</a>
+        
+        
+      </h3>
+    
+
+<p>Ranges were changed to follow the top-down pattern of a list of included ranges and canvases, rather than bottom-up where they would assert which parent range they were within.  This makes it significantly easier to implement, and follows the rest of the <abbr title="Application Programming Interface">API</abbr>’s patterns of listed containership.</p>
+      <h3 id="page-turning-requirements">
+        
+        
+          Page-Turning Requirements <a href="#page-turning-requirements">#</a>
+        
+        
+      </h3>
+    
+
+<p>In order to support different page turning modalities, additional requirements were added to manifests that claim to be <code class="language-plaintext highlighter-rouge">paged</code>.  Notably the first canvas is to be shown by itself, and then subsequent canvases can be assumed to be left/right pairs (depending on the <code class="language-plaintext highlighter-rouge">viewingDirection</code>). An additional value of <code class="language-plaintext highlighter-rouge">non-paged</code> was added to the <code class="language-plaintext highlighter-rouge">viewingHint</code> enumeration to assert that a particular Canvas is not part of the paging sequence.</p>
+      <h3 id="viewing-hints-as-uris">
+        
+        
+          Viewing Hints as URIs <a href="#viewing-hints-as-uris">#</a>
+        
+        
+      </h3>
+    
+
+<p>Following the features in the Image <abbr title="Application Programming Interface">API</abbr>, viewing hints are now URIs defined in the <abbr title="JSON for Linking Data">JSON-LD</abbr> context document.  The <abbr title="JavaScript Object Notation">JSON</abbr> representation is identical and hence this is a not a breaking change, however extensions must now use URIs not plain string literals.</p>
+      <h3 id="uri-requirements-and-recommendations">
+        
+        
+          URI Requirements and Recommendations <a href="#uri-requirements-and-recommendations">#</a>
+        
+        
+      </h3>
+    
+
+<p>The recommended URI patterns were changed to be more inline with the best practice of <a href="http://www.w3.org/Provider/Style/URI.html" title="Cool URIs">Cool URIs</a> and no longer have <code class="language-plaintext highlighter-rouge">.json</code> on the end.  This is not forbidden, and is still the easiest for the simplest server of just files on disk, but we should not recommend bad practice, no matter how easy.  Secondly, the recommendation for Canvas URIs being <abbr title="Hypertext Transfer Protocol">HTTP</abbr> was upgraded to a requirement, as we rely on media fragments, which are only defined in terms of <abbr title="Hypertext Transfer Protocol">HTTP</abbr> URIs.</p>
+      <h2 id="other-changes">
+        
+        
+          Other Changes <a href="#other-changes">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="collections">
+        
+        
+          Collections <a href="#collections">#</a>
+        
+        
+      </h3>
+    
+
+<p>Section 7.6 was added to describe collections of manifests, and sub-collections.  This allows discovery in a pragmatic and simple way, that is easy to understand and follows the same structure and approach as the rest of the Presentation <abbr title="Application Programming Interface">API</abbr>.  Collections may embed other collections, in the same way that Manifests embed Sequences, but may not embed Manifests.</p>
+      <h3 id="additional-fields">
+        
+        
+          Additional Fields <a href="#additional-fields">#</a>
+        
+        
+      </h3>
+    
+
+<p>Several new fields were added:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">logo</code></li>
+  <li><code class="language-plaintext highlighter-rouge">thumbnail</code> (recommended for Canvas, Manifest and Collection)</li>
+  <li><code class="language-plaintext highlighter-rouge">related</code> (although was used in practice in 1.0)</li>
+</ul>
+      <h3 id="services-clarified-and-extended">
+        
+        
+          Services Clarified and Extended <a href="#services-clarified-and-extended">#</a>
+        
+        
+      </h3>
+    
+
+<p>In order to manage requests for features that are not universally applicable, but still useful, the service construction that was previously under-specified has been extended to allow additional external specifications to be embedded or referenced.  Services are now listed in an annex document, and include the oft-discussed geo-tagging and physical dimensions features.</p>
+      <h3 id="server-side-image-rotation-option">
+        
+        
+          Server-side Image Rotation Option <a href="#server-side-image-rotation-option">#</a>
+        
+        
+      </h3>
+    
+
+<p>Added and described an Open Annotation Selector object that allows specifying the parameters for an Image <abbr title="Application Programming Interface">API</abbr> URI separately.  The original use case was server side rotation of a segment image, however all of the parameters could be useful in different situations.</p>
+      <h3 id="image-annotation-requirements-reduced">
+        
+        
+          Image Annotation Requirements Reduced <a href="#image-annotation-requirements-reduced">#</a>
+        
+        
+      </h3>
+    
+
+<p>In order to reduce unnecessary repetition of information, some of the requirements for Image Annotations were dropped, including the need for height, width and format.</p>
+      <h3 id="start-canvas">
+        
+        
+          Start Canvas <a href="#start-canvas">#</a>
+        
+        
+      </h3>
+    
+
+<p>A new relationship (<code class="language-plaintext highlighter-rouge">startCanvas</code>) was added to Sequences to allow specifying the URI of the canvas resource which should initially be displayed to the user.  This is to enable viewers to skip past non-content canvases such as empty fly-leaves, the table of contents, and so forth.</p>
+      <h3 id="top-most-range">
+        
+        
+          Top-most Range <a href="#top-most-range">#</a>
+        
+        
+      </h3>
+    
+
+<p>An additional value of <code class="language-plaintext highlighter-rouge">top</code> was added to the <code class="language-plaintext highlighter-rouge">viewingHint</code> value enumeration, to be used on a range which is the top-most level in a table of contents or other structure.</p>
+      <h3 id="use-of-html-clarified">
+        
+        
+          Use of <abbr title="HyperText Markup Language">HTML</abbr> Clarified <a href="#use-of-html-clarified">#</a>
+        
+        
+      </h3>
+    
+
+<p>The use of <abbr title="HyperText Markup Language">HTML</abbr> in the values of fields was permitted but inadequately specified in 1.0.  This version makes it much clearer and easier to determine the content of the value, and provides solid guidance as to which <abbr title="HyperText Markup Language">HTML</abbr> features are allowed.</p>
+      <h3 id="restrictions-lifted">
+        
+        
+          Restrictions Lifted <a href="#restrictions-lifted">#</a>
+        
+        
+      </h3>
+    
+
+<p>In 1.0 it was not possible to add most of the fields to content resources.  This was not for any good, or even known, reason and the restrictions were lifted.</p>
+      <h3 id="extra-canvas-coordinates">
+        
+        
+          Extra-Canvas Coordinates <a href="#extra-canvas-coordinates">#</a>
+        
+        
+      </h3>
+    
+
+<p>Clarified that any reference to a location outside of the dimensions of a Canvas is an error.</p>
+      <h3 id="defined-layer-representation">
+        
+        
+          Defined Layer Representation <a href="#defined-layer-representation">#</a>
+        
+        
+      </h3>
+    
+
+<p>The representation of a Layer was undefined, and hence implementers could not know what to return if its URI was dereferenced.  A structure was defined following the pattern of other container objects.</p>
+      <h2 id="deferred-proposals">
+        
+        
+          Deferred Proposals <a href="#deferred-proposals">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="zones">
+        
+        
+          Zones <a href="#zones">#</a>
+        
+        
+      </h3>
+    
+
+<p>The underlying Shared Canvas data model has an additional construction called a Zone.  At least one institution has implemented this construction and is unable to adopt the Presentation <abbr title="Application Programming Interface">API</abbr> until Zones are included.  At least one further institution recognizes that they have requirements that are solved by zones. The issue was deferred until 2.1 as the solution is not easy to implement, and can be overlaid without adding backwards incompatibility.</p>
+      <h3 id="dynamic-annotation-list-services">
+        
+        
+          Dynamic Annotation List Services <a href="#dynamic-annotation-list-services">#</a>
+        
+        
+      </h3>
+    
+
+<p>An outstanding issue is the ability to associate AnnotationLists with a canvas dynamically rather than through explicit references in the Manifest.  The requirements were decided to be not clearly enough defined at this stage.  The major use cases also involved Authentication and Authorization, which have been deferred as well.  With the change to services, it is expected that this request can be experimented with and either blessed as a service or promoted to a full feature in the future without backwards incompatibility.</p>
+      <h3 id="annotations-on-non-canvas-resources">
+        
+        
+          Annotations on non-Canvas Resources <a href="#annotations-on-non-canvas-resources">#</a>
+        
+        
+      </h3>
+    
+
+<p>Only canvases may list their annotations, and thus it is impossible to refer to annotations on the placeholder for the physical object (the manifest).  It is not impossible to annotate manifests, it is just that there isn’t a link from the manifest to its annotations.  Without a set of use cases to justify the addition of the feature, it was decided to defer this and experiment with services in the same manner as for Dynamic Annotation Lists.</p>
+      <h3 id="target-audience">
+        
+        
+          Target Audience <a href="#target-audience">#</a>
+        
+        
+      </h3>
+    
+
+<p>Particularly in the teaching and learning domain, it may be useful to specify the intended audience of resources.  For commentary annotations this is important, and not covered in the base Open Annotation specification.  It was decided to defer this until the Open Annotation community can determine a resolution to be adopted, but to promote use cases and existing solutions such as the IDPF use of schema.org’s Audience classes.  Also, it is backwards compatible and no clients are ready to use it yet.</p>
+      <h3 id="compliance">
+        
+        
+          Compliance <a href="#compliance">#</a>
+        
+        
+      </h3>
+    
+
+<p>The Image <abbr title="Application Programming Interface">API</abbr> has a very well formed set of compliance requirements.  The Presentation <abbr title="Application Programming Interface">API</abbr>, conversely, does not have any. This was not seen as a requirement that needed to be solved for 2.0, and was deferred for future work.</p>
+      <h3 id="explicit-protocol">
+        
+        
+          Explicit Protocol <a href="#explicit-protocol">#</a>
+        
+        
+      </h3>
+    
+
+<p>The Image <abbr title="Application Programming Interface">API</abbr> in 2.0 has a protocol field that makes the assertion that the <code class="language-plaintext highlighter-rouge">info.json</code> document is part of the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> protocol.  The Presentation <abbr title="Application Programming Interface">API</abbr> does not have this field.  There were no features or implementations identified that would make use of the field, and as it will be backwards compatible it was deferred until a requirement is expressed.</p>
+      <h3 id="minimummaximum-size-bounds-for-annotation-rendering">
+        
+        
+          Minimum/Maximum Size Bounds for Annotation Rendering <a href="#minimummaximum-size-bounds-for-annotation-rendering">#</a>
+        
+        
+      </h3>
+    
+
+<p>The content or commentary resources linked via annotations to a Canvas may be only useful to render at certain sizes, such as trying to render an image below 10 pixels width or text at less than 4 points.  While theoretically useful, no real world use cases have been presented that would justify its inclusion.  As a backwards compatible new feature, it was deferred until a requirement is expressed.</p>
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

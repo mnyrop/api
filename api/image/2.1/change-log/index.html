@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    Image API 2.1 Change Log &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">Image API 2.1 Change Log</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#non-breaking-changes">1. Non-breaking Changes</a><ul class="menu-list toc-submenu-2"><li><a href="#added-square-region">1.1. Added <code class="language-plaintext highlighter-rouge">square</code> Region</a></li><li><a href="#12-added-rights-and-licensing-properties">1.2. Added Rights and Licensing Properties</a></li><li><a href="#13-removed-recommendation-to-include-http-link-header-to-json-ld-context">1.3. Removed Recommendation to include <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Link Header to <abbr title="JSON for Linking Data">JSON-LD</abbr> Context</a></li><li><a href="#added-sizebyconfinedwh-and-sizebydistortedwh-feature-names">1.4. Added <code class="language-plaintext highlighter-rouge">sizeByConfinedWh</code> and <code class="language-plaintext highlighter-rouge">sizeByDistortedWh</code> Feature Names</a></li><li><a href="#15-added-maxwidth-maxheight-and-maxarea-properties">1.5. Added <code class="language-plaintext highlighter-rouge">maxWidth</code>, <code class="language-plaintext highlighter-rouge">maxHeight</code> and <code class="language-plaintext highlighter-rouge">maxArea</code> Properties</a></li><li><a href="#16-added-max-size-keyword">1.6. Added <code class="language-plaintext highlighter-rouge">max</code> Size Keyword</a></li></ul></li><li><a href="#deprecations">2. Deprecations</a><ul class="menu-list toc-submenu-2"><li><a href="#deprecated-size-keyword-full">2.1. Deprecated Size Keyword <code class="language-plaintext highlighter-rouge">full</code></a></li><li><a href="#deprecated-sizebywhlisted-and-sizebyforcedwh-feature-names">2.2. Deprecated <code class="language-plaintext highlighter-rouge">sizeByWhListed</code> and <code class="language-plaintext highlighter-rouge">sizeByForcedWh</code> Feature Names</a></li></ul></li><li><a href="#deferred-changes">3. Deferred Changes</a><ul class="menu-list toc-submenu-2"><li><a href="#31-change-canonical-syntax">3.1. Change Canonical Syntax</a></li><li><a href="#32-change-license-property-name-to-rights">3.2. Change <code class="language-plaintext highlighter-rouge">license</code> property name to <code class="language-plaintext highlighter-rouge">rights</code></a></li></ul></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <p>This document is a companion to the <a href="/iiif-api/api/image/2.1/" title="Image API 2.1"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> Specification, Version 2.1</a>. It describes the significant changes to the <abbr title="Application Programming Interface">API</abbr> since <a href="/iiif-api/api/image/2.0/" title="Image API 2.0">Version 2.0</a>. The changes are broken into three groups: <a href="#non-breaking-changes" title="Image API 2.0 Non-reaking Changes">Non-breaking Changes</a>, i.e. those that are backwards compatible from client or server perspectives; <a href="#deprecations" title="Deprecations">Deprecations</a> and <a href="#deferred-changes" title="Deferred Changes">Deferred Changes</a>, i.e. those that will be made in a future iteration of the Image <abbr title="Application Programming Interface">API</abbr>.</p>
+      <h2 id="non-breaking-changes">
+        
+        
+          1. Non-breaking Changes <a href="#non-breaking-changes">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="added-square-region">
+        
+        
+          1.1. Added <code class="language-plaintext highlighter-rouge">square</code> Region <a href="#added-square-region">#</a>
+        
+        
+      </h3>
+    
+
+<p>The <code class="language-plaintext highlighter-rouge">square</code> <a href="/iiif-api/api/image/2.1/#region" title="Region">region keyword</a> selects a region where the width and height are both equal to the length of the shorter dimension of the complete image. The region may be positioned anywhere in the longer dimension of the image content at the server’s discretion, and centered is often a reasonable default. The corresponding feature name <code class="language-plaintext highlighter-rouge">regionSquare</code> has also been added to the <a href="/iiif-api/api/image/2.1/#profile-description" title="Profile Description">profile description</a>. It is an open question whether support for <code class="language-plaintext highlighter-rouge">square</code> will become mandatory at levels 1 and 2 in the next major version of the Image <abbr title="Application Programming Interface">API</abbr>. See <a href="https://github.com/IIIF/iiif.io/issues/425">issue 425</a>, <a href="https://github.com/IIIF/iiif.io/issues/560">issue 560</a>, and <a href="https://github.com/IIIF/iiif.io/issues/501">issue 501</a>.</p>
+      <h3 id="12-added-rights-and-licensing-properties">
+        
+        
+          1.2. Added Rights and Licensing Properties <a href="#12-added-rights-and-licensing-properties">#</a>
+        
+        
+      </h3>
+    
+
+<p><a href="/iiif-api/api/image/2.1/#rights-and-licensing-properties" title="Rights and Licensing Properties">Rights and Licensing Properties</a> <code class="language-plaintext highlighter-rouge">attribution</code>, <code class="language-plaintext highlighter-rouge">license</code> and <code class="language-plaintext highlighter-rouge">logo</code> properties have been added to the Image Information. They have the same semantics and requirements as the properties of the same names in the Presentation <abbr title="Application Programming Interface">API</abbr>. See <a href="https://github.com/IIIF/iiif.io/issues/227">issue 227</a> and note also deferred change of the <abbr title="JSON for Linking Data">JSON-LD</abbr> tag name from <code class="language-plaintext highlighter-rouge">license</code> to <code class="language-plaintext highlighter-rouge">rights</code>.</p>
+      <h3 id="13-removed-recommendation-to-include-http-link-header-to-json-ld-context">
+        
+        
+          1.3. Removed Recommendation to include <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Link Header to <abbr title="JSON for Linking Data">JSON-LD</abbr> Context <a href="#13-removed-recommendation-to-include-http-link-header-to-json-ld-context">#</a>
+        
+        
+      </h3>
+    
+
+<p>Version 2.0 incorrectly recommended the inclusion of a <abbr title="Hypertext Transfer Protocol">HTTP</abbr> link header for the <abbr title="JSON for Linking Data">JSON-LD</abbr> context, which was unnecessary as the <code class="language-plaintext highlighter-rouge">@context</code> key in the <abbr title="JavaScript Object Notation">JSON</abbr> document would override it. Therefore, the description of the <a href="/iiif-api/api/image/2.1/#image-information-request" title="Image Information Request">Image Information Request</a> no longer includes this. See <a href="https://github.com/IIIF/iiif.io/issues/556">issue 556</a>.</p>
+      <h3 id="added-sizebyconfinedwh-and-sizebydistortedwh-feature-names">
+        
+        
+          1.4. Added <code class="language-plaintext highlighter-rouge">sizeByConfinedWh</code> and <code class="language-plaintext highlighter-rouge">sizeByDistortedWh</code> Feature Names <a href="#added-sizebyconfinedwh-and-sizebydistortedwh-feature-names">#</a>
+        
+        
+      </h3>
+    
+
+<p>New feature names <code class="language-plaintext highlighter-rouge">sizeByConfinedWh</code> and <code class="language-plaintext highlighter-rouge">sizeByDistortedWh</code> in the <a href="/iiif-api/api/image/2.1/#profile-description" title="Profile Description">profile description</a> provide clear indications of support for <code class="language-plaintext highlighter-rouge">!w,h</code> and distorting <code class="language-plaintext highlighter-rouge">w,h</code> size requests respectively. As a result the related feature names <code class="language-plaintext highlighter-rouge">sizeByWhListed</code> and <code class="language-plaintext highlighter-rouge">sizeByForcedWh</code> have been <a href="#deprecated-sizebywhlisted-and-sizebyforcedwh-feature-names" title="Deprecated `sizeByWhListed` and `sizeByForcedWh` Feature Names">deprecated</a>. See <a href="https://github.com/IIIF/iiif.io/issues/720">issue 720</a> and additional discussion on <a href="https://github.com/IIIF/iiif.io/pull/727">pull pequest 727</a>.</p>
+      <h3 id="15-added-maxwidth-maxheight-and-maxarea-properties">
+        
+        
+          1.5. Added <code class="language-plaintext highlighter-rouge">maxWidth</code>, <code class="language-plaintext highlighter-rouge">maxHeight</code> and <code class="language-plaintext highlighter-rouge">maxArea</code> Properties <a href="#15-added-maxwidth-maxheight-and-maxarea-properties">#</a>
+        
+        
+      </h3>
+    
+
+<p>The <code class="language-plaintext highlighter-rouge">maxWidth</code>, <code class="language-plaintext highlighter-rouge">maxHeight</code> and <code class="language-plaintext highlighter-rouge">maxArea</code> properties in the <a href="/iiif-api/api/image/2.1/#profile-description" title="Profile Description">profile description</a> provide a way for image servers to express the limits on its supported sizes for image requests. See <a href="https://github.com/IIIF/iiif.io/issues/620">issue 620</a>.</p>
+      <h3 id="16-added-max-size-keyword">
+        
+        
+          1.6. Added <code class="language-plaintext highlighter-rouge">max</code> Size Keyword <a href="#16-added-max-size-keyword">#</a>
+        
+        
+      </h3>
+    
+
+<p>The <a href="/iiif-api/api/image/2.1/#size" title="Size">size keyword</a> <code class="language-plaintext highlighter-rouge">max</code> may be used to request that the image or region is returned at the maximum size available, as indicated by <code class="language-plaintext highlighter-rouge">maxWidth</code>, <code class="language-plaintext highlighter-rouge">maxHeight</code> and <code class="language-plaintext highlighter-rouge">maxArea</code> properties. See <a href="https://github.com/IIIF/iiif.io/issues/663">issue 663</a> and the related <a href="#deprecated-size-keyword-full" title="Deprecated Size Keyword `full`">deprecation of the size keyword <code class="language-plaintext highlighter-rouge">full</code></a>.</p>
+      <h2 id="deprecations">
+        
+        
+          2. Deprecations <a href="#deprecations">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="deprecated-size-keyword-full">
+        
+        
+          2.1. Deprecated Size Keyword <code class="language-plaintext highlighter-rouge">full</code> <a href="#deprecated-size-keyword-full">#</a>
+        
+        
+      </h3>
+    
+
+<p>The <a href="/iiif-api/api/image/2.1/#size" title="Size">size keyword</a> <code class="language-plaintext highlighter-rouge">full</code> will be replaced by <code class="language-plaintext highlighter-rouge">max</code> in version 3.0. It is impractical to deliver the full size of very large images, and thus the keyword is not helpful when the Image Information has not been read. When the Image Information has been read, clients can request the explicit <code class="language-plaintext highlighter-rouge">w,h</code> size. See <a href="https://github.com/IIIF/iiif.io/issues/678">issue 678</a>.</p>
+      <h3 id="deprecated-sizebywhlisted-and-sizebyforcedwh-feature-names">
+        
+        
+          2.2. Deprecated <code class="language-plaintext highlighter-rouge">sizeByWhListed</code> and <code class="language-plaintext highlighter-rouge">sizeByForcedWh</code> Feature Names <a href="#deprecated-sizebywhlisted-and-sizebyforcedwh-feature-names">#</a>
+        
+        
+      </h3>
+    
+
+<p>The feature names <code class="language-plaintext highlighter-rouge">sizeByWhListed</code> and <code class="language-plaintext highlighter-rouge">sizeByForcedWh</code> will be removed from the <a href="/iiif-api/api/image/2.1/#profile-description" title="Profile Description">profile description</a> in version 3.0. The feature <code class="language-plaintext highlighter-rouge">sizeByForcedWh</code> was inconsistently defined in version 2.0. The feature <code class="language-plaintext highlighter-rouge">sizeByWhListed</code> is implied by including <code class="language-plaintext highlighter-rouge">sizes</code> in the image information document and is therefore not required as a named feature. See <a href="https://github.com/IIIF/iiif.io/issues/720">issue 720</a> and related <a href="#added-sizebyconfinedwh-and-sizebydistortedwh-feature-names" title="Added `sizeByConfinedWh` and `sizeByDistortedWh` Feature Names">addition of <code class="language-plaintext highlighter-rouge">sizeByConfinedWh</code> and <code class="language-plaintext highlighter-rouge">sizeByDistortedWh</code></a>.</p>
+      <h2 id="deferred-changes">
+        
+        
+          3. Deferred Changes <a href="#deferred-changes">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="31-change-canonical-syntax">
+        
+        
+          3.1. Change Canonical Syntax <a href="#31-change-canonical-syntax">#</a>
+        
+        
+      </h3>
+    
+
+<p>The <a href="/iiif-api/api/image/2.1/#canonical-uri-syntax" title="Canonical URI syntax">canonical URI syntax</a> will change in the next major release to use the <code class="language-plaintext highlighter-rouge">w,h</code> size syntax in a manner compatible with the <code class="language-plaintext highlighter-rouge">sizes</code> array, and to use <code class="language-plaintext highlighter-rouge">max</code> instead of <code class="language-plaintext highlighter-rouge">full</code> as the size keyword. See <a href="https://github.com/IIIF/iiif.io/issues/544">issue 554</a> and <a href="https://github.com/IIIF/iiif.io/issues/678">issue 678</a>.</p>
+      <h3 id="32-change-license-property-name-to-rights">
+        
+        
+          3.2. Change <code class="language-plaintext highlighter-rouge">license</code> property name to <code class="language-plaintext highlighter-rouge">rights</code> <a href="#32-change-license-property-name-to-rights">#</a>
+        
+        
+      </h3>
+    
+
+<p>The mapping of the <a href="/iiif-api/api/image/2.1/#rights-and-licensing-properties" title="Rights and Licensing Properties"><code class="language-plaintext highlighter-rouge">license</code> property</a> has already been changed to <code class="language-plaintext highlighter-rouge">dcterms:rights</code> in the <a href="/iiif-api/api/image/2/context.json" title="JSON-LD context"><abbr title="JSON for Linking Data">JSON-LD</abbr> context</a> to more accurately represent its use for both rights and licensing information. However, the change of the property name will be a breaking change and thus must wait for the next major version release. See <a href="https://github.com/IIIF/iiif.io/issues/644">issue 644</a>.</p>
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

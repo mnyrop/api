@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    Presentation API Use Cases &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">Presentation API Use Cases</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#1-introduction">1. Introduction</a></li><li><a href="#2-use-case-list">2. Use Case List</a></li><li><a href="#appendices">Appendices</a><ul class="menu-list toc-submenu-2"><li><a href="#a-acknowledgements">A. Acknowledgements</a></li><li><a href="#b-change-log">B. Change Log</a></li></ul></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <h2 class="no_toc" id="status-of-this-document">
+        
+        
+          Status of this Document <a href="#status-of-this-document">#</a>
+        
+        
+      </h2>
+    
+
+<p>This document is not subject to <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">semantic versioning</a>.
+Changes will be tracked within the document.</p>
+
+<p><em>Copyright © 2012-2014 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license.</em></p>
+
+<p><strong>Editors</strong></p>
+
+<ul class="names">
+  <li>Benjamin Albritton, <em>Stanford University</em></li>
+  <li>Michael Appleby, <em>Yale University</em></li>
+  <li>Robert Sanderson, <em>Stanford University</em></li>
+  <li>Jon Stroop, <em>Princeton University</em></li>
+  <li>Simeon Warner, <em>Cornell University</em></li>
+</ul>
+      <h2 class="no_toc" id="abstract">
+        
+        
+          Abstract <a href="#abstract">#</a>
+        
+        
+      </h2>
+    
+<p>This document describes use cases that were motivating with respect to the definition of the <a href="/iiif-api/api/presentation/3.0/" title="Presentation API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a>.</p>
+
+<p>Please send feedback to <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">iiif-discuss@googlegroups.com</a></p>
+      <h2 id="1-introduction">
+        
+        
+          1. Introduction <a href="#1-introduction">#</a>
+        
+        
+      </h2>
+    
+
+<p>In order to ensure that the <abbr title="International Image Interoperability Framework">IIIF</abbr> APIs solved real issues, rather than hypothetical ones that never actually come up in reality, there has been a great deal of discussion focusing on use cases and examples.  This document lists the use cases, and provides a reference document for additional information about them.</p>
+      <h2 id="2-use-case-list">
+        
+        
+          2. Use Case List <a href="#2-use-case-list">#</a>
+        
+        
+      </h2>
+    
+
+<ul>
+  <li>A medieval manuscript that has had each page digitized, and the user should be able to step from the first page through to the end to view the images</li>
+  <li>An early printed book that has had each page digitized and the transcribed text associated with each page.</li>
+  <li>A large map where the image depicting it can be zoomed and panned for ease of inspection.</li>
+  <li>A digitized newspaper with the text extracted automatically by Optical Character Recognition and linked to the individual line in its depiction</li>
+  <li>A photograph, digitized front and back.</li>
+  <li>A manuscript that has been disbound and is now separated across different institutions, some of which have digitized their leaves.</li>
+  <li>An important diary that has had multiple digitizations over time as technology improves, any of which should be available to the user to compare</li>
+  <li>A painting that has been re-used by erasing the original and painting over top of it, where the original artwork can be recovered using modern techniques of multi-spectral imaging.</li>
+  <li>A manuscript where different, multi-spectral images of a single page, taken for the text reconstruction, are available to be displayed.</li>
+  <li>A letter where pages are known to have existed, but have been lost or still exist but are too fragile to digitize without destroying them.</li>
+  <li>Objects that are not basically rectangular.</li>
+  <li>A page where only fragments of it remain, and they are not rectangular. These fragments are often digitized together, regardless of the page that they originally came from, and must be able to be associated with the correct pages separately.</li>
+  <li>The same fragment, where the text is known from other witnesses, or can be otherwise inferred, which should be associated in the display of the object even though the physical content no longer exists.</li>
+  <li>Older projects which only digitized the “interesting” sections of an object, such as the interesting or famous parts. Equivalently, they may have digitized those sections in more detail, and the rest to a lower quality.</li>
+  <li>Disagreement between scholars as to the correct reconstruction of an object.</li>
+  <li>A score where the music has been transcribed into modern notation, which should be associated with the page in the same way as transcribed text.</li>
+  <li>The same score, where the music has been performed and recorded, which should be associated with the page so that the performance can be played to the user.</li>
+  <li>Transcription of diagrams, formulae, charts or tables into individual images, or other digitally accessible resources.</li>
+  <li>Structured texts, including chapters, sections, verses, books, articles, texts, where the structure is important for navigation around the document.</li>
+  <li>Manuscripts that have been re-ordered, intentionally or otherwise, over time and the different sequences of pages are known.</li>
+  <li>Books that have had additional fly-leaves or other artifacts added to them over time which are now historically important, but the user should be able to display the object as it was before they were added.</li>
+  <li>Pages with foldouts, curtains or other additions that can be dynamically interacted with by the user to experience the different states that the object can be in.</li>
+  <li>Multiple transcriptions, editions, translations or other sets of information that should be associated with the digitized object in a coherent and consistent fashion.</li>
+</ul>
+      <h2 id="appendices">
+        
+        
+          Appendices <a href="#appendices">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="a-acknowledgements">
+        
+        
+          A. Acknowledgements <a href="#a-acknowledgements">#</a>
+        
+        
+      </h3>
+    
+
+<p>The production of this document was generously supported by a grant from the <a href="http://www.mellon.org/" title="The Andrew W. Mellon Foundation">Andrew W. Mellon Foundation</a>.</p>
+
+<p>Thanks to the members of the <a href="/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
+      <h3 id="b-change-log">
+        
+        
+          B. Change Log <a href="#b-change-log">#</a>
+        
+        
+      </h3>
+    
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2014-06-01</td>
+      <td>Version 1.0 <abbr title="Request for Comments">RFC</abbr></td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>

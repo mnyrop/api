@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <meta charset="utf-8">
+  <title>
+    Registry of Services &mdash; IIIF | International Image Interoperability Framework
+  </title>
+  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
+  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/iiif-api/assets/css/style.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<section class="hero is-primary" style="">
+  
+  <div class="hero-head">
+    <nav id="navbar" class="navbar is-transparent is-spaced">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/iiif-api/">
+        <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+        <span class="brand-title">International Image Interoperability Framework</span>
+      </a>
+      <div class="navbar-burger" data-target="navbar" onclick="document.querySelector('.navbar-menu').classList.toggle('is-active');">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+            <a class="navbar-item" href="/iiif-api/">Home</a>
+          
+            <a class="navbar-item" href="/iiif-api/demos">Demos</a>
+          
+            <a class="navbar-item" href="/iiif-api/news-and-events">News & Events</a>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-involved">
+                Get Involved
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">Community Groups</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Consortium</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Join Newsletter</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Contact Us</a>
+                
+              </div>
+            </div>
+          
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link"href="/iiif-api/get-started">
+                Get Started
+              </a>
+              <div class="navbar-dropdown is-boxed is-active">
+                
+                  <a class="navbar-item" href="/iiif-api">How It Works</a>
+                
+                  <a class="navbar-item" href="/iiif-api/api">APIs & Documentation</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Cookbooks</a>
+                
+                  <a class="navbar-item" href="/iiif-api">Training</a>
+                
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</nav>
+
+  </div>
+  
+
+  <div class="hero-body container">
+
+    
+    <nav class="breadcrumb is-centered" aria-label="breadcrumbs">
+      <ul>
+        
+          <li><a href="/iiif-api/get-started">Get Started</a></li>
+        
+          <li><a href="/iiif-api/api">APIs & Documentation</a></li>
+        
+      </ul>
+    </nav>
+    
+
+    <div class="container has-text-centered">
+      
+      <h1 class="title is-size-2 is-size-3-mobile is-size-desktop is-size-1-widescreen">Registry of Services</h1>
+      
+      <p class="subtitle is-size-5"></p>
+
+      
+    </div>
+  </div>
+</section>
+<section id="main">
+      
+
+<div class="container-block is-max-widescreen">
+  <div class="columns container">
+    <aside class="column is-one-third" markdown="1">
+      <div class="box toc-sidebar sticky">
+        <ul class="menu" id="toc-menu"><li><a href="#1-introduction">1. Introduction</a><ul class="menu-list toc-submenu-2"><li><a href="#11-disclaimer">1.1. Disclaimer</a></li><li><a href="#12-inclusion-process">1.2. Inclusion Process</a></li></ul></li><li><a href="#2-requirements-for-inclusion">2. Requirements for Inclusion</a></li><li><a href="#3-registry">3. Registry</a><ul class="menu-list toc-submenu-2"><li><a href="#31-image-information">3.1 Image Information</a></li></ul></li><li><a href="#appendices">Appendices</a><ul class="menu-list toc-submenu-2"><li><a href="#a-acknowledgements">A. Acknowledgements</a></li><li><a href="#b-change-log">B. Change Log</a></li></ul></li></ul>
+
+      </div>
+    </aside>
+    <div class="column content is-two-thirds api-content" markdown="1">
+      <h2 class="no_toc" id="status-of-this-document">
+        
+        
+          Status of this Document <a href="#status-of-this-document">#</a>
+        
+        
+      </h2>
+    
+
+<p>This document is not subject to <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">semantic versioning</a>.
+Changes will be tracked within the document.</p>
+
+<p><strong>Editors:</strong></p>
+
+<ul>
+  <li>
+    <p><strong><a href="https://orcid.org/0000-0002-1266-298X">Michael Appleby</a></strong>, Yale University</p>
+  </li>
+  <li>
+    <p><strong><a href="https://orcid.org/0000-0003-1881-243X">Tom Crane</a></strong>, Digirati</p>
+  </li>
+  <li>
+    <p><strong><a href="https://orcid.org/0000-0003-4441-6852">Robert Sanderson</a></strong>, J. Paul Getty Trust</p>
+  </li>
+  <li>
+    <p><strong><a href="https://orcid.org/0000-0002-0367-1243">Jon Stroop</a></strong>, Princeton University Library</p>
+  </li>
+  <li>
+    <p><strong><a href="https://orcid.org/0000-0002-7970-7855">Simeon Warner</a></strong>, Cornell University</p>
+  </li>
+</ul>
+
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p>
+      <h2 class="no_toc" id="abstract">
+        
+        
+          Abstract <a href="#abstract">#</a>
+        
+        
+      </h2>
+    
+<p>This is one of a number of <a href="/iiif-api/api/registry/" title="IIIF Extension Registry"><abbr title="International Image Interoperability Framework">IIIF</abbr> registries</a>. It lists a set of services that have been identified as useful for implementations, across the APIs.  They may be defined by the <abbr title="International Image Interoperability Framework">IIIF</abbr> community, or outside of it.</p>
+
+<p>Please send feedback to <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">iiif-discuss@googlegroups.com</a></p>
+      <h2 id="1-introduction">
+        
+        
+          1. Introduction <a href="#1-introduction">#</a>
+        
+        
+      </h2>
+    
+
+<p>This is one of a number of <a href="/iiif-api/api/registry/" title="IIIF Extension Registry"><abbr title="International Image Interoperability Framework">IIIF</abbr> registries</a>. It lists a set of services that have been identified as useful for implementations, across the APIs.  They may be defined by the <abbr title="International Image Interoperability Framework">IIIF</abbr> community, or outside of it.</p>
+      <h3 id="11-disclaimer">
+        
+        
+          1.1. Disclaimer <a href="#11-disclaimer">#</a>
+        
+        
+      </h3>
+    
+
+<p>The inclusion of entries in this document that are outside of the <abbr title="International Image Interoperability Framework">IIIF</abbr> domain <em class="rfc">must not</em> be interpreted as endorsement, support, or approval from the editors, the <abbr title="International Image Interoperability Framework">IIIF</abbr> community or any individual. This annex is provided as a registry to advertise the existence of these extensions and attempt to ensure some consistency between implementations for common but not universal requirements.</p>
+      <h3 id="12-inclusion-process">
+        
+        
+          1.2. Inclusion Process <a href="#12-inclusion-process">#</a>
+        
+        
+      </h3>
+    
+
+<p>The process for having a new entry added to this registry is <a href="/iiif-api/api/registry/process/">described here</a>.</p>
+      <h2 id="2-requirements-for-inclusion">
+        
+        
+          2. Requirements for Inclusion <a href="#2-requirements-for-inclusion">#</a>
+        
+        
+      </h2>
+    
+      <h2 id="3-registry">
+        
+        
+          3. Registry <a href="#3-registry">#</a>
+        
+        
+      </h2>
+    
+
+<p>This table summarizes the services available and which APIs they may be used in.  The ‘<img src="/iiif-api/img/metadata-api/not_allowed.png" alt="not allowed" title="Not allowed" />’ icon means that the service is not to be used in the <abbr title="Application Programming Interface">API</abbr>. The ‘<img src="/iiif-api/img/metadata-api/recommended.png" alt="recommended" title="Recommended" />’ icon means that the service can be used in the <abbr title="Application Programming Interface">API</abbr>.</p>
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th style="text-align: center">Image <abbr title="Application Programming Interface">API</abbr></th>
+      <th style="text-align: center">Presentation <abbr title="Application Programming Interface">API</abbr></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="/iiif-api/api/image/3.0/" title="Image API">Image Information</a></td>
+      <td style="text-align: center"><img src="/iiif-api/img/metadata-api/optional.png" alt="optional" title="Optional" /></td>
+      <td style="text-align: center"><img src="/iiif-api/img/metadata-api/recommended.png" alt="recommended" title="Recommended" /></td>
+    </tr>
+  </tbody>
+</table>
+      <h3 id="31-image-information">
+        
+        
+          3.1 Image Information <a href="#31-image-information">#</a>
+        
+        
+      </h3>
+    
+<p><em>Added: 2014-05-20</em></p>
+
+<p>The Image Information service allows the <a href="/iiif-api/api/presentation/3.0/" title="Presentation API">Presentation <abbr title="Application Programming Interface">API</abbr></a>, and potentially other APIs, to reference content to be displayed via the <a href="/iiif-api/api/image/3.0/" title="Image API">Image <abbr title="Application Programming Interface">API</abbr></a>.  The <abbr title="JSON for Linking Data">JSON-LD</abbr> content to be referenced or embedded is the Image Information document, also known as <code class="language-plaintext highlighter-rouge">info.json</code>.  The service <em class="rfc">must</em> have the <code class="language-plaintext highlighter-rouge">@context</code>, <code class="language-plaintext highlighter-rouge">@id</code> and <code class="language-plaintext highlighter-rouge">profile</code> keys, pointing to the context document, service base URI and compliance level profile respectively.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@context"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image/2/context.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"@id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/image-service/abcd1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image/2/level2.json"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The service <em class="rfc">may</em> have additional information embedded from the Image Information document to avoid the need to retrieve and parse it separately.  In this case, the profile <em class="rfc">may</em> also point to the profile of what functionality is supported, as described in the Image <abbr title="Application Programming Interface">API</abbr>.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@context"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image/2/context.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"@id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/image-service/abcd1234"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">6000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"height"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">4000</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"sizes"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="nl">"height"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w"> </span><span class="nl">"height"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="p">,</span><span class="w"> </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">2000</span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"tiles"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="nl">"width"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">512</span><span class="p">,</span><span class="w"> </span><span class="nl">"scaleFactors"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">16</span><span class="p">]}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nl">"profile"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="s2">"http://iiif.io/api/image/2/level2.json"</span><span class="p">,</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"formats"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"gif"</span><span class="p">,</span><span class="w"> </span><span class="s2">"pdf"</span><span class="w"> </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"qualities"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">"color"</span><span class="p">,</span><span class="w"> </span><span class="s2">"gray"</span><span class="w"> </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"supports"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"canonicalLinkHeader"</span><span class="p">,</span><span class="w"> </span><span class="s2">"rotationArbitrary"</span><span class="p">,</span><span class="w"> </span><span class="s2">"http://example.com/feature"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>With the <code class="language-plaintext highlighter-rouge">logo</code> property added to the Image Information description in version 2.1 of the Image <abbr title="Application Programming Interface">API</abbr>, it is possible and reasonable for one <code class="language-plaintext highlighter-rouge">info.json</code> response to embed another using this pattern.  In this case, the second service is related to the icon that should be displayed when a client renders the image described by the main response.</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image/2/context.json"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"@id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/image-service/baseImage"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"protocol"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image"</span><span class="p">,</span><span class="w">
+
+  </span><span class="nl">"attribution"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Provided by Example Organization"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"logo"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/image-service/logo/full/full/0/default.png"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/image-service/logo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"protocol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image/2/level2.json"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+      <h2 id="appendices">
+        
+        
+          Appendices <a href="#appendices">#</a>
+        
+        
+      </h2>
+    
+      <h3 id="a-acknowledgements">
+        
+        
+          A. Acknowledgements <a href="#a-acknowledgements">#</a>
+        
+        
+      </h3>
+    
+
+<p>The production of this document was generously supported by a grant from the <a href="http://www.mellon.org/" title="The Andrew W. Mellon Foundation">Andrew W. Mellon Foundation</a>.</p>
+
+<p>Thanks to the members of the <a href="/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
+      <h3 id="b-change-log">
+        
+        
+          B. Change Log <a href="#b-change-log">#</a>
+        
+        
+      </h3>
+    
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2018-XX-YY</td>
+      <td>New Version 3 Registries</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Keep two spaces at the top of this file -->
+
+    </div>
+  </div>
+</div>
+
+    </section>
+<footer id="footer" class="footer">
+  <div class="container">
+    <div class="columns">
+
+      <div class="navbar-brand column is-half">
+        <a class="navbar-item" href="/iiif-api/">
+          <img src="/iiif-api/assets/images/logo-sm.png" alt="International Image Interoperability Framework logo" height="28">
+          <span class="brand-title blue-text">International Image Interoperability Framework</span>
+        </a>
+        <p>International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible</p>
+      </div>
+      <div class="column"></div>
+      
+      <div class="column menu-column">
+        <h4>About</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">How It Works</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api/api">Documentation</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Demos</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Tutorials</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+      <div class="column menu-column">
+        <h4>Stay Connected</h4>
+        <ul>
+        
+          <li>
+            <a href="/iiif-api">Events & News</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Join Newsletter</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Community Groups</a>
+          </li>
+        
+          <li>
+            <a href="/iiif-api">Consortium</a>
+          </li>
+        
+        </ul>
+      </div>
+      
+    </columns>
+  </div>
+</footer>
+</body>
+</html>
