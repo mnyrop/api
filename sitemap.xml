@@ -172,6 +172,9 @@
 <loc>/iiif-api/api/annex/notes/rotation/</loc>
 </url>
 <url>
+<loc>/iiif-api/api/image/1.0/rotation_calc/</loc>
+</url>
+<url>
 <loc>/iiif-api/api/annex/notes/semver/</loc>
 </url>
 <url>
