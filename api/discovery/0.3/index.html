@@ -4,8 +4,8 @@
   <title>
      IIIF Change Discovery API 0.3 —  IIIF | International Image Interoperability Framework
   </title>
-  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
-  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+  <meta name="description" content="">
+  <link rel="shortcut icon" href="">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,22 @@
   <link rel="canonical" href="/iiif-api/api/discovery/0.3/" />
   <link rel="shortcut icon" type="image/jpg" href="/iiif-api/assets/favicon.ico"/>
 </head>
-<body>
+<body><script src="/iiif-api/assets/js/deleteButton.js"></script>
+
+<div class="iiif-notification message">
+  <div class="message-header">
+    <div class="container">
+      <button class="delete"></button>
+      <p class="title">This website design is in pre-beta.</p>
+      <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      
+        <a href="/iiif-api/">This is a test link</a>
+      
+      </p>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -25,7 +40,7 @@
     <nav id="navbar" class="navbar is-transparent is-spaced">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://iiif.io">
+      <a class="navbar-item" href="https://marii.info/iiif-website">
         <img src="/iiif-api/assets/images/logos/logo-sm.png" alt="IIIF logo" height="28">
         <span class="brand-title">International Image Interoperability Framework</span>
       </a>
@@ -38,42 +53,42 @@
 
     <div class="navbar-menu">
       <div class="navbar-end">
-            <a class="navbar-item" href="https://iiif.io">Home</a>
+            <a class="navbar-item" href="https://marii.info/iiif-website">Home</a>
           
-            <a class="navbar-item" href="https://iiif.io/demos">Demos</a>
+            <a class="navbar-item" href="https://marii.info/iiif-website/demos">Demos</a>
           
             <a class="navbar-item" href="/iiif-api">News & Events</a>
           
             <div class="navbar-item has-dropdown is-hoverable">
-              <a  class="navbar-link"  href="https://iiif.io/get-involved">
+              <a  class="navbar-link"  href="https://marii.info/iiif-website/get-involved">
                 Get Involved
               </a>
               <div class="navbar-dropdown is-boxed is-active">
                 
-                  <a class="navbar-item" href="https://iiif.io/community/groups">Community Groups</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/community/groups">Community Groups</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/community/consortium">Consortium</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/community/consortium">Consortium</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/newsletter">Join Newsletter</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/newsletter">Join Newsletter</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/community/consortium/staff/">Contact Us</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/community/consortium/staff/">Contact Us</a>
                 
               </div>
             </div>
           
             <div class="navbar-item has-dropdown is-hoverable">
-              <a  class="navbar-link"  href="https://iiif.io/get-started">
+              <a  class="navbar-link"  href="https://marii.info/iiif-website/get-started">
                 Get Started
               </a>
               <div class="navbar-dropdown is-boxed is-active">
                 
-                  <a class="navbar-item" href="https://iiif.io/how-iiif-works">How IIIF Works</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/how-iiif-works">How IIIF Works</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/api">APIs & Documentation</a>
+                  <a class="navbar-item" href="/iiif-api/iiif-api/api">APIs & Documentation</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/get-started/cookbook">Cookbooks</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/get-started/cookbook">Cookbooks</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/get-started/training">Training</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/get-started/training">Training</a>
                 
               </div>
             </div>
@@ -169,7 +184,7 @@ This is a work in progress and may change without notice. Implementers should be
       </h2>
     
 
-<p>The resources made available via the IIIF (pronounced “Triple-Eye-Eff”) <a href="/iiif-api/api/image/3.0/" title="Image API">Image</a> and <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">Presentation</a> APIs are useful only if they can be found. Users cannot interact directly with a distributed, decentralized ecosystem but instead must rely on services that harvest and process the available content, and then provide a user interface enabling navigation to that content via searching, browsing or other paradigms. Once the user has discovered the content, they can then display it in their viewing application of choice. Machine to machine interfaces are also enabled by this pattern, where software agents can interact via APIs to discover the same content and retrieve it for further analysis or processing.</p>
+<p>The resources made available via the IIIF (pronounced “Triple-Eye-Eff”) <a href="/iiif-api/api/image/./" title="Image API">Image</a> and <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">Presentation</a> APIs are useful only if they can be found. Users cannot interact directly with a distributed, decentralized ecosystem but instead must rely on services that harvest and process the available content, and then provide a user interface enabling navigation to that content via searching, browsing or other paradigms. Once the user has discovered the content, they can then display it in their viewing application of choice. Machine to machine interfaces are also enabled by this pattern, where software agents can interact via APIs to discover the same content and retrieve it for further analysis or processing.</p>
 
 <p>This specification leverages existing techniques, specifications, and tools in order to promote widespread adoption. It enables the collaborative development of global or thematic search engines and portal applications that allow users to easily find and engage with content available via existing IIIF APIs.</p>
       <h3 id="objectives-and-scope">
@@ -1199,15 +1214,15 @@ This is a work in progress and may change without notice. Implementers should be
         <ul>
         
           <li>
-            <a href="https://iiif.io/how-iiif-works">How IIIF Works</a>
+            <a href="https://marii.info/iiif-website/how-iiif-works">How IIIF Works</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/api">APIs & Documentation</a>
+            <a href="/iiif-api/iiif-api/api">APIs & Documentation</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/demos">Demos</a>
+            <a href="https://marii.info/iiif-website/demos">Demos</a>
           </li>
         
           <li>
@@ -1226,15 +1241,15 @@ This is a work in progress and may change without notice. Implementers should be
           </li>
         
           <li>
-            <a href="https://iiif.io/newsletter">Join Newsletter</a>
+            <a href="https://marii.info/iiif-website/newsletter">Join Newsletter</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/community/groups">Community Groups</a>
+            <a href="https://marii.info/iiif-website/community/groups">Community Groups</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/community/consortium">Consortium</a>
+            <a href="https://marii.info/iiif-website/community/consortium">Consortium</a>
           </li>
         
         </ul>

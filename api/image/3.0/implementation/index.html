@@ -4,8 +4,8 @@
   <title>
      Image API 3.0 Implementation Notes —  IIIF | International Image Interoperability Framework
   </title>
-  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
-  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+  <meta name="description" content="">
+  <link rel="shortcut icon" href="">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,22 @@
   <link rel="canonical" href="/iiif-api/api/image/3.0/implementation/" />
   <link rel="shortcut icon" type="image/jpg" href="/iiif-api/assets/favicon.ico"/>
 </head>
-<body>
+<body><script src="/iiif-api/assets/js/deleteButton.js"></script>
+
+<div class="iiif-notification message">
+  <div class="message-header">
+    <div class="container">
+      <button class="delete"></button>
+      <p class="title">This website design is in pre-beta.</p>
+      <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      
+        <a href="/iiif-api/">This is a test link</a>
+      
+      </p>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -25,7 +40,7 @@
     <nav id="navbar" class="navbar is-transparent is-spaced">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://iiif.io">
+      <a class="navbar-item" href="https://marii.info/iiif-website">
         <img src="/iiif-api/assets/images/logos/logo-sm.png" alt="IIIF logo" height="28">
         <span class="brand-title">International Image Interoperability Framework</span>
       </a>
@@ -38,42 +53,42 @@
 
     <div class="navbar-menu">
       <div class="navbar-end">
-            <a class="navbar-item" href="https://iiif.io">Home</a>
+            <a class="navbar-item" href="https://marii.info/iiif-website">Home</a>
           
-            <a class="navbar-item" href="https://iiif.io/demos">Demos</a>
+            <a class="navbar-item" href="https://marii.info/iiif-website/demos">Demos</a>
           
             <a class="navbar-item" href="/iiif-api">News & Events</a>
           
             <div class="navbar-item has-dropdown is-hoverable">
-              <a  class="navbar-link"  href="https://iiif.io/get-involved">
+              <a  class="navbar-link"  href="https://marii.info/iiif-website/get-involved">
                 Get Involved
               </a>
               <div class="navbar-dropdown is-boxed is-active">
                 
-                  <a class="navbar-item" href="https://iiif.io/community/groups">Community Groups</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/community/groups">Community Groups</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/community/consortium">Consortium</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/community/consortium">Consortium</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/newsletter">Join Newsletter</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/newsletter">Join Newsletter</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/community/consortium/staff/">Contact Us</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/community/consortium/staff/">Contact Us</a>
                 
               </div>
             </div>
           
             <div class="navbar-item has-dropdown is-hoverable">
-              <a  class="navbar-link"  href="https://iiif.io/get-started">
+              <a  class="navbar-link"  href="https://marii.info/iiif-website/get-started">
                 Get Started
               </a>
               <div class="navbar-dropdown is-boxed is-active">
                 
-                  <a class="navbar-item" href="https://iiif.io/how-iiif-works">How IIIF Works</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/how-iiif-works">How IIIF Works</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/api">APIs & Documentation</a>
+                  <a class="navbar-item" href="/iiif-api/iiif-api/api">APIs & Documentation</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/get-started/cookbook">Cookbooks</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/get-started/cookbook">Cookbooks</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/get-started/training">Training</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/get-started/training">Training</a>
                 
               </div>
             </div>
@@ -157,7 +172,7 @@
       </h2>
     
 
-<p>When requesting image tiles, the <a href="/iiif-api/api/image/3.0/#41-region" title="4.1. Region">Region</a> and <a href="/iiif-api/api/image/3.0/#42-size" title="4.2. Size">Size</a> parameters must be calculated to take account of partial tiles along the right and lower edges for a full image that is not an exact multiple of the scaled tile size. The algorithm below is shown as Python code and assumes integer inputs and integer arithmetic throughout (ie. remainder discarded on division). Inputs are: size of full image content <code class="language-plaintext highlighter-rouge">(width,height)</code>, scale factor <code class="language-plaintext highlighter-rouge">s</code>, tile size <code class="language-plaintext highlighter-rouge">(tw,th)</code>, and tile coordinate <code class="language-plaintext highlighter-rouge">(n,m)</code> counting from <code class="language-plaintext highlighter-rouge">(0,0)</code> in the upper-left corner. Note that the rounding method is implementation dependent.</p>
+<p>When requesting image tiles, the <a href="/iiif-api/api/image/3./#41-region" title="4.1. Region">Region</a> and <a href="/iiif-api/api/image/3./#42-size" title="4.2. Size">Size</a> parameters must be calculated to take account of partial tiles along the right and lower edges for a full image that is not an exact multiple of the scaled tile size. The algorithm below is shown as Python code and assumes integer inputs and integer arithmetic throughout (ie. remainder discarded on division). Inputs are: size of full image content <code class="language-plaintext highlighter-rouge">(width,height)</code>, scale factor <code class="language-plaintext highlighter-rouge">s</code>, tile size <code class="language-plaintext highlighter-rouge">(tw,th)</code>, and tile coordinate <code class="language-plaintext highlighter-rouge">(n,m)</code> counting from <code class="language-plaintext highlighter-rouge">(0,0)</code> in the upper-left corner. Note that the rounding method is implementation dependent.</p>
 
 <script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
 
@@ -191,14 +206,14 @@
       </h2>
     
 
-<p>If a server implementation constrains maximum sizes with <code class="language-plaintext highlighter-rouge">maxWidth</code>, <code class="language-plaintext highlighter-rouge">maxHeight</code> and/or <code class="language-plaintext highlighter-rouge">maxArea</code> (defined in <a href="/iiif-api/api/image/3.0/#52-technical-properties" title="5.2 Technical Properties">Technical Properties</a>) then the implementation must check the size of the extracted region when handling the <a href="/iiif-api/api/image/3.0/#42-size" title="4.2. Size">Size</a> parameter:</p>
+<p>If a server implementation constrains maximum sizes with <code class="language-plaintext highlighter-rouge">maxWidth</code>, <code class="language-plaintext highlighter-rouge">maxHeight</code> and/or <code class="language-plaintext highlighter-rouge">maxArea</code> (defined in <a href="/iiif-api/api/image/3./#52-technical-properties" title="5.2 Technical Properties">Technical Properties</a>) then the implementation must check the size of the extracted region when handling the <a href="/iiif-api/api/image/3./#42-size" title="4.2. Size">Size</a> parameter:</p>
 
 <ul>
   <li>If the <code class="language-plaintext highlighter-rouge">max</code> size parameter is specified then the implementation must check the default or full size of the extracted region against the constraints. If the size is constrained, the extracted region is scaled to a smaller size.</li>
   <li>If another size parameter is used then the implementation must check the size of the resulting scaled image content against the constraints. If the size is constrained, the extracted and scaled region is further scaled to a smaller size.</li>
 </ul>
 
-<p>The <a href="/iiif-api/api/image/3.0/#52-technical-properties" title="5.2 Technical Properties">specification</a> does not define the algorithm by which a constrained image is scaled to fit within the constraints. Image servers may implement algorithms that scale images to match the constraints as closely as possible, or may implement algorithms that scale images with a focus on preserving the aspect ratio which might result in smaller dimensions.</p>
+<p>The <a href="/iiif-api/api/image/3./#52-technical-properties" title="5.2 Technical Properties">specification</a> does not define the algorithm by which a constrained image is scaled to fit within the constraints. Image servers may implement algorithms that scale images to match the constraints as closely as possible, or may implement algorithms that scale images with a focus on preserving the aspect ratio which might result in smaller dimensions.</p>
 
 <p>The following Python code takes image content dimensions <code class="language-plaintext highlighter-rouge">width,height</code> and optional constraints <code class="language-plaintext highlighter-rouge">maxWidth</code>, <code class="language-plaintext highlighter-rouge">maxWidth</code>, <code class="language-plaintext highlighter-rouge">maxHeight</code>. It returns a image content size <code class="language-plaintext highlighter-rouge">w,h</code> that is within, but close to the constraints.</p>
 
@@ -238,7 +253,7 @@
       </h2>
     
 
-<p>As described in <a href="/iiif-api/api/image/3.0/#43-rotation" title="4.3. Rotation">Rotation</a>, in order to retain the size of the requested image contents, rotation will change the width and height dimensions of the image returned. A formula for calculating the dimensions of the image returned for a given starting size and rotation is given below. Note that the rounding method is implementation dependent and that some languages require conversion of the angle from degrees to radians.</p>
+<p>As described in <a href="/iiif-api/api/image/3./#43-rotation" title="4.3. Rotation">Rotation</a>, in order to retain the size of the requested image contents, rotation will change the width and height dimensions of the image returned. A formula for calculating the dimensions of the image returned for a given starting size and rotation is given below. Note that the rounding method is implementation dependent and that some languages require conversion of the angle from degrees to radians.</p>
 
 <script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
 
@@ -308,15 +323,15 @@
         <ul>
         
           <li>
-            <a href="https://iiif.io/how-iiif-works">How IIIF Works</a>
+            <a href="https://marii.info/iiif-website/how-iiif-works">How IIIF Works</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/api">APIs & Documentation</a>
+            <a href="/iiif-api/iiif-api/api">APIs & Documentation</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/demos">Demos</a>
+            <a href="https://marii.info/iiif-website/demos">Demos</a>
           </li>
         
           <li>
@@ -335,15 +350,15 @@
           </li>
         
           <li>
-            <a href="https://iiif.io/newsletter">Join Newsletter</a>
+            <a href="https://marii.info/iiif-website/newsletter">Join Newsletter</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/community/groups">Community Groups</a>
+            <a href="https://marii.info/iiif-website/community/groups">Community Groups</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/community/consortium">Consortium</a>
+            <a href="https://marii.info/iiif-website/community/consortium">Consortium</a>
           </li>
         
         </ul>

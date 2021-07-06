@@ -4,8 +4,8 @@
   <title>
      JSON-LD Implementation Notes —  IIIF | International Image Interoperability Framework
   </title>
-  <meta name="description" content="International Image Interoperability Framework: A community driven image framework with well defined APIs for making the world’s image repositories interoperable and accessible">
-  <link rel="shortcut icon" href="/iiif-api/assets/images/logo-sm.png">
+  <meta name="description" content="">
+  <link rel="shortcut icon" href="">
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +13,22 @@
   <link rel="canonical" href="/iiif-api/api/annex/notes/jsonld/" />
   <link rel="shortcut icon" type="image/jpg" href="/iiif-api/assets/favicon.ico"/>
 </head>
-<body>
+<body><script src="/iiif-api/assets/js/deleteButton.js"></script>
+
+<div class="iiif-notification message">
+  <div class="message-header">
+    <div class="container">
+      <button class="delete"></button>
+      <p class="title">This website design is in pre-beta.</p>
+      <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      
+        <a href="/iiif-api/">This is a test link</a>
+      
+      </p>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -25,7 +40,7 @@
     <nav id="navbar" class="navbar is-transparent is-spaced">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://iiif.io">
+      <a class="navbar-item" href="https://marii.info/iiif-website">
         <img src="/iiif-api/assets/images/logos/logo-sm.png" alt="IIIF logo" height="28">
         <span class="brand-title">International Image Interoperability Framework</span>
       </a>
@@ -38,42 +53,42 @@
 
     <div class="navbar-menu">
       <div class="navbar-end">
-            <a class="navbar-item" href="https://iiif.io">Home</a>
+            <a class="navbar-item" href="https://marii.info/iiif-website">Home</a>
           
-            <a class="navbar-item" href="https://iiif.io/demos">Demos</a>
+            <a class="navbar-item" href="https://marii.info/iiif-website/demos">Demos</a>
           
             <a class="navbar-item" href="/iiif-api">News & Events</a>
           
             <div class="navbar-item has-dropdown is-hoverable">
-              <a  class="navbar-link"  href="https://iiif.io/get-involved">
+              <a  class="navbar-link"  href="https://marii.info/iiif-website/get-involved">
                 Get Involved
               </a>
               <div class="navbar-dropdown is-boxed is-active">
                 
-                  <a class="navbar-item" href="https://iiif.io/community/groups">Community Groups</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/community/groups">Community Groups</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/community/consortium">Consortium</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/community/consortium">Consortium</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/newsletter">Join Newsletter</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/newsletter">Join Newsletter</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/community/consortium/staff/">Contact Us</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/community/consortium/staff/">Contact Us</a>
                 
               </div>
             </div>
           
             <div class="navbar-item has-dropdown is-hoverable">
-              <a  class="navbar-link"  href="https://iiif.io/get-started">
+              <a  class="navbar-link"  href="https://marii.info/iiif-website/get-started">
                 Get Started
               </a>
               <div class="navbar-dropdown is-boxed is-active">
                 
-                  <a class="navbar-item" href="https://iiif.io/how-iiif-works">How IIIF Works</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/how-iiif-works">How IIIF Works</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/api">APIs & Documentation</a>
+                  <a class="navbar-item" href="/iiif-api/iiif-api/api">APIs & Documentation</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/get-started/cookbook">Cookbooks</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/get-started/cookbook">Cookbooks</a>
                 
-                  <a class="navbar-item" href="https://iiif.io/get-started/training">Training</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/get-started/training">Training</a>
                 
               </div>
             </div>
@@ -167,7 +182,7 @@
       </h2>
     
 
-<p>It is possible to associate a language with a literal in <abbr title="JSON for Linking Data">JSON-LD</abbr> using an object with two keys, <code class="language-plaintext highlighter-rouge">@language</code> and <code class="language-plaintext highlighter-rouge">@value</code>, described in the <a href="/iiif-api/api/presentation/3.0/#language-of-property-values">Presentation <abbr title="Application Programming Interface">API</abbr></a>. It is also possible to describe the format of a literal using <code class="language-plaintext highlighter-rouge">@type</code>.  However, due to restrictions in <abbr title="Resource Description Framework">RDF</abbr> 1.1, it is not possible to use both of these features together to have a literal with both format and language declared.</p>
+<p>It is possible to associate a language with a literal in <abbr title="JSON for Linking Data">JSON-LD</abbr> using an object with two keys, <code class="language-plaintext highlighter-rouge">@language</code> and <code class="language-plaintext highlighter-rouge">@value</code>, described in the <a href="/iiif-api/api/presentation/./#language-of-property-values">Presentation <abbr title="Application Programming Interface">API</abbr></a>. It is also possible to describe the format of a literal using <code class="language-plaintext highlighter-rouge">@type</code>.  However, due to restrictions in <abbr title="Resource Description Framework">RDF</abbr> 1.1, it is not possible to use both of these features together to have a literal with both format and language declared.</p>
 
 <p>During the design of the Presentation <abbr title="Application Programming Interface">API</abbr> version 2.0, it was determined that the correct solution was to be explicit about language as it cannot be determined heuristicly, and provide requirements to make the detection of <abbr title="HyperText Markup Language">HTML</abbr> as easy as possible.  In the future, if <abbr title="Resource Description Framework">RDF</abbr> provides a method to have both format and language associated with the same literal, these restrictions will be lifted.  Other options were evaluated, including having a resource with <code class="language-plaintext highlighter-rouge">value</code>, <code class="language-plaintext highlighter-rouge">language</code> and <code class="language-plaintext highlighter-rouge">format</code> keys which was determined to be too intrusive compared to what regular <abbr title="JavaScript Object Notation">JSON</abbr> would look like, and using <abbr title="HyperText Markup Language">HTML</abbr> with an <code class="language-plaintext highlighter-rouge">xml:lang</code> attribute and the <code class="language-plaintext highlighter-rouge">rdf:HTML</code> datatype, however this makes the choice of language much more complex as the values need to be parsed with an <abbr title="HyperText Markup Language">HTML</abbr> parser, rather than using the <abbr title="JavaScript Object Notation">JSON</abbr> structure.  As internationalization of the values is a primary use case, the current method was the solution chosen.</p>
 
@@ -215,7 +230,7 @@
       </h2>
     
 
-<p><abbr title="JSON for Linking Data">JSON-LD</abbr> Frames are a method of determining the layout of a <abbr title="JSON for Linking Data">JSON-LD</abbr> serialization, in particular which resource should be at the root of the <abbr title="JavaScript Object Notation">JSON</abbr> structure and whether information about the resource should be embedded in a particular location or not.  This has practical applications for <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications, and especially for the <a href="/iiif-api/api/presentation/3.0/"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a> such as ensuring that the Manifest resource is at the root of the <abbr title="JavaScript Object Notation">JSON</abbr> file and that Canvases are serialized as part of the Sequence rather than within a Range, among others.</p>
+<p><abbr title="JSON for Linking Data">JSON-LD</abbr> Frames are a method of determining the layout of a <abbr title="JSON for Linking Data">JSON-LD</abbr> serialization, in particular which resource should be at the root of the <abbr title="JavaScript Object Notation">JSON</abbr> structure and whether information about the resource should be embedded in a particular location or not.  This has practical applications for <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications, and especially for the <a href="/iiif-api/api/presentation/./"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a> such as ensuring that the Manifest resource is at the root of the <abbr title="JavaScript Object Notation">JSON</abbr> file and that Canvases are serialized as part of the Sequence rather than within a Range, among others.</p>
 
 <p>More information about <abbr title="JSON for Linking Data">JSON-LD</abbr> frames can be found at the <a href="http://json-ld.org/spec/latest/json-ld-framing/"><abbr title="JSON for Linking Data">JSON-LD</abbr> site</a>.</p>
       <h2 id="image-api-frame">
@@ -230,7 +245,7 @@
 <p>A minimal frame for the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> information response.</p>
 
 <ul>
-  <li><a href="/iiif-api/api/image/3/info_frame.json">Image <abbr title="Application Programming Interface">API</abbr> 2.x Frame</a></li>
+  <li><a href="/iiif-api/api/image//info_frame.json">Image <abbr title="Application Programming Interface">API</abbr> 2.x Frame</a></li>
 </ul>
       <h2 id="presentation-api-frames">
         
@@ -246,13 +261,13 @@
 <ul>
   <li>Presentation 2.x Frames:
     <ul>
-      <li><a href="/iiif-api/api/presentation/3/manifest_frame.json">Manifest Frame</a></li>
-      <li><a href="/iiif-api/api/presentation/3/annotationList_frame.json">AnnotationList Frame</a></li>
-      <li><a href="/iiif-api/api/presentation/3/collection_frame.json">Collection Frame</a></li>
-      <li><a href="/iiif-api/api/presentation/3/sequence_frame.json">Sequence Frame</a></li>
-      <li><a href="/iiif-api/api/presentation/3/canvas_frame.json">Canvas Frame</a></li>
-      <li><a href="/iiif-api/api/presentation/3/annotation_frame.json">Annotation Frame</a></li>
-      <li><a href="/iiif-api/api/presentation/3/range_frame.json">Range Frame</a></li>
+      <li><a href="/iiif-api/api/presentation//manifest_frame.json">Manifest Frame</a></li>
+      <li><a href="/iiif-api/api/presentation//annotationList_frame.json">AnnotationList Frame</a></li>
+      <li><a href="/iiif-api/api/presentation//collection_frame.json">Collection Frame</a></li>
+      <li><a href="/iiif-api/api/presentation//sequence_frame.json">Sequence Frame</a></li>
+      <li><a href="/iiif-api/api/presentation//canvas_frame.json">Canvas Frame</a></li>
+      <li><a href="/iiif-api/api/presentation//annotation_frame.json">Annotation Frame</a></li>
+      <li><a href="/iiif-api/api/presentation//range_frame.json">Range Frame</a></li>
     </ul>
   </li>
 </ul>
@@ -277,11 +292,11 @@
 <span class="kn">from</span> <span class="nn">pyld.jsonld</span> <span class="kn">import</span> <span class="n">compact</span><span class="p">,</span> <span class="n">frame</span>
 <span class="kn">import</span> <span class="nn">urllib</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">pprint</span>
 
-<span class="n">manifest</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">"http://iiif.io/api/presentation/3.0/example/fixtures/1/manifest.json"</span><span class="p">))</span>
+<span class="n">manifest</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">"http://iiif.io/api/presentation/./example/fixtures/1/manifest.json"</span><span class="p">))</span>
 <span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span>
   <span class="n">compact</span><span class="p">(</span>
-    <span class="n">frame</span><span class="p">(</span><span class="n">manifest</span><span class="p">,</span> <span class="s">"http://iiif.io/api/presentation/3/manifest_frame.json"</span><span class="p">),</span>
-    <span class="s">"http://iiif.io/api/presentation/3/context.json"</span><span class="p">)</span>
+    <span class="n">frame</span><span class="p">(</span><span class="n">manifest</span><span class="p">,</span> <span class="s">"http://iiif.io/api/presentation//manifest_frame.json"</span><span class="p">),</span>
+    <span class="s">"http://iiif.io/api/presentation//context.json"</span><span class="p">)</span>
 <span class="p">)</span>
 
 </code></pre></div></div>
@@ -312,15 +327,15 @@
         <ul>
         
           <li>
-            <a href="https://iiif.io/how-iiif-works">How IIIF Works</a>
+            <a href="https://marii.info/iiif-website/how-iiif-works">How IIIF Works</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/api">APIs & Documentation</a>
+            <a href="/iiif-api/iiif-api/api">APIs & Documentation</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/demos">Demos</a>
+            <a href="https://marii.info/iiif-website/demos">Demos</a>
           </li>
         
           <li>
@@ -339,15 +354,15 @@
           </li>
         
           <li>
-            <a href="https://iiif.io/newsletter">Join Newsletter</a>
+            <a href="https://marii.info/iiif-website/newsletter">Join Newsletter</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/community/groups">Community Groups</a>
+            <a href="https://marii.info/iiif-website/community/groups">Community Groups</a>
           </li>
         
           <li>
-            <a href="https://iiif.io/community/consortium">Consortium</a>
+            <a href="https://marii.info/iiif-website/community/consortium">Consortium</a>
           </li>
         
         </ul>
