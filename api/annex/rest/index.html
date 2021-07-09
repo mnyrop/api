@@ -82,7 +82,7 @@
               </a>
               <div class="navbar-dropdown is-boxed is-active">
                 
-                  <a class="navbar-item" href="https://marii.info/iiif-website/how-iiif-works">How IIIF Works</a>
+                  <a class="navbar-item" href="https://marii.info/iiif-website/get-started/how-iiif-works">How IIIF Works</a>
                 
                   <a class="navbar-item" href="https://marii.info/iiif-api/api/">APIs & Documentation</a>
                 
@@ -132,7 +132,7 @@
   <div class="columns container">
     <aside class="column is-one-quarter" markdown="1">
       <div class="box toc-sidebar sticky">
-        <ul class="menu" id="toc-menu"><li><a href="#overview">1. Overview</a></li><li><a href="#authorization-authentication-and-security">5. Authorization, Authentication and Security</a></li></ul>
+        <ul class="menu" id="toc-menu"><li><a href="#overview">1. Overview</a></li><li><a href="#requests">2. Requests</a><ul class="menu-list toc-submenu-2"><li><a href="#get">2.1 GET</a></li><li><a href="#head">2.2 HEAD</a></li><li><a href="#put">2.3 PUT</a></li><li><a href="#post">2.4 POST</a></li><li><a href="#delete">2.5 DELETE</a></li></ul></li><li><a href="#response-codes">3. Response Codes</a><ul class="menu-list toc-submenu-2"><li><a href="#successful-requests">3.1 Successful Requests</a></li><li><a href="#error-conditions">3.2 Error Conditions</a></li></ul></li><li><a href="#extension-context">4. Extension Context</a></li><li><a href="#authorization-authentication-and-security">5. Authorization, Authentication and Security</a></li></ul>
 
       </div>
     </aside>
@@ -192,190 +192,366 @@ Changes will be tracked within the document.</p>
   </li>
   <li>
     <p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> does not define a mechanism for getting the source image that the <abbr title="Application Programming Interface">API</abbr> calls are using to derive images according to the request. In some cases this may be available as:</p>
-
-    <script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
   </li>
 </ol>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
 
 <div class="code-header">
     <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
 </div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    {scheme}://{server}{/prefix}/{identifier}/full/full/0/native
-    ```
-
-    but the format can not be known, and furthermore the source image may not be in a format that the server can derive through regular requests.
-
-## 2. Requests
-{: #requests}
-
-This document aims to follow the [REST style of architecture][fielding-rest], as commonly implemented in HTTP. There is one deviation from this approach, which is that rather than using the [OPTIONS][http-options] method or the [Access-Control-Allow-Methods][http-access-control-allow-methods] header to describe which methods the server supports, the a client should request the server's capabilities document, as described in the [Image API][image-api].
-
-The predicates that should be used to indicate which methods are supported are defined in [Section 4][4].
-
-The headers required by each request and response should follow [Section 14 of the HTTP Specification][http-headers]. Additional requirements and options are described below.
-
-### 2.1 GET
-{: #get}
-
-The server should return the image that it uses make derivative images in response to regular API calls. Note that there is no guarantee that this is identical to the image that was originally PUT or POSTed to the server. The server MAY return 304 (Not Modified) if the server supports caching and the appropriate request headers were supplied.
-
-URI Pattern:
-
-&lt;script src="/iiif-api/assets/js/copyCodeBlock.js"&gt;&lt;/script&gt;
-&lt;div class="code-header"&gt;
-    &lt;button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"&gt;&lt;/button&gt;
-&lt;/div&gt;
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{scheme}://{server}{/prefix}/{identifier}/full/full/0/native
 </code></pre></div></div>
-<p>{scheme}://{server}{/prefix}/{identifier}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Relevant Headers:
 
-| Header                    | Request/Response | Required | Description |
-| ------------------------- | -----------------| -------- | ----------- |
-| [Content-Type][http-content-type] | Request  | yes | The Media Type for the image. |
+<p>but the format can not be known, and furthermore the source image may not be in a format that the server can derive through regular requests.</p>
+      <h2 id="requests">
+        
+        
+          2. Requests <a href="#requests">#</a>
+        
+        
+      </h2>
+    
 
-The server MUST return the image in a single format from this URI. It MAY either ignore any Accept header included in request, or return a 406 (Not Acceptable) status in response to an attempt to content-negotiate.
+<p>This document aims to follow the <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm"><abbr title="Representational State Transfer">REST</abbr> style of architecture</a>, as commonly implemented in <abbr title="Hypertext Transfer Protocol">HTTP</abbr>. There is one deviation from this approach, which is that rather than using the <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.2">OPTIONS</a> method or the <a href="http://www.w3.org/TR/cors/#access-control-allow-methods-response-header">Access-Control-Allow-Methods</a> header to describe which methods the server supports, the a client should request the server’s capabilities document, as described in the <a href="/iiif-api/api/image/.">Image <abbr title="Application Programming Interface">API</abbr></a>.</p>
 
-### 2.2 HEAD
-{: #head}
+<p>The predicates that should be used to indicate which methods are supported are defined in <a href="#extension-context">Section 4</a>.</p>
 
-The request should behave exactly the same as GET, except that only the appropriate response code and headers should be returned. There MUST NOT be a response body. This is useful to a client that needs to know, for example, whether an image with the supplied URI exists on the server, the format of that image, or when it was last modified.
+<p>The headers required by each request and response should follow <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">Section 14 of the <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Specification</a>. Additional requirements and options are described below.</p>
+      <h3 id="get">
+        
+        
+          2.1 GET <a href="#get">#</a>
+        
+        
+      </h3>
+    
 
-URI Pattern:
+<p>The server should return the image that it uses make derivative images in response to regular <abbr title="Application Programming Interface">API</abbr> calls. Note that there is no guarantee that this is identical to the image that was originally PUT or POSTed to the server. The server MAY return 304 (Not Modified) if the server supports caching and the appropriate request headers were supplied.</p>
 
-&lt;script src="/iiif-api/assets/js/copyCodeBlock.js"&gt;&lt;/script&gt;
-&lt;div class="code-header"&gt;
-    &lt;button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"&gt;&lt;/button&gt;
-&lt;/div&gt;
+<p>URI Pattern:</p>
 
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{scheme}://{server}{/prefix}/{identifier}
 </code></pre></div></div>
-<p>{scheme}://{server}{/prefix}/{identifier}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-### 2.3 PUT
-{: #put}
 
-&gt; TODO: what happens if the identifier uses chars the API doesn't allow? This is why we return a Location header, but is it OK to change it? Functionally, it should be OK as long as the resolver implementation changes the identifier in the exact same way.
+<p>Relevant Headers:</p>
 
-Update an existing image or create a new image with {identifier}.
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Request/Response</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a></td>
+      <td>Request</td>
+      <td>yes</td>
+      <td>The Media Type for the image.</td>
+    </tr>
+  </tbody>
+</table>
 
-URI Pattern:
+<p>The server MUST return the image in a single format from this URI. It MAY either ignore any Accept header included in request, or return a 406 (Not Acceptable) status in response to an attempt to content-negotiate.</p>
+      <h3 id="head">
+        
+        
+          2.2 HEAD <a href="#head">#</a>
+        
+        
+      </h3>
+    
 
-&lt;script src="/iiif-api/assets/js/copyCodeBlock.js"&gt;&lt;/script&gt;
-&lt;div class="code-header"&gt;
-    &lt;button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"&gt;&lt;/button&gt;
-&lt;/div&gt;
+<p>The request should behave exactly the same as GET, except that only the appropriate response code and headers should be returned. There MUST NOT be a response body. This is useful to a client that needs to know, for example, whether an image with the supplied URI exists on the server, the format of that image, or when it was last modified.</p>
 
+<p>URI Pattern:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{scheme}://{server}{/prefix}/{identifier}
 </code></pre></div></div>
-<p>{scheme}://{server}{/prefix}/{identifier}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Relevant Headers:
+      <h3 id="put">
+        
+        
+          2.3 PUT <a href="#put">#</a>
+        
+        
+      </h3>
+    
 
-| Header                    | Request/Response | Required | Description |
-| ------------------------- | -----------------| -------- | ----------- |
-| [Location][http-location] | Response         | yes      | The new Base URI for the image. |
-| [Content-MD5][http-content-md5] | Response   | yes      | As a verification that the image was received intact. |
-| [Content-Type][http-content-type] | Request  | yes      | The Media Type for the image. |
-| [If-None-Match][http-if-none-match] | Request | no | Makes the PUT conditional. |
+<blockquote>
+  <p>TODO: what happens if the identifier uses chars the <abbr title="Application Programming Interface">API</abbr> doesn’t allow? This is why we return a Location header, but is it OK to change it? Functionally, it should be OK as long as the resolver implementation changes the identifier in the exact same way.</p>
+</blockquote>
 
-The response body MAY contain the info.json that was extracted from the image, but it MUST NOT redirect to the info URI as the Location header the MUST contain the Base URI of the of the newly stored image.
+<p>Update an existing image or create a new image with {identifier}.</p>
 
-### 2.4 POST
-{: #post}
+<p>URI Pattern:</p>
 
-Similar to PUT, except that the server will supply the identifier, and return it as part of the Location header.
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
 
-URI Pattern:
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
 
-&lt;script src="/iiif-api/assets/js/copyCodeBlock.js"&gt;&lt;/script&gt;
-&lt;div class="code-header"&gt;
-    &lt;button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"&gt;&lt;/button&gt;
-&lt;/div&gt;
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{scheme}://{server}{/prefix}/{identifier}
 </code></pre></div></div>
-<p>{scheme}://{server}{/prefix}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-Relevant Headers:
 
-| Header                    | Request/Response | Required | Description |
-| ------------------------- | -----------------| -------- | ----------- |
-| [Location][http-location] | Response | yes | The new Base URI for the image. |
-| [Content-MD5][http-content-md5] | Response | yes | As a verification that the image was received intact. |
-| [Content-Type][http-content-type] | Request | yes | The Media Type for the image. |
+<p>Relevant Headers:</p>
 
-### 2.5 DELETE
-{: #delete}
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Request/Response</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.30">Location</a></td>
+      <td>Response</td>
+      <td>yes</td>
+      <td>The new Base URI for the image.</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.15">Content-MD5</a></td>
+      <td>Response</td>
+      <td>yes</td>
+      <td>As a verification that the image was received intact.</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a></td>
+      <td>Request</td>
+      <td>yes</td>
+      <td>The Media Type for the image.</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.26">If-None-Match</a></td>
+      <td>Request</td>
+      <td>no</td>
+      <td>Makes the PUT conditional.</td>
+    </tr>
+  </tbody>
+</table>
 
-Delete the image specified by {identifier} on the server.
+<p>The response body MAY contain the info.json that was extracted from the image, but it MUST NOT redirect to the info URI as the Location header the MUST contain the Base URI of the of the newly stored image.</p>
+      <h3 id="post">
+        
+        
+          2.4 POST <a href="#post">#</a>
+        
+        
+      </h3>
+    
 
-URI Pattern:
+<p>Similar to PUT, except that the server will supply the identifier, and return it as part of the Location header.</p>
 
-&lt;script src="/iiif-api/assets/js/copyCodeBlock.js"&gt;&lt;/script&gt;
-&lt;div class="code-header"&gt;
-    &lt;button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"&gt;&lt;/button&gt;
-&lt;/div&gt;
+<p>URI Pattern:</p>
 
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{scheme}://{server}{/prefix}
 </code></pre></div></div>
-<p>{scheme}://{server}{/prefix}/{identifier}</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-There are no special requirements for the HTTP headers associated with a DELETE request.
 
-## 3. Response Codes
-{: #response-codes}
+<p>Relevant Headers:</p>
 
-In addition to the error conditions discussed in the API documents, the following codes are likely to be relevant. Implementations may find additional codes useful to their applications.
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Request/Response</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.30">Location</a></td>
+      <td>Response</td>
+      <td>yes</td>
+      <td>The new Base URI for the image.</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.15">Content-MD5</a></td>
+      <td>Response</td>
+      <td>yes</td>
+      <td>As a verification that the image was received intact.</td>
+    </tr>
+    <tr>
+      <td><a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">Content-Type</a></td>
+      <td>Request</td>
+      <td>yes</td>
+      <td>The Media Type for the image.</td>
+    </tr>
+  </tbody>
+</table>
+      <h3 id="delete">
+        
+        
+          2.5 DELETE <a href="#delete">#</a>
+        
+        
+      </h3>
+    
 
-### 3.1 Successful Requests
-{: #successful-requests}
+<p>Delete the image specified by {identifier} on the server.</p>
 
-| Response Code  | Description |
-| -------------- | ----------- |
-| 200 OK         | For GET, HEAD requests when the resource exists. |
-| 201 Created    | For PUT or POST requests, when the image was successfully stored on the server. |
-| 204 No Content | For DELETE requests. 204 MUST be used. Do NOT use 200. |
+<p>URI Pattern:</p>
 
-### 3.2 Error Conditions
-{: #error-conditions}
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
 
-| Error Code                   | Description                                   |
-| ---------------------------- | --------------------------------------------- |
-| 401 Unauthorized             | See [Section 5][5]. |
-| 403 Forbidden                | See [Section 5][5]. |
-| 404 Not Found                | For GETs and DELETES when the URI does not resolve to an image. |
-| 405 Method Not Allowed       | See [Section 5][5]. |
-| 413 Request Entity Too Large | Use for instances when the size of the image in a POST or PUT request is larger than the server will accept, if such a limit exists. |
-| 415 Unsupported Media Type   | The declared Content-Type is not one that the server supports, or the server can not extract technical metadata from the entity of the request based on the declared Content-Type |
-| 501 Not Implemented          | The server does not support the request method |
-| 503 Service Unavailable      | The server can not handle the request for some other reason. For example, it may be out of storge space |
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
 
-## 4. Extension Context
-{: #extension-context}
-
-This extension defines five predicates in a separate context, one for each of the HTTP methods described in [Section 2][2]. A server that supports any of the HTTP methods as described by this document should modify its capabilities document to include this context, e.g., as follows:
-
-&lt;script src="/iiif-api/assets/js/copyCodeBlock.js"&gt;&lt;/script&gt;
-&lt;div class="code-header"&gt;
-    &lt;button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"&gt;&lt;/button&gt;
-&lt;/div&gt;
-
-``` json-doc
-{
-  "@context" : [
-    "http://iiif.io/api/image-api/context.json",
-    "http://iiif.io/api/image/ext/rest.json"
-  ],
-  "@id" : "http://iiif.example.com/server",
-
-  ...
-
-  "http_delete" : "true",
-  "http_get" : "false",
-  "http_head" : "true",
-  "http_post" : "false",
-  "http_put" : "true"
-}
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{scheme}://{server}{/prefix}/{identifier}
 </code></pre></div></div>
+
+<p>There are no special requirements for the <abbr title="Hypertext Transfer Protocol">HTTP</abbr> headers associated with a DELETE request.</p>
+      <h2 id="response-codes">
+        
+        
+          3. Response Codes <a href="#response-codes">#</a>
+        
+        
+      </h2>
+    
+
+<p>In addition to the error conditions discussed in the <abbr title="Application Programming Interface">API</abbr> documents, the following codes are likely to be relevant. Implementations may find additional codes useful to their applications.</p>
+      <h3 id="successful-requests">
+        
+        
+          3.1 Successful Requests <a href="#successful-requests">#</a>
+        
+        
+      </h3>
+    
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Response Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>200 OK</td>
+      <td>For GET, HEAD requests when the resource exists.</td>
+    </tr>
+    <tr>
+      <td>201 Created</td>
+      <td>For PUT or POST requests, when the image was successfully stored on the server.</td>
+    </tr>
+    <tr>
+      <td>204 No Content</td>
+      <td>For DELETE requests. 204 MUST be used. Do NOT use 200.</td>
+    </tr>
+  </tbody>
+</table>
+      <h3 id="error-conditions">
+        
+        
+          3.2 Error Conditions <a href="#error-conditions">#</a>
+        
+        
+      </h3>
+    
+
+<table class="api-table">
+  <thead>
+    <tr>
+      <th>Error Code</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>401 Unauthorized</td>
+      <td>See <a href="#authorization-authentication-and-security">Section 5</a>.</td>
+    </tr>
+    <tr>
+      <td>403 Forbidden</td>
+      <td>See <a href="#authorization-authentication-and-security">Section 5</a>.</td>
+    </tr>
+    <tr>
+      <td>404 Not Found</td>
+      <td>For GETs and DELETES when the URI does not resolve to an image.</td>
+    </tr>
+    <tr>
+      <td>405 Method Not Allowed</td>
+      <td>See <a href="#authorization-authentication-and-security">Section 5</a>.</td>
+    </tr>
+    <tr>
+      <td>413 Request Entity Too Large</td>
+      <td>Use for instances when the size of the image in a POST or PUT request is larger than the server will accept, if such a limit exists.</td>
+    </tr>
+    <tr>
+      <td>415 Unsupported Media Type</td>
+      <td>The declared Content-Type is not one that the server supports, or the server can not extract technical metadata from the entity of the request based on the declared Content-Type</td>
+    </tr>
+    <tr>
+      <td>501 Not Implemented</td>
+      <td>The server does not support the request method</td>
+    </tr>
+    <tr>
+      <td>503 Service Unavailable</td>
+      <td>The server can not handle the request for some other reason. For example, it may be out of storge space</td>
+    </tr>
+  </tbody>
+</table>
+      <h2 id="extension-context">
+        
+        
+          4. Extension Context <a href="#extension-context">#</a>
+        
+        
+      </h2>
+    
+
+<p>This extension defines five predicates in a separate context, one for each of the <abbr title="Hypertext Transfer Protocol">HTTP</abbr> methods described in <a href="#requests">Section 2</a>. A server that supports any of the <abbr title="Hypertext Transfer Protocol">HTTP</abbr> methods as described by this document should modify its capabilities document to include this context, e.g., as follows:</p>
+
+<script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
+
+<div class="code-header">
+    <button class="copy-button button is-small is-primary" aria-label="Copy code to clipboard"></button>
+</div>
+
+<div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"http://iiif.io/api/image-api/context.json"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"http://iiif.io/api/image/ext/rest.json"</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"@id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.example.com/server"</span><span class="p">,</span><span class="w">
+
+  </span><span class="c1">...</span><span class="w">
+
+  </span><span class="nl">"http_delete"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"http_get"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"http_head"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"http_post"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"false"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"http_put"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <p>If one or more of the predicates is missing, a client MUST assume the method is not supported.</p>
       <h2 id="authorization-authentication-and-security">
@@ -413,7 +589,7 @@ This extension defines five predicates in a separate context, one for each of th
         <ul>
         
           <li>
-            <a href="https://marii.info/iiif-website/how-iiif-works">How IIIF Works</a>
+            <a href="https://marii.info/iiif-website//get-started/how-iiif-works">How IIIF Works</a>
           </li>
         
           <li>

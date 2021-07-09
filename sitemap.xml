@@ -49,9 +49,6 @@
 <loc>/iiif-api/api/annex/notes/</loc>
 </url>
 <url>
-<loc>/iiif-api/api/annex/</loc>
-</url>
-<url>
 <loc>/iiif-api/api/image/validator/</loc>
 </url>
 <url>
@@ -68,6 +65,9 @@
 </url>
 <url>
 <loc>/iiif-api/api/annex/rest/</loc>
+</url>
+<url>
+<loc>/iiif-api/api/annex/</loc>
 </url>
 <url>
 <loc>/iiif-api/api/auth/0.9/</loc>
