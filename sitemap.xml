@@ -88,6 +88,9 @@
 <loc>/iiif-api/api/content-state/0.2/</loc>
 </url>
 <url>
+<loc>/iiif-api/api/content-state/0.9/</loc>
+</url>
+<url>
 <loc>/iiif-api/api/content-state/0.3/</loc>
 </url>
 <url>
@@ -149,6 +152,9 @@
 </url>
 <url>
 <loc>/iiif-api/api/discovery/0.3/</loc>
+</url>
+<url>
+<loc>/iiif-api/api/discovery/1.0/</loc>
 </url>
 <url>
 <loc>/iiif-api/api/discovery/0.4/</loc>
