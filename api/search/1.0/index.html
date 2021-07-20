@@ -148,7 +148,7 @@
     
 <p><strong>This Version:</strong> 1.0.0</p>
 
-<p><strong>Latest Stable Version:</strong> <a href="/iiif-api/api/search/./" title="Stable Version">..</a></p>
+<p><strong>Latest Stable Version:</strong> <a href="https://marii.info/iiif-api/api//search/1.0/" title="Stable Version">1.0.0</a></p>
 
 <p><strong>Editors:</strong></p>
 
@@ -170,7 +170,7 @@
   </li>
 </ul>
 
-<p><em>Copyright © 2015-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
+<p><em>Copyright © 2015-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="https://marii.info/iiif-api/api//annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
       <h2 id="introduction">
         
         
@@ -180,7 +180,7 @@
       </h2>
     
 
-<p>In the <abbr title="International Image Interoperability Framework">IIIF</abbr> (pronounced “Triple-Eye-Eff”) <a href="/iiif-api/api/presentation/./" title="Presentation API">Presentation <abbr title="Application Programming Interface">API</abbr></a>, content is brought together from distributed systems via annotations.  That content might include images, often with a <abbr title="International Image Interoperability Framework">IIIF</abbr> <a href="/iiif-api/api/image/./" title="Image API">Image <abbr title="Application Programming Interface">API</abbr></a> service to access them, audio, video, rich or plain text, or anything else.  In a vibrant and dynamic system, that content can come from many sources and be rich, varied and abundant.  Of that list of content types, textual resources lend themselves to being searched, either as the transcription, translation or edition of the intellectual content, or commentary, description, tagging or other annotations about the object.</p>
+<p>In the <abbr title="International Image Interoperability Framework">IIIF</abbr> (pronounced “Triple-Eye-Eff”) <a href="https://marii.info/iiif-api/api//presentation/3.0/" title="Presentation API">Presentation <abbr title="Application Programming Interface">API</abbr></a>, content is brought together from distributed systems via annotations.  That content might include images, often with a <abbr title="International Image Interoperability Framework">IIIF</abbr> <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API">Image <abbr title="Application Programming Interface">API</abbr></a> service to access them, audio, video, rich or plain text, or anything else.  In a vibrant and dynamic system, that content can come from many sources and be rich, varied and abundant.  Of that list of content types, textual resources lend themselves to being searched, either as the transcription, translation or edition of the intellectual content, or commentary, description, tagging or other annotations about the object.</p>
 
 <p>This specification lays out the interoperability mechanism for performing these searches within the <abbr title="International Image Interoperability Framework">IIIF</abbr> context.  The scope of the specification is searching annotation content within a single <abbr title="International Image Interoperability Framework">IIIF</abbr> resource, such as a Manifest, Range or Collection.  Every effort is made to keep the interaction as consistent with existing <abbr title="International Image Interoperability Framework">IIIF</abbr> patterns as possible.  Searching for metadata or other descriptive properties is <strong>not</strong> in scope for this work.</p>
 
@@ -227,7 +227,7 @@
       </h2>
     
 
-<p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> <a href="/iiif-api/api/presentation/./" title="Presentation API">Presentation <abbr title="Application Programming Interface">API</abbr></a> provides just enough information to a viewer so that it can present the images and other content to the user in a rich and understandable way.  Those content resources may have textual annotations associated with them.  Annotations may also be associated with the structural components of the Presentation <abbr title="Application Programming Interface">API</abbr>, such as the manifest itself, sequences, ranges, and layers.  Further, annotations can be replied to by annotating them to form a threaded discussion about the commentary, transcription, edition or translation.</p>
+<p>The <abbr title="International Image Interoperability Framework">IIIF</abbr> <a href="https://marii.info/iiif-api/api//presentation/3.0/" title="Presentation API">Presentation <abbr title="Application Programming Interface">API</abbr></a> provides just enough information to a viewer so that it can present the images and other content to the user in a rich and understandable way.  Those content resources may have textual annotations associated with them.  Annotations may also be associated with the structural components of the Presentation <abbr title="Application Programming Interface">API</abbr>, such as the manifest itself, sequences, ranges, and layers.  Further, annotations can be replied to by annotating them to form a threaded discussion about the commentary, transcription, edition or translation.</p>
 
 <p>Annotations are typically made available to viewing applications in an annotation list, where all of the annotations in the list target the same resource, or part of it.  Where known, these lists can be directly referenced from the manifest document to allow clients to simply follow the link to retrieve them.  For fixed, curated content, this is an appropriate method to discover them, as the annotations do not frequently change, nor are they potentially distributed amongst multiple servers. Annotation lists can be included in layers to group them together, such as by the source of the annotations, to allow the user to manipulate that grouping as a whole.</p>
 
@@ -255,7 +255,7 @@
 
 <p>Any resource in the Presentation <abbr title="Application Programming Interface">API</abbr> may have a search service associated with it.  The resource determines the scope of the content that will be searched.  A service associated with a manifest will search all of the annotations on canvases or other objects below the manifest, a service associated with a particular range will only search the canvases within the range, or a service on a canvas will search only annotations on that particular canvas.</p>
 
-<p>The description of the service follows the pattern established in the <a href="/iiif-api/api/annex/services/">Linking to Services</a> specification.  The description block <em class="rfc">must</em> have the <code class="language-plaintext highlighter-rouge">@context</code> property with the value “http://iiif.io/api/search/1/context.json”, the  <code class="language-plaintext highlighter-rouge">profile</code> property with the value “http://iiif.io/api/search/1/search”, and the <code class="language-plaintext highlighter-rouge">@id</code> property that contains the URI where the search can be performed.</p>
+<p>The description of the service follows the pattern established in the <a href="https://marii.info/iiif-api/api//annex/services/">Linking to Services</a> specification.  The description block <em class="rfc">must</em> have the <code class="language-plaintext highlighter-rouge">@context</code> property with the value “http://iiif.io/api/search/1/context.json”, the  <code class="language-plaintext highlighter-rouge">profile</code> property with the value “http://iiif.io/api/search/1/search”, and the <code class="language-plaintext highlighter-rouge">@id</code> property that contains the URI where the search can be performed.</p>
 
 <p>An example service description block:</p>
 
@@ -392,7 +392,7 @@
       </h3>
     
 
-<p>The response from the server is an <a href="/iiif-api/api/presentation/./#annotation-list">annotation list</a>, following the format from the Presentation <abbr title="Application Programming Interface">API</abbr> with a few additional features.  This allows clients that already implement the AnnotationList format to avoid further implementation work to support search results.</p>
+<p>The response from the server is an <a href="https://marii.info/iiif-api/api//presentation/3.0/#annotation-list">annotation list</a>, following the format from the Presentation <abbr title="Application Programming Interface">API</abbr> with a few additional features.  This allows clients that already implement the AnnotationList format to avoid further implementation work to support search results.</p>
 
 <p>The search results are returned as annotations in the regular <abbr title="International Image Interoperability Framework">IIIF</abbr> syntax. Note that the annotations can come from multiple canvases, rather than the default situation from the Presentation <abbr title="Application Programming Interface">API</abbr> where all of the annotations target a single canvas.</p>
       <h4 id="simple-lists">
@@ -415,7 +415,7 @@
 </div>
 
 <div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"@context"</span><span class="p">:</span><span class="s2">"http://iiif.io/api/presentation//context.json"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="p">:</span><span class="s2">"http://iiif.io/api/presentation/3/context.json"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"@id"</span><span class="p">:</span><span class="s2">"http://example.org/service/manifest/search?q=bird&amp;motivation=painting"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="s2">"sc:AnnotationList"</span><span class="p">,</span><span class="w">
 
@@ -443,11 +443,11 @@
       </h4>
     
 
-<p>For long lists of annotations, the server may choose to divide the response into multiple sections, often called pages.  Each page is an annotation list and can refer to other pages to allow the client to traverse the entire set.  This uses the <a href="/iiif-api/api/presentation/2.1/">paging features</a> introduced in version 2.1 of the Presentation <abbr title="Application Programming Interface">API</abbr>, but is backwards compatible with version 2.0.  The next page of results that follows the current response <em class="rfc">must</em> be referenced in a <code class="language-plaintext highlighter-rouge">next</code> property of the annotation list, and the previous page <em class="rfc">should</em> be referenced in a <code class="language-plaintext highlighter-rouge">prev</code> property.</p>
+<p>For long lists of annotations, the server may choose to divide the response into multiple sections, often called pages.  Each page is an annotation list and can refer to other pages to allow the client to traverse the entire set.  This uses the <a href="https://marii.info/iiif-api/api//presentation/2.1/">paging features</a> introduced in version 2.1 of the Presentation <abbr title="Application Programming Interface">API</abbr>, but is backwards compatible with version 2.0.  The next page of results that follows the current response <em class="rfc">must</em> be referenced in a <code class="language-plaintext highlighter-rouge">next</code> property of the annotation list, and the previous page <em class="rfc">should</em> be referenced in a <code class="language-plaintext highlighter-rouge">prev</code> property.</p>
 
 <p>The URI of the first annotation list reported in the <code class="language-plaintext highlighter-rouge">@id</code> property <em class="rfc">may</em> be different from the one used by the client to request the search.  Each page <em class="rfc">should</em> also have a <code class="language-plaintext highlighter-rouge">startIndex</code> property with an integer value that reports the position of the first result within the entire result set, where the first annotation has an index of 0.  For example, if the client has requested the first page which has 10 hits, then the <code class="language-plaintext highlighter-rouge">startIndex</code> will be 0, and the <code class="language-plaintext highlighter-rouge">startIndex</code> of second page will be 10, being the 11th hit.</p>
 
-<p>All of the pages are within a <a href="/iiif-api/api/presentation/./#layer">layer</a> that represents the entire resultset of matched annotations.  The layer is the value of a <code class="language-plaintext highlighter-rouge">within</code> property on each of the page annotation lists, and is recorded as an object with properties.</p>
+<p>All of the pages are within a <a href="https://marii.info/iiif-api/api//presentation/3.0/#layer">layer</a> that represents the entire resultset of matched annotations.  The layer is the value of a <code class="language-plaintext highlighter-rouge">within</code> property on each of the page annotation lists, and is recorded as an object with properties.</p>
 
 <p>The layer <em class="rfc">must</em> have the <code class="language-plaintext highlighter-rouge">@type</code> property, with the value of “sc:Layer”.  It <em class="rfc">should</em> refer to the URIs of the first and last annotation list pages with <code class="language-plaintext highlighter-rouge">first</code> and <code class="language-plaintext highlighter-rouge">last</code> properties, respectively. The layer <em class="rfc">should</em> have a <code class="language-plaintext highlighter-rouge">total</code> property which is the total number of hits generated by the query, and it <em class="rfc">may</em> have a URI given as the value of the <code class="language-plaintext highlighter-rouge">@id</code> property.</p>
 
@@ -471,7 +471,7 @@
 </div>
 
 <div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"@context"</span><span class="p">:</span><span class="s2">"http://iiif.io/api/presentation//context.json"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="p">:</span><span class="s2">"http://iiif.io/api/presentation/3/context.json"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"@id"</span><span class="p">:</span><span class="s2">"http://example.org/service/manifest/search?q=bird&amp;page=1"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"@type"</span><span class="p">:</span><span class="s2">"sc:AnnotationList"</span><span class="p">,</span><span class="w">
 
@@ -572,7 +572,7 @@
 
 <div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:[</span><span class="w">
-      </span><span class="s2">"http://iiif.io/api/presentation//context.json"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://iiif.io/api/presentation/3/context.json"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"http://iiif.io/api/search/1/context.json"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"@id"</span><span class="p">:</span><span class="s2">"http://example.org/service/manifest/search?q=bird&amp;page=1"</span><span class="p">,</span><span class="w">
@@ -636,7 +636,7 @@
 
 <div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:[</span><span class="w">
-      </span><span class="s2">"http://iiif.io/api/presentation//context.json"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://iiif.io/api/presentation/3/context.json"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"http://iiif.io/api/search/1/context.json"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"@id"</span><span class="p">:</span><span class="s2">"http://example.org/service/manifest/search?q=bird&amp;page=1"</span><span class="p">,</span><span class="w">
@@ -689,7 +689,7 @@
 
 <div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:[</span><span class="w">
-      </span><span class="s2">"http://iiif.io/api/presentation//context.json"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://iiif.io/api/presentation/3/context.json"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"http://iiif.io/api/search/1/context.json"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"@id"</span><span class="p">:</span><span class="s2">"http://example.org/service/manifest/search?q=bird"</span><span class="p">,</span><span class="w">
@@ -772,7 +772,7 @@
 
 <div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:[</span><span class="w">
-      </span><span class="s2">"http://iiif.io/api/presentation//context.json"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://iiif.io/api/presentation/3/context.json"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"http://iiif.io/api/search/1/context.json"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"@id"</span><span class="p">:</span><span class="s2">"http://example.org/service/manifest/search?q=b*&amp;page=1"</span><span class="p">,</span><span class="w">
@@ -840,7 +840,7 @@
 
 <div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:[</span><span class="w">
-      </span><span class="s2">"http://iiif.io/api/presentation//context.json"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"http://iiif.io/api/presentation/3/context.json"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"http://iiif.io/api/search/1/context.json"</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nl">"@id"</span><span class="p">:</span><span class="s2">"http://example.org/service/manifest/search?q=hand+is"</span><span class="p">,</span><span class="w">
@@ -1188,7 +1188,7 @@
       </h3>
     
 
-<p>This specification follows <a href="http://semver.org/spec/v2.0.0.html" title="Semantic Versioning 2.0.0">Semantic Versioning</a>. See the note <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">Versioning of APIs</a> for details regarding how this is implemented.</p>
+<p>This specification follows <a href="http://semver.org/spec/v2.0.0.html" title="Semantic Versioning 2.0.0">Semantic Versioning</a>. See the note <a href="https://marii.info/iiif-api/api//annex/notes/semver/" title="Versioning of APIs">Versioning of APIs</a> for details regarding how this is implemented.</p>
       <h3 id="c-acknowledgements">
         
         
@@ -1200,7 +1200,7 @@
 
 <p>The production of this document was generously supported by a grant from the <a href="http://www.mellon.org/" title="The Andrew W. Mellon Foundation">Andrew W. Mellon Foundation</a>.</p>
 
-<p>Many thanks to the members of the <a href="/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
+<p>Many thanks to the members of the <a href="https://marii.info/iiif-website/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
       <h3 id="d-change-log">
         
         

@@ -172,10 +172,10 @@
   </li>
 </ul>
 
-<p><em>Copyright © 2012-2021 Editors and contributors. Published by the IIIF Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p>
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the IIIF Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="https://marii.info/iiif-api/api//annex/notes/disclaimer/">disclaimer</a>.</em></p>
 
 <p class="warning"><strong>Status Warning</strong>
-This is a work in progress and may change without notice. Implementers should be aware that this document is not stable. Implementers are likely to find the specification changing in incompatible ways. Those interested in implementing this document before it reaches beta or release stages should join the IIIF <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">mailing list</a> and the <a href="/iiif-api/community/groups/discovery/">Discovery Specification Group</a>, take part in the discussions, and follow the <a href="https://github.com/IIIF/discovery/issues">emerging issues</a> on Github.</p><hr />
+This is a work in progress and may change without notice. Implementers should be aware that this document is not stable. Implementers are likely to find the specification changing in incompatible ways. Those interested in implementing this document before it reaches beta or release stages should join the IIIF <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">mailing list</a> and the <a href="https://marii.info/iiif-website/community/groups/discovery/">Discovery Specification Group</a>, take part in the discussions, and follow the <a href="https://github.com/IIIF/discovery/issues">emerging issues</a> on Github.</p><hr />
       <h2 id="introduction">
         
         
@@ -185,7 +185,7 @@ This is a work in progress and may change without notice. Implementers should be
       </h2>
     
 
-<p>The resources made available via the <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">IIIF Presentation API</a> are only useful if they can be found. While the <a href="/iiif-api/api/discovery/0.1/" title="IIIF Change Discovery API">Change Discovery API</a> specifies systems that allow these resources to be found, this document specifies a mechanism that allows a user to then open the found resource in a compatible environment, such as a viewer, annotation tool or other IIIF-compatible software.</p>
+<p>The resources made available via the <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">IIIF Presentation API</a> are only useful if they can be found. While the <a href="https://marii.info/iiif-api/api//discovery/0.1/" title="IIIF Change Discovery API">Change Discovery API</a> specifies systems that allow these resources to be found, this document specifies a mechanism that allows a user to then open the found resource in a compatible environment, such as a viewer, annotation tool or other IIIF-compatible software.</p>
 
 <p>This specification makes use of existing techniques and specifications in order to promote widespread adoption. It provides a way of describing a resource, or a part of a resource, in a compact format that can be used to initialise the view of that resource in any client that implements this specification. Linking from a search result to a viewer showing the relevant part of a found resource is one application of this specification. More generally, it provides a description of a <em>content state</em>, allowing such states to be shared between applications regardless of their different user interfaces and capabilities.</p>
       <h3 id="objectives-and-scope">
@@ -199,9 +199,9 @@ This is a work in progress and may change without notice. Implementers should be
 
 <p>The objective of the IIIF Import to Viewers API is to enable the sharing of a standardised description of a view of one or more IIIF Presentation API resources, typically Manifests or Collections. The intended audience is developers of other IIIF-aware systems that can display the resources. While this work may benefit others outside of the IIIF community directly or indirectly, the objective of the API is to specify an interoperable solution that best and most easily fulfills these needs within the community of participating organizations.</p>
 
-<p>The standardised view is a JSON-LD data structure that uses the models described by the <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">IIIF Presentation API</a> and <a href="http://w3.org/TR/annotation-model/" title="Web Annotation Model">W3C Web Annotation Data Model</a> specifications. Viewers built to those specifications will already understand at least some of the model. This specification allows a content state to be passed to the viewer from outside, so that a viewer can show the intended part of the resource (or resources) to the user. The same model can be used by a viewer to <em>export</em> a state, for example to enable a user to share a particular view with another user or publish it as a reference.</p>
+<p>The standardised view is a JSON-LD data structure that uses the models described by the <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">IIIF Presentation API</a> and <a href="http://w3.org/TR/annotation-model/" title="Web Annotation Model">W3C Web Annotation Data Model</a> specifications. Viewers built to those specifications will already understand at least some of the model. This specification allows a content state to be passed to the viewer from outside, so that a viewer can show the intended part of the resource (or resources) to the user. The same model can be used by a viewer to <em>export</em> a state, for example to enable a user to share a particular view with another user or publish it as a reference.</p>
 
-<p>The specification describes the model for a content state, but does not mandate a particular mechanism for a viewer accepting the state for initialisation. Different IIIF clients have different user interfaces and audiences. The specification discusses several mechanisms, and more detailed examples may be found in the <a href="&quot;IIIF Cookbook&quot;">IIIF Cookbook</a>.</p>
+<p>The specification describes the model for a content state, but does not mandate a particular mechanism for a viewer accepting the state for initialisation. Different IIIF clients have different user interfaces and audiences. The specification discusses several mechanisms, and more detailed examples may be found in the <a href="/" title="IIIF Cookbook">IIIF Cookbook</a>.</p>
       <h3 id="terminology">
         
         
@@ -331,7 +331,7 @@ This is a work in progress and may change without notice. Implementers should be
       </h2>
     
 
-<p>This specification does not impose limits on the mechanisms that IIIF compatible software can use to expose, share and transfer content state descriptions, nor what form IIIF compatible software itself may take (e.g., a web page, a JavaScript web application, a native mobile application, a desktop application, or display kiosk hardware). Please see the <a href="&quot;IIIF Cookbook&quot;">IIIF Cookbook</a> for examples of the patterns listed below.</p>
+<p>This specification does not impose limits on the mechanisms that IIIF compatible software can use to expose, share and transfer content state descriptions, nor what form IIIF compatible software itself may take (e.g., a web page, a JavaScript web application, a native mobile application, a desktop application, or display kiosk hardware). Please see the <a href="/" title="IIIF Cookbook">IIIF Cookbook</a> for examples of the patterns listed below.</p>
       <h3 id="initialisation-mechanisms">
         
         
@@ -360,7 +360,7 @@ This is a work in progress and may change without notice. Implementers should be
       </h2>
     
 
-<p>The following examples demonstrate the use of the existing IIIF Presentation API and W3C Web Annotation Data Model to describe parts of resources. The full form of the annotation (as if it were available at the URL given in the <code class="language-plaintext highlighter-rouge">id</code> property) has been used in each case.  Further examples can be found in the <a href="&quot;IIIF Cookbook&quot;">IIIF Cookbook</a></p>
+<p>The following examples demonstrate the use of the existing IIIF Presentation API and W3C Web Annotation Data Model to describe parts of resources. The full form of the annotation (as if it were available at the URL given in the <code class="language-plaintext highlighter-rouge">id</code> property) has been used in each case.  Further examples can be found in the <a href="/" title="IIIF Cookbook">IIIF Cookbook</a></p>
       <h3 id="41-a-region-of-a-canvas-in-a-manifest">
         
         
@@ -521,9 +521,9 @@ This is a work in progress and may change without notice. Implementers should be
       </h3>
     
 
-<p>Many thanks to the members of the <a href="/community/" title="IIIF Community">IIIF community</a> for their continuous engagement, innovative ideas, and feedback.</p>
+<p>Many thanks to the members of the <a href="https://marii.info/iiif-website/community/" title="IIIF Community">IIIF community</a> for their continuous engagement, innovative ideas, and feedback.</p>
 
-<p>Many of the changes in this version are due to the work of the <a href="/iiif-api/community/groups/discovery/">IIIF Discovery Technical Specification Group</a>, chaired by Antoine Isaac (Europeana), Matthew McGrattan (Digirati) and Rob Sanderson (J. Paul Getty Trust). The IIIF Community thanks them for their leadership, and the members of the group for their tireless work.</p>
+<p>Many of the changes in this version are due to the work of the <a href="https://marii.info/iiif-website/community/groups/discovery/">IIIF Discovery Technical Specification Group</a>, chaired by Antoine Isaac (Europeana), Matthew McGrattan (Digirati) and Rob Sanderson (J. Paul Getty Trust). The IIIF Community thanks them for their leadership, and the members of the group for their tireless work.</p>
       <h3 id="change-log">
         
         

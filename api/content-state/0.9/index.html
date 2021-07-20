@@ -148,7 +148,7 @@
 
 <p><strong>Latest Stable Version:</strong> None</p>
 
-<p><strong>Previous Version:</strong> <a href="/iiif-api/api/content-state/0.3/" title="IIIF Content State API">0.3</a></p>
+<p><strong>Previous Version:</strong> <a href="https://marii.info/iiif-api/api//content-state/0.3/" title="IIIF Content State API">0.3</a></p>
 
 <p><strong>Editors</strong></p>
 
@@ -160,10 +160,10 @@
   <li><strong><a href="https://orcid.org/0000-0002-7970-7855">Simeon Warner</a></strong> <a href="https://orcid.org/0000-0002-7970-7855"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="https://www.cornell.edu/"><em>Cornell University</em></a></li>
 </ul>
 
-<p><em>Copyright © 2012-2021 Editors and contributors. Published by the IIIF Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p>
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the IIIF Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="https://marii.info/iiif-api/api//annex/notes/disclaimer/">disclaimer</a>.</em></p>
 
 <p class="warning"><strong>Status Warning</strong>
-This is a work in progress and may change without notice. Implementers should be aware that this document is not stable. Implementers are likely to find the specification changing in incompatible ways. Those interested in implementing this document before it reaches beta or release stages should join the IIIF <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">mailing list</a> and the <a href="/iiif-api/community/groups/discovery/">Discovery Specification Group</a>, take part in the discussions, and follow the <a href="https://github.com/IIIF/discovery/issues">emerging issues</a> on Github.</p><hr />
+This is a work in progress and may change without notice. Implementers should be aware that this document is not stable. Implementers are likely to find the specification changing in incompatible ways. Those interested in implementing this document before it reaches beta or release stages should join the IIIF <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">mailing list</a> and the <a href="https://marii.info/iiif-website/community/groups/discovery/">Discovery Specification Group</a>, take part in the discussions, and follow the <a href="https://github.com/IIIF/discovery/issues">emerging issues</a> on Github.</p><hr />
       <h2 id="introduction">
         
         
@@ -173,7 +173,7 @@ This is a work in progress and may change without notice. Implementers should be
       </h2>
     
 
-<p>This specification provides a way of describing a <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">IIIF Presentation API</a> resource, or a part of a resource, in a compact format that can be used to initialize the view of that resource in any client that implements this specification. This description is the <em>content state</em>. This specification provides the format of the <em>content state</em>, and mechanisms for passing it between applications regardless of their different user interfaces and capabilities.</p>
+<p>This specification provides a way of describing a <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">IIIF Presentation API</a> resource, or a part of a resource, in a compact format that can be used to initialize the view of that resource in any client that implements this specification. This description is the <em>content state</em>. This specification provides the format of the <em>content state</em>, and mechanisms for passing it between applications regardless of their different user interfaces and capabilities.</p>
       <h3 id="objectives-and-scope">
         
         
@@ -190,11 +190,11 @@ This is a work in progress and may change without notice. Implementers should be
 
 <p>These are examples of sharing a resource, or a particular view of a resource. Other examples include bookmarks, citations, playlists and deep linking into digital objects.</p>
 
-<p>The objective of the IIIF Content State API is to provide a standardized format for sharing of a particular view of one or more <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">IIIF Presentation API</a> resources, such as a Collection, a Manifest, or a particular part of a Manifest.</p>
+<p>The objective of the IIIF Content State API is to provide a standardized format for sharing of a particular view of one or more <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">IIIF Presentation API</a> resources, such as a Collection, a Manifest, or a particular part of a Manifest.</p>
 
 <p>This specification also describes how a content state is passed into a viewer or other client application from another system or application, so that the viewer can show the intended part of the resource (or resources) to the user. A simple example would be a content state that tells a viewer to load a IIIF Manifest.</p>
 
-<p>A viewer can also <em>export</em> a content state, for example to enable a user to share a particular view with another user, or publish it as a reference or citation. Different IIIF clients will have different user interfaces and audiences, and may choose which of these mechanisms to support. Further detailed examples may be found in the <a href="&quot;IIIF Cookbook&quot;">IIIF Cookbook</a>.</p>
+<p>A viewer can also <em>export</em> a content state, for example to enable a user to share a particular view with another user, or publish it as a reference or citation. Different IIIF clients will have different user interfaces and audiences, and may choose which of these mechanisms to support. Further detailed examples may be found in the <a href="/" title="IIIF Cookbook">IIIF Cookbook</a>.</p>
 
 <p>The <em>content state</em> is distinct from the state of any particular viewer’s user interface. A viewer state is likely to be client-specific and would concern which panels are open, which options are selected and similar user interface details. Viewers with very different user interfaces can all implement support for the Content State API.</p>
 
@@ -208,7 +208,7 @@ This is a work in progress and may change without notice. Implementers should be
       </h4>
     
 
-<p>The resources made available via the <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">IIIF Presentation API</a> are useful only if they can be found. While the <a href="/iiif-api/api/discovery/" title="IIIF Change Discovery API">Change Discovery API</a> is for implementing systems that allow these resources to be found, the Content State API is for opening the found resource in a compatible environment, such as a viewer, annotation tool or other IIIF-compatible software.</p>
+<p>The resources made available via the <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">IIIF Presentation API</a> are useful only if they can be found. While the <a href="https://marii.info/iiif-api/api//discovery/" title="IIIF Change Discovery API">Change Discovery API</a> is for implementing systems that allow these resources to be found, the Content State API is for opening the found resource in a compatible environment, such as a viewer, annotation tool or other IIIF-compatible software.</p>
       <h3 id="terminology">
         
         
@@ -242,7 +242,7 @@ This is a work in progress and may change without notice. Implementers should be
       </h2>
     
 
-<p>A content state is a JSON-LD data structure that uses the models described by the <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">IIIF Presentation API</a> and <a href="http://w3.org/TR/annotation-model/" title="Web Annotation Model">W3C Web Annotation Data Model</a> specifications. The data structure is a description of a resource, or part of a resource. This data structure must allow the client to load the resource required, and present a particular part of the resource to the user. The state might be very simple: for example, a link to a Manifest. A more complex content state would provide more detail about the intended target. The following are all behaviors a passed-in content state might produce in a compatible client:</p>
+<p>A content state is a JSON-LD data structure that uses the models described by the <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">IIIF Presentation API</a> and <a href="http://w3.org/TR/annotation-model/" title="Web Annotation Model">W3C Web Annotation Data Model</a> specifications. The data structure is a description of a resource, or part of a resource. This data structure must allow the client to load the resource required, and present a particular part of the resource to the user. The state might be very simple: for example, a link to a Manifest. A more complex content state would provide more detail about the intended target. The following are all behaviors a passed-in content state might produce in a compatible client:</p>
 
 <ul>
   <li><em>load Manifest M</em></li>
@@ -413,7 +413,7 @@ A client <em class="rfc">should</em> be able to accept and process the content s
   <li>Initialising a client via an HTML5 <code class="language-plaintext highlighter-rouge">data-*</code> attribute</li>
 </ul>
 
-<p>Examples of these protocols are given in Section 3, <a href="/iiif-api/api/content-state/0.3/#initialization" title="Initialization mechanisms (protocol)">Initialization mechanisms</a>.</p>
+<p>Examples of these protocols are given in Section 3, <a href="https://marii.info/iiif-api/api//content-state/0.3/#initialization" title="Initialization mechanisms (protocol)">Initialization mechanisms</a>.</p>
       <h4 id="231-content-state-encoding">
         
         
@@ -459,7 +459,7 @@ A client <em class="rfc">should</em> be able to accept and process the content s
 
 <p>When published as inline, encoded JSON-LD in the full form given in 2.2, the content state Annotation <em class="rfc">may</em> omit the <code class="language-plaintext highlighter-rouge">id</code> and <code class="language-plaintext highlighter-rouge">@context</code> properties.</p>
 
-<p>When published on a server for clients to fetch over HTTP, in the same way a client would fetch a Manifest or Collection, content states <em class="rfc">must</em> be valid JSON-LD documents conforming to the <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">IIIF Presentation API</a> and served as described in <a href="/iiif-api/api/content-state/0.3/#5-http-requests-and-responses" title="HTTP Request and Responses">Section 5</a> below. They <em class="rfc">should not</em> be encoded, but <em class="rfc">may</em> have other encodings appropriate for JSON content, such as <code class="language-plaintext highlighter-rouge">Content-Encoding: gzip</code> to reduce the response size.</p>
+<p>When published on a server for clients to fetch over HTTP, in the same way a client would fetch a Manifest or Collection, content states <em class="rfc">must</em> be valid JSON-LD documents conforming to the <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">IIIF Presentation API</a> and served as described in <a href="https://marii.info/iiif-api/api//content-state/0.9/#5-http-requests-and-responses" title="HTTP Request and Responses">Section 5</a> below. They <em class="rfc">should not</em> be encoded, but <em class="rfc">may</em> have other encodings appropriate for JSON content, such as <code class="language-plaintext highlighter-rouge">Content-Encoding: gzip</code> to reduce the response size.</p>
       <h4 id="232-examples-of-content-state-encoding">
         
         
@@ -594,7 +594,7 @@ A client <em class="rfc">should</em> be able to accept and process the content s
       </h2>
     
 
-<p>This specification provides mechanisms that IIIF compatible software can use to expose, share and transfer content state descriptions, but does not specify what form IIIF compatible software itself may take (e.g., a web page, a JavaScript web application, a native mobile application, a desktop application, or display kiosk hardware). Please see the <a href="&quot;IIIF Cookbook&quot;">IIIF Cookbook</a> for further examples of the patterns listed below.</p>
+<p>This specification provides mechanisms that IIIF compatible software can use to expose, share and transfer content state descriptions, but does not specify what form IIIF compatible software itself may take (e.g., a web page, a JavaScript web application, a native mobile application, a desktop application, or display kiosk hardware). Please see the <a href="/" title="IIIF Cookbook">IIIF Cookbook</a> for further examples of the patterns listed below.</p>
       <h3 id="initialization-mechanisms">
         
         
@@ -880,7 +880,7 @@ A client <em class="rfc">should</em> be able to accept and process the content s
       </h2>
     
 
-<p>The following examples demonstrate the use of the existing IIIF Presentation API and W3C Web Annotation Data Model to describe parts of resources. Any IIIF resource that can be expressed in the Presentation model can be used in a content state. The full form of the Annotation (as if it were available at the URI given in the <code class="language-plaintext highlighter-rouge">id</code> property) has been used in each case.  Further examples can be found in the <a href="&quot;IIIF Cookbook&quot;">IIIF Cookbook</a>.</p>
+<p>The following examples demonstrate the use of the existing IIIF Presentation API and W3C Web Annotation Data Model to describe parts of resources. Any IIIF resource that can be expressed in the Presentation model can be used in a content state. The full form of the Annotation (as if it were available at the URI given in the <code class="language-plaintext highlighter-rouge">id</code> property) has been used in each case.  Further examples can be found in the <a href="/" title="IIIF Cookbook">IIIF Cookbook</a>.</p>
 
 <p>Publishers should strive to provide the simplest JSON-LD representation, and not assume that any client can handle arbitrarily complex content states.</p>
       <h3 id="41-a-region-of-a-canvas-in-a-manifest">
@@ -1025,7 +1025,7 @@ A client <em class="rfc">should</em> be able to accept and process the content s
       </h2>
     
 
-<p>This section describes the <em class="rfc">recommended</em> request and response interactions for the API, when served as JSON-LD bodies of HTTP responses. It does not apply to <em>inline</em> content states, which are encoded as described in section 2.3, and transfered by the other mechanisms described above. This section follows the specification given in <a href="/iiif-api/api/presentation/3.0/#6-http-requests-and-responses" title="Presentation API Section 6">Section 6</a> of the Presentation API.</p>
+<p>This section describes the <em class="rfc">recommended</em> request and response interactions for the API, when served as JSON-LD bodies of HTTP responses. It does not apply to <em>inline</em> content states, which are encoded as described in section 2.3, and transfered by the other mechanisms described above. This section follows the specification given in <a href="https://marii.info/iiif-api/api//presentation/3.0/#6-http-requests-and-responses" title="Presentation API Section 6">Section 6</a> of the Presentation API.</p>
       <h3 id="51-requests">
         
         
@@ -1035,7 +1035,7 @@ A client <em class="rfc">should</em> be able to accept and process the content s
       </h3>
     
 
-<p>An HTTP request for a content state is the same as an HTTP request for a Presentation API resource. Unlike <a href="/iiif-api/api/image/./" title="Image API">IIIF Image API</a> requests, or other parameterized services, the URIs for Presentation API resources cannot be assumed to follow any particular pattern. A client that fetches URIs for content states and URIs for Presentation API resources (such as Manifests and Collections) by the same mechanism <em class="rfc">must</em> inspect the response to determine whether it is a Presentation API resource, or a content state that references part of a Presentation API resource.</p>
+<p>An HTTP request for a content state is the same as an HTTP request for a Presentation API resource. Unlike <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API">IIIF Image API</a> requests, or other parameterized services, the URIs for Presentation API resources cannot be assumed to follow any particular pattern. A client that fetches URIs for content states and URIs for Presentation API resources (such as Manifests and Collections) by the same mechanism <em class="rfc">must</em> inspect the response to determine whether it is a Presentation API resource, or a content state that references part of a Presentation API resource.</p>
       <h3 id="52-responses">
         
         
@@ -1045,7 +1045,7 @@ A client <em class="rfc">should</em> be able to accept and process the content s
       </h3>
     
 
-<p>The format for content states as HTTP responses is JSON, as described above. It is good practice for all resources with an HTTP(S) URI to provide their description when the URI is dereferenced. If a resource is <a href="/iiif-api/api/presentation/3.0/#12-terminology">referenced</a> within a response, rather than being <a href="/iiif-api/api/presentation/3.0/#12-terminology">embedded</a>, then it <em class="rfc">must</em> be able to be dereferenced.</p>
+<p>The format for content states as HTTP responses is JSON, as described above. It is good practice for all resources with an HTTP(S) URI to provide their description when the URI is dereferenced. If a resource is <a href="https://marii.info/iiif-api/api//presentation/3.0/#12-terminology">referenced</a> within a response, rather than being <a href="https://marii.info/iiif-api/api//presentation/3.0/#12-terminology">embedded</a>, then it <em class="rfc">must</em> be able to be dereferenced.</p>
 
 <p>If the server receives a request with an <code class="language-plaintext highlighter-rouge">Accept</code> header, it <em class="rfc">should</em> respond following the rules of <a href="https://tools.ietf.org/html/rfc7231#section-5.3.2" title="HTTP 1.1, 5.3.2. Accept">content negotiation</a>. Note that content types provided in the <code class="language-plaintext highlighter-rouge">Accept</code> header of the request <em class="rfc">may</em> include parameters, for example <code class="language-plaintext highlighter-rouge">profile</code> or <code class="language-plaintext highlighter-rouge">charset</code>.</p>
 
@@ -1059,7 +1059,7 @@ A client <em class="rfc">should</em> be able to accept and process the content s
 <pre class="urltemplate"><code class="language-none">Content-Type: application/json
 </code></pre>
 
-<p>The HTTP server <em class="rfc">must</em> follow the <a href="https://www.w3.org/TR/cors/" title="Cross-Origin Resource Sharing">CORS requirements</a> to enable browser-based clients to retrieve the descriptions. Recipes for enabling CORS and conditional Content-Type headers are provided in the <a href="/iiif-api/api/annex/notes/apache/" title="Apache HTTP Server Implementation Notes">Apache HTTP Server Implementation Notes</a>.</p>
+<p>The HTTP server <em class="rfc">must</em> follow the <a href="https://www.w3.org/TR/cors/" title="Cross-Origin Resource Sharing">CORS requirements</a> to enable browser-based clients to retrieve the descriptions. Recipes for enabling CORS and conditional Content-Type headers are provided in the <a href="https://marii.info/iiif-api/api//annex/notes/apache/" title="Apache HTTP Server Implementation Notes">Apache HTTP Server Implementation Notes</a>.</p>
       <h2 id="appendices">
         
         
@@ -1077,9 +1077,9 @@ A client <em class="rfc">should</em> be able to accept and process the content s
       </h3>
     
 
-<p>Many thanks to the members of the <a href="/community/" title="IIIF Community">IIIF community</a> for their continuous engagement, innovative ideas, and feedback.</p>
+<p>Many thanks to the members of the <a href="https://marii.info/iiif-website/community/" title="IIIF Community">IIIF community</a> for their continuous engagement, innovative ideas, and feedback.</p>
 
-<p>This version is due to the work of the <a href="/iiif-api/community/groups/discovery/">IIIF Discovery Technical Specification Group</a>, chaired by Antoine Isaac (Europeana), Matthew McGrattan (Digirati) and Rob Sanderson (Yale University). The IIIF Community thanks them for their leadership, and the members of the group for their tireless work.</p>
+<p>This version is due to the work of the <a href="https://marii.info/iiif-website/community/groups/discovery/">IIIF Discovery Technical Specification Group</a>, chaired by Antoine Isaac (Europeana), Matthew McGrattan (Digirati) and Rob Sanderson (Yale University). The IIIF Community thanks them for their leadership, and the members of the group for their tireless work.</p>
       <h3 id="change-log">
         
         

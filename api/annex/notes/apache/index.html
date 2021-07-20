@@ -145,7 +145,7 @@
       </h2>
     
 
-<p>As <a href="/iiif-api/api/image/2.0#uri-encoding-and-decoding" title="Image API: URI Encoding and Decoding">specified in the Image <abbr title="Application Programming Interface">API</abbr></a>, slashes (“<code class="language-plaintext highlighter-rouge">/</code>”, “<code class="language-plaintext highlighter-rouge">\</code>”) in the identifer portion of the base uri MUST be encoded. This may cause problems with some <abbr title="Hypertext Transfer Protocol">HTTP</abbr> servers. Apache servers from version 2.2.18 support the <code class="language-plaintext highlighter-rouge">AllowEncodedSlashes NoDecode</code> <a href="http://httpd.apache.org/docs/2.2/mod/core.html#allowencodedslashes" title="Allow Encoded Slashes directive">configuration directive</a> which will correctly pass these characters to client applications without rejecting or decoding them.</p>
+<p>As <a href="https://marii.info/iiif-api/api//image/2.0#uri-encoding-and-decoding" title="Image API: URI Encoding and Decoding">specified in the Image <abbr title="Application Programming Interface">API</abbr></a>, slashes (“<code class="language-plaintext highlighter-rouge">/</code>”, “<code class="language-plaintext highlighter-rouge">\</code>”) in the identifer portion of the base uri MUST be encoded. This may cause problems with some <abbr title="Hypertext Transfer Protocol">HTTP</abbr> servers. Apache servers from version 2.2.18 support the <code class="language-plaintext highlighter-rouge">AllowEncodedSlashes NoDecode</code> <a href="http://httpd.apache.org/docs/2.2/mod/core.html#allowencodedslashes" title="Allow Encoded Slashes directive">configuration directive</a> which will correctly pass these characters to client applications without rejecting or decoding them.</p>
 
 <script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
 
@@ -186,7 +186,7 @@ Header set Access-Control-Allow-Origin "*"
       </h2>
     
 
-<p>The Image <abbr title="Application Programming Interface">API</abbr> states that a server <a href="/iiif-api/api/image/2.0#compliance-levels" title="Image API: Compliance Levels">may indicate its compliance level in a link header</a>. This can be done as follows:</p>
+<p>The Image <abbr title="Application Programming Interface">API</abbr> states that a server <a href="https://marii.info/iiif-api/api//image/2.0#compliance-levels" title="Image API: Compliance Levels">may indicate its compliance level in a link header</a>. This can be done as follows:</p>
 
 <script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
 
@@ -205,7 +205,7 @@ Header set Access-Control-Allow-Origin "*"
       </h2>
     
 
-<p>Both the <a href="/iiif-api/api/image/2.0/">Image</a> and <a href="/iiif-api/api/presentation/2.0/">Presentation</a> APIs state that clients may request <abbr title="JSON for Linking Data">JSON-LD</abbr>, as opposed to plain <abbr title="JavaScript Object Notation">JSON</abbr>.</p>
+<p>Both the <a href="https://marii.info/iiif-api/api//image/2.0/">Image</a> and <a href="https://marii.info/iiif-api/api//presentation/2.0/">Presentation</a> APIs state that clients may request <abbr title="JSON for Linking Data">JSON-LD</abbr>, as opposed to plain <abbr title="JavaScript Object Notation">JSON</abbr>.</p>
 
 <p>In the Image <abbr title="Application Programming Interface">API</abbr>, this may be enabled with the following configuration snippet (note that this assumes the compliance level Link header has been set <a href="#set-compliance-link-header">as above</a>):</p>
 
@@ -237,7 +237,7 @@ Header set Access-Control-Allow-Origin "*"
 &lt;/LocationMatch&gt;
 </code></pre>
 
-<p>Note that for version 3.0 of the <a href="/iiif-api/api/presentation/3.0/" title="Image API 3.0">Presentation</a> and <a href="/iiif-api/api/image/3.0/" title="Image API 3.0">Image</a> APIs, these media types should also have the appropriate <code class="language-plaintext highlighter-rouge">profile</code> parameter as part of the <code class="language-plaintext highlighter-rouge">Content-Type</code> value.</p>
+<p>Note that for version 3.0 of the <a href="https://marii.info/iiif-api/api//presentation/3.0/" title="Image API 3.0">Presentation</a> and <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API 3.0">Image</a> APIs, these media types should also have the appropriate <code class="language-plaintext highlighter-rouge">profile</code> parameter as part of the <code class="language-plaintext highlighter-rouge">Content-Type</code> value.</p>
 
     </div>
   </div>

@@ -172,10 +172,10 @@
   </li>
 </ul>
 
-<p><em>Copyright © 2012-2021 Editors and contributors. Published by the IIIF Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p>
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the IIIF Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="https://marii.info/iiif-api/api//annex/notes/disclaimer/">disclaimer</a>.</em></p>
 
 <p class="warning"><strong>Status Warning</strong>
-This is a work in progress and may change without notice. Implementers should be aware that this document is not stable. Implementers are likely to find the specification changing in incompatible ways. Those interested in implementing this document before it reaches beta or release stages should join the IIIF <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">mailing list</a> and the <a href="/iiif-api/community/groups/discovery/">Discovery Specification Group</a>, take part in the discussions, and follow the <a href="https://github.com/IIIF/discovery/issues">emerging issues</a> on Github.</p><hr />
+This is a work in progress and may change without notice. Implementers should be aware that this document is not stable. Implementers are likely to find the specification changing in incompatible ways. Those interested in implementing this document before it reaches beta or release stages should join the IIIF <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">mailing list</a> and the <a href="https://marii.info/iiif-website/community/groups/discovery/">Discovery Specification Group</a>, take part in the discussions, and follow the <a href="https://github.com/IIIF/discovery/issues">emerging issues</a> on Github.</p><hr />
       <h2 id="introduction">
         
         
@@ -185,7 +185,7 @@ This is a work in progress and may change without notice. Implementers should be
       </h2>
     
 
-<p>The resources made available via the <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">IIIF Presentation API</a> are useful only if they can be found. While the <a href="/iiif-api/api/discovery/" title="IIIF Change Discovery API">Change Discovery API</a> is for implementing systems that allow these resources to be found, this document specifies a mechanism that allows a user to then open the found resource in a compatible environment, such as a viewer, annotation tool or other IIIF-compatible software. This is one example of sharing a resource, or a particular view of a resource. Other examples include bookmarks, citations and deep linking into digital objects.</p>
+<p>The resources made available via the <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">IIIF Presentation API</a> are useful only if they can be found. While the <a href="https://marii.info/iiif-api/api//discovery/" title="IIIF Change Discovery API">Change Discovery API</a> is for implementing systems that allow these resources to be found, this document specifies a mechanism that allows a user to then open the found resource in a compatible environment, such as a viewer, annotation tool or other IIIF-compatible software. This is one example of sharing a resource, or a particular view of a resource. Other examples include bookmarks, citations and deep linking into digital objects.</p>
 
 <p>This specification makes use of existing specifications in order to promote widespread adoption. It describes a way of describing a resource, or a part of a resource, in a compact format that can be used to initialize the view of that resource in any client that implements this specification. One application is linking from a search result to a viewer showing the relevant part of a found resource. More generally, it provides a description of <em>content state</em>, for sharing between applications regardless of their different user interfaces and capabilities.</p>
 
@@ -199,9 +199,9 @@ This is a work in progress and may change without notice. Implementers should be
       </h3>
     
 
-<p>The objective of the IIIF Content State API is to describe a standardized format which enables the sharing of a particular view of one or more <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">IIIF Presentation API</a> resources, typically Manifests or Collections, or parts thereof. The intended audience of this document is developers of applications that implement the Presentation API, although other communities may benefit as well.</p>
+<p>The objective of the IIIF Content State API is to describe a standardized format which enables the sharing of a particular view of one or more <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">IIIF Presentation API</a> resources, typically Manifests or Collections, or parts thereof. The intended audience of this document is developers of applications that implement the Presentation API, although other communities may benefit as well.</p>
 
-<p>This specification also describes a number of mechanisms for the import and export of content states, thus enabling client and server software to implement interoperable solutions. Different IIIF clients will have different user interfaces and audiences, and may choose which of these mechanisms to support. Further detailed examples may be found in the <a href="&quot;IIIF Cookbook&quot;">IIIF Cookbook</a>.</p>
+<p>This specification also describes a number of mechanisms for the import and export of content states, thus enabling client and server software to implement interoperable solutions. Different IIIF clients will have different user interfaces and audiences, and may choose which of these mechanisms to support. Further detailed examples may be found in the <a href="/" title="IIIF Cookbook">IIIF Cookbook</a>.</p>
       <h3 id="terminology">
         
         
@@ -229,7 +229,7 @@ This is a work in progress and may change without notice. Implementers should be
       </h2>
     
 
-<p>A content state is a JSON-LD data structure that uses the models described by the <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">IIIF Presentation API</a> and <a href="http://w3.org/TR/annotation-model/" title="Web Annotation Model">W3C Web Annotation Data Model</a> specifications. Viewers built to those specifications will already understand at least some of these models. This specification shows how a content state is passed to the viewer from another system or application, so that the viewer can show the intended part of the resource (or resources) to the user. A viewer can also <em>export</em> a state, for example to enable a user to share a particular view with another user or publish it as a reference or citation.</p>
+<p>A content state is a JSON-LD data structure that uses the models described by the <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">IIIF Presentation API</a> and <a href="http://w3.org/TR/annotation-model/" title="Web Annotation Model">W3C Web Annotation Data Model</a> specifications. Viewers built to those specifications will already understand at least some of these models. This specification shows how a content state is passed to the viewer from another system or application, so that the viewer can show the intended part of the resource (or resources) to the user. A viewer can also <em>export</em> a state, for example to enable a user to share a particular view with another user or publish it as a reference or citation.</p>
 
 <p>The content state data structure must allow the client to load the resources required, and present a particular part of the resource to the user. While <em>load Manifest M</em> is the simplest case, a more complex content state would provide more detail about the intended target, for example:</p>
 
@@ -383,7 +383,7 @@ Any content state that is in JSON-LD form, rather than a simple URL string, <em 
       </h2>
     
 
-<p>This specification provides mechanisms that IIIF compatible software can use to expose, share and transfer content state descriptions, but does not specify what form IIIF compatible software itself may take (e.g., a web page, a JavaScript web application, a native mobile application, a desktop application, or display kiosk hardware). Please see the <a href="&quot;IIIF Cookbook&quot;">IIIF Cookbook</a> for further examples of the patterns listed below.</p>
+<p>This specification provides mechanisms that IIIF compatible software can use to expose, share and transfer content state descriptions, but does not specify what form IIIF compatible software itself may take (e.g., a web page, a JavaScript web application, a native mobile application, a desktop application, or display kiosk hardware). Please see the <a href="/" title="IIIF Cookbook">IIIF Cookbook</a> for further examples of the patterns listed below.</p>
 
 <p>TODO - provide cookbook links to fully working examples for all of these</p>
       <h3 id="initialization-mechanisms">
@@ -766,7 +766,7 @@ Any content state that is in JSON-LD form, rather than a simple URL string, <em 
       </h2>
     
 
-<p>The following examples demonstrate the use of the existing IIIF Presentation API and W3C Web Annotation Data Model to describe parts of resources. The full form of the Annotation (as if it were available at the URL given in the <code class="language-plaintext highlighter-rouge">id</code> property) has been used in each case.  Further examples can be found in the <a href="&quot;IIIF Cookbook&quot;">IIIF Cookbook</a></p>
+<p>The following examples demonstrate the use of the existing IIIF Presentation API and W3C Web Annotation Data Model to describe parts of resources. The full form of the Annotation (as if it were available at the URL given in the <code class="language-plaintext highlighter-rouge">id</code> property) has been used in each case.  Further examples can be found in the <a href="/" title="IIIF Cookbook">IIIF Cookbook</a></p>
       <h3 id="41-a-region-of-a-canvas-in-a-manifest">
         
         
@@ -927,9 +927,9 @@ Any content state that is in JSON-LD form, rather than a simple URL string, <em 
       </h3>
     
 
-<p>Many thanks to the members of the <a href="/community/" title="IIIF Community">IIIF community</a> for their continuous engagement, innovative ideas, and feedback.</p>
+<p>Many thanks to the members of the <a href="https://marii.info/iiif-website/community/" title="IIIF Community">IIIF community</a> for their continuous engagement, innovative ideas, and feedback.</p>
 
-<p>Many of the changes in this version are due to the work of the <a href="/iiif-api/community/groups/discovery/">IIIF Discovery Technical Specification Group</a>, chaired by Antoine Isaac (Europeana), Matthew McGrattan (Digirati) and Rob Sanderson (J. Paul Getty Trust). The IIIF Community thanks them for their leadership, and the members of the group for their tireless work.</p>
+<p>Many of the changes in this version are due to the work of the <a href="https://marii.info/iiif-website/community/groups/discovery/">IIIF Discovery Technical Specification Group</a>, chaired by Antoine Isaac (Europeana), Matthew McGrattan (Digirati) and Rob Sanderson (J. Paul Getty Trust). The IIIF Community thanks them for their leadership, and the members of the group for their tireless work.</p>
       <h3 id="change-log">
         
         

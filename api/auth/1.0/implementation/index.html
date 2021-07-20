@@ -145,7 +145,7 @@
       </h2>
     
 
-<p>This document applies to version 1.0.0 of the <a href="/iiif-api/api/auth/1.0/" title="Authentication API 1.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Authentication <abbr title="Application Programming Interface">API</abbr></a> specification.</p>
+<p>This document applies to version 1.0.0 of the <a href="https://marii.info/iiif-api/api//auth/1.0/" title="Authentication API 1.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Authentication <abbr title="Application Programming Interface">API</abbr></a> specification.</p>
       <h2 id="introduction">
         
         
@@ -155,7 +155,7 @@
       </h2>
     
 
-<p>This document is a companion to the <a href="/iiif-api/api/auth/1.0/" title="Authentication API 1.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Authentication <abbr title="Application Programming Interface">API</abbr></a>  specification. It addresses issues that might be met when implementing the specification in a browser-based JavaScript application.</p>
+<p>This document is a companion to the <a href="https://marii.info/iiif-api/api//auth/1.0/" title="Authentication API 1.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Authentication <abbr title="Application Programming Interface">API</abbr></a>  specification. It addresses issues that might be met when implementing the specification in a browser-based JavaScript application.</p>
 
 <p>Please send feedback to <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">iiif-discuss@googlegroups.com</a>.</p>
       <h3 id="summary-of-authentication-flow">
@@ -167,7 +167,7 @@
       </h3>
     
 
-<p>As detailed in the <a href="/iiif-api/api/auth/1.0/" title="Authentication API 1.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Authentication <abbr title="Application Programming Interface">API</abbr></a> specification, clients need to distinguish between Content Resources that are loaded indirectly, such as images or videos, and Description Resources typically loaded directly via the <a href="https://xhr.spec.whatwg.org/" title="XMLHttpRequest API">XmlHttpRequest <abbr title="Application Programming Interface">API</abbr></a> (XHR), such as the info.json document that describes an image service. The client uses a Description Resource to build the elements that will trigger the browser to request the Content Resources</p>
+<p>As detailed in the <a href="https://marii.info/iiif-api/api//auth/1.0/" title="Authentication API 1.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Authentication <abbr title="Application Programming Interface">API</abbr></a> specification, clients need to distinguish between Content Resources that are loaded indirectly, such as images or videos, and Description Resources typically loaded directly via the <a href="https://xhr.spec.whatwg.org/" title="XMLHttpRequest API">XmlHttpRequest <abbr title="Application Programming Interface">API</abbr></a> (XHR), such as the info.json document that describes an image service. The client uses a Description Resource to build the elements that will trigger the browser to request the Content Resources</p>
 
 <p>A web page on the <em>host domain</em> loads a <abbr title="International Image Interoperability Framework">IIIF</abbr> client application from the <em>client domain</em> (such as a content delivery network) which in turn loads the <abbr title="International Image Interoperability Framework">IIIF</abbr> descriptions and content from one or more <em>resource domains</em>. Therefore all interactions are potentially subject to the cross-domain security polices of modern browsers.</p>
 
@@ -200,7 +200,7 @@
       </h2>
     
 
-<p>The <a href="/iiif-api/api/auth/1.0/" title="Authentication API 1.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Authentication <abbr title="Application Programming Interface">API</abbr></a> specification requires a <abbr title="Cross-Origin Resource Sharing">CORS</abbr>-compliant browser. See the <a href="#browser-specific-issues">browser-specific issues</a> section for more details.</p>
+<p>The <a href="https://marii.info/iiif-api/api//auth/1.0/" title="Authentication API 1.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Authentication <abbr title="Application Programming Interface">API</abbr></a> specification requires a <abbr title="Cross-Origin Resource Sharing">CORS</abbr>-compliant browser. See the <a href="#browser-specific-issues">browser-specific issues</a> section for more details.</p>
 
 <p>While the <abbr title="Cross-Origin Resource Sharing">CORS</abbr> and XHR specifications allow for a cross-domain request (from the <em>client domain</em> to the <em>resource domain</em>) that includes the browser’s cookies for the resource domain, the conditions imposed make the approach unsuitable for <abbr title="International Image Interoperability Framework">IIIF</abbr> use. Under these conditions, clients would make an XHR request with <code class="language-plaintext highlighter-rouge">XMLHttpRequest.withCredentials = true</code>, which triggers a <abbr title="Cross-Origin Resource Sharing">CORS</abbr> preflight request. The preflight response from the <em>resource domain</em> server must then include an <code class="language-plaintext highlighter-rouge">Access-Control-Allow-Origin</code> header whose value is the specific trusted <em>client domain</em>. In a request made with <code class="language-plaintext highlighter-rouge">XMLHttpRequest.withCredentials = true</code> the wildcard <code class="language-plaintext highlighter-rouge">*</code> value for <code class="language-plaintext highlighter-rouge">Access-Control-Allow-Origin</code> is invalid, and servers servers should not simply echo back the client origin header. Together these restrictions avoid cooked cookie leakage to an untrusted client script.</p>
 
@@ -214,7 +214,7 @@
       </h2>
     
 
-<p>Servers supporting the <abbr title="International Image Interoperability Framework">IIIF</abbr> Authentication Specification will provide a <a href="/iiif-api/api/auth/1.0/#service-description" title="Authentication API Service Description">Service Description</a> that includes labels, and may include descriptions and header values, for the login services they expose. In this way the server can influence the presentation of the login services to the user. For example, the header and description could be used by the client as the title and text of a dialog box. Clients should present this text to the user to help them decide what to do; a publisher should assume that the login label will always be made obvious to the user during the authentication flow.</p>
+<p>Servers supporting the <abbr title="International Image Interoperability Framework">IIIF</abbr> Authentication Specification will provide a <a href="https://marii.info/iiif-api/api//auth/1.0/#service-description" title="Authentication API Service Description">Service Description</a> that includes labels, and may include descriptions and header values, for the login services they expose. In this way the server can influence the presentation of the login services to the user. For example, the header and description could be used by the client as the title and text of a dialog box. Clients should present this text to the user to help them decide what to do; a publisher should assume that the login label will always be made obvious to the user during the authentication flow.</p>
 
 <p>A server could use different login services to provide different messaging to the user, even if the implementation is identical and they share the same token and logout services. One institution could have a single login service, another could have hundreds that differ not in their behavior but in their labels, descriptions and headers, allowing the content provider to customize the displayed text to fit the content. Client software is expected to make prominent use of the provided text. The label and description values can be string literals or <abbr title="JSON for Linking Data">JSON-LD</abbr> value objects.</p>
       <h2 id="window-behavior-across-devices">
@@ -226,7 +226,7 @@
       </h2>
     
 
-<p>In the <a href="/iiif-api/api/auth/1.0/#workflow-from-the-browser-client-perspective" title="Authentication API Workflow from the Browser Client Perspective">browser client workflow</a> an <abbr title="Hypertext Transfer Protocol">HTTP</abbr> 401 response to a request for a Description Resource indicates the need to authenticate before any content can be displayed.</p>
+<p>In the <a href="https://marii.info/iiif-api/api//auth/1.0/#workflow-from-the-browser-client-perspective" title="Authentication API Workflow from the Browser Client Perspective">browser client workflow</a> an <abbr title="Hypertext Transfer Protocol">HTTP</abbr> 401 response to a request for a Description Resource indicates the need to authenticate before any content can be displayed.</p>
       <h3 id="event-initiation">
         
         

@@ -149,7 +149,7 @@
 
 <p><strong>This Version:</strong> 0.9.4</p>
 
-<p><strong>Latest Stable Version:</strong> <a href="/iiif-api/api/auth/./" title="Stable Version">..</a></p>
+<p><strong>Latest Stable Version:</strong> <a href="https://marii.info/iiif-api/api//auth/1.0/" title="Stable Version">1.0.0</a></p>
 
 <p class="alert"><strong>Beta Specification for Trial Use</strong>
 This is a work in progress. We are actively seeking implementations and feedback.  No section should be considered final, and the absence of any content does not imply that such content is out of scope, or may not appear in the future.  Please send any feedback to <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">iiif-discuss@googlegroups.com</a>.</p>
@@ -174,7 +174,7 @@ This is a work in progress. We are actively seeking implementations and feedback
   </li>
 </ul>
 
-<p><em>Copyright © 2015-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
+<p><em>Copyright © 2015-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="https://marii.info/iiif-api/api//annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
       <h2 id="introduction">
         
         
@@ -228,7 +228,7 @@ This is a work in progress. We are actively seeking implementations and feedback
       </h3>
     
 
-<p>This specification distinguishes between <strong>Content Resources</strong>, such as images or videos, and <strong>Description Resources</strong> which conform to <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications, such as <a href="/iiif-api/api/image/">Image <abbr title="Application Programming Interface">API</abbr></a> image information (info.json) and <a href="/iiif-api/api/presentation/">Presentation <abbr title="Application Programming Interface">API</abbr></a> collection or manifest resources.  From the point of view of a browser-based application, Content Resources are loaded indirectly via browser interpretation of <abbr title="HyperText Markup Language">HTML</abbr> elements, whereas Description Resources are typically loaded directly by JavaScript using the <code class="language-plaintext highlighter-rouge">XMLHttpRequest</code> interface. The <a href="http://www.w3.org/TR/cors/" title="Cross-Origin Resource Sharing">Cross Origin Resource Sharing</a> (<abbr title="Cross-Origin Resource Sharing">CORS</abbr>) specification implemented in modern browsers describes the different security rules that apply to the interactions with these two types of resource.</p>
+<p>This specification distinguishes between <strong>Content Resources</strong>, such as images or videos, and <strong>Description Resources</strong> which conform to <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications, such as <a href="https://marii.info/iiif-api/api//image/">Image <abbr title="Application Programming Interface">API</abbr></a> image information (info.json) and <a href="https://marii.info/iiif-api/api//presentation/">Presentation <abbr title="Application Programming Interface">API</abbr></a> collection or manifest resources.  From the point of view of a browser-based application, Content Resources are loaded indirectly via browser interpretation of <abbr title="HyperText Markup Language">HTML</abbr> elements, whereas Description Resources are typically loaded directly by JavaScript using the <code class="language-plaintext highlighter-rouge">XMLHttpRequest</code> interface. The <a href="http://www.w3.org/TR/cors/" title="Cross-Origin Resource Sharing">Cross Origin Resource Sharing</a> (<abbr title="Cross-Origin Resource Sharing">CORS</abbr>) specification implemented in modern browsers describes the different security rules that apply to the interactions with these two types of resource.</p>
 
 <p>Two additional concepts, the <strong>access cookie</strong> and <strong>access token</strong>, are described below.</p>
 
@@ -280,7 +280,7 @@ This is a work in progress. We are actively seeking implementations and feedback
       </h2>
     
 
-<p>Authentication services follow the pattern described in the <abbr title="International Image Interoperability Framework">IIIF</abbr> <a href="/iiif-api/api/annex/services/">Linking to External Services</a> note, and are referenced in one or more <code class="language-plaintext highlighter-rouge">service</code> blocks from the descriptions of the resources that are protected. There is a primary login service profile for authenticating users, and it has related services nested within its description.  The related services include a mandatory access token service, and an optional logout service.</p>
+<p>Authentication services follow the pattern described in the <abbr title="International Image Interoperability Framework">IIIF</abbr> <a href="https://marii.info/iiif-api/api//annex/services/">Linking to External Services</a> note, and are referenced in one or more <code class="language-plaintext highlighter-rouge">service</code> blocks from the descriptions of the resources that are protected. There is a primary login service profile for authenticating users, and it has related services nested within its description.  The related services include a mandatory access token service, and an optional logout service.</p>
       <h3 id="access-cookie-service">
         
         
@@ -1127,7 +1127,7 @@ Authorization: Bearer TOKEN_HERE
       </h3>
     
 
-<p>Starting with version 0.9.0, this specification follows <a href="http://semver.org/spec/v2.0.0.html" title="Semantic Versioning 2.0.0">Semantic Versioning</a>. See the note <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">Versioning of APIs</a> for details regarding how this is implemented.</p>
+<p>Starting with version 0.9.0, this specification follows <a href="http://semver.org/spec/v2.0.0.html" title="Semantic Versioning 2.0.0">Semantic Versioning</a>. See the note <a href="https://marii.info/iiif-api/api//annex/notes/semver/" title="Versioning of APIs">Versioning of APIs</a> for details regarding how this is implemented.</p>
       <h3 id="c-acknowledgments">
         
         
@@ -1139,7 +1139,7 @@ Authorization: Bearer TOKEN_HERE
 
 <p>The production of this document was generously supported by a grant from the <a href="http://www.mellon.org/" title="The Andrew W. Mellon Foundation">Andrew W. Mellon Foundation</a>.</p>
 
-<p>Many thanks to the members of the <a href="/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr> Community</a> for their continuous engagement, innovative ideas and feedback.</p>
+<p>Many thanks to the members of the <a href="https://marii.info/iiif-website/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr> Community</a> for their continuous engagement, innovative ideas and feedback.</p>
       <h3 id="d-change-log">
         
         

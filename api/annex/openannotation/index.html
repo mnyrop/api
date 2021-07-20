@@ -145,20 +145,20 @@
       </h2>
     
 
-<p>This document is not subject to <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">semantic versioning</a>.
+<p>This document is not subject to <a href="https://marii.info/iiif-api/api//annex/notes/semver/" title="Versioning of APIs">semantic versioning</a>.
 Changes will be tracked within the document.</p>
 
 <p><strong>Editors</strong></p>
 
 <ul class="names">
-  <li><strong><a href="https://orcid.org/0000-0002-1266-298X">Michael Appleby</a></strong> <a href="https://orcid.org/0000-0002-1266-298X"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://www.yale.edu/"><em>Yale University</em></a></li>
-  <li><strong><a href="https://orcid.org/0000-0003-1881-243X">Tom Crane</a></strong> <a href="https://orcid.org/0000-0003-1881-243X"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://digirati.com/"><em>Digirati</em></a></li>
-  <li><strong><a href="https://orcid.org/0000-0003-4441-6852">Robert Sanderson</a></strong> <a href="https://orcid.org/0000-0003-4441-6852"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://www.getty.edu/"><em>J. Paul Getty Trust</em></a></li>
-  <li><strong><a href="https://orcid.org/0000-0002-0367-1243">Jon Stroop</a></strong> <a href="https://orcid.org/0000-0002-0367-1243"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="https://library.princeton.edu/"><em>Princeton University Library</em></a></li>
-  <li><strong><a href="https://orcid.org/0000-0002-7970-7855">Simeon Warner</a></strong> <a href="https://orcid.org/0000-0002-7970-7855"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="https://www.cornell.edu/"><em>Cornell University</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0002-1266-298X">Michael Appleby</a></strong> <a href="https://orcid.org/0000-0002-1266-298X"><img src="https://marii.info/iiif-website/assets/uploads/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://www.yale.edu/"><em>Yale University</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0003-1881-243X">Tom Crane</a></strong> <a href="https://orcid.org/0000-0003-1881-243X"><img src="https://marii.info/iiif-website/assets/uploads/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://digirati.com/"><em>Digirati</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0003-4441-6852">Robert Sanderson</a></strong> <a href="https://orcid.org/0000-0003-4441-6852"><img src="https://marii.info/iiif-website/assets/uploads/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="http://www.getty.edu/"><em>J. Paul Getty Trust</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0002-0367-1243">Jon Stroop</a></strong> <a href="https://orcid.org/0000-0002-0367-1243"><img src="https://marii.info/iiif-website/assets/uploads/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="https://library.princeton.edu/"><em>Princeton University Library</em></a></li>
+  <li><strong><a href="https://orcid.org/0000-0002-7970-7855">Simeon Warner</a></strong> <a href="https://orcid.org/0000-0002-7970-7855"><img src="https://marii.info/iiif-website/assets/uploads/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="https://www.cornell.edu/"><em>Cornell University</em></a></li>
 </ul>
 
-<p><em>Copyright © 2012-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p>
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="https://marii.info/iiif-api/api//annex/notes/disclaimer/">disclaimer</a>.</em></p>
       <h2 class="no_toc" id="abstract">
         
         
@@ -199,11 +199,11 @@ Changes will be tracked within the document.</p>
       </h3>
     
 
-<p>The Image <abbr title="Application Programming Interface">API</abbr> Selector is used to describe the operations available via the Image <abbr title="Application Programming Interface">API</abbr> in order to retrieve a particular image representation.  In this case the resource is the abstract image as identified by the <a href="/iiif-api/api/image/./" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> base URI plus identifier, and the retrieval process involves adding the correct parameters after that base URI.  For example, the top left hand quadrant of an image has the region parameter of <code class="language-plaintext highlighter-rouge">pct:0,0,50,50</code> which must be put into the requested URI to obtain the appropriate representation.</p>
+<p>The Image <abbr title="Application Programming Interface">API</abbr> Selector is used to describe the operations available via the Image <abbr title="Application Programming Interface">API</abbr> in order to retrieve a particular image representation.  In this case the resource is the abstract image as identified by the <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> base URI plus identifier, and the retrieval process involves adding the correct parameters after that base URI.  For example, the top left hand quadrant of an image has the region parameter of <code class="language-plaintext highlighter-rouge">pct:0,0,50,50</code> which must be put into the requested URI to obtain the appropriate representation.</p>
 
 <p>In order to make this as easy as possible for the situations when a <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> endpoint exists, we introduce a new Selector class called <code class="language-plaintext highlighter-rouge">ImageApiSelector</code>.  It has properties that give the parameter values needed to fill out the URL structure in the request.  If the property is not given, then a default should be used.</p>
 
-<p>One use of this is within the <a href="/iiif-api/api/presentation/" title="IIIF Presentation API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a>, when a Canvas is being painted by part of an image, or an image that requires rotation before display.</p>
+<p>One use of this is within the <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a>, when a Canvas is being painted by part of an image, or an image that requires rotation before display.</p>
 
 <table class="api-table">
   <thead>
@@ -281,7 +281,7 @@ Changes will be tracked within the document.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>It can be used in the Presentation <abbr title="Application Programming Interface">API</abbr> as demonstrated in the section on <a href="/iiif-api/api/presentation/2.0/#rotation" title="Rotation in Presentation API">Rotation</a>.</p>
+<p>It can be used in the Presentation <abbr title="Application Programming Interface">API</abbr> as demonstrated in the section on <a href="https://marii.info/iiif-api/api//presentation/2.0/#rotation" title="Rotation in Presentation API">Rotation</a>.</p>
       <h2 id="point-selector">
         
         
@@ -386,7 +386,7 @@ Changes will be tracked within the document.</p>
 
 <p>The production of this document was generously supported by a grant from the <a href="http://www.mellon.org/" title="The Andrew W. Mellon Foundation">Andrew W. Mellon Foundation</a>.</p>
 
-<p>Thanks to the members of the <a href="/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
+<p>Thanks to the members of the <a href="https://marii.info/iiif-website/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
       <h3 id="b-change-log">
         
         

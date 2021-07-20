@@ -146,9 +146,9 @@
     
 <p><strong>This Version:</strong> 1.0.0</p>
 
-<p><strong>Latest Stable Version:</strong> <a href="/iiif-api/api/discovery/1.0/" title="IIIF Change Discovery API">1.0.</a></p>
+<p><strong>Latest Stable Version:</strong> <a href="https://marii.info/iiif-api/api//discovery/1.0/" title="IIIF Change Discovery API">1.0.</a></p>
 
-<p><strong>Previous Version:</strong> <a href="/iiif-api/api/discovery/0.9/" title="IIIF Change Discovery API">0.9.2</a></p>
+<p><strong>Previous Version:</strong> <a href="https://marii.info/iiif-api/api//discovery/0.9/" title="IIIF Change Discovery API">0.9.2</a></p>
 
 <p><strong>Editors</strong></p>
 
@@ -160,7 +160,7 @@
   <li><strong><a href="https://orcid.org/0000-0002-7970-7855">Simeon Warner</a></strong> <a href="https://orcid.org/0000-0002-7970-7855"><img src="/iiif-api/img/orcid_16x16.png" alt="ORCID iD" /></a>, <a href="https://www.cornell.edu/"><em>Cornell University</em></a></li>
 </ul>
 
-<p><em>Copyright © 2012-2021 Editors and contributors. Published by the IIIF Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the IIIF Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="https://marii.info/iiif-api/api//annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
       <h2 id="introduction">
         
         
@@ -170,7 +170,7 @@
       </h2>
     
 
-<p>The resources made available via the IIIF (pronounced “Triple-Eye-Eff”) <a href="/iiif-api/api/image/./" title="Image API">Image</a> and <a href="/iiif-api/api/presentation/" title="IIIF Presentation API">Presentation</a> APIs are useful only if they can be found. Users cannot interact directly with a distributed, decentralized ecosystem but instead must rely on services that harvest and process the available content, and then provide a user interface enabling navigation to that content via searching, browsing or other paradigms. Once the user has discovered the content, they can then display it in their viewing application of choice. Machine to machine interfaces are also enabled by this approach, where software agents can interact via APIs to discover the same content and retrieve it for further analysis or processing.</p>
+<p>The resources made available via the IIIF (pronounced “Triple-Eye-Eff”) <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API">Image</a> and <a href="https://marii.info/iiif-api/api//presentation/" title="IIIF Presentation API">Presentation</a> APIs are useful only if they can be found. Users cannot interact directly with a distributed, decentralized ecosystem but instead must rely on services that harvest and process the available content, and then provide a user interface enabling navigation to that content via searching, browsing or other paradigms. Once the user has discovered the content, they can then display it in their viewing application of choice. Machine to machine interfaces are also enabled by this approach, where software agents can interact via APIs to discover the same content and retrieve it for further analysis or processing.</p>
 
 <p>This specification leverages existing techniques, specifications, and tools in order to promote widespread adoption of an easy-to-implement service. The service describes changes to IIIF content resources and the location of those resources to harvest. Content providers can implement this API to enable the collaborative development of global or thematic search engines and portal applications that ultimately allow users to easily find and engage with content available via existing IIIF APIs.</p>
       <h3 id="objectives-and-scope">
@@ -220,9 +220,9 @@
 
 <p>In order to discover IIIF resources, the state of those resources in the systems that publish them needs to be communicated succinctly and easily to a consuming system. The consuming system can then use that information to retrieve and process the resources of interest and provide platforms that enable discovery and use. This communication takes place via the IIIF Change Discovery API, which uses the W3C <a href="https://www.w3.org/TR/activitystreams-core/">Activity Streams</a> specification to describe and serialize changes to resources. The conceptual model for those changes and the interactions between publishers and consumers are based on those identified by the <a href="http://openarchives.org/rs/toc">ResourceSync</a> framework. It is not necessary to understand either of these standards in order to use or implement the IIIF Change Discovery API, which is fully specified in this document.</p>
 
-<p>Activities are used to describe the state of the publishing system by recording each individual change, in the order that they occur. The changes described are the creation, modification and deletion of IIIF Presentation API resources. A consuming application that is aware of all of the changes that took place in the publishing system has full knowledge of the set of resources available. IIIF <a href="/iiif-api/api/presentation/3.0/#overview-collection" title="Presentation API 3.0 Collection Type">Collections</a> and <a href="/iiif-api/api/presentation/3.0/#overview-manifest" title="Presentation API 3.0 Manifest Type">Manifests</a> are the main access points to published content and references to descriptive metadata about that content, however, Activities describing changes to other resources, such as the IIIF Image API endpoints or the descriptive metadata about the object represented, could also be published in this way. As the intended use is to inform a consuming system, rather than to display information, the Change Discovery API does not include any content intended to be rendered to end users.</p>
+<p>Activities are used to describe the state of the publishing system by recording each individual change, in the order that they occur. The changes described are the creation, modification and deletion of IIIF Presentation API resources. A consuming application that is aware of all of the changes that took place in the publishing system has full knowledge of the set of resources available. IIIF <a href="https://marii.info/iiif-api/api//presentation/3.0/#overview-collection" title="Presentation API 3.0 Collection Type">Collections</a> and <a href="https://marii.info/iiif-api/api//presentation/3.0/#overview-manifest" title="Presentation API 3.0 Manifest Type">Manifests</a> are the main access points to published content and references to descriptive metadata about that content, however, Activities describing changes to other resources, such as the IIIF Image API endpoints or the descriptive metadata about the object represented, could also be published in this way. As the intended use is to inform a consuming system, rather than to display information, the Change Discovery API does not include any content intended to be rendered to end users.</p>
 
-<p>The Presentation API does not include descriptive metadata fields, and intentionally lacks the semantics needed to implement advanced or fielded search. Instead, the Presentation API uses the <a href="/iiif-api/api/presentation/3.0/#seealso" title="seeAlso property"><code class="language-plaintext highlighter-rouge">seeAlso</code></a> property to link to external documents that can have richer and domain-specific information about the content being presented. For example, a museum object might have a <code class="language-plaintext highlighter-rouge">seeAlso</code> reference to a CIDOC-CRM or LIDO description, while a bibliographic resource might reference a Dublin Core or MODS description. These external descriptions should be used when possible to provide interfaces giving access to more precise matching algorithms.</p>
+<p>The Presentation API does not include descriptive metadata fields, and intentionally lacks the semantics needed to implement advanced or fielded search. Instead, the Presentation API uses the <a href="https://marii.info/iiif-api/api//presentation/3.0/#seealso" title="seeAlso property"><code class="language-plaintext highlighter-rouge">seeAlso</code></a> property to link to external documents that can have richer and domain-specific information about the content being presented. For example, a museum object might have a <code class="language-plaintext highlighter-rouge">seeAlso</code> reference to a CIDOC-CRM or LIDO description, while a bibliographic resource might reference a Dublin Core or MODS description. These external descriptions should be used when possible to provide interfaces giving access to more precise matching algorithms.</p>
 
 <p>This specification describes three levels of conformance that build upon each other in terms of functionality and precision of the information published. Sets of changes are published in pages, which are then aggregated into a collection per publisher. To reduce barriers to entry, care has been taken to allow for the possibility of implementing all levels using only static files on a web server, rather than requiring dynamic access to a database.</p>
       <h3 id="resources-and-their-changes">
@@ -317,7 +317,7 @@
       </h4>
     
 
-<p>Activities can be added to or removed at times other than when the resources they refer to are created, modified, deleted or moved. There are several use cases for this pattern, however they are all outside of the normal publication of a stream by the content owners and thus are unlikely to affect most publishing implementations. They do affect consuming applications, and the implications are documented in <a href="/iiif-api/api/discovery#activity-streams-processing-algorithm" title="Activity Streams Processing Algorithm">3.5. Activity Streams Processing Algorithm</a>.</p>
+<p>Activities can be added to or removed at times other than when the resources they refer to are created, modified, deleted or moved. There are several use cases for this pattern, however they are all outside of the normal publication of a stream by the content owners and thus are unlikely to affect most publishing implementations. They do affect consuming applications, and the implications are documented in <a href="https://marii.info/iiif-api/api//discovery/1.0/#activity-streams-processing-algorithm" title="Activity Streams Processing Algorithm">3.5. Activity Streams Processing Algorithm</a>.</p>
 
 <p>The first use case is when third-party aggregators add activities harvested from different institutions, filter those activities or objects, and aggregate them into a composite stream. For example, a dinosaur aggregator might filter several natural history museum streams for only those manifests that are about dinosaurs.</p>
 
@@ -471,7 +471,7 @@
       </h2>
     
 
-<p>The W3C <a href="https://www.w3.org/TR/activitystreams-core/">Activity Streams</a> specification defines a “model for representing potential and completed activities”, and is compatible with the <a href="/iiif-api/api/annex/notes/design_patterns/">design patterns</a> established for IIIF APIs. It is defined in terms of <a href="http://www.w3.org/TR/json-ld/" title="JSON-LD 1.0">JSON-LD</a> and can be seamlessly integrated with the existing IIIF APIs. The model can be used to represent activities carried out by content publishers of creating, updating, and deleting (or otherwise de-publishing) IIIF resources.</p>
+<p>The W3C <a href="https://www.w3.org/TR/activitystreams-core/">Activity Streams</a> specification defines a “model for representing potential and completed activities”, and is compatible with the <a href="https://marii.info/iiif-api/api//annex/notes/design_patterns/">design patterns</a> established for IIIF APIs. It is defined in terms of <a href="http://www.w3.org/TR/json-ld/" title="JSON-LD 1.0">JSON-LD</a> and can be seamlessly integrated with the existing IIIF APIs. The model can be used to represent activities carried out by content publishers of creating, updating, and deleting (or otherwise de-publishing) IIIF resources.</p>
 
 <p>This section is a summary of the properties and types used by this specification, and defined by Activity Streams. This is intended to ease implementation efforts by collecting the relevant information together.</p>
 
@@ -590,8 +590,8 @@
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">format</code>, the value of which <em class="rfc">must</em> be a string, and it <em class="rfc">must</em> be the MIME media type of the referenced description document</li>
-  <li><code class="language-plaintext highlighter-rouge">label</code>, the value of which <em class="rfc">must</em> be a JSON object, following the pattern for language maps described in the <a href="/iiif-api/api/presentation/3.0/#44-language-of-property-values" title="Language of Property Values">Presentation API</a></li>
-  <li><code class="language-plaintext highlighter-rouge">profile</code>, the value of which <em class="rfc">must</em> be a string containing either a value from the <a href="/iiif-api/api/registry/profiles/">profiles registry</a> or a URI</li>
+  <li><code class="language-plaintext highlighter-rouge">label</code>, the value of which <em class="rfc">must</em> be a JSON object, following the pattern for language maps described in the <a href="https://marii.info/iiif-api/api//presentation/3.0/#language-of-property-values" title="Language of Property Values">Presentation API</a></li>
+  <li><code class="language-plaintext highlighter-rouge">profile</code>, the value of which <em class="rfc">must</em> be a string containing either a value from the <a href="https://marii.info/iiif-api/api//registry/profiles/">profiles registry</a> or a URI</li>
 </ul>
 
 <div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -638,7 +638,7 @@
       </h5>
     
 
-<p>A string that identifies a license or rights statement that applies to the usage of the Ordered Collection. The value <em class="rfc">must</em> be drawn from the set of <a href="https://creativecommons.org/licenses/" title="Create Commons Licenses">Creative Commons</a> license URIs, the <a href="http://rightsstatements.org/page/1.0/" title="rightsstatements.org">RightsStatements.org</a> rights statement URIs, or those added via the <a href="/iiif-api/api/presentation/3.0/#46-linked-data-context-and-extensions" title="Linked Data Context and Extensions">extension</a> mechanism. The inclusion of this property is informative, and for example could be used to display an icon representing the rights assertions.</p>
+<p>A string that identifies a license or rights statement that applies to the usage of the Ordered Collection. The value <em class="rfc">must</em> be drawn from the set of <a href="https://creativecommons.org/licenses/" title="Create Commons Licenses">Creative Commons</a> license URIs, the <a href="http://rightsstatements.org/page/1.0/" title="rightsstatements.org">RightsStatements.org</a> rights statement URIs, or those added via the <a href="https://marii.info/iiif-api/api//presentation/3.0/#46-linked-data-context-and-extensions" title="Linked Data Context and Extensions">extension</a> mechanism. The inclusion of this property is informative, and for example could be used to display an icon representing the rights assertions.</p>
 
 <p>The value <em class="rfc">must</em> be a string. If the value is drawn from Creative Commons or RightsStatements.org, then the string <em class="rfc">must</em> be a URI defined by that specification.</p>
 
@@ -1153,7 +1153,7 @@
       </h4>
     
 
-<p>If any additional types or properties are desired beyond the ones defined in this specification or the ActivityStreams specification, then those types or properties <em class="rfc">should</em> be mapped to RDF terms in one or more additional context documents. These extension contexts <em class="rfc">should</em> be added to the top level <code class="language-plaintext highlighter-rouge">@context</code> property, and <em class="rfc">must</em> be before the URI of the Discovery context. The JSON-LD 1.1 functionality of defining terms only within a specific property, known as <a href="https://json-ld.org/spec/latest/json-ld/#scoped-contexts" title="JSON-LD Scoped Contexts">scoped contexts</a>, <em class="rfc">must</em> be used to minimize cross-extension collisions. Extensions intended for broad use <em class="rfc">should</em> be registered in the <a href="/iiif-api/api/registry/" title="IIIF Extension Registry">extensions registry</a>.</p>
+<p>If any additional types or properties are desired beyond the ones defined in this specification or the ActivityStreams specification, then those types or properties <em class="rfc">should</em> be mapped to RDF terms in one or more additional context documents. These extension contexts <em class="rfc">should</em> be added to the top level <code class="language-plaintext highlighter-rouge">@context</code> property, and <em class="rfc">must</em> be before the URI of the Discovery context. The JSON-LD 1.1 functionality of defining terms only within a specific property, known as <a href="https://json-ld.org/spec/latest/json-ld/#scoped-contexts" title="JSON-LD Scoped Contexts">scoped contexts</a>, <em class="rfc">must</em> be used to minimize cross-extension collisions. Extensions intended for broad use <em class="rfc">should</em> be registered in the <a href="https://marii.info/iiif-api/api//registry/" title="IIIF Extension Registry">extensions registry</a>.</p>
 
 <div class="language-json-doc highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -1309,7 +1309,7 @@
 <pre class="urltemplate"><code class="language-none">Content-Type: application/json
 </code></pre>
 
-<p>The HTTP server <em class="rfc">should</em> follow the <a href="https://www.w3.org/TR/cors/" title="Cross-Origin Resource Sharing">CORS requirements</a> to enable browser-based clients to retrieve the responses. Recipes for enabling CORS and conditional Content-Type headers are provided in the <a href="/iiif-api/api/annex/notes/apache/" title="Apache HTTP Server Implementation Notes">Apache HTTP Server Implementation Notes</a>. Responses <em class="rfc">should</em> be compressed by the server as there are significant performance gains to be made for very repetitive data structures.</p>
+<p>The HTTP server <em class="rfc">should</em> follow the <a href="https://www.w3.org/TR/cors/" title="Cross-Origin Resource Sharing">CORS requirements</a> to enable browser-based clients to retrieve the responses. Recipes for enabling CORS and conditional Content-Type headers are provided in the <a href="https://marii.info/iiif-api/api//annex/notes/apache/" title="Apache HTTP Server Implementation Notes">Apache HTTP Server Implementation Notes</a>. Responses <em class="rfc">should</em> be compressed by the server as there are significant performance gains to be made for very repetitive data structures.</p>
       <h3 id="42-activities-for-access-restricted-content">
         
         
@@ -1379,9 +1379,9 @@
       </h3>
     
 
-<p>Many thanks to the members of the <a href="/community/" title="IIIF Community">IIIF community</a> for their continuous engagement, innovative ideas, and feedback.</p>
+<p>Many thanks to the members of the <a href="https://marii.info/iiif-website/community/" title="IIIF Community">IIIF community</a> for their continuous engagement, innovative ideas, and feedback.</p>
 
-<p>This specification is due primarily to the work of the <a href="/iiif-api/community/groups/discovery/">IIIF Discovery Technical Specification Group</a>, chaired by Antoine Isaac (Europeana), Matthew McGrattan (Digirati) and Robert Sanderson (Yale University). The IIIF Community thanks them for their leadership, and the members of the group for their tireless work.</p>
+<p>This specification is due primarily to the work of the <a href="https://marii.info/iiif-website/community/groups/discovery/">IIIF Discovery Technical Specification Group</a>, chaired by Antoine Isaac (Europeana), Matthew McGrattan (Digirati) and Robert Sanderson (Yale University). The IIIF Community thanks them for their leadership, and the members of the group for their tireless work.</p>
       <h3 id="change-log">
         
         

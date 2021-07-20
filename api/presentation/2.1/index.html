@@ -148,9 +148,9 @@
     
 <p><strong>This Version:</strong> 2.1.1</p>
 
-<p><strong>Latest Stable Version:</strong> <a href="/iiif-api/api/presentation/./">..</a></p>
+<p><strong>Latest Stable Version:</strong> <a href="https://marii.info/iiif-api/api//presentation/3.0/">3.0.0</a></p>
 
-<p><strong>Previous Version:</strong> <a href="/iiif-api/api/presentation/2.0/">2.0</a></p>
+<p><strong>Previous Version:</strong> <a href="https://marii.info/iiif-api/api//presentation/2.0/">2.0</a></p>
 
 <p><strong>Editors:</strong></p>
 
@@ -172,7 +172,7 @@
   </li>
 </ul>
 
-<p><em>Copyright © 2012-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="https://marii.info/iiif-api/api//annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
       <h2 id="introduction">
         
         
@@ -188,7 +188,7 @@
 
 <p>An object may comprise a series of pages, surfaces or other views; for example the single view of a painting, the two sides of a photograph, four cardinal views of a statue, or the many pages of an edition of a newspaper or book. The primary requirements for the Presentation <abbr title="Application Programming Interface">API</abbr> are to provide an order for these views, the resources needed to display a representation of the view, and the descriptive information needed to allow the user to understand what is being seen.</p>
 
-<p>The principles of <a href="http://linkeddata.org/" title="Linked Data">Linked Data</a> and the <a href="http://www.w3.org/TR/webarch/" title="Architecture of the World Wide Web">Architecture of the Web</a> are adopted in order to provide a distributed and interoperable system. The <a href="/iiif-api/model/shared-canvas/." title="Shared Canvas Data Model">Shared Canvas data model</a> and <a href="http://www.w3.org/TR/json-ld/" title="JSON-LD"><abbr title="JSON for Linking Data">JSON-LD</abbr></a> are leveraged to create an easy-to-implement, <abbr title="JavaScript Object Notation">JSON</abbr>-based format.</p>
+<p>The principles of <a href="http://linkeddata.org/" title="Linked Data">Linked Data</a> and the <a href="http://www.w3.org/TR/webarch/" title="Architecture of the World Wide Web">Architecture of the Web</a> are adopted in order to provide a distributed and interoperable system. The <a href="https://marii.info/iiif-website/model/shared-canvas/1.0" title="Shared Canvas Data Model">Shared Canvas data model</a> and <a href="http://www.w3.org/TR/json-ld/" title="JSON-LD"><abbr title="JSON for Linking Data">JSON-LD</abbr></a> are leveraged to create an easy-to-implement, <abbr title="JavaScript Object Notation">JSON</abbr>-based format.</p>
 
 <p>Please send feedback to <a href="mailto:iiif-discuss@googlegroups.com" title="Email Discussion List">iiif-discuss@googlegroups.com</a></p>
       <h3 id="objectives-and-scope">
@@ -200,7 +200,7 @@
       </h3>
     
 
-<p>The objective of the <abbr title="International Image Interoperability Framework">IIIF</abbr> (pronounced “Triple-Eye-Eff”) Presentation <abbr title="Application Programming Interface">API</abbr> is to provide the information necessary to allow a rich, online viewing environment for primarily image-based objects to be presented to a human user, likely in conjunction with the <a href="/iiif-api/api/image/./" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a>. This is the sole purpose of the <abbr title="Application Programming Interface">API</abbr> and therefore the descriptive information is given in a way that is intended for humans to read, but not semantically available to machines. In particular, it explicitly does <strong>not</strong> aim to provide metadata that would drive discovery of the digitized objects.</p>
+<p>The objective of the <abbr title="International Image Interoperability Framework">IIIF</abbr> (pronounced “Triple-Eye-Eff”) Presentation <abbr title="Application Programming Interface">API</abbr> is to provide the information necessary to allow a rich, online viewing environment for primarily image-based objects to be presented to a human user, likely in conjunction with the <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a>. This is the sole purpose of the <abbr title="Application Programming Interface">API</abbr> and therefore the descriptive information is given in a way that is intended for humans to read, but not semantically available to machines. In particular, it explicitly does <strong>not</strong> aim to provide metadata that would drive discovery of the digitized objects.</p>
 
 <p>The following are within the scope of the current document:</p>
 
@@ -214,7 +214,7 @@
 
 <ul>
   <li>The discovery or selection of interesting digitized objects is not directly supported; however hooks to reference further resources are available.</li>
-  <li>Search within the object is described by the <a href="/iiif-api/api/search/./" title="Content Search API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Content Search <abbr title="Application Programming Interface">API</abbr></a>.</li>
+  <li>Search within the object is described by the <a href="https://marii.info/iiif-api/api//search/1.0/" title="Content Search API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Content Search <abbr title="Application Programming Interface">API</abbr></a>.</li>
 </ul>
 
 <p>Note that in the following descriptions, “object” (or “physical object”) is used to refer to a physical object that has been digitized or a born-digital compound object, and “resources” refer to the digital resources that are the result of that digitization or digital creation process.</p>
@@ -227,7 +227,7 @@
       </h3>
     
 
-<p>There are many different types of digitized or digital compound objects, from ancient scrolls to modern newspapers, from medieval manuscripts to online comics, and from large maps to small photographs. Many of them bear texts, sometimes difficult to read either due to the decay of the physical object or lack of understanding of the script or language.  These use cases are described in a separate <a href="/iiif-api/api/presentation/usecases/" title="Presentation API Use Cases">document</a>.</p>
+<p>There are many different types of digitized or digital compound objects, from ancient scrolls to modern newspapers, from medieval manuscripts to online comics, and from large maps to small photographs. Many of them bear texts, sometimes difficult to read either due to the decay of the physical object or lack of understanding of the script or language.  These use cases are described in a separate <a href="https://marii.info/iiif-api/api//presentation/usecases/" title="Presentation API Use Cases">document</a>.</p>
 
 <p>Collectively the use cases require a model in which one can characterize the object (via the <em>manifest</em> resource), the order in which individual surfaces or views are presented (the <em>sequence</em> resource), and the individual surfaces or views (<em>canvas</em> resources). Each canvas may have images and/or other content resources associated with it (<em>content</em> resources) to allow the view to be rendered. An object may also have parts; for example, a book may have chapters where several pages may be associated with a single chapter (a <em>range</em> resource) or there may be groups of content resource above the page level, such as all of the texts that make up a single edition of a book (a <em>layer</em> resource).  These resource types, along with their properties, make up the <abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr>.</p>
       <h3 id="terminology">
@@ -385,7 +385,7 @@
 
 <p>The requirements for the use of the properties are summarized in <a href="#b-summary-of-metadata-requirements" title="Appendix B">Appendix B</a>.</p>
 
-<p>Other properties are allowed, either via custom extensions or endorsed by the <abbr title="International Image Interoperability Framework">IIIF</abbr>. If a client discovers properties that it does not understand, then it <em class="rfc">must</em> ignore them.  Other properties <em class="rfc">should</em> consist of a prefix and a name in the form “<code class="language-plaintext highlighter-rouge">prefix:name</code>” to ensure it does not collide with a property defined by <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications.  <a href="/iiif-api/api/annex/services/" title="Services Annex Document">Services</a> <em class="rfc">should</em> be used for extensions if at all possible, and a <a href="#linked-data-context-and-extensions"><abbr title="JSON for Linking Data">JSON-LD</abbr> context document</a> should be added that defines the semantics of the new properties.</p>
+<p>Other properties are allowed, either via custom extensions or endorsed by the <abbr title="International Image Interoperability Framework">IIIF</abbr>. If a client discovers properties that it does not understand, then it <em class="rfc">must</em> ignore them.  Other properties <em class="rfc">should</em> consist of a prefix and a name in the form “<code class="language-plaintext highlighter-rouge">prefix:name</code>” to ensure it does not collide with a property defined by <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications.  <a href="https://marii.info/iiif-api/api//annex/services/" title="Services Annex Document">Services</a> <em class="rfc">should</em> be used for extensions if at all possible, and a <a href="#linked-data-context-and-extensions"><abbr title="JSON for Linking Data">JSON-LD</abbr> context document</a> should be added that defines the semantics of the new properties.</p>
       <h4 id="descriptive-properties">
         
         
@@ -452,7 +452,7 @@
         
       </h5>
     
-<p>A small image that depicts or pictorially represents the resource that the property is attached to, such as the title page, a significant image or rendering of a canvas with multiple content resources associated with it.  It is <em class="rfc">recommended</em> that a <a href="/iiif-api/api/image/./" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> service be available for this image for manipulations such as resizing. If a resource has multiple thumbnails, then each of them <em class="rfc">should</em> be different.</p>
+<p>A small image that depicts or pictorially represents the resource that the property is attached to, such as the title page, a significant image or rendering of a canvas with multiple content resources associated with it.  It is <em class="rfc">recommended</em> that a <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> service be available for this image for manipulations such as resizing. If a resource has multiple thumbnails, then each of them <em class="rfc">should</em> be different.</p>
 
 <ul>
   <li>A collection <em class="rfc">should</em> have exactly one thumbnail image, and <em class="rfc">may</em> have more than one.</li>
@@ -506,7 +506,7 @@
         
       </h5>
     
-<p>A small image that represents an individual or organization associated with the resource it is attached to.  This could be the logo of the owning or hosting institution. The logo <em class="rfc">must</em> be clearly rendered when the resource is displayed or used, without cropping, rotating or otherwise distorting the image. It is <em class="rfc">recommended</em> that a <a href="/iiif-api/api/image/./" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> service be available for this image for manipulations such as resizing.</p>
+<p>A small image that represents an individual or organization associated with the resource it is attached to.  This could be the logo of the owning or hosting institution. The logo <em class="rfc">must</em> be clearly rendered when the resource is displayed or used, without cropping, rotating or otherwise distorting the image. It is <em class="rfc">recommended</em> that a <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> service be available for this image for manipulations such as resizing.</p>
 
 <ul>
   <li>Any resource type <em class="rfc">may</em> have one or more logos associated with it.</li>
@@ -570,7 +570,7 @@
   <li>Other resource types <em class="rfc">must not</em> have a format.</li>
 </ul>
 
-<p>This is different to the <code class="language-plaintext highlighter-rouge">formats</code> property in the <a href="/iiif-api/api/image/./" title="Image API">Image <abbr title="Application Programming Interface">API</abbr></a>, which gives the extension to use within that <abbr title="Application Programming Interface">API</abbr>.  It would be inappropriate to use in this case, as <code class="language-plaintext highlighter-rouge">format</code> can be used with any content resource, not just images.</p>
+<p>This is different to the <code class="language-plaintext highlighter-rouge">formats</code> property in the <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API">Image <abbr title="Application Programming Interface">API</abbr></a>, which gives the extension to use within that <abbr title="Application Programming Interface">API</abbr>.  It would be inappropriate to use in this case, as <code class="language-plaintext highlighter-rouge">format</code> can be used with any content resource, not just images.</p>
       <h5 id="height">
         
         
@@ -752,7 +752,7 @@
         
       </h5>
     
-<p>A link to a service that makes more functionality available for the resource, such as from an image to the base URI of an associated <a href="/iiif-api/api/image/./" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> service. The service resource <em class="rfc">should</em> have additional information associated with it in order to allow the client to determine how to make appropriate use of it, such as a <code class="language-plaintext highlighter-rouge">profile</code> link to a service description. It <em class="rfc">may</em> also have relevant information copied from the service itself. This duplication is permitted in order to increase the performance of rendering the object without necessitating additional <abbr title="Hypertext Transfer Protocol">HTTP</abbr> requests. Please see the <a href="/iiif-api/api/annex/services/" title="Services Annex Document">Service Profiles</a> document for known services.</p>
+<p>A link to a service that makes more functionality available for the resource, such as from an image to the base URI of an associated <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> service. The service resource <em class="rfc">should</em> have additional information associated with it in order to allow the client to determine how to make appropriate use of it, such as a <code class="language-plaintext highlighter-rouge">profile</code> link to a service description. It <em class="rfc">may</em> also have relevant information copied from the service itself. This duplication is permitted in order to increase the performance of rendering the object without necessitating additional <abbr title="Hypertext Transfer Protocol">HTTP</abbr> requests. Please see the <a href="https://marii.info/iiif-api/api//annex/services/" title="Services Annex Document">Service Profiles</a> document for known services.</p>
 
 <ul>
   <li>Any resource type <em class="rfc">may</em> have one or more links to an external service.</li>
@@ -1370,7 +1370,7 @@
 
 <p>The image itself is linked in the <code class="language-plaintext highlighter-rouge">resource</code> property of the annotation. The image <em class="rfc">must</em> have an <code class="language-plaintext highlighter-rouge">@id</code> field, with the value being the URI at which the image can be obtained. If a <abbr title="International Image Interoperability Framework">IIIF</abbr> Image service is available for the image, then the URL <em class="rfc">may</em> be the complete URL to a particular size of the image content, such as <code class="language-plaintext highlighter-rouge">http://example.org/image1/full/1000,/0/default.jpg</code>. It <em class="rfc">should</em> have an <code class="language-plaintext highlighter-rouge">@type</code> of “dctypes:Image”. Its media type <em class="rfc">may</em> be listed in <code class="language-plaintext highlighter-rouge">format</code>, and its height and width <em class="rfc">may</em> be given as integer values for <code class="language-plaintext highlighter-rouge">height</code> and <code class="language-plaintext highlighter-rouge">width</code> respectively.</p>
 
-<p>If a <a href="/iiif-api/api/image/./" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> service is available for the image, then a link to the service’s base URI <em class="rfc">should</em> be included. The base URI is the URI up to the identifier, but not including the trailing slash character or any of the subsequent parameters. A reference to the Image <abbr title="Application Programming Interface">API</abbr> context document <em class="rfc">must</em> be included and the conformance level profile of the service <em class="rfc">should</em> be included. Additional fields from the Image Information document <em class="rfc">may</em> be included in this <abbr title="JavaScript Object Notation">JSON</abbr> object to avoid requiring it to be downloaded separately. See the <a href="/iiif-api/api/annex/services/" title="Services Annex Document">annex</a> on using external services for more information.</p>
+<p>If a <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> service is available for the image, then a link to the service’s base URI <em class="rfc">should</em> be included. The base URI is the URI up to the identifier, but not including the trailing slash character or any of the subsequent parameters. A reference to the Image <abbr title="Application Programming Interface">API</abbr> context document <em class="rfc">must</em> be included and the conformance level profile of the service <em class="rfc">should</em> be included. Additional fields from the Image Information document <em class="rfc">may</em> be included in this <abbr title="JavaScript Object Notation">JSON</abbr> object to avoid requiring it to be downloaded separately. See the <a href="https://marii.info/iiif-api/api//annex/services/" title="Services Annex Document">annex</a> on using external services for more information.</p>
 
 <p>Although it seems redundant, the URI of the canvas <em class="rfc">must</em> be repeated in the <code class="language-plaintext highlighter-rouge">on</code> field of the Annotation. This is to ensure consistency with annotations that target only part of the resource, described in more detail below.</p>
 
@@ -1988,7 +1988,7 @@ The <code class="language-plaintext highlighter-rouge">collections</code> and <c
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p id="image-api-selection">For image resources with a <a href="/iiif-api/api/image/./" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> service, it is <em class="rfc">recommended</em> to instead use the Image <abbr title="Application Programming Interface">API</abbr> parameters rather than a fragment as above.  The following structure allows simple clients to use the image directly (the URL with the segment), and allows clients that implement the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> to have sufficient information to construct appropriate URIs using the <abbr title="Application Programming Interface">API</abbr>.</p>
+<p id="image-api-selection">For image resources with a <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> service, it is <em class="rfc">recommended</em> to instead use the Image <abbr title="Application Programming Interface">API</abbr> parameters rather than a fragment as above.  The following structure allows simple clients to use the image directly (the URL with the segment), and allows clients that implement the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> to have sufficient information to construct appropriate URIs using the <abbr title="Application Programming Interface">API</abbr>.</p>
 
 <script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
 
@@ -2153,7 +2153,7 @@ The <code class="language-plaintext highlighter-rouge">collections</code> and <c
 
 <p>If the section of an image is mapped to part of a canvas, as in the example below, then the target in <code class="language-plaintext highlighter-rouge">on</code> <em class="rfc">must</em> be the rectangular bounding box in which the SVG viewport should be placed. If the entire canvas is the target, then the SVG viewport is assumed to cover the entire canvas. If the dimensions of the viewport and the bounding box or canvas are not the same, then the SVG <em class="rfc">must</em> be scaled such that it covers the region. This may result in different scaling ratios for the X and Y dimensions.</p>
 
-<p>SVG <em class="rfc">should not</em> be used to describe non-rotated rectangular regions. The <a href="/iiif-api/api/image/./" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> or the <code class="language-plaintext highlighter-rouge">xywh</code> bounding box <a href="#segments">described above</a> <em class="rfc">should</em> be used instead.</p>
+<p>SVG <em class="rfc">should not</em> be used to describe non-rotated rectangular regions. The <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a> or the <code class="language-plaintext highlighter-rouge">xywh</code> bounding box <a href="#segments">described above</a> <em class="rfc">should</em> be used instead.</p>
 
 <script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
 
@@ -2257,7 +2257,7 @@ The <code class="language-plaintext highlighter-rouge">collections</code> and <c
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Alternatively, if the image is available via the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr>, it may be more convenient to have the server do the rotation of the image.  This uses a custom Selector for the Image <abbr title="Application Programming Interface">API</abbr>, further described in the <a href="/iiif-api/api/annex/openannotation/" title="Open Annotation Extensions">Open Annotation extensions</a> annex.  For the purposes of rotation, the example below demonstrates the pattern.</p>
+<p>Alternatively, if the image is available via the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr>, it may be more convenient to have the server do the rotation of the image.  This uses a custom Selector for the Image <abbr title="Application Programming Interface">API</abbr>, further described in the <a href="https://marii.info/iiif-api/api//annex/openannotation/" title="Open Annotation Extensions">Open Annotation extensions</a> annex.  For the purposes of rotation, the example below demonstrates the pattern.</p>
 
 <script src="/iiif-api/assets/js/copyCodeBlock.js"></script>
 
@@ -2490,7 +2490,7 @@ The <code class="language-plaintext highlighter-rouge">collections</code> and <c
 
 <p>Responses <em class="rfc">should</em> be compressed by the server as there are significant performance gains to be made for very repetitive data structures.</p>
 
-<p>Recipes for enabling <abbr title="Cross-Origin Resource Sharing">CORS</abbr> and the conditional Content-type header are provided in the <a href="/iiif-api/api/annex/notes/apache/" title="Apache HTTP Server Implementation Notes">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server Implementation Notes</a>.</p>
+<p>Recipes for enabling <abbr title="Cross-Origin Resource Sharing">CORS</abbr> and the conditional Content-type header are provided in the <a href="https://marii.info/iiif-api/api//annex/notes/apache/" title="Apache HTTP Server Implementation Notes">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server Implementation Notes</a>.</p>
       <h2 id="authentication">
         
         
@@ -2500,7 +2500,7 @@ The <code class="language-plaintext highlighter-rouge">collections</code> and <c
       </h2>
     
 
-<p>It may be necessary to restrict access to the descriptions made available via the Presentation <abbr title="Application Programming Interface">API</abbr>.  As the primary means of interaction with the descriptions is by web browsers using XmlHttpRequests across domains, there are some considerations regarding the most appropriate methods for authenticating users and authorizing their access.  The approach taken is described in the <a href="/iiif-api/api/auth/">Authentication</a> specification, and requires requesting a token to add to the requests to identify the user.  This token might also be used for other requests defined by other APIs.</p>
+<p>It may be necessary to restrict access to the descriptions made available via the Presentation <abbr title="Application Programming Interface">API</abbr>.  As the primary means of interaction with the descriptions is by web browsers using XmlHttpRequests across domains, there are some considerations regarding the most appropriate methods for authenticating users and authorizing their access.  The approach taken is described in the <a href="https://marii.info/iiif-api/api//auth/">Authentication</a> specification, and requires requesting a token to add to the requests to identify the user.  This token might also be used for other requests defined by other APIs.</p>
 
 <p>It is possible to include Image <abbr title="Application Programming Interface">API</abbr> service descriptions within the manifest, and within those it is also possible to include links to the Authentication <abbr title="Application Programming Interface">API</abbr>’s services that are needed to interact with the image content. The first time an Authentication <abbr title="Application Programming Interface">API</abbr> service is included within a manifest, it <em class="rfc">must</em> be the complete description. Subsequent references <em class="rfc">should</em> be just the URL of the service, and clients are expected to look up the details from the full description by matching the URL.  Clients <em class="rfc">must</em> anticipate situations where the Authentication service description in the manifest is out of date: the source of truth is the Image Information document, or other system that references the Authentication <abbr title="Application Programming Interface">API</abbr> services.</p>
       <h2 id="appendices">
@@ -3471,7 +3471,7 @@ The <code class="language-plaintext highlighter-rouge">collections</code> and <c
 
 <ul>
   <li>
-    <p>Clients <em class="rfc">should</em> be aware that some implementations may add an <code class="language-plaintext highlighter-rouge">@graph</code> property at the top level, which contains the object. This is a side effect of <abbr title="JSON for Linking Data">JSON-LD</abbr> serialization, and servers <em class="rfc">should</em> remove it before sending to the client. If this is seen in practice, the client can use the <a href="http://www.w3.org/TR/json-ld-api/#compaction-algorithms" title="JSON-LD Compaction Algorithms"><abbr title="JSON for Linking Data">JSON-LD</abbr> compaction algorithm</a> and <abbr title="JSON for Linking Data">JSON-LD</abbr> Framing with the <a href="/iiif-api/api/annex/notes/jsonld/" title="JSON-LD Frames Implementation Notes">supplied frames</a> to remove it and generate the correct representation.</p>
+    <p>Clients <em class="rfc">should</em> be aware that some implementations may add an <code class="language-plaintext highlighter-rouge">@graph</code> property at the top level, which contains the object. This is a side effect of <abbr title="JSON for Linking Data">JSON-LD</abbr> serialization, and servers <em class="rfc">should</em> remove it before sending to the client. If this is seen in practice, the client can use the <a href="http://www.w3.org/TR/json-ld-api/#compaction-algorithms" title="JSON-LD Compaction Algorithms"><abbr title="JSON for Linking Data">JSON-LD</abbr> compaction algorithm</a> and <abbr title="JSON for Linking Data">JSON-LD</abbr> Framing with the <a href="https://marii.info/iiif-api/api//annex/notes/jsonld/" title="JSON-LD Frames Implementation Notes">supplied frames</a> to remove it and generate the correct representation.</p>
   </li>
   <li>
     <p>If a {name} parameter in the recommended URI structure begins with a number, such as <code class="language-plaintext highlighter-rouge">.../canvas/1</code>, then developers using certain technology stacks may be inconvenienced.  In particular, an <abbr title="Resource Description Framework">RDF</abbr> based stack that uses <abbr title="Resource Description Framework">RDF</abbr>/<abbr title="eXtensible Markup Language">XML</abbr> internally will not be able to derive a shared <code class="language-plaintext highlighter-rouge">.../canvas/</code> prefix and then use the <code class="language-plaintext highlighter-rouge">1</code> as a CURIE, as <code class="language-plaintext highlighter-rouge">&lt;canvas:1&gt;</code> is not a valid element in <abbr title="eXtensible Markup Language">XML</abbr>.  Producers might consider adding an alphabetical character as the initial character.</p>
@@ -3486,7 +3486,7 @@ The <code class="language-plaintext highlighter-rouge">collections</code> and <c
       </h3>
     
 
-<p>Starting with version 2.0, this specification follows <a href="http://semver.org/spec/v2.0.0.html" title="Semantic Versioning 2.0.0">Semantic Versioning</a>. See the note <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">Versioning of APIs</a> for details regarding how this is implemented.</p>
+<p>Starting with version 2.0, this specification follows <a href="http://semver.org/spec/v2.0.0.html" title="Semantic Versioning 2.0.0">Semantic Versioning</a>. See the note <a href="https://marii.info/iiif-api/api//annex/notes/semver/" title="Versioning of APIs">Versioning of APIs</a> for details regarding how this is implemented.</p>
       <h3 id="f-acknowledgements">
         
         
@@ -3498,7 +3498,7 @@ The <code class="language-plaintext highlighter-rouge">collections</code> and <c
 
 <p>The production of this document was generously supported by a grant from the <a href="http://www.mellon.org/" title="The Andrew W. Mellon Foundation">Andrew W. Mellon Foundation</a>.</p>
 
-<p>Many thanks to the members of the <a href="/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
+<p>Many thanks to the members of the <a href="https://marii.info/iiif-website/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
       <h3 id="g-change-log">
         
         
@@ -3518,15 +3518,15 @@ The <code class="language-plaintext highlighter-rouge">collections</code> and <c
   <tbody>
     <tr>
       <td>2017-06-09</td>
-      <td>Version 2.1.1 <a href="/iiif-api/api/presentation/2.1/change-log-211/" title="Presentation API 2.1.1 Change Log">View change log</a></td>
+      <td>Version 2.1.1 <a href="https://marii.info/iiif-api/api//presentation/2.1/change-log-211/" title="Presentation API 2.1.1 Change Log">View change log</a></td>
     </tr>
     <tr>
       <td>2016-05-12</td>
-      <td>Version 2.1 (Hinty McHintface) <a href="/iiif-api/api/presentation/2.1/change-log/" title="Presentation API 2.1 Change Log">View change log</a></td>
+      <td>Version 2.1 (Hinty McHintface) <a href="https://marii.info/iiif-api/api//presentation/2.1/change-log/" title="Presentation API 2.1 Change Log">View change log</a></td>
     </tr>
     <tr>
       <td>2014-09-11</td>
-      <td>Version 2.0 (Triumphant Giraffe) <a href="/iiif-api/api/presentation/2.0/change-log/" title="Presentation API 2.0 Change Log">View change log</a></td>
+      <td>Version 2.0 (Triumphant Giraffe) <a href="https://marii.info/iiif-api/api//presentation/2.0/change-log/" title="Presentation API 2.0 Change Log">View change log</a></td>
     </tr>
     <tr>
       <td>2013-08-26</td>

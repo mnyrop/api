@@ -136,7 +136,7 @@
       </div>
     </aside>
     <div class="column content is-three-quarters api-content" markdown="1">
-      <p>This document is a companion to the <a href="/iiif-api/api/image/2.0/" title="Image API 2.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> Specification, Version 2.0</a>. It describes the significant changes to the <abbr title="Application Programming Interface">API</abbr> since <a href="/iiif-api/api/image/1.1/" title="Image API 1.1">Version 1.1</a>. The changes are broken into three groups: <a href="#breaking-changes" title="Image API 2.0 Breaking Changes">Breaking Changes</a>, i.e. those that are not backwards compatible from either a client or server perspective (or both) and mostly consists of new features; <a href="#other-changes" title="Image API 2.0 Other Changes">Other Changes</a>, i.e. those that are backwards compatible; and <a href="#deferred-changes" title="Deferred Changes">Deferred Changes</a>, i.e. those that will be made in a future iteration of the Image <abbr title="Application Programming Interface">API</abbr>.</p>
+      <p>This document is a companion to the <a href="https://marii.info/iiif-api/api//image/2.0/" title="Image API 2.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> Specification, Version 2.0</a>. It describes the significant changes to the <abbr title="Application Programming Interface">API</abbr> since <a href="https://marii.info/iiif-api/api//image/1.1/" title="Image API 1.1">Version 1.1</a>. The changes are broken into three groups: <a href="#breaking-changes" title="Image API 2.0 Breaking Changes">Breaking Changes</a>, i.e. those that are not backwards compatible from either a client or server perspective (or both) and mostly consists of new features; <a href="#other-changes" title="Image API 2.0 Other Changes">Other Changes</a>, i.e. those that are backwards compatible; and <a href="#deferred-changes" title="Deferred Changes">Deferred Changes</a>, i.e. those that will be made in a future iteration of the Image <abbr title="Application Programming Interface">API</abbr>.</p>
 
 <p>In addition to changes in the <abbr title="Application Programming Interface">API</abbr>, the specification documents have been changed as follows:</p>
 
@@ -146,7 +146,7 @@
   <li>Language has been adjusted to make the document less developer-centric.</li>
 </ul>
 
-<p>With the <a href="/iiif-api/api/image/2.0/" title="Image API 2.0">2.0 Release of the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a>, <a href="http://semver.org/" title="Semantic Versioning Specification">Semantic Versioning</a> is used to enumerate releases. As the <abbr title="Application Programming Interface">API</abbr> relies on predictable URI patterns in several areas, careful choices have been made about which details of the version will be expressed and where. This is explained in <a href="/iiif-api/api/image/2.0/#b-versioning" title="Image API Appendix B: Versioning">Appendix B</a>.</p>
+<p>With the <a href="https://marii.info/iiif-api/api//image/2.0/" title="Image API 2.0">2.0 Release of the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr></a>, <a href="http://semver.org/" title="Semantic Versioning Specification">Semantic Versioning</a> is used to enumerate releases. As the <abbr title="Application Programming Interface">API</abbr> relies on predictable URI patterns in several areas, careful choices have been made about which details of the version will be expressed and where. This is explained in <a href="https://marii.info/iiif-api/api//image/2.0/#b-versioning" title="Image API Appendix B: Versioning">Appendix B</a>.</p>
       <h2 id="breaking-changes">
         
         
@@ -200,7 +200,7 @@
 
 <p>One of the core purposes–if not <em>the</em> core purpose–of <abbr title="International Image Interoperability Framework">IIIF</abbr> is to share images between institutions. This is is impossible without the ability to exchange images and metadata across different <abbr title="Hypertext Transfer Protocol">HTTP</abbr> domains. <abbr title="Cross-Origin Resource Sharing">CORS</abbr> is the standard way to do this.</p>
 
-<p>A few other <abbr title="Hypertext Transfer Protocol">HTTP</abbr> features have been enumerated in the <a href="/iiif-api/api/image/2.0/compliance/#http-features" title="Image API Compliance: HTTP Features"><abbr title="Hypertext Transfer Protocol">HTTP</abbr> Features</a> section of the <a href="/iiif-api/api/image/2.0/compliance/" title="Image API 2.0 Compliance Document">compliance document</a>.</p>
+<p>A few other <abbr title="Hypertext Transfer Protocol">HTTP</abbr> features have been enumerated in the <a href="https://marii.info/iiif-api/api//image/2.0/compliance/#http-features" title="Image API Compliance: HTTP Features"><abbr title="Hypertext Transfer Protocol">HTTP</abbr> Features</a> section of the <a href="https://marii.info/iiif-api/api//image/2.0/compliance/" title="Image API 2.0 Compliance Document">compliance document</a>.</p>
       <h3 id="changed-uris-for-compliance-levels">
         
         
@@ -210,7 +210,7 @@
       </h3>
     
 
-<p>The compliance URIs have been moved into the <code class="language-plaintext highlighter-rouge">http://iiif.io/</code> domain. They now resolve to <abbr title="JSON for Linking Data">JSON-LD</abbr> documents that enumerate the features that are supported by a server that implements this level of compliance. See <a href="/iiif-api/api/image/2.0/#compliance-levels" title="Image API 6. Compliance Levels">Section 6. Compliance Levels</a> for detailed explanation.</p>
+<p>The compliance URIs have been moved into the <code class="language-plaintext highlighter-rouge">http://iiif.io/</code> domain. They now resolve to <abbr title="JSON for Linking Data">JSON-LD</abbr> documents that enumerate the features that are supported by a server that implements this level of compliance. See <a href="https://marii.info/iiif-api/api//image/2.0/#compliance-levels" title="Image API 6. Compliance Levels">Section 6. Compliance Levels</a> for detailed explanation.</p>
       <h3 id="dropped-support-for-content-negotiation-and-default-image-format">
         
         
@@ -264,7 +264,7 @@
   <li>A more capable server may redirect to the canonical syntax for better cache performance.</li>
 </ul>
 
-<p>The canonical URI for an image may be specified in an <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Link Header with the attribute <code class="language-plaintext highlighter-rouge">rel=canonical</code>. See <a href="/iiif-api/api/image/2.0/#canonical-uri-syntax" title="Image API 4.7. Canonical URI Syntax">Section 4.7 Canonical URI Syntax</a> for details.</p>
+<p>The canonical URI for an image may be specified in an <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Link Header with the attribute <code class="language-plaintext highlighter-rouge">rel=canonical</code>. See <a href="https://marii.info/iiif-api/api//image/2.0/#canonical-uri-syntax" title="Image API 4.7. Canonical URI Syntax">Section 4.7 Canonical URI Syntax</a> for details.</p>
       <h3 id="added-protocol-property-to-image-information-document">
         
         
@@ -316,7 +316,7 @@
       </h3>
     
 
-<p>In order to provide the same extension point as is in the <a href="/iiif-api/api/presentation/2.0/">Presentation <abbr title="Application Programming Interface">API</abbr></a>, the <code class="language-plaintext highlighter-rouge">services</code> property was added to info.json.  The predominant use case is recording pixels per inch, via the same mechanism as providing the size of the physical object in the Presentation <abbr title="Application Programming Interface">API</abbr>.  The <a href="/iiif-api/api/annex/services/">Services Annex</a> specifies which services can be used with which APIs.</p>
+<p>In order to provide the same extension point as is in the <a href="https://marii.info/iiif-api/api//presentation/2.0/">Presentation <abbr title="Application Programming Interface">API</abbr></a>, the <code class="language-plaintext highlighter-rouge">services</code> property was added to info.json.  The predominant use case is recording pixels per inch, via the same mechanism as providing the size of the physical object in the Presentation <abbr title="Application Programming Interface">API</abbr>.  The <a href="https://marii.info/iiif-api/api//annex/services/">Services Annex</a> specifies which services can be used with which APIs.</p>
       <h3 id="added-sizes-property-to-image-information-document">
         
         
@@ -337,7 +337,7 @@ Even when a server does support arbitrary resizing, it may be useful to report p
       </h3>
     
 
-<p>The <a href="/iiif-api/api/image/2/context.json" title="Image API 2.0 JSON-LD Context">context document</a> for the <code class="language-plaintext highlighter-rouge">info.json</code> document was not published for version 1.1. It is now available.</p>
+<p>The <a href="https://marii.info/iiif-api/api//image/2/context.json" title="Image API 2.0 JSON-LD Context">context document</a> for the <code class="language-plaintext highlighter-rouge">info.json</code> document was not published for version 1.1. It is now available.</p>
       <h3 id="support-json-ld-content-typeaccept-header">
         
         
@@ -347,7 +347,7 @@ Even when a server does support arbitrary resizing, it may be useful to report p
       </h3>
     
 
-<p>As transition to <abbr title="JSON for Linking Data">JSON-LD</abbr> (since it is not fully supported by browsers), clients that favor the “application/ld+json” media type in the accept header of their request may receive this as the Content-Type of the response. Also note that it is recommended that the server include the context URI in a Link header of the response if the request was for for “application/json”. See <a href="/iiif-api/api/image/2.0/#information-request" title="Image API Section 5. Information Request">Section 5</a> and the documents to which it links for further details.</p>
+<p>As transition to <abbr title="JSON for Linking Data">JSON-LD</abbr> (since it is not fully supported by browsers), clients that favor the “application/ld+json” media type in the accept header of their request may receive this as the Content-Type of the response. Also note that it is recommended that the server include the context URI in a Link header of the response if the request was for for “application/json”. See <a href="https://marii.info/iiif-api/api//image/2.0/#information-request" title="Image API Section 5. Information Request">Section 5</a> and the documents to which it links for further details.</p>
       <h3 id="background-color-for-non-90-degree-rotations">
         
         
@@ -385,7 +385,7 @@ Even when a server does support arbitrary resizing, it may be useful to report p
       </h3>
     
 
-<p>A proposal was made to add rights level information from the <a href="/iiif-api/api/presentation/2.0/">Presentation <abbr title="Application Programming Interface">API</abbr></a> to the Image Information response for images to avoid requiring support for both APIs just to give a license or attribution statement for the image.  This change was deferred until the next version of the <abbr title="Application Programming Interface">API</abbr> to coincide with the introduction of Authentication and Authorization information, and to allow extra time to gather use cases and requirements.</p>
+<p>A proposal was made to add rights level information from the <a href="https://marii.info/iiif-api/api//presentation/2.0/">Presentation <abbr title="Application Programming Interface">API</abbr></a> to the Image Information response for images to avoid requiring support for both APIs just to give a license or attribution statement for the image.  This change was deferred until the next version of the <abbr title="Application Programming Interface">API</abbr> to coincide with the introduction of Authentication and Authorization information, and to allow extra time to gather use cases and requirements.</p>
       <h3 id="add-compression">
         
         

@@ -145,7 +145,7 @@
       </h2>
     
 
-<p>This document is not subject to <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs"><abbr title="International Image Interoperability Framework">IIIF</abbr>’s versioning semantics</a>. Changes will be tracked within the document and its <a href="#change-log" title="Change Log">internal change log</a></p>
+<p>This document is not subject to <a href="https://marii.info/iiif-api/api//annex/notes/semver/" title="Versioning of APIs"><abbr title="International Image Interoperability Framework">IIIF</abbr>’s versioning semantics</a>. Changes will be tracked within the document and its <a href="#change-log" title="Change Log">internal change log</a></p>
 
 <p><strong>Authors:</strong></p>
 
@@ -167,7 +167,7 @@
   </li>
 </ul>
 
-<p><em>Copyright © 2017-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
+<p><em>Copyright © 2017-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="https://marii.info/iiif-api/api//annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
       <h2 class="no_toc" id="contents">
         
         
@@ -190,8 +190,8 @@
 <p>The patterns do not speak to the process by which the specifications are written and managed over time.  For notes on the adopted approaches for these, please see:</p>
 
 <ul>
-  <li><a href="/community/policy/editorial/#community-process">Editorial Process</a>: The community process of discussion, and the editorial process of writing, the specifications.</li>
-  <li><a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">Semantic Versioning</a>: The interpretation of the semantic versioning pattern for managing change of APIs in a responsible and responsive manner.</li>
+  <li><a href="https://marii.info/iiif-website/community/policy/editorial/#community-process">Editorial Process</a>: The community process of discussion, and the editorial process of writing, the specifications.</li>
+  <li><a href="https://marii.info/iiif-api/api//annex/notes/semver/" title="Versioning of APIs">Semantic Versioning</a>: The interpretation of the semantic versioning pattern for managing change of APIs in a responsible and responsive manner.</li>
 </ul>
       <h2 id="design-patterns">
         
@@ -332,9 +332,9 @@
       </h3>
     
 
-<p>In the well established pattern of doing one thing well, <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications should address their own area of concern and be loosely coupled rather than tightly bound together.  This allows for independent implementation and tooling, and simplifies the process for deployment by adopters and <abbr title="Application Programming Interface">API</abbr> updates by the community.  For example, it is possible to implement the <a href="/iiif-api/api/image">Image <abbr title="Application Programming Interface">API</abbr></a> without the <a href="/iiif-api/api/presentation">Presentation <abbr title="Application Programming Interface">API</abbr></a> and vice versa.  A counter example is that the <a href="/iiif-api/api/search">Search <abbr title="Application Programming Interface">API</abbr></a> is necessarily more tightly linked to the Presentation <abbr title="Application Programming Interface">API</abbr>.</p>
+<p>In the well established pattern of doing one thing well, <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications should address their own area of concern and be loosely coupled rather than tightly bound together.  This allows for independent implementation and tooling, and simplifies the process for deployment by adopters and <abbr title="Application Programming Interface">API</abbr> updates by the community.  For example, it is possible to implement the <a href="https://marii.info/iiif-api/api//image">Image <abbr title="Application Programming Interface">API</abbr></a> without the <a href="https://marii.info/iiif-api/api//presentation">Presentation <abbr title="Application Programming Interface">API</abbr></a> and vice versa.  A counter example is that the <a href="https://marii.info/iiif-api/api//search">Search <abbr title="Application Programming Interface">API</abbr></a> is necessarily more tightly linked to the Presentation <abbr title="Application Programming Interface">API</abbr>.</p>
 
-<p>The intent of adopting this pattern is to ensure that the on-ramp for adopters was as easy and multi-entrant as possible.  The Presentation <abbr title="Application Programming Interface">API</abbr> can be a starting point for any of the other APIs, the Image <abbr title="Application Programming Interface">API</abbr> can be a starting point for the Presentation or <a href="/iiif-api/api/auth">Authentication <abbr title="Application Programming Interface">API</abbr></a>s.  It also ensures the simplicity and scope of the APIs individually, as the complexity must be managed entirely within the <abbr title="Application Programming Interface">API</abbr>’s specification.</p>
+<p>The intent of adopting this pattern is to ensure that the on-ramp for adopters was as easy and multi-entrant as possible.  The Presentation <abbr title="Application Programming Interface">API</abbr> can be a starting point for any of the other APIs, the Image <abbr title="Application Programming Interface">API</abbr> can be a starting point for the Presentation or <a href="https://marii.info/iiif-api/api//auth">Authentication <abbr title="Application Programming Interface">API</abbr></a>s.  It also ensures the simplicity and scope of the APIs individually, as the complexity must be managed entirely within the <abbr title="Application Programming Interface">API</abbr>’s specification.</p>
       <h3 id="define-success-not-failure">
         
         
@@ -344,7 +344,7 @@
       </h3>
     
 
-<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications define the functionality that can be expected to work and how to request it, and do not limit the interpretation of requests that are beyond the scope or current definition of the specification.  Any pattern outside of those defined by the APIs is able to be used by implementers, keeping in mind that future official <abbr title="Application Programming Interface">API</abbr> extensions might make it inconsistent.  For example, an implementation of the <a href="/iiif-api/api/image">Image <abbr title="Application Programming Interface">API</abbr></a> can legitimately recognize its own specific parameter values for <code class="language-plaintext highlighter-rouge">quality</code> or <code class="language-plaintext highlighter-rouge">size</code>, but it should not change the interpretation of parameter values that are specified.</p>
+<p><abbr title="International Image Interoperability Framework">IIIF</abbr> specifications define the functionality that can be expected to work and how to request it, and do not limit the interpretation of requests that are beyond the scope or current definition of the specification.  Any pattern outside of those defined by the APIs is able to be used by implementers, keeping in mind that future official <abbr title="Application Programming Interface">API</abbr> extensions might make it inconsistent.  For example, an implementation of the <a href="https://marii.info/iiif-api/api//image">Image <abbr title="Application Programming Interface">API</abbr></a> can legitimately recognize its own specific parameter values for <code class="language-plaintext highlighter-rouge">quality</code> or <code class="language-plaintext highlighter-rouge">size</code>, but it should not change the interpretation of parameter values that are specified.</p>
 
 <p>The intent of adopting this pattern is to enable experimentation by implementers, thereby encouraging the early adoption and validation of new (minor) versions.</p>
       <h3 id="design-for-worldwide-use">

@@ -149,9 +149,9 @@
 
 <p><strong>This Version:</strong> 2.1.1</p>
 
-<p><strong>Latest Stable Version:</strong> <a href="/api/image/./" title="Stable Version">..</a></p>
+<p><strong>Latest Stable Version:</strong> <a href="https://marii.info/iiif-api/api//image/3.0/" title="Stable Version">3.0.0</a></p>
 
-<p><strong>Previous Version:</strong> <a href="/api/image/2.0/" title="Previous Version">2.0</a></p>
+<p><strong>Previous Version:</strong> <a href="https://marii.info/iiif-api/api//image/2.0/" title="Previous Version">2.0</a></p>
 
 <p><strong>Editors:</strong></p>
 
@@ -173,7 +173,7 @@
   </li>
 </ul>
 
-<p><em>Copyright © 2012-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="/iiif-api/api/annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
+<p><em>Copyright © 2012-2021 Editors and contributors. Published by the <abbr title="International Image Interoperability Framework">IIIF</abbr> Consortium under the <a href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons &mdash; Attribution 4.0 International">CC-BY</a> license, see <a href="https://marii.info/iiif-api/api//annex/notes/disclaimer/">disclaimer</a>.</em></p><hr />
       <h2 id="1-introduction">
         
         
@@ -669,7 +669,7 @@ The size keyword <code class="language-plaintext highlighter-rouge">full</code> 
   </tbody>
 </table>
 
-<p>The <code class="language-plaintext highlighter-rouge">default</code> quality exists to support <a href="/iiif-api/api/image/2.1/compliance/#quality" title="Image API Compliance: Quality">level 0 compliant implementations</a> that may not know the qualities of individual images in their collections. It also provides a convenience for clients that know the values for all other parameters of a request except the quality (e.g. <code class="language-plaintext highlighter-rouge">.../full/120,/90/{quality}.png</code> to request a thumbnail) in that a preliminary image information request that would only serve to find out which qualities are available can be avoided.</p>
+<p>The <code class="language-plaintext highlighter-rouge">default</code> quality exists to support <a href="https://marii.info/iiif-api/api//image/2.1/compliance/#quality" title="Image API Compliance: Quality">level 0 compliant implementations</a> that may not know the qualities of individual images in their collections. It also provides a convenience for clients that know the values for all other parameters of a request except the quality (e.g. <code class="language-plaintext highlighter-rouge">.../full/120,/90/{quality}.png</code> to request a thumbnail) in that a preliminary image information request that would only serve to find out which qualities are available can be avoided.</p>
 
 <p>A quality value that is unsupported <em class="rfc">should</em> result in a 400 status code.</p>
 
@@ -917,7 +917,7 @@ The size keyword <code class="language-plaintext highlighter-rouge">full</code> 
 <div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Access-Control-Allow-Origin: *
 </code></pre></div></div>
 
-<p>A recipe for enabling these behaviors is provided in the <a href="/iiif-api/api/annex/notes/apache/#conditional-content-types" title="Apache HTTP Server Implementation Notes: Conditional Content Types">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server Implementation Notes</a>.</p>
+<p>A recipe for enabling these behaviors is provided in the <a href="https://marii.info/iiif-api/api//annex/notes/apache/#conditional-content-types" title="Apache HTTP Server Implementation Notes: Conditional Content Types">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server Implementation Notes</a>.</p>
       <h3 id="technical-properties">
         
         
@@ -1292,7 +1292,7 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
       </h3>
     
 
-<p>The rights and licensing properties, <code class="language-plaintext highlighter-rouge">attribution</code>, <code class="language-plaintext highlighter-rouge">license</code> and <code class="language-plaintext highlighter-rouge">logo</code>, have the same semantics and requirements as those in the <a href="/iiif-api/api/presentation/./" title="Presentation API">Presentation <abbr title="Application Programming Interface">API</abbr></a>.</p>
+<p>The rights and licensing properties, <code class="language-plaintext highlighter-rouge">attribution</code>, <code class="language-plaintext highlighter-rouge">license</code> and <code class="language-plaintext highlighter-rouge">logo</code>, have the same semantics and requirements as those in the <a href="https://marii.info/iiif-api/api//presentation/3.0/" title="Presentation API">Presentation <abbr title="Application Programming Interface">API</abbr></a>.</p>
 
 <table class="api-table">
   <thead>
@@ -1306,7 +1306,7 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
     <tr>
       <td><code class="language-plaintext highlighter-rouge">attribution</code></td>
       <td>Optional</td>
-      <td>Text that <em class="rfc">must</em> be shown when content obtained from the Image <abbr title="Application Programming Interface">API</abbr> service is displayed or used. It might include copyright or ownership statements, or a simple acknowledgement of the providing institution. The value <em class="rfc">may</em> contain simple <abbr title="HyperText Markup Language">HTML</abbr> as described in the <a href="/iiif-api/api/presentation/./#html-markup-in-property-values" title="Presentation API Section 4.4"><abbr title="HyperText Markup Language">HTML</abbr> Markup in Property Values</a> section of the Presentation <abbr title="Application Programming Interface">API</abbr>.</td>
+      <td>Text that <em class="rfc">must</em> be shown when content obtained from the Image <abbr title="Application Programming Interface">API</abbr> service is displayed or used. It might include copyright or ownership statements, or a simple acknowledgement of the providing institution. The value <em class="rfc">may</em> contain simple <abbr title="HyperText Markup Language">HTML</abbr> as described in the <a href="https://marii.info/iiif-api/api//presentation/3.0/#45-html-markup-in-property-values" title="Presentation API Section 4.4"><abbr title="HyperText Markup Language">HTML</abbr> Markup in Property Values</a> section of the Presentation <abbr title="Application Programming Interface">API</abbr>.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">license</code></td>
@@ -1387,7 +1387,7 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
   </tbody>
 </table>
 
-<p>There <em class="rfc">may</em> be one or more services associated with an image. See the <a href="/iiif-api/api/annex/services/" title="Services Annex Document">Service Profiles</a> annex for more information.</p>
+<p>There <em class="rfc">may</em> be one or more services associated with an image. See the <a href="https://marii.info/iiif-api/api//annex/services/" title="Services Annex Document">Service Profiles</a> annex for more information.</p>
 
 <p>The following shows a use of <code class="language-plaintext highlighter-rouge">service</code> to associate the login page of an authentication system that users must go through in order to access the image.  For further information, please see <a href="#authentication">Authentication</a>.</p>
 
@@ -1403,9 +1403,9 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
   </span><span class="nl">"protocol"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/image"</span><span class="p">,</span><span class="w">
   </span><span class="c1">// ...</span><span class="w">
   </span><span class="nl">"service"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"@context"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/auth//context.json"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"@context"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/auth/1/context.json"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"@id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.example.org/auth/login.html"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/auth//login"</span><span class="w">
+    </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://iiif.io/api/auth/1/login"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -1496,7 +1496,7 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
       </h2>
     
 
-<p>The image information document <em class="rfc">must</em> specify the extent to which the <abbr title="Application Programming Interface">API</abbr> is supported by including a compliance level URI as the first entry in the <code class="language-plaintext highlighter-rouge">profile</code> property. This URI links to a description of the highest compliance level for which all requirements are met. The URI <em class="rfc">must</em> be one of those listed in the <a href="/iiif-api/api/image/2.1/compliance/" title="Image API Compliance">Image <abbr title="Application Programming Interface">API</abbr> Compliance</a> document. This description contains the set of features required by the profile, as discussed in the <a href="#image-information" title="5.1. Image Information">Image Information</a> section. A server <em class="rfc">may</em> declare different compliance levels for images with different identifiers.</p>
+<p>The image information document <em class="rfc">must</em> specify the extent to which the <abbr title="Application Programming Interface">API</abbr> is supported by including a compliance level URI as the first entry in the <code class="language-plaintext highlighter-rouge">profile</code> property. This URI links to a description of the highest compliance level for which all requirements are met. The URI <em class="rfc">must</em> be one of those listed in the <a href="https://marii.info/iiif-api/api//image/2.1/compliance/" title="Image API Compliance">Image <abbr title="Application Programming Interface">API</abbr> Compliance</a> document. This description contains the set of features required by the profile, as discussed in the <a href="#image-information" title="5.1. Image Information">Image Information</a> section. A server <em class="rfc">may</em> declare different compliance levels for images with different identifiers.</p>
 
 <p>The compliance level URI <em class="rfc">may</em> also be given in the <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Link header (<a href="http://tools.ietf.org/html/rfc5988" title="Web Linking">RFC5988</a>) with the parameter <code class="language-plaintext highlighter-rouge">rel="profile"</code>, and thus a complete header might look like:</p>
 
@@ -1509,7 +1509,7 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
 <div class="language-plaintext urltemplate highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Link: &lt;http://iiif.io/api/image/2/level1.json&gt;;rel="profile"
 </code></pre></div></div>
 
-<p>A recipe for setting this header on the Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server is shown in the <a href="/iiif-api/api/annex/notes/apache/#set-compliance-link-header" title="Apache HTTP Server Implementation Notes: Set Compliance Link Header">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server Implementation Notes</a>.</p>
+<p>A recipe for setting this header on the Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server is shown in the <a href="https://marii.info/iiif-api/api//annex/notes/apache/#set-compliance-link-header" title="Apache HTTP Server Implementation Notes: Set Compliance Link Header">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server Implementation Notes</a>.</p>
       <h2 id="server-responses">
         
         
@@ -1588,7 +1588,7 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
 
 <p>Images are generally secondary resources in a web page or application. In the case of web pages, images are embedded in the <abbr title="HyperText Markup Language">HTML</abbr> <code class="language-plaintext highlighter-rouge">img</code> tag, and are retrieved via additional <abbr title="Hypertext Transfer Protocol">HTTP</abbr> requests. When a user cannot load a web page, it is possible — and a generally accepted behavior — to redirect the user to another page and offer the opportunity to authenticate. This is not an option for secondary resources such as images, and the user is instead simply presented with a broken image icon.</p>
 
-<p>No new authentication mechanisms are proposed, nor roles for authorization business logic. Instead, it is expected that authentication requirements and processes are handled outside of any <abbr title="International Image Interoperability Framework">IIIF</abbr>-specific context, but within a <abbr title="International Image Interoperability Framework">IIIF</abbr>-aware access control workflow. Please see the draft <a href="/iiif-api/api/auth/">authentication</a> specification.</p>
+<p>No new authentication mechanisms are proposed, nor roles for authorization business logic. Instead, it is expected that authentication requirements and processes are handled outside of any <abbr title="International Image Interoperability Framework">IIIF</abbr>-specific context, but within a <abbr title="International Image Interoperability Framework">IIIF</abbr>-aware access control workflow. Please see the draft <a href="https://marii.info/iiif-api/api//auth/">authentication</a> specification.</p>
       <h2 id="uri-encoding-and-decoding">
         
         
@@ -1689,9 +1689,9 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
 <ul>
   <li>For use cases that enable the saving of the image, it is <em class="rfc">recommended</em> to use the <abbr title="Hypertext Transfer Protocol">HTTP</abbr> <code class="language-plaintext highlighter-rouge">Content-Disposition</code> header (<a href="http://tools.ietf.org/html/rfc6266" title="Use of the Content-Disposition Header Field in the Hypertext Transfer Protocol (HTTP)">RFC6266</a>) to provide a convenient filename that distinguishes the image, based on the identifier and parameters provided.</li>
   <li>Server implementations may rely on components or frameworks that unescape the URI path, such as Python’s <a href="https://www.python.org/dev/peps/pep-0333/">WSGI</a>. In such situations, the requested URI may be parsed from the right in order to handle identifiers possibly containing slashes, given the knowledge of the <abbr title="Application Programming Interface">API</abbr> parameters and the prefix for which the server handles requests.</li>
-  <li>This specification makes no assertion about the rights status of requested images or any other descriptive metadata, whether or not authentication has been accomplished. Please see the <a href="/iiif-api/api/presentation/./" title="Presentation API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a> for rights and other information.</li>
-  <li>Additional <a href="/iiif-api/api/annex/notes/apache/" title="Apache HTTP Server Implementation Notes">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server implementation notes</a> are available.</li>
-  <li>Linked data implementations may construct the info.json response using the frame supplied in the <a href="/iiif-api/api/annex/notes/jsonld/" title="JSON-LD Frames Implementation Notes"><abbr title="JSON for Linking Data">JSON-LD</abbr> framing implementation note</a>.</li>
+  <li>This specification makes no assertion about the rights status of requested images or any other descriptive metadata, whether or not authentication has been accomplished. Please see the <a href="https://marii.info/iiif-api/api//presentation/3.0/" title="Presentation API"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a> for rights and other information.</li>
+  <li>Additional <a href="https://marii.info/iiif-api/api//annex/notes/apache/" title="Apache HTTP Server Implementation Notes">Apache <abbr title="Hypertext Transfer Protocol">HTTP</abbr> Server implementation notes</a> are available.</li>
+  <li>Linked data implementations may construct the info.json response using the frame supplied in the <a href="https://marii.info/iiif-api/api//annex/notes/jsonld/" title="JSON-LD Frames Implementation Notes"><abbr title="JSON for Linking Data">JSON-LD</abbr> framing implementation note</a>.</li>
   <li>When requesting sizes using the <code class="language-plaintext highlighter-rouge">w,</code> canonical syntax, if a particular height is desired, the following algorithm can be used:</li>
 </ul>
 
@@ -1756,7 +1756,7 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
       </h3>
     
 
-<p>Starting with version 2.0, this specification follows <a href="http://semver.org/spec/v2.0.0.html" title="Semantic Versioning 2.0.0">Semantic Versioning</a>. See the note <a href="/iiif-api/api/annex/notes/semver/" title="Versioning of APIs">Versioning of APIs</a> for details regarding how this is implemented.</p>
+<p>Starting with version 2.0, this specification follows <a href="http://semver.org/spec/v2.0.0.html" title="Semantic Versioning 2.0.0">Semantic Versioning</a>. See the note <a href="https://marii.info/iiif-api/api//annex/notes/semver/" title="Versioning of APIs">Versioning of APIs</a> for details regarding how this is implemented.</p>
       <h3 id="c-acknowledgments">
         
         
@@ -1768,7 +1768,7 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
 
 <p>The production of this document was generously supported by a grant from the <a href="http://www.mellon.org/" title="The Andrew W. Mellon Foundation">Andrew W. Mellon Foundation</a>.</p>
 
-<p>Many thanks to the members of the <a href="/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
+<p>Many thanks to the members of the <a href="https://marii.info/iiif-website/community/" title="IIIF Community"><abbr title="International Image Interoperability Framework">IIIF</abbr></a> for their continuous engagement, innovative ideas and feedback.</p>
       <h3 id="d-change-log">
         
         
@@ -1788,19 +1788,19 @@ Use of the feature names <code class="language-plaintext highlighter-rouge">size
   <tbody>
     <tr>
       <td>2017-06-09</td>
-      <td>Version 2.1.1 <a href="/iiif-api/api/image/2.1/change-log-211/" title="Image API 2.1.1 Change Log">View change log</a></td>
+      <td>Version 2.1.1 <a href="https://marii.info/iiif-api/api//image/2.1/change-log-211/" title="Image API 2.1.1 Change Log">View change log</a></td>
     </tr>
     <tr>
       <td>2016-05-12</td>
-      <td>Version 2.1 (Crowned Eagle) <a href="/iiif-api/api/image/2.1/change-log/" title="Change Log for Version 2.1">View change log</a></td>
+      <td>Version 2.1 (Crowned Eagle) <a href="https://marii.info/iiif-api/api//image/2.1/change-log/" title="Change Log for Version 2.1">View change log</a></td>
     </tr>
     <tr>
       <td>2014-09-11</td>
-      <td>Version 2.0 (Voodoo Bunny) <a href="/iiif-api/api/image/2.0/change-log/" title="Change Log for Version 2.0">View change log</a></td>
+      <td>Version 2.0 (Voodoo Bunny) <a href="https://marii.info/iiif-api/api//image/2.0/change-log/" title="Change Log for Version 2.0">View change log</a></td>
     </tr>
     <tr>
       <td>2013-09-17</td>
-      <td>Version 1.1 (unnamed) <a href="/iiif-api/api/image/1.1/change-log/" title="Change Log for Version 1.1">View change log</a></td>
+      <td>Version 1.1 (unnamed) <a href="https://marii.info/iiif-api/api//image/1.1/change-log/" title="Change Log for Version 1.1">View change log</a></td>
     </tr>
     <tr>
       <td>2012-08-10</td>

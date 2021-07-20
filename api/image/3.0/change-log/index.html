@@ -136,7 +136,7 @@
       </div>
     </aside>
     <div class="column content is-three-quarters api-content" markdown="1">
-      <p>This document is a companion to the <a href="/iiif-api/api/image/3.0/" title="Image API 3.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> Specification, Version 3.0</a>. It describes the changes to the <abbr title="Application Programming Interface">API</abbr> specification made in this major release, including ones that are backwards incompatible with version 2.1.1, the previous version.</p>
+      <p>This document is a companion to the <a href="https://marii.info/iiif-api/api//image/3.0/" title="Image API 3.0"><abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> Specification, Version 3.0</a>. It describes the changes to the <abbr title="Application Programming Interface">API</abbr> specification made in this major release, including ones that are backwards incompatible with version 2.1.1, the previous version.</p>
       <h2 id="1-breaking-changes">
         
         
@@ -164,7 +164,7 @@
       </h4>
     
 
-<p>Per the <a href="/iiif-api/api/image/2.1/#full-dep" title="Deprecation Warning">deprecation warning</a> in the previous version, the value <code class="language-plaintext highlighter-rouge">full</code> is no longer allowed for the size parameter, <code class="language-plaintext highlighter-rouge">max</code> must be used instead.</p>
+<p>Per the <a href="https://marii.info/iiif-api/api//image/2.1/#full-dep" title="Deprecation Warning">deprecation warning</a> in the previous version, the value <code class="language-plaintext highlighter-rouge">full</code> is no longer allowed for the size parameter, <code class="language-plaintext highlighter-rouge">max</code> must be used instead.</p>
 
 <p>See issues <a href="https://github.com/IIIF/api/issues/678">#678</a> and <a href="https://github.com/IIIF/api/issues/1369">#1369</a>.</p>
       <h4 id="112-changes-to-upscaling-of-images-to-larger-than-the-extracted-region">
@@ -176,7 +176,7 @@
       </h4>
     
 
-<p>Unless prefixed with a caret (<code class="language-plaintext highlighter-rouge">^</code>), the value of the size parameter must not result in an image larger than the extracted region, and attempts to do so must generate an error response. Previous versions allowed implementations to <a href="/iiif-api/api/image/2.1/#size" title="4.2. Size">optionally and implicitly support scaling up</a>. The <code class="language-plaintext highlighter-rouge">sizeAboveFull</code> feature name was also removed. Servers may still support upscaling by indicating that they support the <code class="language-plaintext highlighter-rouge">sizeUpscaling</code> feature.</p>
+<p>Unless prefixed with a caret (<code class="language-plaintext highlighter-rouge">^</code>), the value of the size parameter must not result in an image larger than the extracted region, and attempts to do so must generate an error response. Previous versions allowed implementations to <a href="https://marii.info/iiif-api/api//image/2.1/#size" title="4.2. Size">optionally and implicitly support scaling up</a>. The <code class="language-plaintext highlighter-rouge">sizeAboveFull</code> feature name was also removed. Servers may still support upscaling by indicating that they support the <code class="language-plaintext highlighter-rouge">sizeUpscaling</code> feature.</p>
 
 <p>See issues <a href="https://github.com/IIIF/api/issues/693">#693</a>,<a href="https://github.com/IIIF/api/issues/1370">#1370</a>, and <a href="https://github.com/IIIF/api/issues/1627">#1627</a>.</p>
       <h4 id="113-change-canonical-form-of-size-parameter-to-wh">
@@ -188,7 +188,7 @@
       </h4>
     
 
-<p>Per the <a href="/iiif-api/api/image/2.1/#full-dep" title="Deprecation Warning">deprecation warning</a> and the <a href="/iiif-api/api/image/2.1/#size-inconsistency" title="Inconsistency Warning">inconsistency warning</a> about the size parameter in the previous version, the canonical form of the size parameter is now <em><code class="language-plaintext highlighter-rouge">w,h</code></em> unless the maximum size is requested, in which case the canonical form is now <code class="language-plaintext highlighter-rouge">max</code>. This resolves the inconsistency between the server-preferred values in the <code class="language-plaintext highlighter-rouge">sizes</code> object, and the canonical form of the size parameter. In order to request preferred sizes, a client should use the <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> values from <code class="language-plaintext highlighter-rouge">sizes</code> unmodified to build the <em><code class="language-plaintext highlighter-rouge">w,h</code></em> size to request. Clients should also use canonical form of the size parameter <em><code class="language-plaintext highlighter-rouge">w,h</code></em> when constructing tile requests.</p>
+<p>Per the <a href="https://marii.info/iiif-api/api//image/2.1/#full-dep" title="Deprecation Warning">deprecation warning</a> and the <a href="https://marii.info/iiif-api/api//image/2.1/#size-inconsistency" title="Inconsistency Warning">inconsistency warning</a> about the size parameter in the previous version, the canonical form of the size parameter is now <em><code class="language-plaintext highlighter-rouge">w,h</code></em> unless the maximum size is requested, in which case the canonical form is now <code class="language-plaintext highlighter-rouge">max</code>. This resolves the inconsistency between the server-preferred values in the <code class="language-plaintext highlighter-rouge">sizes</code> object, and the canonical form of the size parameter. In order to request preferred sizes, a client should use the <code class="language-plaintext highlighter-rouge">width</code> and <code class="language-plaintext highlighter-rouge">height</code> values from <code class="language-plaintext highlighter-rouge">sizes</code> unmodified to build the <em><code class="language-plaintext highlighter-rouge">w,h</code></em> size to request. Clients should also use canonical form of the size parameter <em><code class="language-plaintext highlighter-rouge">w,h</code></em> when constructing tile requests.</p>
 
 <p>See issues <a href="https://github.com/IIIF/api/issues/544">#544</a> and <a href="https://github.com/IIIF/api/issues/678">#678</a>.</p>
       <h3 id="12-image-information-changes">
@@ -222,7 +222,7 @@
       </h4>
     
 
-<p>The <code class="language-plaintext highlighter-rouge">attribution</code> and <code class="language-plaintext highlighter-rouge">logo</code> properties have been removed to better separate concerns between the Image and Presentation APIs. Both properties continue to be available in the <a href="/iiif-api/api/presentation/3.0/">Presentation <abbr title="Application Programming Interface">API</abbr></a>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">attribution</code> and <code class="language-plaintext highlighter-rouge">logo</code> properties have been removed to better separate concerns between the Image and Presentation APIs. Both properties continue to be available in the <a href="https://marii.info/iiif-api/api//presentation/3.0/">Presentation <abbr title="Application Programming Interface">API</abbr></a>.</p>
 
 <p>See issue <a href="https://github.com/IIIF/api/issues/1787">#1787</a>. Approved by <a href="https://github.com/IIIF/trc/issues/12">trc#12</a>.</p>
       <h4 id="123-rename-license-to-rights-allow-only-a-single-value">
@@ -250,7 +250,7 @@
 
 <p>See issues <a href="https://github.com/IIIF/api/issues/1185">#1185</a> and <a href="https://github.com/IIIF/api/issues/1867">#1867</a></p>
 
-<p>A list of allowed values for <code class="language-plaintext highlighter-rouge">@type</code> when referring to services from older <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications is given in the <a href="/iiif-api/api/annex/services/" title="Services Annex Document">services annex</a> document.</p>
+<p>A list of allowed values for <code class="language-plaintext highlighter-rouge">@type</code> when referring to services from older <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications is given in the <a href="https://marii.info/iiif-api/api//annex/services/" title="Services Annex Document">services annex</a> document.</p>
       <h4 id="125-change-the-profile-property-to-take-one-compliance-level">
         
         
@@ -284,7 +284,7 @@
       </h4>
     
 
-<p>Per the <a href="/iiif-api/api/image/2.1/#dep-sizes" title="Deprecation Warning">deprecation warning</a> in the previous version, the feature names <code class="language-plaintext highlighter-rouge">sizeByWhListed</code> and <code class="language-plaintext highlighter-rouge">sizeByForcedWh</code> have been removed. See PR <a href="https://github.com/IIIF/api/pull/727">#727</a>.</p>
+<p>Per the <a href="https://marii.info/iiif-api/api//image/2.1/#dep-sizes" title="Deprecation Warning">deprecation warning</a> in the previous version, the feature names <code class="language-plaintext highlighter-rouge">sizeByWhListed</code> and <code class="language-plaintext highlighter-rouge">sizeByForcedWh</code> have been removed. See PR <a href="https://github.com/IIIF/api/pull/727">#727</a>.</p>
       <h4 id="128-remove-feature-name-sizebydistortedwh">
         
         
@@ -306,7 +306,7 @@
       </h4>
     
 
-<p>In the <a href="/iiif-api/api/presentation/3.0/">Presentation <abbr title="Application Programming Interface">API</abbr></a> and here, a new pattern has been adopted for all textual values of a <abbr title="JavaScript Object Notation">JSON</abbr> object with the language code as the key (or <code class="language-plaintext highlighter-rouge">none</code> if the language is not known) and the content as a string within an array as the value. This pattern is much easier to implement and use than the previous <code class="language-plaintext highlighter-rouge">@value</code> / <code class="language-plaintext highlighter-rouge">@language</code> tuples pattern.</p>
+<p>In the <a href="https://marii.info/iiif-api/api//presentation/3.0/">Presentation <abbr title="Application Programming Interface">API</abbr></a> and here, a new pattern has been adopted for all textual values of a <abbr title="JavaScript Object Notation">JSON</abbr> object with the language code as the key (or <code class="language-plaintext highlighter-rouge">none</code> if the language is not known) and the content as a string within an array as the value. This pattern is much easier to implement and use than the previous <code class="language-plaintext highlighter-rouge">@value</code> / <code class="language-plaintext highlighter-rouge">@language</code> tuples pattern.</p>
 
 <p>See issues <a href="https://github.com/IIIF/api/issues/755">#755</a> and <a href="https://github.com/IIIF/api/issues/1739">#1739</a>. Approved by <a href="https://github.com/IIIF/trc/issues/2">trc#2</a> and <a href="https://github.com/IIIF/trc/issues/5">trc#5</a>.</p>
       <h4 id="1210-clarify-content-negotiation-expectations">
@@ -348,7 +348,7 @@
       </h4>
     
 
-<p>Support for the region parameter value <code class="language-plaintext highlighter-rouge">square</code>, introduced in <a href="/iiif-api/api/image/2.1/" title="Image API 2.1">version 2.1</a>, is now required at <code class="language-plaintext highlighter-rouge">level1</code> and <code class="language-plaintext highlighter-rouge">level2</code> <a href="/iiif-api/api/image/3.0/compliance/" title="Image API Compliance">compliance</a>.</p>
+<p>Support for the region parameter value <code class="language-plaintext highlighter-rouge">square</code>, introduced in <a href="https://marii.info/iiif-api/api//image/2.1/" title="Image API 2.1">version 2.1</a>, is now required at <code class="language-plaintext highlighter-rouge">level1</code> and <code class="language-plaintext highlighter-rouge">level2</code> <a href="https://marii.info/iiif-api/api//image/3.0/compliance/" title="Image API Compliance">compliance</a>.</p>
 
 <p>See issue <a href="https://github.com/IIIF/api/issues/501">#501</a>.</p>
       <h4 id="132-no-longer-require-support-for-pctx-size-at-level1-compliance">
@@ -402,11 +402,11 @@
       </h3>
     
 
-<p>A new <a href="/iiif-api/api/image/3.0/#49-extensions" title="4.9. Extensions">Extensions</a> section describes mechanisms for extension of image requests and the new <a href="/iiif-api/api/image/3.0/#57-extra-functionality" title="5.7. Extra Functionality">Extra Functionality</a> section describes how extensions are described in the image information response. The <code class="language-plaintext highlighter-rouge">extraQualities</code> and <code class="language-plaintext highlighter-rouge">extraFormats</code> properties have been added to allow description of additional functionality.</p>
+<p>A new <a href="https://marii.info/iiif-api/api//image/3.0/#49-extensions" title="4.9. Extensions">Extensions</a> section describes mechanisms for extension of image requests and the new <a href="https://marii.info/iiif-api/api//image/3.0/#57-extra-functionality" title="5.7. Extra Functionality">Extra Functionality</a> section describes how extensions are described in the image information response. The <code class="language-plaintext highlighter-rouge">extraQualities</code> and <code class="language-plaintext highlighter-rouge">extraFormats</code> properties have been added to allow description of additional functionality.</p>
 
 <p>See issues <a href="https://github.com/IIIF/api/issues/1374">#1374</a>, <a href="https://github.com/IIIF/api/issues/1373">#1373</a>, and <a href="https://github.com/IIIF/api/issues/1435">#1435</a>.</p>
 
-<p>There is now a <a href="/iiif-api/api/extension/">registry of known extensions</a> to the <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications, which includes a <a href="/iiif-api/api/registry/image-extensions/" title="IIIF Image Extension Registry">registry of Image <abbr title="Application Programming Interface">API</abbr> extensions</a>. Extensions intended for community use should be registered in the extensions registry, but registration is not mandatory.</p>
+<p>There is now a <a href="https://marii.info/iiif-api/api//extension/">registry of known extensions</a> to the <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications, which includes a <a href="https://marii.info/iiif-api/api//registry/image-extensions/" title="IIIF Image Extension Registry">registry of Image <abbr title="Application Programming Interface">API</abbr> extensions</a>. Extensions intended for community use should be registered in the extensions registry, but registration is not mandatory.</p>
       <h3 id="22-add-partof-and-seealso-linking-properties">
         
         
@@ -450,7 +450,7 @@
       </h3>
     
 
-<p>The <a href="/iiif-api/api/image/3.0/#12-terminology" title="1.2 Terminology">Terminology</a> section now explicitly defines <strong>underlying image content</strong> and <strong>full image</strong>. These terms, along with “extracted region” and “image returned” are used to describe the image manipulations more consistently than in previous versions.</p>
+<p>The <a href="https://marii.info/iiif-api/api//image/3.0/#12-terminology" title="1.2 Terminology">Terminology</a> section now explicitly defines <strong>underlying image content</strong> and <strong>full image</strong>. These terms, along with “extracted region” and “image returned” are used to describe the image manipulations more consistently than in previous versions.</p>
 
 <p>See issue <a href="https://github.com/IIIF/api/issues/1425">#1425</a>.</p>
       <h3 id="32-clarify-description-of-the-wh-form-for-the-size-parameter">
@@ -498,7 +498,7 @@
       </h3>
     
 
-<p>Discussion of floating point representation has been moved from the image requests introduction to its own section, <a href="/iiif-api/api/image/3.0/#47-floating-point-values" title="4.7. Floating Point Values">Floating Point Values</a>, and has been expanded for clarity. The advice on using at most 10 decimal digits has been removed. Description of <code class="language-plaintext highlighter-rouge">pct</code> values clarifies these may be either floating point or integer.</p>
+<p>Discussion of floating point representation has been moved from the image requests introduction to its own section, <a href="https://marii.info/iiif-api/api//image/3.0/#47-floating-point-values" title="4.7. Floating Point Values">Floating Point Values</a>, and has been expanded for clarity. The advice on using at most 10 decimal digits has been removed. Description of <code class="language-plaintext highlighter-rouge">pct</code> values clarifies these may be either floating point or integer.</p>
 
 <p>See issues <a href="https://github.com/IIIF/api/issues/1468">#1468</a>, <a href="https://github.com/IIIF/api/issues/1240">#1240</a> and <a href="https://github.com/IIIF/api/issues/1875">#1875</a></p>
       <h3 id="36-clarify-support-for-cors">
@@ -510,7 +510,7 @@
       </h3>
     
 
-<p>Discussion of <abbr title="Cross-Origin Resource Sharing">CORS</abbr> has be moved to a new <a href="/iiif-api/api/image/3.0/#71-cors" title="7.1. CORS"><abbr title="Cross-Origin Resource Sharing">CORS</abbr></a> section and the wording clarified to make it clear that not only the <code class="language-plaintext highlighter-rouge">Access-Control-Allow-Origin</code> header but also the preflight request pattern (ie. including the <code class="language-plaintext highlighter-rouge">OPTIONS</code> header) should be supported.</p>
+<p>Discussion of <abbr title="Cross-Origin Resource Sharing">CORS</abbr> has be moved to a new <a href="https://marii.info/iiif-api/api//image/3.0/#71-cors" title="7.1. CORS"><abbr title="Cross-Origin Resource Sharing">CORS</abbr></a> section and the wording clarified to make it clear that not only the <code class="language-plaintext highlighter-rouge">Access-Control-Allow-Origin</code> header but also the preflight request pattern (ie. including the <code class="language-plaintext highlighter-rouge">OPTIONS</code> header) should be supported.</p>
 
 <p>See issue <a href="https://github.com/IIIF/api/issues/1274">#1274</a>.</p>
       <h3 id="37-clarify-that-the-context-value-may-be-a-single-uri-or-an-array-of-uris">
@@ -534,7 +534,7 @@
       </h3>
     
 
-<p>The <a href="/iiif-api/api/image/3.0/#6-compliance-level-and-profile-document" title="6. Compliance Level and Profile Document">description of compliance</a> has been changed to note that the compliance level may be given in a <abbr title="Hypertext Transfer Protocol">HTTP</abbr> <code class="language-plaintext highlighter-rouge">Link</code> header on both Image and Image Information responses.</p>
+<p>The <a href="https://marii.info/iiif-api/api//image/3.0/#6-compliance-level-and-profile-document" title="6. Compliance Level and Profile Document">description of compliance</a> has been changed to note that the compliance level may be given in a <abbr title="Hypertext Transfer Protocol">HTTP</abbr> <code class="language-plaintext highlighter-rouge">Link</code> header on both Image and Image Information responses.</p>
 
 <p>See issue <a href="https://github.com/IIIF/api/issues/1365">#1365</a>.</p>
       <h3 id="39-move-implementation-notes-to-a-separate-document">
@@ -546,7 +546,7 @@
       </h3>
     
 
-<p>A new <a href="/iiif-api/api/image/3.0/implementation/" title="Implementation Notes">Image <abbr title="Application Programming Interface">API</abbr> 3.0 Implementation Notes</a> document was created by extracting notes from the appendices of the previous version. An algorithm for handling implementation constraints on maximum sizes with <code class="language-plaintext highlighter-rouge">maxWidth</code>, <code class="language-plaintext highlighter-rouge">maxHeight</code> and/or <code class="language-plaintext highlighter-rouge">maxArea</code> was added. Care has been taken to avoid <a href="https://tools.ietf.org/html/rfc2119" title="RFC Keywords"><abbr title="Request for Comments">RFC</abbr> 2119</a> keywords as the implementation notes are not normative.</p>
+<p>A new <a href="https://marii.info/iiif-api/api//image/3.0/implementation/" title="Implementation Notes">Image <abbr title="Application Programming Interface">API</abbr> 3.0 Implementation Notes</a> document was created by extracting notes from the appendices of the previous version. An algorithm for handling implementation constraints on maximum sizes with <code class="language-plaintext highlighter-rouge">maxWidth</code>, <code class="language-plaintext highlighter-rouge">maxHeight</code> and/or <code class="language-plaintext highlighter-rouge">maxArea</code> was added. Care has been taken to avoid <a href="https://tools.ietf.org/html/rfc2119" title="RFC Keywords"><abbr title="Request for Comments">RFC</abbr> 2119</a> keywords as the implementation notes are not normative.</p>
 
 <p>See issues <a href="https://github.com/IIIF/api/issues/928">#928</a> and <a href="https://github.com/IIIF/api/issues/1427">#1427</a>.</p>
       <h3 id="310-describe-implementation-with-static-web-resources">
@@ -558,7 +558,7 @@
       </h3>
     
 
-<p>Explicit mention of support for <code class="language-plaintext highlighter-rouge">level0</code> implementation with pre-generated files was added. The Image <abbr title="Application Programming Interface">API</abbr> Compliance document has <a href="/iiif-api/api/image/3.0/compliance/#5-level-0-compliance" title="5. Level 0 Compliance">additional guidance</a> on interpretation of <code class="language-plaintext highlighter-rouge">scaleFactors</code>, <code class="language-plaintext highlighter-rouge">tiles</code> and <code class="language-plaintext highlighter-rouge">sizes</code> information at <code class="language-plaintext highlighter-rouge">level0</code>.</p>
+<p>Explicit mention of support for <code class="language-plaintext highlighter-rouge">level0</code> implementation with pre-generated files was added. The Image <abbr title="Application Programming Interface">API</abbr> Compliance document has <a href="https://marii.info/iiif-api/api//image/3.0/compliance/#5-level-0-compliance" title="5. Level 0 Compliance">additional guidance</a> on interpretation of <code class="language-plaintext highlighter-rouge">scaleFactors</code>, <code class="language-plaintext highlighter-rouge">tiles</code> and <code class="language-plaintext highlighter-rouge">sizes</code> information at <code class="language-plaintext highlighter-rouge">level0</code>.</p>
 
 <p>See issues <a href="https://github.com/IIIF/api/issues/1231">#1231</a> and <a href="https://github.com/IIIF/api/issues/1254">#1274</a>.</p>
       <h3 id="311-add-note-encouraging-adoption-of-http2">
@@ -570,7 +570,7 @@
       </h3>
     
 
-<p>A new <a href="/iiif-api/api/image/3.0/#74-http-versions" title="7.4. HTTP Versions"><abbr title="Hypertext Transfer Protocol">HTTP</abbr> Versions</a> section was added to describe issues with many concurrent requests and recommends support for <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/2.</p>
+<p>A new <a href="https://marii.info/iiif-api/api//image/3.0/#74-http-versions" title="7.4. HTTP Versions"><abbr title="Hypertext Transfer Protocol">HTTP</abbr> Versions</a> section was added to describe issues with many concurrent requests and recommends support for <abbr title="Hypertext Transfer Protocol">HTTP</abbr>/2.</p>
 
 <p>See issue <a href="https://github.com/IIIF/api/issues/957">#957</a>.</p>
       <h3 id="312-improve-font-and-style-consistency">

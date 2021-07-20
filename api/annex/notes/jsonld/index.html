@@ -181,7 +181,7 @@
       </h2>
     
 
-<p>It is possible to associate a language with a literal in <abbr title="JSON for Linking Data">JSON-LD</abbr> using an object with two keys, <code class="language-plaintext highlighter-rouge">@language</code> and <code class="language-plaintext highlighter-rouge">@value</code>, described in the <a href="/iiif-api/api/presentation/./#language-of-property-values">Presentation <abbr title="Application Programming Interface">API</abbr></a>. It is also possible to describe the format of a literal using <code class="language-plaintext highlighter-rouge">@type</code>.  However, due to restrictions in <abbr title="Resource Description Framework">RDF</abbr> 1.1, it is not possible to use both of these features together to have a literal with both format and language declared.</p>
+<p>It is possible to associate a language with a literal in <abbr title="JSON for Linking Data">JSON-LD</abbr> using an object with two keys, <code class="language-plaintext highlighter-rouge">@language</code> and <code class="language-plaintext highlighter-rouge">@value</code>, described in the <a href="https://marii.info/iiif-api/api//presentation/3.0/#language-of-property-values">Presentation <abbr title="Application Programming Interface">API</abbr></a>. It is also possible to describe the format of a literal using <code class="language-plaintext highlighter-rouge">@type</code>.  However, due to restrictions in <abbr title="Resource Description Framework">RDF</abbr> 1.1, it is not possible to use both of these features together to have a literal with both format and language declared.</p>
 
 <p>During the design of the Presentation <abbr title="Application Programming Interface">API</abbr> version 2.0, it was determined that the correct solution was to be explicit about language as it cannot be determined heuristicly, and provide requirements to make the detection of <abbr title="HyperText Markup Language">HTML</abbr> as easy as possible.  In the future, if <abbr title="Resource Description Framework">RDF</abbr> provides a method to have both format and language associated with the same literal, these restrictions will be lifted.  Other options were evaluated, including having a resource with <code class="language-plaintext highlighter-rouge">value</code>, <code class="language-plaintext highlighter-rouge">language</code> and <code class="language-plaintext highlighter-rouge">format</code> keys which was determined to be too intrusive compared to what regular <abbr title="JavaScript Object Notation">JSON</abbr> would look like, and using <abbr title="HyperText Markup Language">HTML</abbr> with an <code class="language-plaintext highlighter-rouge">xml:lang</code> attribute and the <code class="language-plaintext highlighter-rouge">rdf:HTML</code> datatype, however this makes the choice of language much more complex as the values need to be parsed with an <abbr title="HyperText Markup Language">HTML</abbr> parser, rather than using the <abbr title="JavaScript Object Notation">JSON</abbr> structure.  As internationalization of the values is a primary use case, the current method was the solution chosen.</p>
 
@@ -207,7 +207,7 @@
 
 <p>All <abbr title="International Image Interoperability Framework">IIIF</abbr> APIs are subject to this issue for <code class="language-plaintext highlighter-rouge">service</code> entries, which conflicts with the <a href="http://tools.ietf.org/html/rfc2609">Service URI scheme</a> used <a href="https://en.wikipedia.org/wiki/Service_Location_Protocol#Adoption">mostly by printers</a>.  The Presentation and Search APIs are also subject to this issue for <code class="language-plaintext highlighter-rouge">resource</code> entries in Annotations, which conflict with the provisional <a href="http://www.iana.org/assignments/uri-schemes/prov/resource">Resource URI scheme</a>.  The recommendation for implementers is to not use URIs with these schemes when describing <abbr title="International Image Interoperability Framework">IIIF</abbr> resources.</p>
 
-<p>This <a href="/iiif-api/api/annex/notes/check_context.py">python code</a> will check for conflicts in a context document.</p>
+<p>This <a href="https://marii.info/iiif-api/api//annex/notes/check_context.py">python code</a> will check for conflicts in a context document.</p>
       <h3 id="greedy-compaction-of-terms">
         
         
@@ -229,7 +229,7 @@
       </h2>
     
 
-<p><abbr title="JSON for Linking Data">JSON-LD</abbr> Frames are a method of determining the layout of a <abbr title="JSON for Linking Data">JSON-LD</abbr> serialization, in particular which resource should be at the root of the <abbr title="JavaScript Object Notation">JSON</abbr> structure and whether information about the resource should be embedded in a particular location or not.  This has practical applications for <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications, and especially for the <a href="/iiif-api/api/presentation/./"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a> such as ensuring that the Manifest resource is at the root of the <abbr title="JavaScript Object Notation">JSON</abbr> file and that Canvases are serialized as part of the Sequence rather than within a Range, among others.</p>
+<p><abbr title="JSON for Linking Data">JSON-LD</abbr> Frames are a method of determining the layout of a <abbr title="JSON for Linking Data">JSON-LD</abbr> serialization, in particular which resource should be at the root of the <abbr title="JavaScript Object Notation">JSON</abbr> structure and whether information about the resource should be embedded in a particular location or not.  This has practical applications for <abbr title="International Image Interoperability Framework">IIIF</abbr> specifications, and especially for the <a href="https://marii.info/iiif-api/api//presentation/3.0/"><abbr title="International Image Interoperability Framework">IIIF</abbr> Presentation <abbr title="Application Programming Interface">API</abbr></a> such as ensuring that the Manifest resource is at the root of the <abbr title="JavaScript Object Notation">JSON</abbr> file and that Canvases are serialized as part of the Sequence rather than within a Range, among others.</p>
 
 <p>More information about <abbr title="JSON for Linking Data">JSON-LD</abbr> frames can be found at the <a href="http://json-ld.org/spec/latest/json-ld-framing/"><abbr title="JSON for Linking Data">JSON-LD</abbr> site</a>.</p>
       <h2 id="image-api-frame">
@@ -244,7 +244,7 @@
 <p>A minimal frame for the <abbr title="International Image Interoperability Framework">IIIF</abbr> Image <abbr title="Application Programming Interface">API</abbr> information response.</p>
 
 <ul>
-  <li><a href="/iiif-api/api/image//info_frame.json">Image <abbr title="Application Programming Interface">API</abbr> 2.x Frame</a></li>
+  <li><a href="https://marii.info/iiif-api/api//image/2/info_frame.json">Image <abbr title="Application Programming Interface">API</abbr> 2.x Frame</a></li>
 </ul>
       <h2 id="presentation-api-frames">
         
@@ -260,13 +260,13 @@
 <ul>
   <li>Presentation 2.x Frames:
     <ul>
-      <li><a href="/iiif-api/api/presentation//manifest_frame.json">Manifest Frame</a></li>
-      <li><a href="/iiif-api/api/presentation//annotationList_frame.json">AnnotationList Frame</a></li>
-      <li><a href="/iiif-api/api/presentation//collection_frame.json">Collection Frame</a></li>
-      <li><a href="/iiif-api/api/presentation//sequence_frame.json">Sequence Frame</a></li>
-      <li><a href="/iiif-api/api/presentation//canvas_frame.json">Canvas Frame</a></li>
-      <li><a href="/iiif-api/api/presentation//annotation_frame.json">Annotation Frame</a></li>
-      <li><a href="/iiif-api/api/presentation//range_frame.json">Range Frame</a></li>
+      <li><a href="https://marii.info/iiif-api/api//presentation/2/manifest_frame.json">Manifest Frame</a></li>
+      <li><a href="https://marii.info/iiif-api/api//presentation/2/annotationList_frame.json">AnnotationList Frame</a></li>
+      <li><a href="https://marii.info/iiif-api/api//presentation/2/collection_frame.json">Collection Frame</a></li>
+      <li><a href="https://marii.info/iiif-api/api//presentation/2/sequence_frame.json">Sequence Frame</a></li>
+      <li><a href="https://marii.info/iiif-api/api//presentation/2/canvas_frame.json">Canvas Frame</a></li>
+      <li><a href="https://marii.info/iiif-api/api//presentation/2/annotation_frame.json">Annotation Frame</a></li>
+      <li><a href="https://marii.info/iiif-api/api//presentation/2/range_frame.json">Range Frame</a></li>
     </ul>
   </li>
 </ul>
@@ -291,11 +291,11 @@
 <span class="kn">from</span> <span class="nn">pyld.jsonld</span> <span class="kn">import</span> <span class="n">compact</span><span class="p">,</span> <span class="n">frame</span>
 <span class="kn">import</span> <span class="nn">urllib</span><span class="p">,</span> <span class="n">json</span><span class="p">,</span> <span class="n">pprint</span>
 
-<span class="n">manifest</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">"http://iiif.io/api/presentation/./example/fixtures/1/manifest.json"</span><span class="p">))</span>
+<span class="n">manifest</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">load</span><span class="p">(</span><span class="n">urllib</span><span class="p">.</span><span class="n">urlopen</span><span class="p">(</span><span class="s">"http://iiif.io/api/presentation/3.0/example/fixtures/1/manifest.json"</span><span class="p">))</span>
 <span class="n">pprint</span><span class="p">.</span><span class="n">pprint</span><span class="p">(</span>
   <span class="n">compact</span><span class="p">(</span>
-    <span class="n">frame</span><span class="p">(</span><span class="n">manifest</span><span class="p">,</span> <span class="s">"http://iiif.io/api/presentation//manifest_frame.json"</span><span class="p">),</span>
-    <span class="s">"http://iiif.io/api/presentation//context.json"</span><span class="p">)</span>
+    <span class="n">frame</span><span class="p">(</span><span class="n">manifest</span><span class="p">,</span> <span class="s">"http://iiif.io/api/presentation/3/manifest_frame.json"</span><span class="p">),</span>
+    <span class="s">"http://iiif.io/api/presentation/3/context.json"</span><span class="p">)</span>
 <span class="p">)</span>
 
 </code></pre></div></div>
